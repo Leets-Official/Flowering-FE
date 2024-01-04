@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { MainPage, LoginPage, LoginOauthPage } from '@/pages'
+import { MainPage, LoginPage, OauthPage } from '@/pages'
 import { PATH } from './constants'
 
 const router = createBrowserRouter([
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: PATH.LOGINOAUTH,
-    element: <LoginOauthPage />,
+    element: <OauthPage />,
   },
 ])
 
