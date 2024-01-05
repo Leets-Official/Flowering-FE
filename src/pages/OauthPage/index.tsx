@@ -27,9 +27,9 @@ const OauthPage = () => {
         })
     }
     if (code) bringToken()
-  }, [code])
+  }, [])
 
-  return <div>기다려라..</div>
+  return <div>기다려</div>
 }
 
 export default OauthPage
