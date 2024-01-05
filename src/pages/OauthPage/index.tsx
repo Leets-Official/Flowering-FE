@@ -27,7 +27,7 @@ const OauthPage = () => {
         })
     }
     if (code) bringToken()
-  }, [])
+  }, [code, navigate])
 
   return <div>기다려</div>
 }
