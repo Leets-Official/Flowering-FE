@@ -33,7 +33,8 @@ const NicknamePage = () => {
         입력한 닉네임으로 지인에게 꽃다발과 편지를 보낼 수 있어요
       </div>
       <input
-        className="mx-6 mt-12 border-b-2 border-solid bg-white focus:outline-none"
+        type="text"
+        className="mx-6 mt-12 border-b-2 border-solid bg-white text-black focus:outline-none"
         placeholder="닉네임"
         onChange={handleInput}
       />
@@ -41,8 +42,8 @@ const NicknamePage = () => {
         <li>{message}</li>
       </ul>
       <button
-        className={`btn btn-neutral mx-6 mt-[256px] text-black ${
-          isButton ? 'btn btn-success' : ''
+        className={`btn mx-6 mt-[256px] text-black ${
+          isButton ? 'btn btn-primary text-white' : ''
         }`}
         disabled={!isButton}
       >
