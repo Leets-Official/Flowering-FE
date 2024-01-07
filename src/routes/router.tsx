@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { MainPage, LoginPage } from '@/pages'
+import { MainPage, LoginPage, CoinDrawPage } from '@/pages'
 import { PATH } from './constants'
 
 const router = createBrowserRouter([
@@ -10,6 +10,10 @@ const router = createBrowserRouter([
   {
     path: PATH.LOGIN,
     element: <LoginPage />,
+  },
+  {
+    path: PATH.COIN,
+    element: <CoinDrawPage />,
   },
 ])
 
