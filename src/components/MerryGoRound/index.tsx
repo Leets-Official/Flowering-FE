@@ -1,6 +1,6 @@
 import { Carousel } from '@material-tailwind/react'
 
-const CarouselComponent = () => {
+const MerryGoRound = () => {
   return (
     <Carousel className="mt-9 h-[358px] w-80 rounded-[37px]">
       <img
@@ -22,4 +22,4 @@ const CarouselComponent = () => {
   )
 }
 
-export default CarouselComponent
+export default MerryGoRound
