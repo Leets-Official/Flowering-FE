@@ -22,7 +22,7 @@ const CoinDrawPage = () => {
   return (
     <>
       <Header />
-      <div className="relative flex h-full flex-col px-6 py-2">
+      <div className="relative flex h-full flex-col justify-between px-6 py-2">
         <div
           className={`${
             drawingStatus !== 'before' && 'invisible'
@@ -43,37 +43,36 @@ const CoinDrawPage = () => {
             </div>
           </div>
         )}
-        <div className="flex h-full flex-col justify-between">
-          <div className="flex min-h-[400px] shrink">
-            <Canvas>
-              <ambientLight intensity={5} />
-              <pointLight position={[10, 10, 10]} />
-              <GiftBox
-                haveTodayChance={haveTodayChance}
-                setDrawingStatus={setDrawingStatus}
-              />
-            </Canvas>
-          </div>
-          <div className="flex flex-col justify-center gap-[0.44rem] py-3">
-            {drawingStatus === 'before' && (
-              <>
-                <p className="text-center text-xs font-light text-[#959595]">
-                  {haveTodayChance ? '1/1' : '0/1'}
-                </p>
-                <Button
-                  className="w-full rounded-[3.125rem] border"
-                  onClick={handleClickButton}
-                >
-                  {haveTodayChance ? '코인 뽑기' : '기회 끝'}
-                </Button>
-              </>
-            )}
-            {drawingStatus === 'after' && (
-              <Button className="w-full rounded-[3.125rem] border">
-                상점가기
+
+        <div className="flex min-h-[400px] shrink">
+          <Canvas>
+            <ambientLight intensity={5} />
+            <pointLight position={[10, 10, 10]} />
+            <GiftBox
+              haveTodayChance={haveTodayChance}
+              setDrawingStatus={setDrawingStatus}
+            />
+          </Canvas>
+        </div>
+        <div className="flex flex-col justify-center gap-[0.44rem] py-3">
+          {drawingStatus === 'before' && (
+            <>
+              <p className="text-center text-xs font-light text-[#959595]">
+                {haveTodayChance ? '1/1' : '0/1'}
+              </p>
+              <Button
+                className="w-full rounded-[3.125rem] border"
+                onClick={handleClickButton}
+              >
+                {haveTodayChance ? '코인 뽑기' : '기회 끝'}
               </Button>
-            )}
-          </div>
+            </>
+          )}
+          {drawingStatus === 'after' && (
+            <Button className="w-full rounded-[3.125rem] border">
+              상점가기
+            </Button>
+          )}
         </div>
       </div>
     </>
