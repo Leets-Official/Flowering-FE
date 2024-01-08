@@ -2,6 +2,7 @@ import { Button } from '@/components'
 import { Header, GiftBox } from './components'
 import { Canvas } from '@react-three/fiber'
 import { useState } from 'react'
+import { CoinIcon } from '@/assets/Icons'
 
 // imsy 데이터
 const userName = '주하'
@@ -32,7 +33,12 @@ const CoinDrawPage = () => {
             <p>{userName} 님이</p>
             <p>현재 보유하고 있는 코인</p>
           </div>
-          <p className="text-xl font-bold">{userCoin.toLocaleString()} 코인</p>
+          <div className="flex items-center gap-1.5">
+            <CoinIcon />
+            <p className="text-xl font-bold">
+              {userCoin.toLocaleString()} 코인
+            </p>
+          </div>
         </div>
         {drawingStatus === 'after' && (
           <div className="absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2">
@@ -54,6 +60,7 @@ const CoinDrawPage = () => {
             />
           </Canvas>
         </div>
+
         <div className="flex flex-col justify-center gap-[0.44rem] py-3">
           {drawingStatus === 'before' && (
             <>
