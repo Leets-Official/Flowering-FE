@@ -1,7 +1,7 @@
 import { Button } from '@/components'
 import { Header, GiftBox } from './components'
 import { Canvas } from '@react-three/fiber'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { CoinIcon } from '@/assets/Icons'
 
 // imsy 데이터
@@ -14,10 +14,18 @@ const CoinDrawPage = () => {
   const [drawingStatus, setDrawingStatus] = useState<
     'before' | 'loading' | 'after'
   >('before')
+  const [getCoinValue, setGetCoinValue] = useState<number>(0)
+
+  const getRandomNumber = useMemo(() => {
+    return (
+      Math.round((Math.floor(Math.random() * (500 - 50 + 1)) + 50) / 10) * 10
+    )
+  }, [])
 
   const handleClickButton = () => {
     setHaveTodayChance(false)
     setDrawingStatus('loading')
+    setGetCoinValue(getRandomNumber)
   }
 
   return (
@@ -44,7 +52,7 @@ const CoinDrawPage = () => {
           <div className="absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2">
             <h2>축하합니다!</h2>
             <div className="flex flex-col gap-1.5 text-center">
-              <h1 className="text-xl font-bold">100 코인</h1>
+              <h1 className="text-xl font-bold">{`${getCoinValue} 코인`}</h1>
               <p className="text-[#d9d9d9]">상점에서 선물을 구매해보세요.</p>
             </div>
           </div>
