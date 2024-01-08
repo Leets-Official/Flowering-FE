@@ -36,7 +36,10 @@ const MyPage = () => {
               selectedMailbox === mailboxType ? 'font-bold' : 'text-gray-500'
             }`}
           >
-            <button onClick={() => handleMailboxSelection(mailboxType)}>
+            <button
+              className="w-full"
+              onClick={() => handleMailboxSelection(mailboxType)}
+            >
               {mailboxType === 'received' ? '받은 편지함' : '보낸 편지함'}
             </button>
             <div

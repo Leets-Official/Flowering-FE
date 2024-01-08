@@ -1,23 +1,24 @@
-import { PropsWithChildren } from 'react'
-
 interface LettersProps {
   className?: string
   id?: string
+  status: string
 }
 
-const Letters = ({ children }: PropsWithChildren<LettersProps>) => {
-  if (children === 'received') {
+const Letters = ({ status }: LettersProps) => {
+  if (status === 'received') {
     return (
       <div className="mx-4 my-5">
-        <p>받은메일1</p>
-        <p>받은메일2</p>
-      </div>
-    )
-  } else {
-    return (
-      <div className="mx-4 my-5">
-        <p>보낸메일1</p>
-        <p>보낸메일2</p>
+        {status === 'received' ? (
+          <>
+            <p>받은메일1</p>
+            <p>받은메일2</p>
+          </>
+        ) : (
+          <>
+            <p>보낸메일1</p>
+            <p>보낸메일2</p>
+          </>
+        )}
       </div>
     )
   }
