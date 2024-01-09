@@ -1,5 +1,5 @@
-import Mailbox from '@/components/Mailbox'
 import { useState } from 'react'
+import Mailbox from '@/pages/MyPage/components/Mailbox'
 
 const MyPage = () => {
   const [selectedMailbox, setSelectedMailbox] = useState<string>('received')
@@ -50,7 +50,7 @@ const MyPage = () => {
           </li>
         ))}
       </ul>
-      <Mailbox children={selectedMailbox} />
+      <Mailbox status={selectedMailbox} />
     </section>
   )
 }

@@ -1,4 +1,4 @@
-import Letters from '@/components/Mailbox/Letters'
+import Letters from '@/pages/MyPage/components/Mailbox/Letters'
 
 interface MailProps {
   status: string
