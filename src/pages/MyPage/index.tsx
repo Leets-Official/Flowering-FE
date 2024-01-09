@@ -3,41 +3,32 @@ import Mailbox from '@/pages/MyPage/components/Mailbox'
 
 const MyPage = () => {
   const [selectedMailbox, setSelectedMailbox] = useState<string>('received')
+
   const handleMailboxSelection = (mailboxType: string) => {
     setSelectedMailbox(mailboxType)
   }
 
   return (
     <section>
-      <div className="mx-10 mt-5">
-        <div className="mb-7 flex justify-between">
-          <div className="flex flex-col text-[20px]">
-            <p>환영해요!</p>
-            <p className="font-semibold">플링님</p>
-          </div>
-          <a href="/">홈</a>
+      <div className="mx-10 mb-7 mt-5 flex justify-between">
+        <div className="flex flex-col text-[17px]">
+          <p>환영해요!</p>
+          <p className="font-extrabold">플링님</p>
         </div>
-        <div className="mb-7 flex flex-col gap-1.5 text-[14px] text-gray-500">
-          {['나의 도감가기', '설정', '상점 가기', '로그아웃하기'].map(
-            (menu, index) => (
-              <div key={index} className="flex items-center">
-                <div className="mr-2 h-3 w-3 rounded-full bg-gray-300" />
-                <a href="/">{menu}</a>
-              </div>
-            ),
-          )}
-        </div>
+        <a href="/">홈</a>
       </div>
-      <ul className="mb-2 flex w-screen flex-row justify-center">
+      <ul className="mb-2 flex w-full flex-row justify-center">
         {['received', 'sent'].map((mailboxType, index) => (
           <li
             key={index}
             className={`flex w-1/2 flex-col items-center justify-center ${
-              selectedMailbox === mailboxType ? 'font-bold' : 'text-gray-500'
+              selectedMailbox === mailboxType
+                ? 'font-extrabold'
+                : 'text-gray-500'
             }`}
           >
             <button
-              className="w-full"
+              className="w-full text-[12px]"
               onClick={() => handleMailboxSelection(mailboxType)}
             >
               {mailboxType === 'received' ? '받은 편지함' : '보낸 편지함'}

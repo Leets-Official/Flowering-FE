@@ -1,3 +1,5 @@
+import Letter from '@/pages/MyPage/components/Mailbox/Letter'
+
 interface LettersProps {
   className?: string
   id?: string
@@ -5,23 +7,27 @@ interface LettersProps {
 }
 
 const Letters = ({ status }: LettersProps) => {
-  if (status === 'received') {
-    return (
-      <div className="mx-4 my-5">
-        {status === 'received' ? (
-          <>
-            <p>받은메일1</p>
-            <p>받은메일2</p>
-          </>
-        ) : (
-          <>
-            <p>보낸메일1</p>
-            <p>보낸메일2</p>
-          </>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div className="mx-4 my-5">
+      {status === 'received' ? (
+        <div className="mx-2.5 flex flex-col gap-4">
+          <Letter />
+          <Letter />
+          <Letter />
+          <Letter />
+          <Letter />
+        </div>
+      ) : (
+        <div className="mx-2.5 flex flex-col gap-4">
+          <Letter />
+          <Letter />
+          <Letter />
+          <Letter />
+          <Letter />
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default Letters
