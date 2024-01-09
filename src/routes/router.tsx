@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { MainPage, LoginPage, CoinDrawPage } from '@/pages'
+import { MainPage, LoginPage, CoinDrawPage, OauthPage } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
 
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
         element: <CoinDrawPage />,
       },
     ],
+  },
+  {
+    path: PATH.LOGINOAUTH,
+    element: <OauthPage />,
   },
 ])
 
