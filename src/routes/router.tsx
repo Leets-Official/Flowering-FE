@@ -1,20 +1,36 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { MainPage, LoginPage, MyPage } from '@/pages'
+import { MainPage, LoginPage, CoinDrawPage, OauthPage, MyPage } from '@/pages'
 import { PATH } from './constants'
+import Layout from './Layout'
 
 const router = createBrowserRouter([
   {
     path: PATH.MAIN,
-    element: <MainPage />,
+    element: <Layout />,
+    children: [
+      {
+        path: PATH.MAIN,
+        element: <MainPage />,
+      },
+      {
+        path: PATH.LOGIN,
+        element: <LoginPage />,
+      },
+      {
+        path: PATH.COIN,
+        element: <CoinDrawPage />,
+      },
+      {
+        path: PATH.LOGINOAUTH,
+        element: <OauthPage />,
+      },
+      {
+        path: PATH.MYPAGE,
+        element: <MyPage />,
+      },
+    ],
   },
-  {
-    path: PATH.LOGIN,
-    element: <LoginPage />,
-  },
-  {
-    path: PATH.MYPAGE,
-    element: <MyPage />,
-  },
+  
 ])
 
 export default router
