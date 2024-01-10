@@ -6,8 +6,8 @@ const OauthPage = () => {
   const params = new URL(document.location.toString()).searchParams
   const code = params.get('code')
   const grant_type = 'authorization_code'
-  const CLIENT_ID = 'aea758d142fcdc0a424fe75b57219816'
-  const REDIRECT_URI = 'http://localhost:5173/oauth'
+  const REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI
+  const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID
   const navigate = useNavigate()
   useEffect(() => {
     const bringToken = async () => {
