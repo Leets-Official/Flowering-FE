@@ -12,10 +12,12 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center bg-white">
+    <div className="flex h-full flex-col items-center bg-white">
       <img className=" mt-3 h-4 w-6" src={logo} />
-      <MerryGoRound ClassName="mt-9 h-[358px] w-80 rounded-[37px]" />
-      <div className="flex h-[30%] flex-col justify-end gap-2.5">
+      <div>
+        <MerryGoRound ClassName="relative mt-9 mx-6 pt-[25px] h-[358px] rounded-[37px] text-center border-2 border-black text-black" />
+      </div>
+      <div className="mb-10 flex h-[100%] flex-col justify-end gap-2.5">
         <div className="text-center text-[10px]">SNS로 간편하게 가입하기</div>
         <img src={loginImage} onClick={LoginAssign} />
       </div>
