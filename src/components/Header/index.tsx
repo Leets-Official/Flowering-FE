@@ -1,21 +1,39 @@
 import { HomeIcon, SidebarIcon } from '@/assets/Icons'
+import { useNavigate } from 'react-router-dom'
 
 interface Icon {
   name: string
-  route?: string
-  event: (route: string | undefined) => void
 }
 interface HeaderProps {
   icons: Icon[]
+  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
+  position: 'left' | 'right' | 'both'
 }
 
-const Header = ({ icons }: HeaderProps) => {
+const Header = ({ icons, setSidebarOpen, position }: HeaderProps) => {
+  const navigate = useNavigate()
+  const iconEventHandlers: Record<string, () => void> = {
+    HomeIcon: () => navigate('/'),
+    SidebarIcon: () => {
+      setSidebarOpen((prev) => !prev)
+    },
+    // 다른 아이콘 event 추가
+  }
+  const iconPosition =
+    position === 'right'
+      ? 'ml-auto'
+      : position === 'left'
+        ? 'mr-auto'
+        : 'justify-between'
+
   return (
-    <div className="mx-8 mt-5 flex justify-between">
+    <div className={`${iconPosition} mx-8 mt-5 flex`}>
       {icons.map((icon, index) => (
         <div
           key={index}
-          onClick={() => icon.event(icon.route)}
+          onClick={() =>
+            iconEventHandlers[icon.name] && iconEventHandlers[icon.name]()
+          }
           className="cursor-pointer"
         >
           {icon.name === 'HomeIcon' && <HomeIcon />}

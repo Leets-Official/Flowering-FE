@@ -2,29 +2,17 @@ import { useState } from 'react'
 import Mailbox from '@/pages/MyPage/components/Mailbox'
 import Header from '@/components/Header'
 import { Sidebar } from '@/components'
-import { useNavigate } from 'react-router-dom'
 
 const MyPage = () => {
   const [selectedMailbox, setSelectedMailbox] = useState<string>('received')
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
-  const navigate = useNavigate()
   const handleMailboxSelection = (mailboxType: string) => {
     setSelectedMailbox(mailboxType)
-  }
-  const handleSidebarToggle = () => {
-    setSidebarOpen(!sidebarOpen)
   }
   const handleCloseSidebar = () => {
     setSidebarOpen(false)
   }
-  const handleRouteChange = () => {
-    navigate('/')
-  }
-  const icons = [
-    { name: 'HomeIcon', event: handleRouteChange },
-    { name: 'SidebarIcon', event: handleSidebarToggle },
-    // Add more icons here dynamically
-  ]
+  const icons = [{ name: 'HomeIcon' }, { name: 'SidebarIcon' }]
 
   return (
     <section
@@ -33,7 +21,7 @@ const MyPage = () => {
       }`}
     >
       <div className={`${sidebarOpen && 'blur-sm'} flex h-full flex-col`}>
-        <Header icons={icons} />
+        <Header icons={icons} setSidebarOpen={setSidebarOpen} position="both" />
         {sidebarOpen && (
           <div
             className="fixed left-0 top-0 z-40 h-screen w-full blur"
