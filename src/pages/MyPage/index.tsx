@@ -28,9 +28,11 @@ const MyPage = () => {
 
   return (
     <section
-      className={`${sidebarOpen ? 'h-screen bg-gray-200 backdrop-blur' : ''}`}
+      className={`h-screen ${
+        sidebarOpen ? 'overflow-hidden bg-gray-200 backdrop-blur' : ''
+      }`}
     >
-      <div className={`${sidebarOpen ? 'h-screen blur-sm' : ''}`}>
+      <div className={`${sidebarOpen && 'blur-sm'} flex h-full flex-col`}>
         <Header icons={icons} />
         {sidebarOpen && (
           <div
