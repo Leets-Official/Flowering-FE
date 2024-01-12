@@ -22,8 +22,10 @@ const OauthPage = () => {
           },
         )
         .then((res) => {
-          console.log(res)
-          navigate('/')
+          if (res.status === 200) {
+            console.log(res)
+            navigate('/')
+          }
         })
     }
     if (code) bringToken()
