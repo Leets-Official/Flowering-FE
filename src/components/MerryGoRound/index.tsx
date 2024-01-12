@@ -37,10 +37,14 @@ interface CarouselStylesType {
   }
 }
 
-const theme = {
+interface Theme {
+  carousel: CarouselStylesType
+}
+
+const theme: Theme = {
   carousel: {
     defaultProps: {
-      prevArrow: ({ loop, handlePrev, firstIndex }: CarouselStylesType) => {
+      prevArrow: ({ loop, handlePrev, firstIndex }) => {
         return (
           <button
             onClick={handlePrev}
@@ -51,7 +55,7 @@ const theme = {
           </button>
         )
       },
-      nextArrow: ({ loop, handleNext, lastIndex }: CarouselStylesType) => (
+      nextArrow: ({ loop, handleNext, lastIndex }) => (
         <button
           onClick={handleNext}
           disabled={!loop && lastIndex}
@@ -60,11 +64,7 @@ const theme = {
           <div>&gt;</div>
         </button>
       ),
-      navigation: ({
-        setActiveIndex,
-        activeIndex,
-        length,
-      }: CarouselStylesType) => (
+      navigation: ({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-2 left-2/4 z-50 flex -translate-x-2/4 gap-3">
           {new Array(length).fill('').map((_, i) => (
             <span
