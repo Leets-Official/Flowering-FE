@@ -18,7 +18,10 @@ const Contents = ({ children, open, onClick: handleClose }: ContentsProps) => {
       handler={handleClose}
       className="flex flex-col items-center justify-center gap-3 rounded-[3.125rem] px-12 py-6"
     >
-      <CloseIcon className="absolute left-7 top-7" onClick={handleClose} />
+      <CloseIcon
+        className="absolute left-7 top-7 cursor-pointer"
+        onClick={handleClose}
+      />
       {content}
       {button && <span onClick={handleClose}>{button}</span>}
     </Dialog>
