@@ -1,17 +1,14 @@
 import { Link } from 'react-router-dom'
 
 interface ContentProps {
-  className?: string
   content: string
   route: string
 }
 
-const Content = ({ className, content, route }: ContentProps) => {
+const Content = ({ content, route }: ContentProps) => {
   return (
     <Link to={route}>
-      <button className={`${className} text-[19px] font-extralight`}>
-        {content}
-      </button>
+      <button className="font-base">{content}</button>
     </Link>
   )
 }

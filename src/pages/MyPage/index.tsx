@@ -29,9 +29,9 @@ const MyPage = () => {
           />
         )}
         <div className="mx-8 mb-7 mt-5 flex justify-between">
-          <div className="flex flex-col text-[17px]">
-            <p>환영해요!</p>
-            <p className="font-extrabold">플링님</p>
+          <div className="flex flex-col">
+            <p className="font-lg text-[#959595]">환영해요!</p>
+            <p className="font-lg">플링님</p>
           </div>
         </div>
         <ul className="mb-2 flex w-full flex-row justify-center">
@@ -45,7 +45,7 @@ const MyPage = () => {
               }`}
             >
               <button
-                className="w-full text-[12px]"
+                className="font-sm w-full"
                 onClick={() => handleMailboxSelection(mailboxType)}
               >
                 {mailboxType === 'received' ? '받은 편지함' : '보낸 편지함'}
