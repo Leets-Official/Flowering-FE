@@ -2,54 +2,31 @@ import { Item } from '@/components'
 
 interface CollectionProps {
   ItemType: string
-  data: { id: number }
+  data: DataProps[]
 }
 
-const Content = ({ItemType, data}) => {
+interface DataProps {
+  id: number
+  Type: string
+}
+
+const Content = ({ ItemType, data }: CollectionProps) => {
   return (
     <>
-      <div className="mx-6">
-        <div className="font-lg text-[#282828]">Object</div>
-        <div className="flex flex-wrap gap-[27px]">
-          {data.flowers.map((element) => {
+      <div className="mx-6 mt-5">
+        <div className="font-lg text-[#282828]">{ItemType}</div>
+        <div className="flex flex-wrap gap-x-[55.51px] gap-y-[11px]">
+          {data.map((element) => {
             return (
               <div
                 key={element.id}
                 onClick={() => {
                   console.log(element.id)
                 }}
+                className="cursor-pointer"
               >
                 <Item id={element.id} />
-              </div>
-            )
-          })}
-        </div>
-        <div className="font-lg mt-10 text-[#282828]">Flower</div>
-        <div className="flex flex-wrap gap-[27px]">
-          {data.flowers.map((element) => {
-            return (
-              <div
-                key={element.id}
-                onClick={() => {
-                  console.log(element.id)
-                }}
-              >
-                <Item id={element.id} />
-              </div>
-            )
-          })}
-        </div>
-        <div className="font-lg mt-10 text-[#282828]">Card</div>
-        <div className="flex flex-wrap gap-[27px]">
-          {data.flowers.map((element) => {
-            return (
-              <div
-                key={element.id}
-                onClick={() => {
-                  console.log(element.id)
-                }}
-              >
-                <Item id={element.id} />
+                <div className="font-xs mt-[5px] text-center">123</div>
               </div>
             )
           })}
