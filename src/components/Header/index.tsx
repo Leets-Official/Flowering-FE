@@ -6,7 +6,7 @@ interface Icon {
 }
 interface HeaderProps {
   icons: Icon[]
-  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setSidebarOpen?: React.Dispatch<React.SetStateAction<boolean>>
   position: 'left' | 'right' | 'both'
 }
 
@@ -15,7 +15,9 @@ const Header = ({ icons, setSidebarOpen, position }: HeaderProps) => {
   const iconEventHandlers: Record<string, () => void> = {
     HomeIcon: () => navigate('/'),
     SidebarIcon: () => {
-      setSidebarOpen((prev) => !prev)
+      if (setSidebarOpen) {
+        setSidebarOpen((prev) => !prev)
+      }
     },
     // 다른 아이콘 event 추가
   }
@@ -27,7 +29,7 @@ const Header = ({ icons, setSidebarOpen, position }: HeaderProps) => {
         : 'justify-between'
 
   return (
-    <div className={`${iconPosition} mx-8 mt-5 flex`}>
+    <div className={`${iconPosition} mx-8 mt-5 flex items-center`}>
       {icons.map((icon, index) => (
         <div
           key={index}
