@@ -22,7 +22,6 @@ const NicknamePage = () => {
       setMessage('가능한 닉네임입니다.')
       setIsButton(true)
     }
-    console.log(nickname)
   }
 
   return (
