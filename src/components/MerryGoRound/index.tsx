@@ -65,11 +65,11 @@ const theme = {
         activeIndex,
         length,
       }: CarouselStylesType) => (
-        <div className="absolute bottom-[-10%] left-2/4 z-50 flex -translate-x-2/4 gap-2">
+        <div className="absolute bottom-2 left-2/4 z-50 flex -translate-x-2/4 gap-3">
           {new Array(length).fill('').map((_, i) => (
             <span
               key={i}
-              className={`block h-3 w-3 cursor-pointer rounded-full transition-colors content-[''] ${
+              className={`block h-2 w-2 cursor-pointer rounded-full transition-colors content-[''] ${
                 activeIndex === i ? 'bg-[#959595]' : 'bg-[#DDDDDD]'
               }`}
               onClick={() => setActiveIndex(i)}
