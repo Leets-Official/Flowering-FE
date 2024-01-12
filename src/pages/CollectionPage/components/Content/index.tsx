@@ -1,31 +1,11 @@
 import { Item } from '@/components'
 
-const data = {
-  flowers: [
-    {
-      id: 1,
-      flowerType: 'red',
-    },
-    {
-      id: 2,
-      flowerType: 'blue',
-    },
-  ],
-  items: [
-    {
-      id: 32,
-      itemType: 'butterfly',
-    },
-  ],
-  cards: [
-    {
-      id: 322,
-      cardType: 'green',
-    },
-  ],
+interface CollectionProps {
+  ItemType: string
+  data: { id: number }
 }
 
-const Content = () => {
+const Content = ({ItemType, data}) => {
   return (
     <>
       <div className="mx-6">
