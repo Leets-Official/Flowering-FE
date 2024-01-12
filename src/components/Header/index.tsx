@@ -1,49 +1,44 @@
-import { HomeIcon, SidebarIcon } from '@/assets/Icons'
+import { DrawIcon, HomeIcon, SidebarIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router-dom'
+import { Dispatch, SetStateAction } from 'react'
+import { ICONS } from '@/constants'
 
-interface Icon {
-  name: string
-}
 interface HeaderProps {
-  icons: Icon[]
-  setSidebarOpen?: React.Dispatch<React.SetStateAction<boolean>>
-  position: 'left' | 'right' | 'both'
+  leftIcon?: string
+  rightIcon?: string
+  setSidebarOpen?: Dispatch<SetStateAction<boolean>>
 }
 
-const Header = ({ icons, setSidebarOpen, position }: HeaderProps) => {
+const icons = {
+  [ICONS.HOME]: <HomeIcon />,
+  [ICONS.SIDEBAR]: <SidebarIcon />,
+  [ICONS.DRAW]: <DrawIcon />,
+  // 다른 아이콘 추가할때 위에 참고해서 똑같이 추가하면 됩니다!
+}
+
+const Header = ({ leftIcon, rightIcon, setSidebarOpen }: HeaderProps) => {
   const navigate = useNavigate()
+
   const iconEventHandlers: Record<string, () => void> = {
-    HomeIcon: () => navigate('/'),
-    SidebarIcon: () => {
-      if (setSidebarOpen) {
-        setSidebarOpen((prev) => !prev)
-      }
-    },
+    [ICONS.HOME]: () => navigate('/'),
+    [ICONS.SIDEBAR]: () => setSidebarOpen && setSidebarOpen((prev) => !prev),
+    [ICONS.DRAW]: () => navigate('/'), // TODO: 꽃다발 꾸미기 페이지 이동으로 수정하기
     // 다른 아이콘 event 추가
   }
-  const iconPosition =
-    position === 'right'
-      ? 'ml-auto'
-      : position === 'left'
-        ? 'mr-auto'
-        : 'justify-between'
 
   return (
-    <div className={`${iconPosition} mx-8 mt-5 flex items-center`}>
-      {icons.map((icon, index) => (
-        <div
-          key={index}
-          onClick={() =>
-            iconEventHandlers[icon.name] && iconEventHandlers[icon.name]()
-          }
-          className="cursor-pointer"
-        >
-          {icon.name === 'HomeIcon' && <HomeIcon />}
-          {icon.name === 'SidebarIcon' && <SidebarIcon />}
-          {/* 다른 아이콘 추가할때 위에 참고해서 똑같이 추가하면 됩니다! */}
-        </div>
-      ))}
-    </div>
+    <header className={`flex items-center justify-between px-6 pb-5 pt-3`}>
+      {leftIcon ? (
+        <div onClick={iconEventHandlers[leftIcon]}>{icons[leftIcon]}</div>
+      ) : (
+        <div></div>
+      )}
+      {rightIcon ? (
+        <div onClick={iconEventHandlers[rightIcon]}>{icons[rightIcon]}</div>
+      ) : (
+        <div></div>
+      )}
+    </header>
   )
 }
 
