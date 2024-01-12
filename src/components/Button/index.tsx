@@ -1,22 +1,30 @@
 import { PropsWithChildren, ButtonHTMLAttributes } from 'react'
+import { Button as ButtonStyle } from '@material-tailwind/react'
 
 interface ButtonProps
-  extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {}
+  extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
+  size?: 'lg' | 'sm'
+}
 
 const Button = ({
   children,
   type = 'submit',
+  size = 'lg',
   className,
   ...props
 }: ButtonProps) => {
   return (
-    <button
+    <ButtonStyle
       type={type}
+      className={`${
+        size === 'lg'
+          ? 'h-[40px] px-6 py-[0.8rem] text-sm'
+          : 'h-[23px] px-4 py-[0.3rem] text-xs'
+      } rounded-[3.125rem] bg-black leading-none text-white disabled:border-gray-100 disabled:bg-gray-100 disabled:text-black ${className}`}
       {...props}
-      className={`rounded-md bg-black px-4 py-2 text-xs text-white ${className}`}
     >
       {children}
-    </button>
+    </ButtonStyle>
   )
 }
 
