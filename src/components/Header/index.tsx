@@ -1,4 +1,4 @@
-import { HomeIcon, SidebarIcon } from '@/assets/Icons'
+import { HomeIcon, SideBarIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router-dom'
 
 interface Icon {
@@ -14,7 +14,7 @@ const Header = ({ icons, setSidebarOpen, position }: HeaderProps) => {
   const navigate = useNavigate()
   const iconEventHandlers: Record<string, () => void> = {
     HomeIcon: () => navigate('/'),
-    SidebarIcon: () => {
+    SideBarIcon: () => {
       if (setSidebarOpen) {
         setSidebarOpen((prev) => !prev)
       }
@@ -39,7 +39,7 @@ const Header = ({ icons, setSidebarOpen, position }: HeaderProps) => {
           className="cursor-pointer"
         >
           {icon.name === 'HomeIcon' && <HomeIcon />}
-          {icon.name === 'SidebarIcon' && <SidebarIcon />}
+          {icon.name === 'SideBarIcon' && <SideBarIcon />}
           {/* 다른 아이콘 추가할때 위에 참고해서 똑같이 추가하면 됩니다! */}
         </div>
       ))}
