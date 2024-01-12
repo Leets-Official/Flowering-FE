@@ -4,4 +4,6 @@ export const PATH = {
   COIN: '/coin',
   LOGINOAUTH: '/oauth',
   MYPAGE: '/mypage',
+  STORE: '/store',
+  PURCHASE: '/purchase',
 }
