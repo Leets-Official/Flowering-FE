@@ -1,6 +1,6 @@
 export { default as HomeIcon } from './home.svg?react'
 export { default as CoinIcon } from './coin.svg?react'
-export { default as SideBarIcon } from './sidebar.svg?react'
+export { default as SidebarIcon } from './sidebar.svg?react'
 export { default as DrawIcon } from './draw.svg?react'
 export { default as CloseIcon } from './close.svg?react'
 export { default as GoBackIcon } from './go_back.svg?react'
