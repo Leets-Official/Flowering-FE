@@ -1,4 +1,6 @@
-import React, { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
+import { GoBackIcon } from '@/assets/Icons'
+import { Link } from 'react-router-dom'
 
 const NicknamePage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -24,31 +26,39 @@ const NicknamePage = () => {
   }
 
   return (
-    <div className=" flex h-screen flex-col bg-white">
-      <div className="w-33 ml-6 mt-16 h-12 text-[20px] font-medium text-black">
-        닉네임을
-        <br /> 입력해 주세요.
+    <div className=" flex h-screen flex-col">
+      <Link to="/login">
+        <GoBackIcon className="ml-6 mt-3 h-8" />
+      </Link>
+      <div className="w-33 font-lg ml-6 mt-5 text-[#282828]">
+        닉네임을 입력해 주세요.
       </div>
-      <div className="ml-6 mt-2.5 h-8 w-60 text-[12px] font-light">
+      <div className="font-base ml-6 mt-2 h-8 w-60 text-[12px] text-[#282828]">
         입력한 닉네임으로 지인에게 꽃다발과 편지를 보낼 수 있어요
       </div>
       <input
         type="text"
-        className="mx-6 mt-12 border-b-2 border-solid bg-white text-black focus:outline-none"
+        className="font-base mx-6 mt-[158px] border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
         placeholder="닉네임"
         onChange={handleInput}
       />
-      <ul className="ml-12 mt-2.5 list-disc text-[10px] font-light">
+      <ul
+        className={`font-xs ml-12 mt-2.5 list-disc ${
+          nickname.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
+        }`}
+      >
         <li>{message}</li>
       </ul>
-      <button
-        className={`btn mx-6 mt-[256px] text-black ${
-          isButton ? 'btn btn-primary text-white' : ''
-        }`}
-        disabled={!isButton}
-      >
-        다음
-      </button>
+      <div className="mx-6 flex h-full flex-row items-end">
+        <button
+          className={`font-sm mb-5 w-full rounded-[50px] py-[11px] ${
+            isButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
+          }`}
+          disabled={!isButton}
+        >
+          다음
+        </button>
+      </div>
     </div>
   )
 }
