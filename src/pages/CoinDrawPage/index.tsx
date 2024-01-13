@@ -75,18 +75,13 @@ const CoinDrawPage = () => {
               <p className="text-center text-xs font-light text-[#959595]">
                 {haveTodayChance ? '1/1' : '0/1'}
               </p>
-              <Button
-                className="w-full rounded-[3.125rem] border"
-                onClick={handleClickButton}
-              >
+              <Button className="w-full" onClick={handleClickButton}>
                 {haveTodayChance ? '코인 뽑기' : '기회 끝'}
               </Button>
             </>
           )}
           {drawingStatus === 'after' && (
-            <Button className="w-full rounded-[3.125rem] border">
-              상점가기
-            </Button>
+            <Button className="w-full">상점가기</Button>
           )}
         </div>
       </div>
