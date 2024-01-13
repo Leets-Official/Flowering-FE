@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from 'react'
-import { GoBackIcon } from '@/assets/Icons'
-import { Link } from 'react-router-dom'
+import { Header } from '@/components'
 
 const NicknamePage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -25,10 +24,8 @@ const NicknamePage = () => {
 
   return (
     <div className=" flex h-screen flex-col">
-      <Link to="/login">
-        <GoBackIcon className="ml-6 mt-3 h-8" />
-      </Link>
-      <div className="w-33 font-lg ml-6 mt-5 text-[#282828]">
+      <Header leftIcon="GoBackIcon" />
+      <div className="w-33 font-lg ml-6 text-[#282828]">
         닉네임을 입력해 주세요.
       </div>
       <div className="font-base ml-6 mt-2 h-8 w-60 text-[12px] text-[#282828]">
