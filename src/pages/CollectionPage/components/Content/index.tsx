@@ -20,9 +20,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
             return (
               <div
                 key={element.id}
-                onClick={() => {
-                  console.log(element.id)
-                }}
+                onClick={() => {}}
                 className="cursor-pointer"
               >
                 <Item id={element.id} />

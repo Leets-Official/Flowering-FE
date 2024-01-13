@@ -1,4 +1,5 @@
-import { Header, Content } from './components'
+import { Header } from '@/components'
+import { Content } from './components'
 
 const data = {
   flowers: [
@@ -52,7 +53,8 @@ const data = {
 const CollectionPage = () => {
   return (
     <div className="bg-white">
-      <Header />
+      <Header leftIcon="HomeIcon" />
+      <div className="font-xl mx-6 mb-8">ITEM</div>
       <Content ItemType="Object" data={data.items} />
       <Content ItemType="Flower" data={data.flowers} />
       <Content ItemType="Card" data={data.cards} />
