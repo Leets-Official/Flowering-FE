@@ -8,7 +8,14 @@ export default withMT({
       screens: {
         desktop: '500px',
       },
+      colors: {
+        gray: {
+          100: '#DDDDDD',
+          200: '#959595',
+          300: '#282828',
+        },
+      },
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [],
 })

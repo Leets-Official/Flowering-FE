@@ -9,7 +9,7 @@ interface ContentProps {
 const Content = ({ className, content, route }: ContentProps) => {
   return (
     <Link to={route}>
-      <button className={`${className} text-[19px] font-extralight`}>
+      <button className={`${className} font-base text-[19px]`}>
         {content}
       </button>
     </Link>

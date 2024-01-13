@@ -15,7 +15,6 @@ const NicknamePage = () => {
       setMessage('공백 포함 10자 이내로 작성해 주세요.')
       setIsButton(false)
     } else if (e.target.value.length > 10) {
-      console.log(e.target.value.length)
       setMessage('닉네임이 10자를 초과하였습니다.')
       setIsButton(false)
     } else {

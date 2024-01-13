@@ -1,16 +1,30 @@
-import { ReactNode } from 'react'
-import Toggle from './Toggle'
-import Content from './Content'
+import { useState, cloneElement, ReactElement, Children } from 'react'
+import Contents from './Contents'
 
 interface ModalProps {
-  children?: ReactNode
+  children?: ReactElement[]
 }
 
 const Modal = ({ children }: ModalProps) => {
-  return <div>{children}</div>
-}
+  const toggle = children?.find((child) => child.key === 'toggle')
+  const contents = children?.filter((child) => child.key !== 'toggle')
+  const [open, setOpen] = useState(false)
 
-Modal.Toggle = Toggle
-Modal.Content = Content
+  const onClick = () => setOpen(!open)
+
+  return (
+    <>
+      {toggle &&
+        Children.map(toggle, (child: ReactElement<{ onClick: () => void }>) =>
+          cloneElement(child, { onClick }),
+        )}
+      {contents && (
+        <Contents open={open} onClick={onClick}>
+          {contents}
+        </Contents>
+      )}
+    </>
+  )
+}
 
 export default Modal
