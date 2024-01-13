@@ -3,43 +3,46 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'font-bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'font-bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'font-medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'font-medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'font-light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'font-light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .font-xl {
-    font-family: 'font-bold';
-    font-size: 20px;
+  font-family: 'font-bold';
+  font-size: 20px;
 }
 .font-lg {
-    font-family: 'font-medium';
-    font-size: 16px;
+  font-family: 'font-medium';
+  font-size: 16px;
 }
 .font-sm {
-    font-family: 'font-medium';
-    font-size: 12px;
+  font-family: 'font-medium';
+  font-size: 12px;
 }
 .font-base {
-    font-family: 'font-light';
-    font-size: 14px;
+  font-family: 'font-light';
+  font-size: 14px;
 }
 .font-xs {
-    font-family: 'font-light';
-    font-size: 10px;
+  font-family: 'font-light';
+  font-size: 10px;
 }
