@@ -15,7 +15,7 @@ const LoginPage = () => {
     <div className="flex h-full flex-col items-center bg-white">
       <img className=" mt-3 h-4 w-6" src={logo} />
       <div>
-        <MerryGoRound ClassName="font-base mt-9 mx-6 pt-[25px] h-[358px] rounded-[37px] text-center border-2 border-black text-black" />
+        <MerryGoRound />
       </div>
       <div className="mb-10 flex h-[100%] flex-col justify-end gap-2.5">
         <div className="fonx-xs text-center text-[10px]">

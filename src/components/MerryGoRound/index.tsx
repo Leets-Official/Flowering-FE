@@ -1,9 +1,5 @@
 import { Carousel } from '@material-tailwind/react'
 
-interface MerryGoRoundProps {
-  ClassName: string
-}
-
 interface CarouselStylesType {
   defaultProps: {
     prevArrow: (args: {
@@ -91,7 +87,7 @@ const theme: Theme = {
         carousel: {
           position: 'relative',
           width: 'w-full',
-          height: 'h-full',
+          height: 'h-[90%]',
           overflowX: 'overflow-x-hidden',
           display: 'flex',
         },
@@ -107,10 +103,10 @@ const theme: Theme = {
   },
 }
 
-const MerryGoRound = ({ ClassName }: MerryGoRoundProps) => {
+const MerryGoRound = () => {
   return (
-    <div className={ClassName}>
-      <Carousel {...theme.carousel.defaultProps} styles={theme}>
+    <div className="font-base mx-6 mt-9 h-[358px] rounded-[37px] border-2 border-black pt-[25px] text-center text-black">
+      <Carousel {...theme.carousel.defaultProps}>
         <div>
           나의 축하소식을 친구들에게
           <br />
