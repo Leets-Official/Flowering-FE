@@ -17,7 +17,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
   return (
     <>
       <div className="mx-6 mt-5">
-        <div className="font-lg text-[#282828]">{ItemType}</div>
+        <div className="font-lg mb-2 text-[#282828]">{ItemType}</div>
         <div className="flex flex-wrap gap-x-[3.46rem] gap-y-3">
           {data.map((element) => {
             return (
