@@ -6,10 +6,10 @@ import {
   OauthPage,
   MyPage,
   StorePage,
+  PurchasePage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
-import PurchasePage from '@/pages/PurchasePage'
 
 const router = createBrowserRouter([
   {
