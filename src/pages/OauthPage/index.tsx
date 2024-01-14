@@ -31,7 +31,7 @@ const OauthPage = () => {
     }
     if (error) navigate('/login')
     if (code) bringToken()
-  }, [code, navigate])
+  }, [code, navigate, CLIENT_ID, REDIRECT_URI, error])
 
   return <div>기다려</div>
 }
