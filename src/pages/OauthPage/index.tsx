@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const OauthPage = () => {
   const params = new URL(document.location.toString()).searchParams
   const code = params.get('code')
+  const error = params.get('error')
   const grant_type = 'authorization_code'
   const REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI
   const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID
@@ -28,6 +29,7 @@ const OauthPage = () => {
           }
         })
     }
+    if (error) navigate('/login')
     if (code) bringToken()
   }, [code, navigate])
 
