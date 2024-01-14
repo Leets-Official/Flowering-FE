@@ -17,12 +17,10 @@ const LoginPage = () => {
       <div>
         <MerryGoRound />
       </div>
-      <div className="mb-10 flex h-[100%] flex-col justify-end gap-2.5">
-        <div className="fonx-xs text-center text-[10px]">
-          SNS로 간편하게 가입하기
-        </div>
-        <img src={loginImage} onClick={LoginAssign} />
+      <div className="fonx-xs mb-1 mt-[4.4rem] text-center text-[10px]">
+        SNS로 간편하게 가입하기
       </div>
+      <img src={loginImage} onClick={LoginAssign} />
     </div>
   )
 }

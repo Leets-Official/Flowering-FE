@@ -87,7 +87,7 @@ const theme: Theme = {
         carousel: {
           position: 'relative',
           width: 'w-full',
-          height: 'h-[90%]',
+          height: 'h-full',
           overflowX: 'overflow-x-hidden',
           display: 'flex',
         },
@@ -105,7 +105,7 @@ const theme: Theme = {
 
 const MerryGoRound = () => {
   return (
-    <div className="font-base mx-6 mt-9 h-[358px] rounded-[37px] border-2 border-black pt-[25px] text-center text-black">
+    <div className="font-base mx-6 mt-9 h-[22rem] rounded-[37px] border-2 border-black pt-6 text-center text-black">
       <Carousel {...theme.carousel.defaultProps}>
         <div>
           나의 축하소식을 친구들에게
