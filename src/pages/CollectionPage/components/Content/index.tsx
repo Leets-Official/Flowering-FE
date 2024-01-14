@@ -1,4 +1,5 @@
 import { Item } from '@/components'
+import { useNavigate } from 'react-router'
 
 interface CollectionProps {
   ItemType: string
@@ -11,6 +12,8 @@ interface DataProps {
 }
 
 const Content = ({ ItemType, data }: CollectionProps) => {
+  const navigate = useNavigate()
+
   return (
     <>
       <div className="mx-6 mt-5">
@@ -20,7 +23,9 @@ const Content = ({ ItemType, data }: CollectionProps) => {
             return (
               <div
                 key={element.id}
-                onClick={() => {}}
+                onClick={() => {
+                  navigate(`/item/${element.id}`)
+                }}
                 className="cursor-pointer"
               >
                 <Item id={element.id} />

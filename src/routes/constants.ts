@@ -5,4 +5,5 @@ export const PATH = {
   LOGINOAUTH: '/oauth',
   MYPAGE: '/mypage',
   COLLECTION: '/collection',
+  ITEM: '/item/:itemId',
 }
