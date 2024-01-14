@@ -18,7 +18,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
     <>
       <div className="mx-6 mt-5">
         <div className="font-lg text-[#282828]">{ItemType}</div>
-        <div className="flex flex-wrap gap-x-[55.51px] gap-y-[11px]">
+        <div className="flex flex-wrap gap-x-[3.46rem] gap-y-3">
           {data.map((element) => {
             return (
               <div
@@ -29,7 +29,9 @@ const Content = ({ ItemType, data }: CollectionProps) => {
                 className="cursor-pointer"
               >
                 <Item id={element.id} />
-                <div className="font-xs mt-[5px] text-center">123</div>
+                <div className="font-xs mt-1.5 text-center text-[#959595]">
+                  123
+                </div>
               </div>
             )
           })}
