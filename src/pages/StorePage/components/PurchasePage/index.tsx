@@ -2,14 +2,14 @@ import Header from '@/components/Header'
 import { FlowerIcon } from '@/assets/Icons'
 import { Button } from '@/components'
 import { useNavigate } from 'react-router-dom'
+import { ICONS } from '@/constants'
 
 const PurchasePage = () => {
-  const icons = [{ name: 'HomeIcon' }]
   const navigate = useNavigate()
 
   return (
     <div>
-      <Header icons={icons} position="left" />
+      <Header leftIcon={ICONS.HOME} />
       <div className="mx-8">
         <FlowerIcon className="ml-10 mt-5 h-[300px] w-[230px] rotate-45" />
         <div className="font-lg mt-16 text-center">
