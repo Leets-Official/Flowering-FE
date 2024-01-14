@@ -1,4 +1,4 @@
-import loginImage from '@/assets/images/kakao_login_medium_wide.png'
+import kakaoSymbol from '@/assets/Icons/kakao.svg'
 import logo from '@/assets/images/fling.png'
 import MerryGoRound from '@/components/MerryGoRound'
 
@@ -12,15 +12,19 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="flex h-full flex-col items-center bg-white">
+    <div className="flex h-full w-full flex-col items-center bg-white">
       <img className=" mt-3 h-4 w-6" src={logo} />
-      <div>
-        <MerryGoRound />
-      </div>
+      <MerryGoRound />
       <div className="font-xs mb-1 mt-[4.4rem] text-center text-[#959595]">
         SNS로 간편하게 가입하기
       </div>
-      <img src={loginImage} onClick={LoginAssign} />
+      <button
+        onClick={LoginAssign}
+        className="font-base flex h-[45px] w-[327px] items-center justify-center gap-2 rounded-[12px] bg-[#FEE500]"
+      >
+        <img src={kakaoSymbol} className="h-[18px] w-[18px]" />
+        <div className="mt-1">카카오 로그인</div>
+      </button>
     </div>
   )
 }
