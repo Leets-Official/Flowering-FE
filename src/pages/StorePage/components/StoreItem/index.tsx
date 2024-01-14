@@ -18,7 +18,7 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
   return (
     <div>
       <Modal>
-        <div className="cursor-pointer" key="toggle">
+        <div className="flex cursor-pointer justify-center" key="toggle">
           {<Item id={itemId} />}
         </div>
         <div className=" flex flex-col items-center" key="content">
