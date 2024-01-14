@@ -17,5 +17,5 @@ export default withMT({
       },
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [],
 })
