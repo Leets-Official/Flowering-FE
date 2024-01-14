@@ -1,4 +1,5 @@
 import { Carousel } from '@material-tailwind/react'
+import { LeftArrowIcon, RightArrowIcon } from '@/assets/Icons'
 
 interface CarouselStylesType {
   defaultProps: {
@@ -45,9 +46,9 @@ const theme: Theme = {
           <button
             onClick={handlePrev}
             disabled={!loop && firstIndex}
-            className="!absolute left-0 top-2/4 grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="!absolute left-0 top-[46%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           >
-            <div>&lt;</div>
+            <LeftArrowIcon />
           </button>
         )
       },
@@ -55,9 +56,9 @@ const theme: Theme = {
         <button
           onClick={handleNext}
           disabled={!loop && lastIndex}
-          className="!absolute right-0 top-2/4 grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          className="!absolute right-0 top-[46%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
-          <div>&gt;</div>
+          <RightArrowIcon />
         </button>
       ),
       navigation: ({ setActiveIndex, activeIndex, length }) => (
