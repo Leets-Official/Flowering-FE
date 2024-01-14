@@ -17,7 +17,7 @@ const LoginPage = () => {
       <div>
         <MerryGoRound />
       </div>
-      <div className="fonx-xs mb-1 mt-[4.4rem] text-center text-[10px]">
+      <div className="font-xs mb-1 mt-[4.4rem] text-center text-[#959595]">
         SNS로 간편하게 가입하기
       </div>
       <img src={loginImage} onClick={LoginAssign} />
