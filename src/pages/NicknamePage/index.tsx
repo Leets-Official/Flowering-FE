@@ -6,19 +6,19 @@ const NicknamePage = () => {
   const [message, setMessage] = useState<string>(
     '공백 포함 10자 이내로 작성해 주세요.',
   )
-  const [isButton, setIsButton] = useState<boolean>(false)
+  const [activeButton, setActiveButton] = useState<boolean>(false)
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value)
     if (e.target.value.length < 1) {
       setMessage('공백 포함 10자 이내로 작성해 주세요.')
-      setIsButton(false)
+      setActiveButton(false)
     } else if (e.target.value.length > 10) {
       setMessage('닉네임이 10자를 초과하였습니다.')
-      setIsButton(false)
+      setActiveButton(false)
     } else {
       setMessage('가능한 닉네임입니다.')
-      setIsButton(true)
+      setActiveButton(true)
     }
   }
 
@@ -45,9 +45,9 @@ const NicknamePage = () => {
         </ul>
         <Button
           className={`font-sm mt-[13rem] ${
-            isButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
+            activeButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
           }`}
-          disabled={!isButton}
+          disabled={!activeButton}
         >
           다음
         </Button>
