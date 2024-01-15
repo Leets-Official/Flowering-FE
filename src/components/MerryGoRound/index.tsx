@@ -62,7 +62,7 @@ const theme: Theme = {
         </button>
       ),
       navigation: ({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-2 left-2/4 z-50 flex -translate-x-2/4 gap-3">
+        <div className="absolute bottom-3 left-2/4 z-50 flex -translate-x-2/4 gap-3">
           {new Array(length).fill('').map((_, i) => (
             <span
               key={i}
@@ -107,7 +107,10 @@ const theme: Theme = {
 const MerryGoRound = () => {
   return (
     <div className="font-base mx-6 mt-9 h-[22rem] rounded-[37px] border-2 border-black pt-6 text-center text-black">
-      <Carousel {...theme.carousel.defaultProps}>
+      <Carousel
+        {...theme.carousel.defaultProps}
+        styles={theme.carousel.styles.base.carousel}
+      >
         <div>
           나의 축하소식을 친구들에게
           <br />
