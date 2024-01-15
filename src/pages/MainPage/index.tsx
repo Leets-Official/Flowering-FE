@@ -29,7 +29,7 @@ const data = {
     {
       bouquetId: 204,
       flowers: [
-        { flowerId: 165, sender: '발신인6', flowerType: 'flower4' },
+        { flowerId: 165, sender: '발신인6', flowerType: 'flower12' },
         { flowerId: 276, sender: '발신인7', flowerType: 'flower5' },
         { flowerId: 376, sender: '발신인8', flowerType: 'flower6' },
         { flowerId: 476, sender: '발신인9', flowerType: 'flower7' },
