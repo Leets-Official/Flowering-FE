@@ -6,4 +6,8 @@ export const PATH = {
   MYPAGE: '/mypage',
   STORE: '/store',
   PURCHASE: '/purchase',
+  WRITE: '/write',
+  CARD: '/write/card',
+  LETTER: '/write/letter',
+  FLOWER: '/write/flower',
 }

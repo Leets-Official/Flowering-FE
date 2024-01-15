@@ -7,9 +7,13 @@ import {
   MyPage,
   StorePage,
   PurchasePage,
+  WritePage,
+  CardPage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
+import FlowerPage from '@/pages/WritePage/components/FlowerPage'
+import LetterPage from '@/pages/WritePage/components/LetterPage'
 
 const router = createBrowserRouter([
   {
@@ -43,6 +47,22 @@ const router = createBrowserRouter([
       {
         path: PATH.PURCHASE,
         element: <PurchasePage />,
+      },
+      {
+        path: PATH.WRITE,
+        element: <WritePage />,
+      },
+      {
+        path: PATH.CARD,
+        element: <CardPage />,
+      },
+      {
+        path: PATH.FLOWER,
+        element: <FlowerPage />,
+      },
+      {
+        path: PATH.LETTER,
+        element: <LetterPage />,
       },
     ],
   },

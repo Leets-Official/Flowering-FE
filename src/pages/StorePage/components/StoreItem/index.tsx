@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 interface StoreItemProps {
   itemId: number
-  coin: string
+  coin?: string
 }
 const StoreItem = ({ itemId, coin }: StoreItemProps) => {
   const navigate = useNavigate()

@@ -6,6 +6,16 @@ export const textState = atom<string>({
   default: '',
 })
 
+export const selectedFlowerIndexState = atom({
+  key: 'selectedFlowerIndexState',
+  default: 0,
+})
+
+export const selectedCardIndexState = atom({
+  key: 'selectedCardIndexState',
+  default: 0,
+})
+
 export const charCountState = selector({
   key: 'charCountState',
   get: ({ get }) => {
