@@ -27,7 +27,9 @@ const Header = ({ leftIcon, rightIcon, setSidebarOpen }: HeaderProps) => {
   }
 
   return (
-    <header className={`flex items-center justify-between px-6 pb-5 pt-3`}>
+    <header
+      className={`sticky flex items-center justify-between px-6 pb-5 pt-3`}
+    >
       {leftIcon ? (
         <div onClick={iconEventHandlers[leftIcon]}>{icons[leftIcon]}</div>
       ) : (
