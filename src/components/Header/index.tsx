@@ -13,7 +13,7 @@ const icons = {
   [ICONS.HOME]: <HomeIcon />,
   [ICONS.SIDEBAR]: <SidebarIcon />,
   [ICONS.DRAW]: <DrawIcon />,
-  [ICONS.LOGIN]: <GoBackIcon />,
+  [ICONS.GOBACK]: <GoBackIcon />,
   // 다른 아이콘 추가할때 위에 참고해서 똑같이 추가하면 됩니다!
 }
 
@@ -25,7 +25,7 @@ const Header = ({ leftIcon, rightIcon, setSidebarOpen }: HeaderProps) => {
     [ICONS.SIDEBAR]: () => setSidebarOpen && setSidebarOpen((prev) => !prev),
     [ICONS.DRAW]: () => navigate('/'), // TODO: 꽃다발 꾸미기 페이지 이동으로 수정하기
     // 다른 아이콘 event 추가
-    [ICONS.LOGIN]: () => navigate('/login'),
+    [ICONS.GOBACK]: () => navigate(-1),
   }
 
   return (
