@@ -45,6 +45,8 @@ const router = createBrowserRouter([
       {
         path: PATH.ITEM,
         element: <ItemPage />,
+      },
+      {
         path: PATH.STORE,
         element: <StorePage />,
       },
