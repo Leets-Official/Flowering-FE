@@ -5,4 +5,8 @@ export const PATH = {
   LOGINOAUTH: '/oauth',
   NICKNAME: '/nickname',
   MYPAGE: '/mypage',
+  COLLECTION: '/collection',
+  ITEM: '/item/:itemId',
+  STORE: '/store',
+  PURCHASE: '/purchase',
 }

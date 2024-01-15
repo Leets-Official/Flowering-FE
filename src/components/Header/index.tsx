@@ -31,12 +31,16 @@ const Header = ({ leftIcon, rightIcon, setSidebarOpen }: HeaderProps) => {
   return (
     <header className={`flex items-center justify-between px-6 pb-5 pt-3`}>
       {leftIcon ? (
-        <div onClick={iconEventHandlers[leftIcon]}>{icons[leftIcon]}</div>
+        <div className="cursor-pointer" onClick={iconEventHandlers[leftIcon]}>
+          {icons[leftIcon]}
+        </div>
       ) : (
         <div></div>
       )}
       {rightIcon ? (
-        <div onClick={iconEventHandlers[rightIcon]}>{icons[rightIcon]}</div>
+        <div className="cursor-pointer" onClick={iconEventHandlers[rightIcon]}>
+          {icons[rightIcon]}
+        </div>
       ) : (
         <div></div>
       )}
