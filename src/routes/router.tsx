@@ -5,11 +5,13 @@ import {
   CoinDrawPage,
   OauthPage,
   MyPage,
+  CollectionPage,
   StorePage,
   PurchasePage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
+import ItemPage from '@/pages/ItemPage'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,12 @@ const router = createBrowserRouter([
         element: <MyPage />,
       },
       {
+        path: PATH.COLLECTION,
+        element: <CollectionPage />,
+      },
+      {
+        path: PATH.ITEM,
+        element: <ItemPage />,
         path: PATH.STORE,
         element: <StorePage />,
       },
