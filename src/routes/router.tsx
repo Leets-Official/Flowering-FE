@@ -6,6 +6,8 @@ import {
   OauthPage,
   MyPage,
   CollectionPage,
+  StorePage,
+  PurchasePage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -43,6 +45,12 @@ const router = createBrowserRouter([
       {
         path: PATH.ITEM,
         element: <ItemPage />,
+        path: PATH.STORE,
+        element: <StorePage />,
+      },
+      {
+        path: PATH.PURCHASE,
+        element: <PurchasePage />,
       },
     ],
   },

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Mailbox from '@/pages/MyPage/components/Mailbox'
 import Header from '@/components/Header'
 import { Sidebar } from '@/components'
+import { ICONS } from '@/constants'
 
 const MyPage = () => {
   const [selectedMailbox, setSelectedMailbox] = useState<string>('received')
@@ -12,7 +13,6 @@ const MyPage = () => {
   const handleCloseSidebar = () => {
     setSidebarOpen(false)
   }
-  const icons = [{ name: 'HomeIcon' }, { name: 'SidebarIcon' }]
 
   return (
     <section
@@ -21,7 +21,11 @@ const MyPage = () => {
       }`}
     >
       <div className={`${sidebarOpen && 'blur-sm'} flex h-full flex-col`}>
-        <Header icons={icons} setSidebarOpen={setSidebarOpen} position="both" />
+        <Header
+          setSidebarOpen={setSidebarOpen}
+          leftIcon={ICONS.HOME}
+          rightIcon={ICONS.SIDEBAR}
+        />
         {sidebarOpen && (
           <div
             className="fixed left-0 top-0 z-40 h-screen w-full blur"
@@ -29,9 +33,9 @@ const MyPage = () => {
           />
         )}
         <div className="mx-8 mb-7 mt-5 flex justify-between">
-          <div className="flex flex-col text-[17px]">
-            <p>환영해요!</p>
-            <p className="font-extrabold">플링님</p>
+          <div className="flex flex-col">
+            <p className="font-lg text-[#959595]">환영해요!</p>
+            <p className="font-lg">플링님</p>
           </div>
         </div>
         <ul className="mb-2 flex w-full flex-row justify-center">
@@ -45,7 +49,7 @@ const MyPage = () => {
               }`}
             >
               <button
-                className="w-full text-[12px]"
+                className="font-sm w-full"
                 onClick={() => handleMailboxSelection(mailboxType)}
               >
                 {mailboxType === 'received' ? '받은 편지함' : '보낸 편지함'}
@@ -61,7 +65,7 @@ const MyPage = () => {
         <Mailbox status={selectedMailbox} />
       </div>
       <div className="relative">
-        <Sidebar isOpen={sidebarOpen} />
+        <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       </div>
     </section>
   )

@@ -6,4 +6,6 @@ export const PATH = {
   MYPAGE: '/mypage',
   COLLECTION: '/collection',
   ITEM: '/item/:itemId',
+  STORE: '/store',
+  PURCHASE: '/purchase',
 }
