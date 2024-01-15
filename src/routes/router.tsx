@@ -1,7 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { MainPage, LoginPage, CoinDrawPage, OauthPage, MyPage } from '@/pages'
+import {
+  MainPage,
+  LoginPage,
+  CoinDrawPage,
+  OauthPage,
+  MyPage,
+  CollectionPage,
+  StorePage,
+  PurchasePage,
+} from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
+import ItemPage from '@/pages/ItemPage'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +37,20 @@ const router = createBrowserRouter([
       {
         path: PATH.MYPAGE,
         element: <MyPage />,
+      },
+      {
+        path: PATH.COLLECTION,
+        element: <CollectionPage />,
+      },
+      {
+        path: PATH.ITEM,
+        element: <ItemPage />,
+        path: PATH.STORE,
+        element: <StorePage />,
+      },
+      {
+        path: PATH.PURCHASE,
+        element: <PurchasePage />,
       },
     ],
   },
