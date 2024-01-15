@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { ICONS } from '@/constants'
 import { getLeftDays } from '@/utils'
 import { FlowerFrame } from './components'
+import MerryGoRound from './components/MarryGoRound'
 
 const userName = '김주하'
 const graduationDate = '2024-02-12'
@@ -35,11 +36,21 @@ const data = {
         { flowerId: 576, sender: '발신인10', flowerType: 'flower8' },
       ],
     },
+    {
+      bouquetId: 20224,
+      flowers: [
+        { flowerId: 1365, sender: '발신인11', flowerType: 'flower4' },
+        { flowerId: 2176, sender: '발신인12', flowerType: 'flower4' },
+        { flowerId: 3376, sender: '발신인13', flowerType: 'flower4' },
+        { flowerId: 4736, sender: '발신인14', flowerType: 'flower4' },
+      ],
+    },
   ],
 }
 
 const MainPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+  const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
 
   const leftDays = getLeftDays(graduationDate)
 
@@ -68,7 +79,12 @@ const MainPage = () => {
               <span className="font-lg">{`개 째`}</span>
             </h1>
           </div>
-          <FlowerFrame flowers={data.bouquets[1].flowers} />
+          <div>{currentFlowerIndex}</div>
+          <MerryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
+            {data.bouquets.map((bouquet) => (
+              <FlowerFrame flowers={bouquet.flowers} key={bouquet.bouquetId} />
+            ))}
+          </MerryGoRound>
           <footer className="flex h-[5rem] shrink-0 items-center justify-center">
             <Button className="w-full bg-[#d9d9d9] text-black">
               링크 복사
