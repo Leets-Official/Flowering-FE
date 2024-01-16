@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,8 +11,8 @@ const OauthPage = () => {
   const navigate = useNavigate()
   useEffect(() => {
     const bringToken = async () => {
-      await axios
-        .post(
+      try {
+        const res = await axios.post(
           `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&code=${code}`,
           {},
           {
@@ -21,17 +21,21 @@ const OauthPage = () => {
             },
           },
         )
-        .then((res) => {
-          if (res.status === 200) {
-            console.log(res)
-            navigate('/')
-          }
-        })
+        if (res.status === 200) {
+          console.log(res)
+          navigate('/nickname')
+        }
+      } catch (err) {
+        if ((err as AxiosError).response?.status === 400) {
+          console.log('zz')
+          navigate('/login')
+        }
+      }
     }
     if (code) bringToken()
   }, [code, navigate])
 
-  return <div>기다려</div>
+  return <div>로딩 중</div>
 }
 
 export default OauthPage
