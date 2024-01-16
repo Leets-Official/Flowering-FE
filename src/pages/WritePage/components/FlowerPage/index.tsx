@@ -2,7 +2,7 @@ import { Button, Header, Item } from '@/components'
 import { ICONS } from '@/constants'
 import { FlowerIcon } from '@/assets/Icons'
 import { useRecoilState } from 'recoil'
-import { selectedFlowerIndexState } from '@/recoil'
+import { selectedFlowerState } from '@/recoil'
 import { useNavigate } from 'react-router-dom'
 
 const FlowerPage = () => {
@@ -14,12 +14,11 @@ const FlowerPage = () => {
     '해바라기',
     '코스모스' /* Add more flowers as needed */,
   ]
-  const [selectedFlowerIndex, setSelectedFlowerIndex] = useRecoilState(
-    selectedFlowerIndexState,
-  )
+  const [selectedFlower, setSelectedFlower] =
+    useRecoilState(selectedFlowerState)
 
   const handleCircleClick = (index: number) => {
-    setSelectedFlowerIndex(index)
+    setSelectedFlower(flowers[index])
   }
 
   return (
@@ -36,7 +35,7 @@ const FlowerPage = () => {
         <div className="font-xs flex flex-col items-center">
           <FlowerIcon className="mt-16 h-52 w-56 rotate-[130deg] text-gray-300" />
           <p className="mb-2 mt-10 rounded-[50px] border px-3 py-1">
-            {flowers[selectedFlowerIndex]}
+            {selectedFlower}
           </p>
           <p>우정</p>
         </div>

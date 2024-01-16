@@ -2,8 +2,8 @@ import { Button, Header } from '@/components'
 import { ICONS } from '@/constants'
 import {
   letterContentState,
-  selectedCardIndexState,
-  selectedFlowerIndexState,
+  selectedCardState,
+  selectedFlowerState,
 } from '@/recoil'
 import { useRecoilState } from 'recoil'
 import { useNavigate } from 'react-router-dom'
@@ -11,8 +11,8 @@ import { useNavigate } from 'react-router-dom'
 const LetterPage = () => {
   const navigate = useNavigate()
 
-  const [selectedFlowerIndex] = useRecoilState(selectedFlowerIndexState)
-  const [selectedCardIndex] = useRecoilState(selectedCardIndexState)
+  const [selectedFlower] = useRecoilState(selectedFlowerState)
+  const [selectedCardIndex] = useRecoilState(selectedCardState)
   const [letter, setLetter] = useRecoilState(letterContentState)
   const maxCharacterCount = 300
 
@@ -25,7 +25,7 @@ const LetterPage = () => {
   const handleSendButtonClick = () => {
     //임시로 콘솔에 찍은 것입니다.
     console.log('Sending data to the server:', {
-      selectedFlowerIndex,
+      selectedFlower,
       selectedCardIndex,
       letterContent: letter,
     })
