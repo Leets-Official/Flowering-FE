@@ -24,7 +24,7 @@ const Header = ({ leftIcon, rightIcon, setSidebarOpen }: HeaderProps) => {
     [ICONS.HOME]: () => navigate('/'),
     [ICONS.SIDEBAR]: () => setSidebarOpen && setSidebarOpen((prev) => !prev),
     [ICONS.DRAW]: () => navigate('/'), // TODO: 꽃다발 꾸미기 페이지 이동으로 수정하기
-    [ICONS.GOBACK]: () => navigate('/'),
+    [ICONS.GOBACK]: () => navigate(-1),
     // 다른 아이콘 event 추가
   }
 
