@@ -7,8 +7,5 @@ export { default as GoBackIcon } from './go_back.svg?react'
 export { default as LeftArrowIcon } from './left_arrow.svg?react'
 export { default as RightArrowIcon } from './right_arrow.svg?react'
 export { default as FlowerIcon } from './flower.svg?react'
-<<<<<<< HEAD
 export { default as KakaoIcon } from './kakao.svg?react'
-=======
 export { default as CheckIcon } from './check.svg?react'
->>>>>>> 2e299e77effea6a7f2e37547ecf997f35120e17c
