@@ -5,6 +5,7 @@ import {
   CoinDrawPage,
   OauthPage,
   MyPage,
+  NicknamePage,
   CollectionPage,
   StorePage,
   PurchasePage,
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: PATH.MYPAGE,
         element: <MyPage />,
+      },
+      {
+        path: PATH.NICKNAME,
+        element: <NicknamePage />,
       },
       {
         path: PATH.COLLECTION,
