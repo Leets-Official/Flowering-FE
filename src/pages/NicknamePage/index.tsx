@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import { Header, Button } from '@/components'
+import { CheckIcon } from '@/assets/Icons'
 
 const NicknamePage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -30,12 +31,17 @@ const NicknamePage = () => {
         <div className="font-base mt-2 h-8 w-[15rem] text-[0.75rem] text-[#282828]">
           입력한 닉네임으로 지인에게 꽃다발과 편지를 보낼 수 있어요
         </div>
-        <input
-          type="text"
-          className="font-base mt-[10rem] border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
-          placeholder="닉네임"
-          onChange={handleInput}
-        />
+        <div className="relative">
+          <input
+            type="text"
+            className="font-base mt-[10rem] w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
+            placeholder="닉네임"
+            onChange={handleInput}
+          />
+          {activeButton && (
+            <CheckIcon className="absolute right-2 top-[165px]" />
+          )}
+        </div>
         <ul
           className={`font-xs mx-6 mt-2 list-disc ${
             nickname.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
