@@ -11,19 +11,19 @@ const Letters = ({ status }: LettersProps) => {
     <div className="flex flex-col gap-4 overflow-y-scroll px-6 py-5">
       {status === 'received' ? (
         <>
-          <Letter />
-          <Letter />
-          <Letter />
-          <Letter />
-          <Letter />
+          <Letter status="received" />
+          <Letter status="received" />
+          <Letter status="received" />
+          <Letter status="received" />
+          <Letter status="received" />
         </>
       ) : (
         <>
-          <Letter />
-          <Letter />
-          <Letter />
-          <Letter />
-          <Letter />
+          <Letter status="sent" />
+          <Letter status="sent" />
+          <Letter status="sent" />
+          <Letter status="sent" />
+          <Letter status="sent" />
         </>
       )}
     </div>
