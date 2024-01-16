@@ -5,9 +5,9 @@ export const PATH = {
   LOGINOAUTH: '/oauth',
   MYPAGE: '/mypage',
   STORE: '/store',
-  PURCHASE: '/purchase',
+  PURCHASE: '/store/purchase',
   WRITE: '/write',
   CARD: '/write/card',
-  LETTER: '/write/letter',
   FLOWER: '/write/flower',
+  LETTER: '/write/letter',
 }

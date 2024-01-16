@@ -25,7 +25,7 @@ const FlowerPage = () => {
   return (
     <div className="flex flex-col overflow-hidden">
       <Header leftIcon={ICONS.GOBACK} rightIcon={ICONS.HOME} />
-      <div className="mx-6">
+      <div className="mx-7 mt-3">
         <div className="font-lg flex">
           <p className="text-gray-300">냥냥냥</p>
           <p className="text-gray-200">님께 편지 작성하기</p>
@@ -41,7 +41,7 @@ const FlowerPage = () => {
           <p>우정</p>
         </div>
       </div>
-      <div className="mx-6 mb-8 flex flex-nowrap gap-5 overflow-y-auto">
+      <div className="scrollbar-hide mx-6 mb-8 flex flex-nowrap gap-5 overflow-y-auto">
         {flowers.map((flower, index) => (
           <div
             key={index}
@@ -58,7 +58,7 @@ const FlowerPage = () => {
         className="font-md mx-6"
         size="lg"
       >
-        다 음
+        다음
       </Button>
     </div>
   )

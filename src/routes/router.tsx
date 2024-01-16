@@ -9,11 +9,11 @@ import {
   PurchasePage,
   WritePage,
   CardPage,
+  FlowerPage,
+  LetterPage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
-import FlowerPage from '@/pages/WritePage/components/FlowerPage'
-import LetterPage from '@/pages/WritePage/components/LetterPage'
 
 const router = createBrowserRouter([
   {

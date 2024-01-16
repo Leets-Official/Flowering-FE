@@ -44,7 +44,7 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
             </button>
           </div>
         </div>
-        <Button key="btn" onClick={() => navigate('/purchase')}>
+        <Button key="btn" onClick={() => navigate('/store/purchase')}>
           구매하기
         </Button>
       </Modal>

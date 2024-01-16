@@ -1,10 +1,4 @@
-import { atom, selector } from 'recoil'
-
-//예시로 입력해준 함수들입니다.
-export const textState = atom<string>({
-  key: 'textState',
-  default: '',
-})
+import { atom } from 'recoil'
 
 export const selectedFlowerIndexState = atom({
   key: 'selectedFlowerIndexState',
@@ -15,12 +9,7 @@ export const selectedCardIndexState = atom({
   key: 'selectedCardIndexState',
   default: 0,
 })
-
-export const charCountState = selector({
-  key: 'charCountState',
-  get: ({ get }) => {
-    const text = get(textState)
-
-    return text.length
-  },
+export const letterContentState = atom({
+  key: 'letterContentState',
+  default: '',
 })

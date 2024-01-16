@@ -37,7 +37,7 @@ const StorePage = () => {
           <p className="font-xs">3000</p>
         </div>
       </div>
-      <div className="overflow-y-auto px-6 pb-8">
+      <div className="scrollbar-hide overflow-y-auto px-6 pb-8">
         <div>
           <p className="font-lg">Object</p>
           <p className="font-ls mt-2">
