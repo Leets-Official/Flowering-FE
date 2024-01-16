@@ -23,12 +23,10 @@ const OauthPage = () => {
           },
         )
         if (res.status === 200) {
-          console.log(res)
           navigate('/nickname')
         }
       } catch (err) {
         if ((err as AxiosError).response?.status === 400) {
-          console.log('zz')
           navigate('/login')
         }
       }
