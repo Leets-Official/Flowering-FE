@@ -20,10 +20,13 @@ const LoginPage = () => {
       </div>
       <button
         onClick={LoginAssign}
-        className="font-base flex h-[45px] w-[327px] items-center justify-center gap-2 rounded-[12px] bg-[#FEE500]"
+        className="font-base flex h-[45px] w-[327px] items-center justify-center gap-2 rounded-[3rem] bg-[#FEE500]"
       >
-        <img src={kakaoSymbol} className="h-[18px] w-[18px]" />
-        <div className="mt-1">카카오 로그인</div>
+        <div className="mt-1 flex">
+          <img src={kakaoSymbol} className="mr-1 h-[18px] w-[18px]" />
+          <div className="font-ssm">카카오톡</div>
+          <div>으로 로그인</div>
+        </div>
       </button>
     </div>
   )
