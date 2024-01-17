@@ -40,7 +40,9 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
           <FlowerIcon className="my-16 rotate-45" />
           <div className="flex gap-3">
             <button
-              className="flex h-[16px] w-[16px] items-center justify-center rounded-full bg-[#959595] pt-0.5 font-normal text-white"
+              className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
+                itemNum > 0 ? 'bg-[#959595]' : 'bg-[#CCCCCC]'
+              } pt-0.5 font-normal text-white`}
               onClick={() => itemNumHandler(-1)}
             >
               -
