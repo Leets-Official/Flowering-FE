@@ -9,5 +9,5 @@ export const PATH = {
   ITEM: '/item/:itemId',
   STORE: '/store',
   PURCHASE: '/purchase',
-  CREATE: '/create',
+  SETTING: '/setting',
 }

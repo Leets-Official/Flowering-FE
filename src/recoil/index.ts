@@ -14,3 +14,20 @@ export const charCountState = selector({
     return text.length
   },
 })
+
+export const DDayState = atom<string>({
+  key: 'dDayState',
+  default: '',
+})
+export const NameState = atom<string>({
+  key: 'nameState',
+  default: '',
+})
+export const WrapperState = atom<string>({
+  key: 'wrapperState',
+  default: '',
+})
+export const RibbonState = atom<string>({
+  key: 'ribbonState',
+  default: '',
+})
