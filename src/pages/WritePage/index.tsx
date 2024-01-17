@@ -1,8 +1,6 @@
 import { Button, Header } from '@/components'
 import { ICONS } from '@/constants'
-import ChooseFlower from '@/pages/WritePage/components/ChooseFlower'
-import ChooseCard from '@/pages/WritePage/components/ChooseCard'
-import WriteLetter from '@/pages/WritePage/components/WriteLetter'
+import { ChooseFlower, ChooseCard, WriteLetter } from './components'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
