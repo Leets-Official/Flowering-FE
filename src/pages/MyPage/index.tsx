@@ -32,7 +32,7 @@ const MyPage = () => {
               className={`flex w-1/2 flex-col items-center justify-center ${
                 selectedMailbox === mailboxType
                   ? 'font-extrabold'
-                  : 'text-gray-500'
+                  : 'text-gray-200'
               }`}
             >
               <button

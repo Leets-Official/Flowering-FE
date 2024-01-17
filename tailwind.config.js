@@ -15,6 +15,7 @@ export default withMT({
           300: '#282828',
           400: '#D9D9D9',
           500: '#EEEEEE',
+          600: '#9D9D9D',
         },
       },
     },
