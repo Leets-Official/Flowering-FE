@@ -51,6 +51,7 @@ const data = {
 const MainPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
+  console.log(currentFlowerIndex)
 
   const leftDays = getLeftDays(graduationDate)
 
@@ -60,12 +61,13 @@ const MainPage = () => {
   )
 
   const getImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/flowers/${name}.png`, import.meta.url)
+    return new URL(`/src/assets/images/wrapping/${name}.png`, import.meta.url)
       .href
   }
 
-  const leftWrapper = getImageUrl('left_wrapper')
-  const rightWrapper = getImageUrl('right_wrapper')
+  const leftWrapper = getImageUrl('left_wrapping')
+  const rightWrapper = getImageUrl('right_wrapping')
+  const backWrapper = getImageUrl('back_wrapping')
 
   return (
     <>
@@ -88,12 +90,21 @@ const MainPage = () => {
             </h1>
           </div>
           {/* <div className="px-6">{currentFlowerIndex}</div> */}
+          <div className="absolute bottom-0 z-0 h-[63vh] w-full desktop:h-[500px]">
+            <img src={backWrapper} alt="wrapper-back" className="w-full" />
+          </div>
           <MerryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
             {data.bouquets.map((bouquet) => (
               <FlowerFrame flowers={bouquet.flowers} key={bouquet.bouquetId} />
             ))}
           </MerryGoRound>
-          <footer className="flex h-[5rem] shrink-0 items-center justify-center px-6">
+          <div className="absolute bottom-0 right-0 z-20 aspect-[1.25/1] h-[37vh] desktop:h-[220px]">
+            <img src={rightWrapper} alt="wrapper-right" className="h-full" />
+          </div>
+          <div className="absolute bottom-0 z-20 aspect-[1.25/1] h-[30vh] desktop:h-[190px]">
+            <img src={leftWrapper} alt="wrapper-left" className="h-full" />
+          </div>
+          <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
             <Button className="w-full bg-[#d9d9d9] text-black">
               링크 복사
             </Button>
