@@ -38,7 +38,7 @@ const MerryGoRound = ({
             setCurrentFlowerIndex(activeIndex - 1)
           }}
           disabled={!loop && firstIndex}
-          className="absolute left-1 top-[46%] z-[100] transition-all disabled:pointer-events-none disabled:shadow-none"
+          className="absolute left-1 top-[46%] z-20 transition-all disabled:pointer-events-none disabled:shadow-none"
         >
           <LeftArrowIcon
             className={`${
@@ -59,7 +59,7 @@ const MerryGoRound = ({
             setCurrentFlowerIndex(activeIndex + 1)
           }}
           disabled={!loop && lastIndex}
-          className="absolute right-1 top-[46%] z-[100] transition-all disabled:pointer-events-none disabled:shadow-none"
+          className="absolute right-1 top-[46%] z-20 transition-all disabled:pointer-events-none disabled:shadow-none"
         >
           <RightArrowIcon
             className={`${!loop && lastIndex ? 'fill-gray-200' : 'fill-black'}`}
