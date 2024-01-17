@@ -35,7 +35,7 @@ const WritePage = () => {
   const isButtonDisabled = currentStep === 3 && letter.length === 0
 
   return (
-    <div className="flex flex-col overflow-hidden">
+    <div className="flex h-full flex-col overflow-hidden">
       <Header
         leftIcon={ICONS.GOBACK}
         rightIcon={ICONS.HOME}
@@ -47,42 +47,34 @@ const WritePage = () => {
           }
         }}
       />
-      <div className="mt-3">
-        <div className="font-lg mx-7 flex">
-          <p className="text-gray-300">냥냥냥</p>
-          <p className="text-gray-200">님께 편지 작성하기</p>
-        </div>
-        {currentStep === 1 && (
-          <ChooseFlower
-            selectedFlower={selectedFlower}
-            setSelectedFlower={setSelectedFlower}
-          />
-        )}
-        {currentStep === 2 && (
-          <ChooseCard
-            selectedCard={selectedCard}
-            setSelectedCard={setSelectedCard}
-          />
-        )}
-        {currentStep === 3 && (
-          <WriteLetter letter={letter} setLetter={setLetter} />
-        )}
-        <div
-          className={
-            currentStep === 3
-              ? 'font-md bg-gray-500 px-7 pb-16 pt-3'
-              : 'font-md mx-7'
-          }
+      <div className="font-lg mx-7 flex">
+        <p className="text-gray-300">냥냥냥</p>
+        <p className="text-gray-200">님께 편지 작성하기</p>
+      </div>
+      {currentStep === 1 && (
+        <ChooseFlower
+          selectedFlower={selectedFlower}
+          setSelectedFlower={setSelectedFlower}
+        />
+      )}
+      {currentStep === 2 && (
+        <ChooseCard
+          selectedCard={selectedCard}
+          setSelectedCard={setSelectedCard}
+        />
+      )}
+      {currentStep === 3 && (
+        <WriteLetter letter={letter} setLetter={setLetter} />
+      )}
+      <div className={`font-md px-6 py-5 ${currentStep === 3 && 'pt-2'}`}>
+        <Button
+          size="lg"
+          onClick={handleNextClick}
+          className={`w-full text-white disabled:border-gray-400 disabled:bg-gray-400 `}
+          disabled={isButtonDisabled}
         >
-          <Button
-            size="lg"
-            onClick={handleNextClick}
-            className="w-full disabled:border-gray-400 disabled:bg-gray-400"
-            disabled={isButtonDisabled}
-          >
-            {currentStep < 3 ? '다음' : '보내기'}
-          </Button>
-        </div>
+          {currentStep < 3 ? '다음' : '보내기'}
+        </Button>
       </div>
     </div>
   )
