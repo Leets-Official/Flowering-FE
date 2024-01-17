@@ -10,7 +10,7 @@ interface StoreItemProps {
 const StoreItem = ({ itemId, coin }: StoreItemProps) => {
   const navigate = useNavigate()
   const [itemNum, setItemNum] = useState<number>(0)
-  const maxAllowedQuantity = Math.round(3000 / parseInt(coin, 10))
+  const maxAllowedQuantity = coin ? Math.round(3000 / parseInt(coin, 10)) : 0
 
   const itemNumHandler = (amount: number) => {
     setItemNum((prevItemNum) => {
