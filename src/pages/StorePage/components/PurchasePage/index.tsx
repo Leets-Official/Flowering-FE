@@ -16,9 +16,9 @@ const PurchasePage = () => {
           <p>축하합니다!</p>
           <div className="mt-4 flex justify-center">
             <p>포인세티아</p>
-            <p className="text-[#959595]">를 구매하셨어요.</p>
+            <p className="text-gray-200">를 구매하셨어요.</p>
           </div>
-          <p className="text-[#959595]">꽃을 지인들에게 선물해보세요!</p>
+          <p className="text-gray-200">꽃을 지인들에게 선물해보세요!</p>
         </div>
         <div className="mt-8 flex justify-center gap-4">
           <Button

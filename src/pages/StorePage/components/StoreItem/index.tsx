@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 interface StoreItemProps {
   itemId: number
-  coin: string
+  coin?: string
 }
 const StoreItem = ({ itemId, coin }: StoreItemProps) => {
   const navigate = useNavigate()
@@ -68,7 +68,6 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
           </Button>
         )}
       </Modal>
-
       <div className="mt-1 flex justify-center gap-1">
         <CoinIcon className="h-[13px] w-[13px]" />
         <p className="font-xs text-[#959595]">{coin}</p>

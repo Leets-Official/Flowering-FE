@@ -3,9 +3,11 @@ export const PATH = {
   LOGIN: '/login',
   COIN: '/coin',
   LOGINOAUTH: '/oauth',
+  NICKNAME: '/nickname',
   MYPAGE: '/mypage',
   COLLECTION: '/collection',
   ITEM: '/item/:itemId',
   STORE: '/store',
-  PURCHASE: '/purchase',
+  PURCHASE: '/store/purchase',
+  WRITE: '/write',
 }

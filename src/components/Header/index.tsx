@@ -14,6 +14,7 @@ interface HeaderProps {
   rightIcon?: string
   setSidebarOpen?: Dispatch<SetStateAction<boolean>>
   onClose?: () => void
+  onGoBack?: () => void
 }
 
 const icons = {
@@ -30,6 +31,7 @@ const Header = ({
   rightIcon,
   setSidebarOpen,
   onClose,
+  onGoBack,
 }: HeaderProps) => {
   const navigate = useNavigate()
 
@@ -38,6 +40,7 @@ const Header = ({
     [ICONS.SIDEBAR]: () => setSidebarOpen && setSidebarOpen((prev) => !prev),
     [ICONS.DRAW]: () => navigate('/'), // TODO: 꽃다발 꾸미기 페이지 이동으로 수정하기
     [ICONS.CLOSE]: onClose || (() => navigate(-1)),
+    [ICONS.GOBACK]: onGoBack || (() => navigate(-1)),
     // 다른 아이콘 event 추가
   }
 

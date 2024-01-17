@@ -13,9 +13,11 @@ export default withMT({
           100: '#DDDDDD',
           200: '#959595',
           300: '#282828',
+          400: '#D9D9D9',
+          500: '#EEEEEE',
         },
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 })
