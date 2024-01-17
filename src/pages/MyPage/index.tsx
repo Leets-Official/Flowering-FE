@@ -10,28 +10,15 @@ const MyPage = () => {
   const handleMailboxSelection = (mailboxType: string) => {
     setSelectedMailbox(mailboxType)
   }
-  const handleCloseSidebar = () => {
-    setSidebarOpen(false)
-  }
 
   return (
-    <section
-      className={`h-screen ${
-        sidebarOpen ? 'overflow-hidden bg-gray-200 backdrop-blur' : ''
-      }`}
-    >
+    <section className={`h-screen`}>
       <div className={`${sidebarOpen && 'blur-sm'} flex h-full flex-col`}>
         <Header
           setSidebarOpen={setSidebarOpen}
           leftIcon={ICONS.HOME}
           rightIcon={ICONS.SIDEBAR}
         />
-        {sidebarOpen && (
-          <div
-            className="fixed left-0 top-0 z-40 h-screen w-full blur"
-            onClick={handleCloseSidebar}
-          />
-        )}
         <div className="mx-8 mb-7 mt-5 flex justify-between">
           <div className="flex flex-col">
             <p className="font-lg text-gray-200">환영해요!</p>
@@ -64,9 +51,7 @@ const MyPage = () => {
         </ul>
         <Mailbox status={selectedMailbox} />
       </div>
-      <div className="relative">
-        <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      </div>
+      <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
     </section>
   )
 }

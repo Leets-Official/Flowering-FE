@@ -3,4 +3,5 @@ export const ICONS = {
   SIDEBAR: 'SidebarIcon',
   DRAW: 'DrawIcon',
   GOBACK: 'GoBackIcon',
+  CLOSE: 'CloseIcon',
 }
