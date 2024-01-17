@@ -1,10 +1,21 @@
 import { Header } from '@/components'
 import { ICONS } from '@/constants'
+import { useState } from 'react'
 
-const SentPage = () => {
+const SentLetter = ({ onClose }: { onClose: () => void }) => {
+  const [modalVisible, setModalVisible] = useState(true)
+  const closeModal = () => {
+    setModalVisible(false)
+    onClose()
+  }
+
   return (
-    <div className="flex flex-col overflow-hidden">
-      <Header rightIcon={ICONS.CLOSE} />
+    <div
+      className={`fixed left-0 top-0 z-50 h-screen  w-full overflow-hidden bg-white text-gray-300 ${
+        modalVisible ? 'block' : 'hidden'
+      }`}
+    >
+      <Header rightIcon={ICONS.CLOSE} onClose={closeModal} />
       <div className="mx-7 mt-3 flex">
         <div className="font-lg flex">
           <p className="text-gray-300">냥냥냥</p>
@@ -25,4 +36,4 @@ const SentPage = () => {
   )
 }
 
-export default SentPage
+export default SentLetter
