@@ -10,11 +10,11 @@ const Sidebar = ({ isOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <>
       <div
-        className={`w-50 fixed -right-[340px] top-0 z-50 h-screen duration-300 ${
-          isOpen ? '-translate-x-full transform' : ''
+        className={`w-50 absolute -right-[340px] top-0 z-50 h-screen duration-300 ${
+          isOpen && '-translate-x-full transform'
         }`}
       >
-        <Box />
+        {isOpen && <Box />}
       </div>
       {isOpen && (
         <div

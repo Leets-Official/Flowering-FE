@@ -10,7 +10,7 @@ const Box = () => {
             로그인 후 사용하세요!
           </p>
         </Link>
-        <div className="flex flex-col gap-8 text-gray-500">
+        <div className="flex flex-col gap-8 text-gray-300">
           <Content content="MY" route="/mypage" />
           <Content content="SHOP" route="/store" />
           <Content content="LUCKY COIN" route="/coin" />
