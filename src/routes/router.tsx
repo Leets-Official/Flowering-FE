@@ -8,9 +8,6 @@ import {
   StorePage,
   PurchasePage,
   WritePage,
-  CardPage,
-  FlowerPage,
-  LetterPage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -51,18 +48,6 @@ const router = createBrowserRouter([
       {
         path: PATH.WRITE,
         element: <WritePage />,
-      },
-      {
-        path: PATH.CARD,
-        element: <CardPage />,
-      },
-      {
-        path: PATH.FLOWER,
-        element: <FlowerPage />,
-      },
-      {
-        path: PATH.LETTER,
-        element: <LetterPage />,
       },
     ],
   },

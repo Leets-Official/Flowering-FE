@@ -37,13 +37,13 @@ const StorePage = () => {
           <p className="font-xs">3000</p>
         </div>
       </div>
-      <div className="scrollbar-hide overflow-y-auto px-6 pb-8">
+      <div className="overflow-y-auto px-6 pb-8 scrollbar-hide">
         <div>
           <p className="font-lg">Object</p>
           <p className="font-ls mt-2">
             매일 00시 새로운 오브제로 업데이트 됩니다.
           </p>
-          <p className="font-xs mt-0.5 text-[#9D9D9D]">
+          <p className="font-xs mt-0.5 text-gray-400">
             한 오브제의 최대 보유량은 3개입니다.
           </p>
           <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">

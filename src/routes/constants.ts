@@ -7,7 +7,4 @@ export const PATH = {
   STORE: '/store',
   PURCHASE: '/store/purchase',
   WRITE: '/write',
-  CARD: '/write/card',
-  FLOWER: '/write/flower',
-  LETTER: '/write/letter',
 }
