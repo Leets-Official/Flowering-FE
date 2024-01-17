@@ -1,26 +1,13 @@
 import { Header } from '@/components'
 import { ICONS } from '@/constants'
-import { useState } from 'react'
 
 const SentLetter = ({ onClose }: { onClose: () => void }) => {
-  const [modalVisible, setModalVisible] = useState(true)
-  const closeModal = () => {
-    setModalVisible(false)
-    onClose()
-  }
-
   return (
-    <div
-      className={`fixed left-0 top-0 z-50 h-screen  w-full overflow-hidden bg-white text-gray-300 ${
-        modalVisible ? 'block' : 'hidden'
-      }`}
-    >
-      <Header rightIcon={ICONS.CLOSE} onClose={closeModal} />
-      <div className="mx-7 mt-3 flex">
-        <div className="font-lg flex">
-          <p className="text-gray-300">냥냥냥</p>
-          <p className="text-gray-300">님께 편지를 보냈어요.</p>
-        </div>
+    <div className="absolute left-0 top-0 z-50 h-screen w-full transform overflow-hidden bg-white text-gray-300">
+      <Header rightIcon={ICONS.CLOSE} onClose={onClose} />
+      <div className="font-lg mx-7 mt-3 flex">
+        <p className="text-gray-300">냥냥냥</p>
+        <p className="text-gray-300">님께 편지를 보냈어요.</p>
       </div>
       <div className="font-ls mt-10 flex h-screen w-full flex-col rounded-t-[50px] bg-[#DADADA] px-7 pt-16">
         <p className="mb-10">
