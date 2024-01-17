@@ -41,8 +41,8 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                itemNum > 0 ? 'bg-[#959595]' : 'bg-[#CCCCCC]'
-              } pt-0.5 font-normal text-white`}
+                itemNum > 0 ? 'bg-gray-200' : 'bg-gray-100'
+              } font-normal text-white`}
               onClick={() => itemNumHandler(-1)}
             >
               -
@@ -50,8 +50,8 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
             <p className=" font-xs text-[#000000]">{itemNum}개</p>
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                itemNum < maxAllowedQuantity ? 'bg-[#959595]' : 'bg-[#CCCCCC]'
-              } pt-0.5 font-normal text-white`}
+                itemNum < maxAllowedQuantity ? 'bg-gray-200' : 'bg-gray-100'
+              } font-normal text-white`}
               onClick={() => itemNumHandler(1)}
             >
               +
@@ -59,7 +59,7 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
           </div>
         </div>
         {itemNum > 0 ? (
-          <Button key="btn" onClick={() => navigate('/purchase')}>
+          <Button key="btn" onClick={() => navigate('/store/purchase')}>
             구매하기
           </Button>
         ) : (
@@ -70,7 +70,7 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
       </Modal>
       <div className="mt-1 flex justify-center gap-1">
         <CoinIcon className="h-[13px] w-[13px]" />
-        <p className="font-xs text-[#959595]">{coin}</p>
+        <p className="font-xs text-gray-200">{coin}</p>
       </div>
     </div>
   )
