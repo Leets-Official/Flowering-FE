@@ -77,7 +77,7 @@ const WritePage = () => {
           <Button
             size="lg"
             onClick={handleNextClick}
-            className={currentStep === 3 ? 'w-full' : 'w-full'}
+            className="w-full disabled:border-gray-400 disabled:bg-gray-400"
             disabled={isButtonDisabled}
           >
             {currentStep < 3 ? '다음' : '보내기'}
