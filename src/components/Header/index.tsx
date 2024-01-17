@@ -1,4 +1,10 @@
-import { CloseIcon, DrawIcon, HomeIcon, SidebarIcon } from '@/assets/Icons'
+import {
+  GoBackIcon,
+  CloseIcon,
+  DrawIcon,
+  HomeIcon,
+  SidebarIcon,
+} from '@/assets/Icons'
 import { useNavigate } from 'react-router-dom'
 import { Dispatch, SetStateAction } from 'react'
 import { ICONS } from '@/constants'
@@ -14,6 +20,7 @@ const icons = {
   [ICONS.HOME]: <HomeIcon />,
   [ICONS.SIDEBAR]: <SidebarIcon />,
   [ICONS.DRAW]: <DrawIcon />,
+  [ICONS.GOBACK]: <GoBackIcon />,
   [ICONS.CLOSE]: <CloseIcon />,
   // 다른 아이콘 추가할때 위에 참고해서 똑같이 추가하면 됩니다!
 }
