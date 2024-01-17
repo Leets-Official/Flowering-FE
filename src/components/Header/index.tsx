@@ -32,6 +32,7 @@ const Header = ({
     [ICONS.DRAW]: () => navigate('/'), // TODO: 꽃다발 꾸미기 페이지 이동으로 수정하기
     [ICONS.GOBACK]: onGoBack || (() => navigate(-1)),
     // 다른 아이콘 event 추가
+    [ICONS.GOBACK]: () => navigate(-1),
   }
 
   return (
