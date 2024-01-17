@@ -26,6 +26,7 @@ const MerryGoRound = ({
 }: PropsWithChildren<MerryGoRoundProps>) => {
   return (
     <Carousel
+      navigation={() => <div className="hidden" />}
       prevArrow={({
         handlePrev,
         firstIndex,
