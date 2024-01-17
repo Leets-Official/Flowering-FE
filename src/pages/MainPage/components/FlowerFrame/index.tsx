@@ -10,10 +10,10 @@ interface FlowerFrameProps {
 
 const flowerPositionOption = [
   '-translate-x-1/2 -translate-y-1/3 z-30',
-  'z-20 -translate-x-[80%] -translate-y-[27%] -rotate-[30deg]',
-  'z-20 -translate-x-[24%] -translate-y-[27%] rotate-[30deg] -scale-x-100',
-  'z-10 -translate-x-[78%] -translate-y-2/3 -rotate-[15deg]',
-  'z-10 -translate-x-[22%] -translate-y-2/3 rotate-[15deg] -scale-x-100',
+  'z-20 -translate-x-[80%] -translate-y-[27%] -rotate-[30deg] -scale-x-100',
+  'z-20 -translate-x-[24%] -translate-y-[27%] rotate-[30deg] ',
+  'z-10 -translate-x-[78%] -translate-y-2/3 -rotate-[15deg] -scale-x-100',
+  'z-10 -translate-x-[22%] -translate-y-2/3 rotate-[15deg] ',
 ]
 
 const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
