@@ -8,7 +8,7 @@ import { FlowerIcon } from '@/assets/Icons'
 
 const Letter = () => {
   return (
-    <div className="font-xs flex h-[115px] w-full shrink-0 bg-[#D9D9D9] pl-7">
+    <div className="font-xs flex h-[115px] w-full shrink-0 bg-gray-400 pl-7">
       <div>
         <div className="flex flex-col gap-1 pt-5">
           <p>01</p>

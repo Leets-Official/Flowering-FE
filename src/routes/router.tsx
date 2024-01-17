@@ -9,6 +9,7 @@ import {
   CollectionPage,
   StorePage,
   PurchasePage,
+  WritePage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: PATH.PURCHASE,
         element: <PurchasePage />,
+      },
+      {
+        path: PATH.WRITE,
+        element: <WritePage />,
       },
     ],
   },
