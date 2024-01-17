@@ -59,6 +59,14 @@ const MainPage = () => {
     0,
   )
 
+  const getImageUrl = (name: string) => {
+    return new URL(`/src/assets/images/flowers/${name}.png`, import.meta.url)
+      .href
+  }
+
+  const leftWrapper = getImageUrl('left_wrapper')
+  const rightWrapper = getImageUrl('right_wrapper')
+
   return (
     <>
       <main className="flex h-screen flex-col">
@@ -67,8 +75,8 @@ const MainPage = () => {
           rightIcon={ICONS.SIDEBAR}
           setSidebarOpen={setSidebarOpen}
         />
-        <div className="flex h-full flex-col px-6">
-          <div className="flex flex-col gap-1.5 ">
+        <div className="flex h-full flex-col">
+          <div className="flex flex-col gap-1.5 px-6">
             <div className="font-base flex justify-between text-gray-300">
               <h2>{`${userName} 졸업합니다.`}</h2>
               <h2>{`D-${leftDays}`}</h2>
@@ -79,13 +87,13 @@ const MainPage = () => {
               <span className="font-lg">{`개 째`}</span>
             </h1>
           </div>
-          <div>{currentFlowerIndex}</div>
+          {/* <div className="px-6">{currentFlowerIndex}</div> */}
           <MerryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
             {data.bouquets.map((bouquet) => (
               <FlowerFrame flowers={bouquet.flowers} key={bouquet.bouquetId} />
             ))}
           </MerryGoRound>
-          <footer className="flex h-[5rem] shrink-0 items-center justify-center">
+          <footer className="flex h-[5rem] shrink-0 items-center justify-center px-6">
             <Button className="w-full bg-[#d9d9d9] text-black">
               링크 복사
             </Button>
