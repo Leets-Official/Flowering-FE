@@ -24,7 +24,7 @@ const LoginPage = () => {
       >
         <div className="mt-1 flex">
           <img src={kakaoSymbol} className="mr-1 h-[18px] w-[18px]" />
-          <div className="font-ssm">카카오톡</div>
+          <div className="font-md">카카오톡</div>
           <div>으로 로그인</div>
         </div>
       </button>
