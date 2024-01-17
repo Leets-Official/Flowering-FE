@@ -5,9 +5,11 @@ import {
   CoinDrawPage,
   OauthPage,
   MyPage,
+  NicknamePage,
   CollectionPage,
   StorePage,
   PurchasePage,
+  WritePage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
         element: <MyPage />,
       },
       {
+        path: PATH.NICKNAME,
+        element: <NicknamePage />,
+      },
+      {
         path: PATH.COLLECTION,
         element: <CollectionPage />,
       },
@@ -53,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: PATH.PURCHASE,
         element: <PurchasePage />,
+      },
+      {
+        path: PATH.WRITE,
+        element: <WritePage />,
       },
     ],
   },
