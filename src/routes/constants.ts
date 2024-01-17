@@ -8,6 +8,4 @@ export const PATH = {
   ITEM: '/item/:itemId',
   STORE: '/store',
   PURCHASE: '/purchase',
-  RECEIVED: '/mypage/received',
-  SENT: '/mypage/sent',
 }
