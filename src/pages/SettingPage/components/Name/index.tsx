@@ -25,7 +25,6 @@ const NamePage = () => {
 
   return (
     <>
-      <Header leftIcon="GoBackIcon" />
       <div className=" mx-6 flex h-screen flex-col">
         <div className="font-lg text-[#282828]">꽃다발을 설명해 주세요.</div>
         <div className="relative">
