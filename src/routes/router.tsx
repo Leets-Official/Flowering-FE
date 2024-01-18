@@ -10,6 +10,7 @@ import {
   StorePage,
   PurchasePage,
   SettingPage,
+  WritePage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: PATH.SETTING,
         element: <SettingPage />,
+      },
+      {
+        path: PATH.WRITE,
+        element: <WritePage />,
       },
     ],
   },

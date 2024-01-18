@@ -10,4 +10,6 @@ export const PATH = {
   STORE: '/store',
   PURCHASE: '/purchase',
   SETTING: '/setting',
+  PURCHASE: '/store/purchase',
+  WRITE: '/write',
 }
