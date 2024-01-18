@@ -1,6 +1,10 @@
-import axios, { AxiosError } from 'axios'
+import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+interface tokenProps extends AxiosRequestConfig {
+  accessToken?: string
+}
 
 const OauthPage = () => {
   const params = new URL(document.location.toString()).searchParams
@@ -10,6 +14,20 @@ const OauthPage = () => {
   const REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI
   const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID
   const navigate = useNavigate()
+
+  const tokenLogin = async (accessToken: string) => {
+    try {
+      const res = await axios.get('https://api.fling.today/user/login', {
+        accessToken,
+      } as tokenProps)
+      console.log(res)
+      navigate('/')
+    } catch (err) {
+      if ((err as AxiosError).response?.status === 404) {
+        navigate('/nickname')
+      }
+    }
+  }
   useEffect(() => {
     const bringToken = async () => {
       try {
@@ -23,7 +41,8 @@ const OauthPage = () => {
           },
         )
         if (res.status === 200) {
-          navigate('/nickname')
+          console.log(res)
+          tokenLogin(res.data.access_token)
         }
       } catch (err) {
         if ((err as AxiosError).response?.status === 400) {
