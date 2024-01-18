@@ -1,9 +1,12 @@
 import { ChangeEvent, useState } from 'react'
-import { Header, Button } from '@/components'
 import { CheckIcon } from '@/assets/Icons'
 
-const NamePage = () => {
-  const [name, setName] = useState<string>('')
+interface NameProps {
+  name: string
+  setName: React.Dispatch<React.SetStateAction<string>>
+}
+
+const Name = ({ name, setName }: NameProps) => {
   const [message, setMessage] = useState<string>(
     '공백 포함 10자 이내로 작성해 주세요.',
   )
@@ -24,38 +27,26 @@ const NamePage = () => {
   }
 
   return (
-    <>
-      <div className=" mx-6 flex h-screen flex-col">
-        <div className="font-lg text-[#282828]">꽃다발을 설명해 주세요.</div>
-        <div className="relative">
-          <input
-            type="text"
-            className="font-base mt-[12.25rem] w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
-            placeholder="꽃다발 제목"
-            onChange={handleInput}
-          />
-          {activeButton && (
-            <CheckIcon className="absolute right-2 top-[165px]" />
-          )}
-        </div>
-        <ul
-          className={`font-xs mx-6 mt-2 list-disc ${
-            name.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
-          }`}
-        >
-          <li>{message}</li>
-        </ul>
-        <Button
-          className={`font-sm mt-[13rem] ${
-            activeButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
-          }`}
-          disabled={!activeButton}
-        >
-          다음
-        </Button>
+    <div className=" mx-6 mt-5 flex flex-col">
+      <div className="font-lg text-[#282828]">꽃다발을 설명해 주세요.</div>
+      <div className="relative">
+        <input
+          type="text"
+          className="font-base mt-[12.25rem] w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
+          placeholder="꽃다발 제목"
+          onChange={handleInput}
+        />
+        {activeButton && <CheckIcon className="absolute right-2 top-[200px]" />}
       </div>
-    </>
+      <ul
+        className={`font-xs mx-6 mt-2 list-disc ${
+          name.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
+        }`}
+      >
+        <li>{message}</li>
+      </ul>
+    </div>
   )
 }
 
-export default NamePage
+export default Name

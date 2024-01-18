@@ -1,6 +1,9 @@
-import { Button, Header } from '@/components'
+interface RibbonProps {
+  ribbon: string
+  setRibbon: React.Dispatch<React.SetStateAction<string>>
+}
 
-const RibbonPage = () => {
+const Ribbon = ({ribbon, setRibbon}: RibbonProps) => {
   return (
     <>
       <div className="mx-6 mt-5 flex flex-col gap-1">
@@ -17,4 +20,4 @@ const RibbonPage = () => {
   )
 }
 
-export default RibbonPage
+export default Ribbon

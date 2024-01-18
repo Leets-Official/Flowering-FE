@@ -1,24 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { Header, Button } from '@/components'
+interface DDayProps {
+  DDay: string
+  setDDay: React.Dispatch<React.SetStateAction<string>>
+}
 
-export default function Example() {
-  const [activeButton, setActiveButton] = useState(false)
-
+const DDay = ({ DDay, setDDay }: DDayProps) => {
   return (
     <>
-      <div className="mx-6 flex h-screen flex-col">
+      <div className="mx-6 mt-5 flex flex-col">
         <div className="font-lg text-[#282828]">
           축하 받을 당일의 날짜를 <br /> 알려 주세요.
         </div>
-        <Button
-          className={`font-sm mt-[13rem] ${
-            activeButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
-          }`}
-          disabled={!activeButton}
-        >
-          다음
-        </Button>
       </div>
     </>
   )
 }
+
+export default DDay

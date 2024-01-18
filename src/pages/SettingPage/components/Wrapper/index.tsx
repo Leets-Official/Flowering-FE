@@ -1,6 +1,9 @@
-import { Button, Header } from '@/components'
+interface WrapperProps {
+  wrapper: string
+  setWrapper: React.Dispatch<React.SetStateAction<string>>
+}
 
-const WrapperPage = () => {
+const Wrapper = ({wrapper, setWrapper}: WrapperProps) => {
   return (
     <>
       <div className="mx-6 mt-5 flex flex-col gap-1">
@@ -19,4 +22,4 @@ const WrapperPage = () => {
   )
 }
 
-export default WrapperPage
+export default Wrapper
