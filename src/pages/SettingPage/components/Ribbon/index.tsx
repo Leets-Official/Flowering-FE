@@ -12,7 +12,11 @@ const Ribbon = ({ribbon, setRibbon}: RibbonProps) => {
       </div>
       <div className="mx-6 mt-[3.25rem] flex flex-col items-center justify-center">
         <div className="h-[17.5rem] w-full rounded-[1.5rem] border border-black"></div>
-        <div className="mt-4 flex h-[3.5rem] w-[3.5rem] gap-1">
+        <div className="w-hull mt-4 flex h-[3.5rem] flex-nowrap gap-5 overflow-x-auto scrollbar-hide">
+          <img src="/src/assets/images/1.png" />
+          <img src="/src/assets/images/1.png" />
+          <img src="/src/assets/images/1.png" />
+          <img src="/src/assets/images/1.png" />
           <img src="/src/assets/images/1.png" />
         </div>
       </div>
