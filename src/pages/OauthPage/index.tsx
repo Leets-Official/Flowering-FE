@@ -1,10 +1,7 @@
-import axios, { AxiosError, AxiosRequestConfig } from 'axios'
+import axios, { AxiosError, AxiosInstance } from 'axios'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-interface tokenProps extends AxiosRequestConfig {
-  accessToken?: string
-}
+import apiLogin from '@/apis/apiLogin'
 
 const OauthPage = () => {
   const params = new URL(document.location.toString()).searchParams
@@ -17,9 +14,9 @@ const OauthPage = () => {
 
   const tokenLogin = async (accessToken: string) => {
     try {
-      const res = await axios.get('https://api.fling.today/user/login', {
+      const res = await apiLogin.get('/login', {
         accessToken,
-      } as tokenProps)
+      })
       console.log(res)
       navigate('/')
     } catch (err) {
