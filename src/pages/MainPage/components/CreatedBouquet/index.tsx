@@ -4,14 +4,14 @@ import { getLeftDays } from '@/utils'
 import { useState } from 'react'
 
 interface BouquetInfo {
-  description: string
-  dday: string
+  description: string | null
+  dday: string | null
   bouquetDesign: {
     wrapper: string
     ribbon: string
-    item1: string
-    item2: string
-    item3: string
+    item1: string | undefined
+    item2: string | undefined
+    item3: string | undefined
   }
   bouquets: {
     bouquetId: number
@@ -32,7 +32,7 @@ const CreatedBouquet = ({ userName, data }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
   console.log(currentFlowerIndex)
 
-  const leftDays = getLeftDays(data.dday)
+  const leftDays = getLeftDays(data.dday || '')
 
   const getImageUrl = (name: string) => {
     return new URL(`/src/assets/images/wrapping/${name}.png`, import.meta.url)

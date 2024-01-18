@@ -1,6 +1,6 @@
 interface Flower {
-  flowerId: number
-  sender: string
+  flowerId?: number
+  sender?: string
   flowerType: string
 }
 
@@ -26,7 +26,7 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
     <div className="relative flex h-full w-full flex-col">
       {flowers.map(({ flowerId, flowerType }, idx) => (
         <div
-          key={flowerId}
+          key={flowerId || idx}
           className={`absolute bottom-[2vh] left-1/2 flex ${flowerPositionOption[idx]} aspect-[1/1.5] w-[50vw] justify-center desktop:h-[270px] desktop:w-[180px]`}
         >
           <img
