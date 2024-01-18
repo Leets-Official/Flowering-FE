@@ -16,8 +16,6 @@ const Ribbon = ({ribbon, setRibbon}: RibbonProps) => {
           <img src="/src/assets/images/1.png" />
           <img src="/src/assets/images/1.png" />
           <img src="/src/assets/images/1.png" />
-          <img src="/src/assets/images/1.png" />
-          <img src="/src/assets/images/1.png" />
         </div>
       </div>
     </>
