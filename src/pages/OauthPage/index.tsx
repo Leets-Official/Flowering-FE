@@ -48,7 +48,7 @@ const OauthPage = () => {
     }
     if (error) navigate('/login')
     if (code) bringToken()
-  }, [code, navigate, CLIENT_ID, REDIRECT_URI, error])
+  }, [])
 
   return <div>로딩 중</div>
 }

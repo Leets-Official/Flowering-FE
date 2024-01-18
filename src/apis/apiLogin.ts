@@ -5,4 +5,14 @@ const apiLogin = axios.create({
   withCredentials: true,
 })
 
+const postLogin = async () => {
+  const res = await apiLogin.post('login', {
+    accessToken: localStorage.getItem('kakaoToken'),
+  })
+
+  return res
+}
+
+export const login = () => {}
+
 export default apiLogin
