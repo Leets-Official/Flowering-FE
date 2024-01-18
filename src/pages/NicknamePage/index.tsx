@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from 'react'
 import { Header, Button } from '@/components'
 import { CheckIcon } from '@/assets/Icons'
+import apiLogin from '@/apis/apiLogin'
+import { useNavigate } from 'react-router'
 
 const NicknamePage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -8,7 +10,7 @@ const NicknamePage = () => {
     '공백 포함 10자 이내로 작성해 주세요.',
   )
   const [activeButton, setActiveButton] = useState<boolean>(false)
-
+  const navigate = useNavigate()
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value)
     if (e.target.value.length < 1) {
@@ -20,6 +22,20 @@ const NicknamePage = () => {
     } else {
       setMessage('가능한 닉네임입니다.')
       setActiveButton(true)
+    }
+  }
+
+  const handleClick = async () => {
+    console.log(localStorage.getItem('kakaoToken'))
+    try {
+      const res = await apiLogin.post('/register', {
+        accessToken: localStorage.getItem('kakaoToken'),
+        nickname,
+      })
+      console.log(res)
+      navigate('/')
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -54,6 +70,7 @@ const NicknamePage = () => {
             activeButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
           }`}
           disabled={!activeButton}
+          onClick={handleClick}
         >
           다음
         </Button>

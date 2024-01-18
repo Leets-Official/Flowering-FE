@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance } from 'axios'
+import axios, { AxiosError } from 'axios'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import apiLogin from '@/apis/apiLogin'
@@ -14,9 +14,7 @@ const OauthPage = () => {
 
   const tokenLogin = async (accessToken: string) => {
     try {
-      const res = await apiLogin.get('/login', {
-        accessToken,
-      })
+      const res = await apiLogin.post('/login', { accessToken })
       console.log(res)
       navigate('/')
     } catch (err) {
@@ -39,6 +37,7 @@ const OauthPage = () => {
         )
         if (res.status === 200) {
           console.log(res)
+          localStorage.setItem('kakaoToken', res.data.access_token)
           tokenLogin(res.data.access_token)
         }
       } catch (err) {

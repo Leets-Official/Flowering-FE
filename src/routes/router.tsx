@@ -10,10 +10,10 @@ import {
   StorePage,
   PurchasePage,
   WritePage,
+  ItemPage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
-import ItemPage from '@/pages/ItemPage'
 
 const router = createBrowserRouter([
   {
