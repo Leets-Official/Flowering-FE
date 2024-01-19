@@ -27,3 +27,20 @@ export interface LoginInfo {
     refreshToken: string
   }
 }
+export interface LetterSent {
+  flowerId: 0
+  receiver: 'string'
+  letterType: 'string'
+}
+
+export interface LetterSentInfo {
+  letterSentResponse: LetterSent[]
+}
+
+export interface FlowerInfo {
+  flowerResponse: {
+    letter: 'string'
+    flowerType: 'string'
+    cardType: 'string'
+  }
+}
