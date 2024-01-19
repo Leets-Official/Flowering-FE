@@ -107,10 +107,7 @@ const theme: Theme = {
 const MerryGoRound = () => {
   return (
     <div className="font-base mx-6 mt-9 h-[22rem] rounded-[37px] border-2 border-black pt-6 text-center text-black">
-      <Carousel
-        {...theme.carousel.defaultProps}
-        styles={theme.carousel.styles.base.carousel}
-      >
+      <Carousel {...theme.carousel.defaultProps} styles={theme}>
         <div>
           나의 축하소식을 친구들에게
           <br />

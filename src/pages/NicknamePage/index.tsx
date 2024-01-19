@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from 'react'
 import { Header, Button } from '@/components'
 import { CheckIcon } from '@/assets/Icons'
-import apiLogin from '@/apis/apiLogin'
 import { useNavigate } from 'react-router'
+import apiClient from '@/apis/apiClient'
 
 const NicknamePage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -26,14 +26,12 @@ const NicknamePage = () => {
   }
 
   const handleClick = async () => {
-    console.log(localStorage.getItem('kakaoToken'))
     try {
-      const res = await apiLogin.post('/register', {
+      const res = await apiClient.post('/register', {
         accessToken: localStorage.getItem('kakaoToken'),
         nickname,
       })
-      console.log(res)
-      navigate('/')
+      navigate(`/login`)
     } catch (err) {
       console.log(err)
     }
@@ -47,33 +45,39 @@ const NicknamePage = () => {
         <div className="font-base mt-2 h-8 w-[15rem] text-[0.75rem] text-[#282828]">
           입력한 닉네임으로 지인에게 꽃다발과 편지를 보낼 수 있어요
         </div>
-        <div className="relative">
-          <input
-            type="text"
-            className="font-base mt-[10rem] w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
-            placeholder="닉네임"
-            onChange={handleInput}
-          />
-          {activeButton && (
-            <CheckIcon className="absolute right-2 top-[165px]" />
-          )}
+        <div className="flex h-full flex-col justify-center">
+          <div className="relative">
+            <input
+              type="text"
+              className="font-base mt-[10rem] w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
+              placeholder="닉네임"
+              onChange={handleInput}
+            />
+            {activeButton && (
+              <CheckIcon className="absolute right-2 top-[165px]" />
+            )}
+          </div>
+          <ul
+            className={`font-xs mx-6 mt-2 list-disc ${
+              nickname.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
+            }`}
+          >
+            <li>{message}</li>
+          </ul>
         </div>
-        <ul
-          className={`font-xs mx-6 mt-2 list-disc ${
-            nickname.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
-          }`}
-        >
-          <li>{message}</li>
-        </ul>
-        <Button
-          className={`font-sm mt-[13rem] ${
-            activeButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
-          }`}
-          disabled={!activeButton}
-          onClick={handleClick}
-        >
-          다음
-        </Button>
+        <div className="py-5">
+          <Button
+            className={`font-sm mt-[13rem] ${
+              activeButton
+                ? 'bg-black text-white'
+                : 'bg-[#DDDDDD] text-[#282828]'
+            }`}
+            disabled={!activeButton}
+            onClick={handleClick}
+          >
+            다음
+          </Button>
+        </div>
       </div>
     </>
   )
