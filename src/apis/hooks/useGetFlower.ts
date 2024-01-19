@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { flower } from '@/apis/service/flower.ts'
 import { FlowerInfo } from '@/types'
+import { flower } from '@/apis/service'
 
 const useGetFlower = ({ id }: { id: number }) => {
   const queryKey = ['flower']

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { letterSent } from '@/apis/service/letterSent.ts'
 import { LetterSentInfo } from '@/types'
+import { letterSent } from '@/apis/service'
 
 const useGetLetterSent = () => {
   const queryKey = ['letterSent']
