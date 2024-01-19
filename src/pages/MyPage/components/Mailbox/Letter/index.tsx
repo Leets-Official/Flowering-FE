@@ -3,11 +3,15 @@ import { useState } from 'react'
 import SentLetter from '@/pages/MyPage/components/SentLetter'
 import ReceivedLetter from '@/pages/MyPage/components/ReceivedLetter'
 
-const Letter = ({ status }: { status?: string }) => {
+interface ReceiverProps {
+  receiver?: string
+  flowerId: number
+}
+const Letter = ({ receiver, flowerId }: ReceiverProps) => {
   const [sentModalOpen, setSentModalOpen] = useState<boolean>(false)
   const [receivedModalOpen, setReceivedModalOpen] = useState<boolean>(false)
   const openModal = () => {
-    if (status === 'received') {
+    if (receiver) {
       setReceivedModalOpen(true)
     } else {
       setSentModalOpen(true)
@@ -28,14 +32,20 @@ const Letter = ({ status }: { status?: string }) => {
           <p className="w-3">01</p>
           <div className="h-[1.5px] w-3 bg-black" />
           <p className="w-3">13</p>
-          <p className="mt-5">TO.냥냥냥</p>
+          <p className="mt-5">TO.{receiver}</p>
         </div>
         <div className="relative">
           <FlowerIcon className="absolute z-10 ml-14 mt-6" />
           <div className="absolute z-20 ml-32 h-full w-16 bg-white opacity-60 " />
         </div>
       </button>
-      {sentModalOpen && <SentLetter onClose={closeModal} />}
+      {sentModalOpen && (
+        <SentLetter
+          receiver={receiver}
+          flowerId={flowerId}
+          onClose={closeModal}
+        />
+      )}
       {receivedModalOpen && <ReceivedLetter onClose={closeModal} />}
     </>
   )
