@@ -2,8 +2,6 @@ import Letter from '@/pages/MyPage/components/Mailbox/Letter'
 import { useGetLetterSent } from '@/apis/hooks'
 
 interface LettersProps {
-  className?: string
-  id?: string
   status: string
 }
 
@@ -12,7 +10,7 @@ const Letters = ({ status }: LettersProps) => {
   if (isLoading) {
     return <p>loading</p>
   }
-  if (isError || !data) {
+  if (isError || !data || !Array.isArray(data.letterSentResponse)) {
     return <p>error</p>
   }
   const receivers = data.letterSentResponse.map(
@@ -25,21 +23,17 @@ const Letters = ({ status }: LettersProps) => {
   return (
     <div className="flex flex-col gap-4 overflow-y-scroll px-6 py-5">
       {status === 'received' ? (
-        <>
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-        </>
+        <div>
+          {receivers.map((receiver, index) => (
+            <Letter key={index} receiver={receiver} flowerId={flowers[index]} />
+          ))}
+        </div>
       ) : (
-        <>
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-          <Letter receiver={receivers[0]} flowerId={flowers[0]} />
-        </>
+        <div>
+          {receivers.map((receiver, index) => (
+            <Letter key={index} receiver={receiver} flowerId={flowers[index]} />
+          ))}
+        </div>
       )}
     </div>
   )

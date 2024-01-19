@@ -28,9 +28,9 @@ export interface LoginInfo {
   }
 }
 export interface LetterSent {
-  flowerId: 0
-  receiver: 'string'
-  letterType: 'string'
+  flowerId: number
+  receiver: string
+  letterType: string
 }
 
 export interface LetterSentInfo {
@@ -39,8 +39,8 @@ export interface LetterSentInfo {
 
 export interface FlowerInfo {
   flowerResponse: {
-    letter: 'string'
-    flowerType: 'string'
-    cardType: 'string'
+    letter: string
+    flowerType: string
+    cardType: string
   }
 }
