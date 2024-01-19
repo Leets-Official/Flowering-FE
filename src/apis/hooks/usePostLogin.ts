@@ -13,7 +13,7 @@ const usePostLogin = () => {
 
         return res.data
       } catch (e) {
-        if ((e as AxiosError).response?.status === 400) {
+        if ((e as AxiosError).response?.status === 404) {
           return undefined
         }
       }

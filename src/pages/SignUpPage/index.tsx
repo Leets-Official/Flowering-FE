@@ -4,7 +4,7 @@ import { CheckIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router'
 import apiClient from '@/apis/apiClient'
 
-const NicknamePage = () => {
+const SignUpPage = () => {
   const [nickname, setNickname] = useState<string>('')
   const [message, setMessage] = useState<string>(
     '공백 포함 10자 이내로 작성해 주세요.',
@@ -27,10 +27,11 @@ const NicknamePage = () => {
 
   const handleClick = async () => {
     try {
-      const res = await apiClient.post('/register', {
+      const res = await apiClient.post('/user/register', {
         accessToken: localStorage.getItem('kakaoToken'),
         nickname,
       })
+      console.log(res)
       navigate(`/login`)
     } catch (err) {
       console.log(err)
@@ -83,4 +84,4 @@ const NicknamePage = () => {
   )
 }
 
-export default NicknamePage
+export default SignUpPage
