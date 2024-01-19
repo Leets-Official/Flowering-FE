@@ -1,6 +1,6 @@
 import { Header } from '@/components'
 import { ICONS } from '@/constants'
-import { useGetFlower } from '@/apis/hooks/useGetFlower.ts'
+import { useGetFlower } from '@/apis/hooks'
 
 interface SentLetterProps {
   receiver?: string

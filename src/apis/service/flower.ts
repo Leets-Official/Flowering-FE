@@ -1,6 +1,6 @@
 import apiClient from '@/apis/apiClient.ts'
 
-export const flower = async ({ id }: { id: number }) => {
+const flower = async ({ id }: { id: number }) => {
   try {
     return await apiClient
       .get('/flower', { params: { id: id } })
@@ -9,3 +9,5 @@ export const flower = async ({ id }: { id: number }) => {
     console.log(error)
   }
 }
+
+export default flower

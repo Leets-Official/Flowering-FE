@@ -1,5 +1,5 @@
 import Letter from '@/pages/MyPage/components/Mailbox/Letter'
-import { useGetLetterSent } from '@/apis/hooks/useGetLetterSent.ts'
+import { useGetLetterSent } from '@/apis/hooks'
 
 interface LettersProps {
   className?: string
