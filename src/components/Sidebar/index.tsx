@@ -10,7 +10,7 @@ const Sidebar = ({ isOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <>
       <div
-        className={`w-50 absolute -right-[340px] top-0 z-50 h-screen duration-300 ${
+        className={`absolute -right-[345px] top-0 z-50 h-screen duration-300 ${
           isOpen && '-translate-x-full transform'
         }`}
       >
@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen, setSidebarOpen }: SidebarProps) => {
       </div>
       {isOpen && (
         <div
-          className="fixed left-0 top-0 h-screen w-full bg-[#a8a8a8] opacity-70 backdrop-blur"
+          className="absolute left-0 top-0 z-40 h-screen w-full bg-[#a8a8a8] opacity-70 backdrop-blur"
           onClick={() => setSidebarOpen(false)}
         />
       )}

@@ -45,7 +45,9 @@ const Header = ({
   }
 
   return (
-    <header className={`flex items-center justify-between px-6 pb-5 pt-3`}>
+    <header
+      className={`sticky flex items-center justify-between px-6 pb-5 pt-3`}
+    >
       {leftIcon ? (
         <div className="cursor-pointer" onClick={iconEventHandlers[leftIcon]}>
           {icons[leftIcon]}
