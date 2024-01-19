@@ -18,7 +18,16 @@ export interface BouquetInfo {
   }[]
 }
 
-interface LetterSent {
+export interface LoginInfo {
+  userId: string
+  email: string
+  nickname: string
+  token: {
+    accessToken: string
+    refreshToken: string
+  }
+}
+export interface LetterSent {
   flowerId: 0
   receiver: 'string'
   letterType: 'string'
