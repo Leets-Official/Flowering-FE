@@ -5,7 +5,7 @@ import { CreatedBouquet, UncreatedBouquet } from './components'
 
 const userName = '김주하'
 // const data1 = {
-//   description: '',
+//   description: 'imsy',
 //   dday: '2024-02-12',
 //   bouquetDesign: {
 //     wrapper: 'pink',

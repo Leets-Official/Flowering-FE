@@ -1,6 +1,7 @@
 import { Button } from '@/components'
 import { FlowerFrame } from '../'
 import { PlusIcon } from '@/assets/Icons'
+import { WrapperFrontImage, WrapperBackImage } from '@/assets/images'
 
 interface BouquetInfo {
   description: string | null
@@ -38,15 +39,6 @@ const UncreatedBouquet = ({ userName, data }: UncreatedBouquetProps) => {
     { flowerType: 'flower1' },
   ]
 
-  const getImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/wrapping/${name}.png`, import.meta.url)
-      .href
-  }
-
-  const leftWrapper = getImageUrl('left_wrapping')
-  const rightWrapper = getImageUrl('right_wrapping')
-  const backWrapper = getImageUrl('back_wrapping')
-
   console.log(data.bouquetDesign.wrapper)
 
   return (
@@ -62,17 +54,14 @@ const UncreatedBouquet = ({ userName, data }: UncreatedBouquetProps) => {
         </h1>
       </div>
       <div className="relative h-full w-full">
-        <div className="absolute bottom-0 z-0 h-[63vh] w-full desktop:h-[500px]">
-          <img src={backWrapper} alt="wrapper-back" className="w-full" />
+        <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-1/2 -translate-y-[60%]">
+          <WrapperBackImage className="h-full w-full" />
         </div>
         <FlowerFrame flowers={flowers} />
-        <div className="absolute bottom-0 right-0 z-20 aspect-[1.25/1] h-[40%] desktop:h-[220px]">
-          <img src={rightWrapper} alt="wrapper-right" className="h-full" />
+        <div className="absolute left-1/2 top-1/2 z-20 w-[70%] -translate-x-1/2 -translate-y-[15%]">
+          <WrapperFrontImage className="h-full w-full object-contain" />
         </div>
-        <div className="absolute bottom-0 z-20 aspect-[1.25/1] h-[33%] desktop:h-[190px]">
-          <img src={leftWrapper} alt="wrapper-left" className="h-full" />
-        </div>
-        <div className="absolute bottom-0 z-20 h-full w-full bg-white opacity-70" />
+        <div className="absolute bottom-0 z-20 h-full w-full bg-white opacity-50" />
       </div>
       <PlusIcon className="absolute left-1/2 top-1/2 z-40 -translate-x-1/2 -translate-y-1/2" />
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
