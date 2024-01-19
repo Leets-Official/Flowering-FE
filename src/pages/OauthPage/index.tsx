@@ -27,7 +27,7 @@ const OauthPage = () => {
   }, [kakaoToken, loginInfo, navigate])
 
   useEffect(() => {
-    const BringToken = async () => {
+    const bringToken = async () => {
       try {
         const res = await axios.post(
           `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&code=${code}`,
@@ -48,7 +48,7 @@ const OauthPage = () => {
       }
     }
     if (error) navigate('/login')
-    if (code) BringToken()
+    if (code) bringToken()
   }, [CLIENT_ID, REDIRECT_URI, code, error, navigate])
 
   return <div>로딩 중</div>
