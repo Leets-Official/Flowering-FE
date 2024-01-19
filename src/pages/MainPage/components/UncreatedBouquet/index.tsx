@@ -2,34 +2,7 @@ import { Button } from '@/components'
 import { FlowerFrame } from '../'
 import { PlusIcon } from '@/assets/Icons'
 
-interface BouquetInfo {
-  description: string | null
-  dday: string | null
-  bouquetDesign: {
-    wrapper: string
-    ribbon: string
-    item1: string | undefined
-    item2: string | undefined
-    item3: string | undefined
-  }
-  bouquets: {
-    bouquetId: number
-    flowers:
-      | {
-          flowerId: number
-          sender: string
-          flowerType: string
-        }[]
-      | []
-  }[]
-}
-
-interface UncreatedBouquetProps {
-  userName: string
-  data: BouquetInfo
-}
-
-const UncreatedBouquet = ({ userName, data }: UncreatedBouquetProps) => {
+const UncreatedBouquet = () => {
   const flowers = [
     { flowerType: 'flower1' },
     { flowerType: 'flower1' },
@@ -47,16 +20,14 @@ const UncreatedBouquet = ({ userName, data }: UncreatedBouquetProps) => {
   const rightWrapper = getImageUrl('right_wrapping')
   const backWrapper = getImageUrl('back_wrapping')
 
-  console.log(data.bouquetDesign.wrapper)
-
   return (
     <div className="flex h-full flex-col">
       <div className="flex flex-col gap-1.5 px-6">
         <div className="font-base flex justify-between text-gray-300">
-          <h2>{`${userName} 졸업합니다.`}</h2>
+          <h2>{`꽃다발의 이름을 입력해주세요.`}</h2>
         </div>
         <h1>
-          <span className="font-lg">{`꽃송이 `}</span>
+          <span className="font-lg">{`꽃송이  `}</span>
           <span className="font-xl">{0}</span>
           <span className="font-lg">{`개 째`}</span>
         </h1>

@@ -2,44 +2,24 @@ import { Button } from '@/components'
 import { FlowerFrame, MarryGoRound } from '../'
 import { getLeftDays } from '@/utils'
 import { useState } from 'react'
-
-interface BouquetInfo {
-  description: string | null
-  dday: string | null
-  bouquetDesign: {
-    wrapper: string
-    ribbon: string
-    item1: string | undefined
-    item2: string | undefined
-    item3: string | undefined
-  }
-  bouquets: {
-    bouquetId: number
-    flowers: {
-      flowerId: number
-      sender: string
-      flowerType: string
-    }[]
-  }[]
-}
+import type { BouquetInfo } from '@/types'
 
 interface CreatedBouquetProps {
-  userName: string
-  data: BouquetInfo
+  bouquetInfo: BouquetInfo
 }
 
-const CreatedBouquet = ({ userName, data }: CreatedBouquetProps) => {
+const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
   console.log(currentFlowerIndex)
 
-  const leftDays = getLeftDays(data.dday || '')
+  const leftDays = getLeftDays(bouquetInfo.dDay || '')
 
   const getImageUrl = (name: string) => {
     return new URL(`/src/assets/images/wrapping/${name}.png`, import.meta.url)
       .href
   }
 
-  const flowers = data.bouquets.reduce(
+  const flowers = bouquetInfo.bouquets.reduce(
     (acc, bouquet) => acc + bouquet.flowers.length,
     0,
   )
@@ -52,11 +32,11 @@ const CreatedBouquet = ({ userName, data }: CreatedBouquetProps) => {
     <div className="flex h-full flex-col">
       <div className="flex flex-col gap-1.5 px-6">
         <div className="font-base flex justify-between text-gray-300">
-          <h2>{`${userName} 졸업합니다.`}</h2>
+          <h2>{bouquetInfo.description}</h2>
           <h2>{`D-${leftDays}`}</h2>
         </div>
         <h1>
-          <span className="font-lg">{`꽃송이 `}</span>
+          <span className="font-lg">{`꽃송이  `}</span>
           <span className="font-xl">{flowers}</span>
           <span className="font-lg">{`개 째`}</span>
         </h1>
@@ -65,7 +45,7 @@ const CreatedBouquet = ({ userName, data }: CreatedBouquetProps) => {
         <img src={backWrapper} alt="wrapper-back" className="w-full" />
       </div>
       <MarryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
-        {data.bouquets.map((bouquet) => (
+        {bouquetInfo.bouquets.map((bouquet) => (
           <FlowerFrame flowers={bouquet.flowers} key={bouquet.bouquetId} />
         ))}
       </MarryGoRound>
