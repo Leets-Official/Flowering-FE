@@ -2,26 +2,7 @@ import { Button } from '@/components'
 import { FlowerFrame, MarryGoRound } from '../'
 import { getLeftDays } from '@/utils'
 import { useState } from 'react'
-
-interface BouquetInfo {
-  description: string | null
-  dday: string | null
-  bouquetDesign: {
-    wrapper: string
-    ribbon: string
-    item1: string | undefined
-    item2: string | undefined
-    item3: string | undefined
-  }
-  bouquets: {
-    bouquetId: number
-    flowers: {
-      flowerId: number
-      sender: string
-      flowerType: string
-    }[]
-  }[]
-}
+import type { BouquetInfo } from '@/types'
 
 interface CreatedBouquetProps {
   userName: string
@@ -32,7 +13,7 @@ const CreatedBouquet = ({ userName, data }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
   console.log(currentFlowerIndex)
 
-  const leftDays = getLeftDays(data.dday || '')
+  const leftDays = getLeftDays(data.dDay || '')
 
   const getImageUrl = (name: string) => {
     return new URL(`/src/assets/images/wrapping/${name}.png`, import.meta.url)

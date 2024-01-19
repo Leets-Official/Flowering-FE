@@ -1,28 +1,7 @@
 import { Button } from '@/components'
 import { FlowerFrame } from '../'
 import { PlusIcon } from '@/assets/Icons'
-
-interface BouquetInfo {
-  description: string | null
-  dday: string | null
-  bouquetDesign: {
-    wrapper: string
-    ribbon: string
-    item1: string | undefined
-    item2: string | undefined
-    item3: string | undefined
-  }
-  bouquets: {
-    bouquetId: number
-    flowers:
-      | {
-          flowerId: number
-          sender: string
-          flowerType: string
-        }[]
-      | []
-  }[]
-}
+import type { BouquetInfo } from '@/types'
 
 interface UncreatedBouquetProps {
   userName: string
