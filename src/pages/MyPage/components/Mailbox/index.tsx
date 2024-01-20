@@ -10,28 +10,38 @@ const Letters = ({ status }: LettersProps) => {
   if (isLoading) {
     return <p>loading</p>
   }
-  if (isError || !data || !Array.isArray(data.letterSentResponse)) {
+  if (isError || !data) {
     return <p>error</p>
   }
-  const receivers = data.letterSentResponse.map(
-    (letterSent) => letterSent.receiver,
-  )
-  const flowers = data.letterSentResponse.map(
-    (letterSent) => letterSent.flowerId,
-  )
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const receivers = data.map((LetterSent) => LetterSent.receiver)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const flowers = data.map((LetterSent) => LetterSent.flowerId)
 
   return (
     <div className="flex flex-col gap-4 overflow-y-scroll px-6 py-5">
-      {status === 'received' ? (
+      {status === 'receiver' ? (
         <div>
-          {receivers.map((receiver, index) => (
-            <Letter key={index} receiver={receiver} flowerId={flowers[index]} />
+          {receivers.map((receiver: string, index: number) => (
+            <Letter
+              status={status}
+              key={index}
+              receiver={receiver}
+              flowerId={flowers[index]}
+            />
           ))}
         </div>
       ) : (
         <div>
-          {receivers.map((receiver, index) => (
-            <Letter key={index} receiver={receiver} flowerId={flowers[index]} />
+          {receivers.map((receiver: string, index: number) => (
+            <Letter
+              status={status}
+              key={index}
+              receiver={receiver}
+              flowerId={flowers[index]}
+            />
           ))}
         </div>
       )}

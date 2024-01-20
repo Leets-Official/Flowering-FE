@@ -34,7 +34,7 @@ export interface LetterSent {
 }
 
 export interface LetterSentInfo {
-  letterSentResponse: LetterSent[]
+  letterSentInfo: LetterSent[]
 }
 
 export interface FlowerInfo {

@@ -6,12 +6,14 @@ import ReceivedLetter from '@/pages/MyPage/components/ReceivedLetter'
 interface ReceiverProps {
   receiver?: string
   flowerId: number
+  status: string
 }
-const Letter = ({ receiver, flowerId }: ReceiverProps) => {
+const Letter = ({ receiver, flowerId, status }: ReceiverProps) => {
+  console.log(status)
   const [sentModalOpen, setSentModalOpen] = useState<boolean>(false)
   const [receivedModalOpen, setReceivedModalOpen] = useState<boolean>(false)
   const openModal = () => {
-    if (receiver) {
+    if (status === 'received') {
       setReceivedModalOpen(true)
     } else {
       setSentModalOpen(true)
