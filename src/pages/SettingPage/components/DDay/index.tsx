@@ -1,45 +1,81 @@
+import { useEffect, useState } from 'react'
+import Select from './components/Select'
+
 interface DDayProps {
-  DDay: string
   setDDay: React.Dispatch<React.SetStateAction<string>>
 }
 
-const DDay = ({ DDay, setDDay }: DDayProps) => {
-  const month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const DDay = ({ setDDay }: DDayProps) => {
+  const [curClick, setCurClick] = useState<string>('')
+  const [month, setMonth] = useState<number>()
+  const [day, setDay] = useState<number>()
+
+  useEffect(() => {
+    if (month && day) setDDay(`2024-${month}-${day}`)
+  }, [month, day, setDDay])
+
+  useEffect(() => {
+    const handleGlobalClick = (event: MouseEvent) => {
+      const clickedElement = event.target as HTMLElement
+      if (
+        clickedElement.classList.contains('exclude-click') ||
+        clickedElement.closest('.exclude-click')
+      ) {
+        return
+      }
+      setCurClick('')
+    }
+
+    window.addEventListener('click', handleGlobalClick)
+
+    return () => {
+      window.removeEventListener('click', handleGlobalClick)
+    }
+  }, [])
 
   return (
-    <>
-      <div className="mx-6 mt-5 flex flex-col">
+    <div className="flex h-full flex-col">
+      <div className="mx-6 mt-5 flex h-full flex-col">
         <div className="font-lg text-[#282828]">
-          축하 받을 당일의 날짜를 <br /> 알려 주세요.
+          축하 받을 당일의 날짜를 알려 주세요.
         </div>
-        <div className="font-base mt-[12.25rem] flex w-full justify-end gap-2 border-b-2 border-solid bg-white py-1 pr-8 text-[#282828] focus:outline-none">
-          <div>2024</div>
-          <div>년도</div>
-          <div>
-            <select
-              className="w-10 pr-2 text-end"
-              style={{ appearance: 'none' }}
-            >
-              {month.map((element) => {
-                return <option key={element}>{element}</option>
-              })}
-            </select>
-            월
-          </div>
-          <div>
-            <select
-              className="w-10 pr-2 text-end"
-              style={{ appearance: 'none' }}
-            >
-              {month.map((element) => {
-                return <option key={element}>{element}</option>
-              })}
-            </select>
-            일
+        <div className="flex h-[50%] flex-col justify-end">
+          <div className="font-base flex w-full gap-2 border-b-2 border-solid bg-white py-1">
+            <div className="flex w-full justify-center gap-5 text-gray-200">
+              <div className="flex">
+                <div className="font-md">2024&nbsp;</div>
+                <div>년도</div>
+              </div>
+              <div
+                onClick={() => setCurClick('month')}
+                className="exclude-click flex cursor-pointer"
+              >
+                <div className="font-md w-10 text-end">{month}&nbsp;</div>
+                <div>월</div>
+              </div>
+              <div
+                onClick={() => setCurClick('day')}
+                className="exclude-click flex cursor-pointer"
+              >
+                <div className="font-md w-10 text-end">{day}&nbsp;</div>
+                <div>일</div>
+              </div>
+            </div>
           </div>
         </div>
+        {curClick && (
+          <div>
+            <Select
+              curClick={curClick}
+              month={month}
+              setCurClick={setCurClick}
+              setMonth={setMonth}
+              setDay={setDay}
+            />
+          </div>
+        )}
       </div>
-    </>
+    </div>
   )
 }
 

@@ -27,24 +27,29 @@ const Name = ({ name, setName }: NameProps) => {
   }
 
   return (
-    <div className=" mx-6 mt-5 flex flex-col">
+    <div className="mx-6 mt-5 flex h-full flex-col">
       <div className="font-lg text-[#282828]">꽃다발을 설명해 주세요.</div>
-      <div className="relative">
-        <input
-          type="text"
-          className="font-base mt-[12.25rem] w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
-          placeholder="꽃다발 제목"
-          onChange={handleInput}
-        />
-        {activeButton && <CheckIcon className="absolute right-2 top-[200px]" />}
+      <div className="flex h-full flex-col justify-center">
+        <div className="relative">
+          <input
+            type="text"
+            className="font-base w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
+            placeholder="꽃다발 제목"
+            onChange={handleInput}
+            value={name}
+          />
+          {activeButton && (
+            <CheckIcon className="absolute right-2 top-[200px]" />
+          )}
+        </div>
+        <ul
+          className={`font-xs mx-6 mt-2 list-disc ${
+            name.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
+          }`}
+        >
+          <li>{message}</li>
+        </ul>
       </div>
-      <ul
-        className={`font-xs mx-6 mt-2 list-disc ${
-          name.length > 10 ? 'text-[#ff7474]' : 'text-[#959595]'
-        }`}
-      >
-        <li>{message}</li>
-      </ul>
     </div>
   )
 }
