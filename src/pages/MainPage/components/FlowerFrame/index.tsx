@@ -9,11 +9,11 @@ interface FlowerFrameProps {
 }
 
 const flowerPositionOption = [
-  '-translate-x-1/2 -translate-y-1/2 z-[12]',
-  'z-[11] -translate-x-[80%] -translate-y-[65%] -rotate-[30deg] -scale-x-100',
-  'z-[11] -translate-x-[24%] -translate-y-[65%] rotate-[30deg] ',
-  'z-[10] -translate-x-[72%] -translate-y-[90%] -rotate-[15deg] -scale-x-100',
-  'z-[10] -translate-x-[28%] -translate-y-[90%] rotate-[15deg]',
+  '-translate-x-1/2 -translate-y-1/3 z-[12]',
+  'z-[11] -translate-x-[calc(50%+2.9rem)] -translate-y-[calc(33%+4.5rem)] -rotate-[30deg] -scale-x-100',
+  'z-[11] -translate-x-[calc(50%-2.1rem)] -translate-y-[calc(33%+4.5rem)] rotate-[30deg] ',
+  'z-[10] -translate-x-[calc(50%+2.65rem)] -translate-y-[calc(33%+8.25rem)] -rotate-[15deg] -scale-x-100',
+  'z-[10] -translate-x-[calc(50%-1.6rem)] -translate-y-[calc(33%+8.25rem)] rotate-[15deg]',
 ]
 
 const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
@@ -27,7 +27,7 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
       {flowers.map(({ flowerId, flowerType }, idx) => (
         <div
           key={flowerId || idx}
-          className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[1/1.5] w-[50vw] justify-center desktop:h-[270px] desktop:w-[180px]`}
+          className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
         >
           <img
             src={getImageUrl(flowerType)}
