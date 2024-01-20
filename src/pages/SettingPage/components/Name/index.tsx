@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { CheckIcon } from '@/assets/Icons'
 
 interface NameProps {
@@ -26,6 +26,13 @@ const Name = ({ name, setName }: NameProps) => {
     }
   }
 
+  useEffect(() => {
+    if (name) {
+      setMessage('가능한 제목입니다.')
+      setActiveButton(true)
+    }
+  }, [name, setMessage])
+
   return (
     <div className="mx-6 mt-5 flex h-full flex-col">
       <div className="font-lg text-[#282828]">꽃다발을 설명해 주세요.</div>
@@ -39,7 +46,7 @@ const Name = ({ name, setName }: NameProps) => {
             value={name}
           />
           {activeButton && (
-            <CheckIcon className="absolute right-2 top-[200px]" />
+            <CheckIcon className="absolute right-2 top-[0.5rem]" />
           )}
         </div>
         <ul
