@@ -1,16 +1,10 @@
 import { Button } from '@/components'
-import { FlowerFrame } from '../'
 import { PlusIcon } from '@/assets/Icons'
-import { WrapperFrontImage, WrapperBackImage } from '@/assets/images'
 
 const UncreatedBouquet = () => {
-  const flowers = [
-    { flowerType: 'flower1' },
-    { flowerType: 'flower1' },
-    { flowerType: 'flower1' },
-    { flowerType: 'flower1' },
-    { flowerType: 'flower1' },
-  ]
+  const getImageUrl = (name: string) => {
+    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
+  }
 
   return (
     <div className="flex h-full flex-col">
@@ -24,15 +18,12 @@ const UncreatedBouquet = () => {
           <span className="font-lg">{`개 째`}</span>
         </h1>
       </div>
-      <div className="relative h-full w-full">
-        <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-1/2 -translate-y-[60%]">
-          <WrapperBackImage className="h-full w-full" />
-        </div>
-        <FlowerFrame flowers={flowers} />
-        <div className="absolute left-1/2 top-1/2 z-20 w-[70%] -translate-x-1/2 -translate-y-[15%]">
-          <WrapperFrontImage className="h-full w-full object-contain" />
-        </div>
-        <div className="absolute bottom-0 z-20 h-full w-full bg-white opacity-50" />
+      <div className="relative flex h-full w-full items-center justify-center">
+        <img
+          src={getImageUrl('flower_blur')}
+          alt="flower_blur"
+          className="w-full object-contain"
+        />
       </div>
       <PlusIcon className="absolute left-1/2 top-1/2 z-40 -translate-x-1/2 -translate-y-1/2" />
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
