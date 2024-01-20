@@ -17,3 +17,30 @@ export interface BouquetInfo {
     }[]
   }[]
 }
+
+export interface LoginInfo {
+  userId: string
+  email: string
+  nickname: string
+  token: {
+    accessToken: string
+    refreshToken: string
+  }
+}
+export interface LetterSent {
+  flowerId: 0
+  receiver: 'string'
+  letterType: 'string'
+}
+
+export interface LetterSentInfo {
+  letterSentResponse: LetterSent[]
+}
+
+export interface FlowerInfo {
+  flowerResponse: {
+    letter: 'string'
+    flowerType: 'string'
+    cardType: 'string'
+  }
+}

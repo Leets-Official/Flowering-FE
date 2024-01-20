@@ -3,7 +3,7 @@ export const PATH = {
   LOGIN: '/login',
   COIN: '/coin',
   LOGINOAUTH: '/oauth',
-  NICKNAME: '/nickname',
+  SIGNUP: '/signup',
   MYPAGE: '/mypage',
   COLLECTION: '/collection',
   ITEM: '/item/:itemId',
