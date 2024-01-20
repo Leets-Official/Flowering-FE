@@ -1,10 +1,9 @@
-<svg width="224" height="307" viewBox="0 0 224 307" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M112.232 306.141C112.232 306.141 -0.202019 206.789 0.000272646 160.653C0.377883 73.9308 111.908 0 111.908 0C111.908 0 224.153 81.1863 223.816 159.675C223.613 205.515 112.238 306.141 112.238 306.141H112.232Z" fill="url(#paint0_linear_837_124)"/>
+<svg width="231" height="314" viewBox="0 0 231 314" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M115.357 314C115.357 314 -0.183186 212.097 0.0246942 164.777C0.412738 75.8286 115.024 0 115.024 0C115.024 0 230.37 83.2704 230.024 163.774C229.816 210.79 115.364 314 115.364 314H115.357Z" fill="url(#paint0_linear_868_5045)"/>
 <defs>
-<linearGradient id="paint0_linear_837_124" x1="108.506" y1="2.30919" x2="111.436" y2="708.592" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_868_5045" x1="121.14" y1="-11.3445" x2="114.679" y2="726.86" gradientUnits="userSpaceOnUse">
 <stop stop-color="white"/>
-<stop offset="0.95" stop-color="#E2E2E2"/>
-<stop offset="1" stop-color="#D4D4D4"/>
+<stop offset="1" stop-color="#DADADA"/>
 </linearGradient>
 </defs>
 </svg>

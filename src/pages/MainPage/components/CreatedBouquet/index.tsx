@@ -2,7 +2,11 @@ import { Button } from '@/components'
 import { FlowerFrame, MarryGoRound } from '../'
 import { getLeftDays } from '@/utils'
 import { useState } from 'react'
-import { WrapperFrontImage, WrapperBackImage } from '@/assets/images'
+import {
+  WrapperBackImage,
+  WrapperFrontLeftImage,
+  WrapperFrontRightImage,
+} from '@/assets/images'
 import type { BouquetInfo } from '@/types'
 
 interface CreatedBouquetProps {
@@ -33,16 +37,24 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
           <span className="font-lg">{`개 째`}</span>
         </h1>
       </div>
-      <div className="relative h-full w-full ">
+      <div className="relative h-full w-full">
         <MarryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
           {bouquetInfo.bouquets.map((bouquet) => (
-            <div key={bouquet.bouquetId} className="relative h-full w-full">
-              <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-1/2 -translate-y-[60%]">
-                <WrapperBackImage className="h-full w-full" />
-              </div>
+            <div
+              key={bouquet.bouquetId}
+              className="relative flex h-full w-full items-center justify-center"
+            >
               <FlowerFrame flowers={bouquet.flowers} />
-              <div className="absolute left-1/2 top-1/2 z-20 w-[70%] -translate-x-1/2 -translate-y-[15%]">
-                <WrapperFrontImage className="h-full w-full object-contain" />
+              <div className="relative h-full w-[70%]">
+                <div className="absolute left-1/2 top-1/2 z-[15] w-full -translate-x-[61.8%] -translate-y-[28%]">
+                  <WrapperFrontLeftImage className="h-full w-full" />
+                </div>
+                <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[50%] -translate-y-[13%]">
+                  <WrapperFrontRightImage className="h-full w-full" />
+                </div>
+              </div>
+              <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-1/2 -translate-y-[62%]">
+                <WrapperBackImage className="h-full w-full" />
               </div>
             </div>
           ))}
