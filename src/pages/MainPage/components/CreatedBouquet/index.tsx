@@ -24,6 +24,10 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
     0,
   )
 
+  const getImageUrl = (name: string) => {
+    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
+  }
+
   return (
     <div className="flex h-full flex-col">
       <div className="flex flex-col gap-1.5 px-6">
@@ -46,11 +50,21 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
             >
               <FlowerFrame flowers={bouquet.flowers} />
               <div className="relative h-full w-[70%]">
-                <div className="absolute left-1/2 top-1/2 z-[15] w-full -translate-x-[61.8%] -translate-y-[28%]">
+                <div className="absolute left-1/2 top-1/2 z-[15] w-full -translate-x-[61%] -translate-y-[32%]">
                   <WrapperFrontLeftImage className="h-full w-full" />
                 </div>
-                <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[50%] -translate-y-[13%]">
+                <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[48.6%] -translate-y-[16%]">
                   <WrapperFrontRightImage className="h-full w-full" />
+                </div>
+                <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
+                  <p className="font-bodoni absolute left-1/3 top-1/3 -translate-x-[80%] -translate-y-[25%] -rotate-[5deg] text-sm">
+                    1st
+                  </p>
+                  <img
+                    src={getImageUrl('flower_card')}
+                    alt="flower_card"
+                    className="w-full"
+                  />
                 </div>
               </div>
               <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-1/2 -translate-y-[62%]">
