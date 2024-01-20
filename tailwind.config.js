@@ -9,6 +9,8 @@ export default withMT({
         bodoni: ['Bodoni72C'],
       },
       screens: {
+        sm: '300px',
+        md: '400px',
         desktop: '500px',
       },
       colors: {

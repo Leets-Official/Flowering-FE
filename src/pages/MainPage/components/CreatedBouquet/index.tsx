@@ -1,7 +1,7 @@
 import { Button } from '@/components'
 import { FlowerFrame, MarryGoRound } from '../'
 import { getLeftDays } from '@/utils'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import {
   WrapperBackImage,
   WrapperFrontLeftImage,
@@ -15,13 +15,21 @@ interface CreatedBouquetProps {
 
 const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
-  console.log(currentFlowerIndex)
 
-  const leftDays = getLeftDays(bouquetInfo.dDay || '')
+  const ordinalNum = ['st', 'nd', 'rd']
 
-  const flowers = bouquetInfo.bouquets.reduce(
-    (acc, bouquet) => acc + bouquet.flowers.length,
-    0,
+  const leftDays = useMemo(
+    () => getLeftDays(bouquetInfo.dDay || ''),
+    [bouquetInfo.dDay],
+  )
+
+  const flowers = useMemo(
+    () =>
+      bouquetInfo.bouquets.reduce(
+        (acc, bouquet) => acc + bouquet.flowers.length,
+        0,
+      ),
+    [bouquetInfo.bouquets],
   )
 
   const getImageUrl = (name: string) => {
@@ -57,8 +65,13 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                   <WrapperFrontRightImage className="h-full w-full" />
                 </div>
                 <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
-                  <p className="font-bodoni absolute left-1/3 top-1/3 -translate-x-[80%] -translate-y-[25%] -rotate-[5deg] text-sm">
-                    1st
+                  <p className="font-bodoni absolute left-1/3 top-1/3  flex -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+                    <span>{currentFlowerIndex + 1}</span>
+                    <span>
+                      {ordinalNum[currentFlowerIndex]
+                        ? ordinalNum[currentFlowerIndex]
+                        : 'th'}
+                    </span>
                   </p>
                   <img
                     src={getImageUrl('flower_card')}
