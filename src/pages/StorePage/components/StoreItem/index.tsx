@@ -6,8 +6,9 @@ import { useState } from 'react'
 interface StoreItemProps {
   itemId: number
   coin?: string
+  itemName: string
 }
-const StoreItem = ({ itemId, coin }: StoreItemProps) => {
+const StoreItem = ({ itemId, coin, itemName }: StoreItemProps) => {
   const navigate = useNavigate()
   const [itemNum, setItemNum] = useState<number>(0)
   const maxAllowedQuantity = coin ? Math.round(3000 / parseInt(coin, 10)) : 0
@@ -32,12 +33,13 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
           {<Item id={itemId} />}
         </div>
         <div className=" flex flex-col items-center" key="content">
-          <p className="font-lg">포인세티아</p>
+          <p className="font-lg">{itemName}</p>
           <div className="font-xs flex items-center gap-1">
             <CoinIcon className="h-[14px] w-[14px]" />
             <p>{coin} 코인</p>
           </div>
-          <FlowerIcon className="my-16 rotate-45" />
+          {/*사진 추후 변경 예정*/}
+          <Item id={itemId} />
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${

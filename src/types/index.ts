@@ -44,3 +44,28 @@ export interface FlowerInfo {
     cardType: 'string'
   }
 }
+
+export interface DecoItemInfo {
+  itemId: number
+  itemName: string
+  price: number
+}
+
+export interface FlowerItemInfo {
+  itemId: number
+  flowerName: string
+  price: number
+}
+
+export interface LetterItemInfo {
+  itemId: number
+  letterName: string
+  price: number
+}
+export interface StoreInfo {
+  storeResponse: {
+    decoItems: DecoItemInfo[]
+    flowerItems: FlowerItemInfo[]
+    letterItems: LetterItemInfo[]
+  }
+}

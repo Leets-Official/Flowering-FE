@@ -2,30 +2,44 @@ import Header from '@/components/Header'
 import { CoinIcon } from '@/assets/Icons'
 import StoreItem from '@/pages/StorePage/components/StoreItem'
 import { ICONS } from '@/constants'
+import useGetStore from '@/apis/hooks/useGetStore.ts'
+import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
 
 const StorePage = () => {
-  const items1 = [
-    <StoreItem key={1} itemId={1} coin="300" />,
-    <StoreItem key={2} itemId={1} coin="200" />,
-  ]
+  const { isLoading, isError, data } = useGetStore()
+  if (isLoading) {
+    return <p>loading</p>
+  }
+  if (isError || !data) {
+    return <p>error</p>
+  }
+  const { decoItems, flowerItems, letterItems } = data.storeResponse
+  const items1 = decoItems.map((item: DecoItemInfo) => (
+    <StoreItem
+      itemName={item.itemName}
+      key={item.itemId}
+      itemId={item.itemId}
+      coin={`${item.price}`}
+    />
+  ))
 
-  const items2 = [
-    <StoreItem key={1} itemId={1} coin="FREE" />,
-    <StoreItem key={2} itemId={1} coin="FREE" />,
-    <StoreItem key={3} itemId={1} coin="FREE" />,
-    <StoreItem key={4} itemId={1} coin="300" />,
-    <StoreItem key={5} itemId={1} coin="200" />,
-    <StoreItem key={6} itemId={1} coin="900" />,
-  ]
+  const items2 = flowerItems.map((item: FlowerItemInfo) => (
+    <StoreItem
+      itemName={item.flowerName}
+      key={item.itemId}
+      itemId={item.itemId}
+      coin={`${item.price}`}
+    />
+  ))
 
-  const items3 = [
-    <StoreItem key={1} itemId={1} coin="300" />,
-    <StoreItem key={2} itemId={1} coin="200" />,
-    <StoreItem key={3} itemId={1} coin="900" />,
-    <StoreItem key={4} itemId={1} coin="300" />,
-    <StoreItem key={5} itemId={1} coin="200" />,
-    <StoreItem key={6} itemId={1} coin="900" />,
-  ]
+  const items3 = letterItems.map((item: LetterItemInfo) => (
+    <StoreItem
+      itemName={item.letterName}
+      key={item.itemId}
+      itemId={item.itemId}
+      coin={`${item.price}`}
+    />
+  ))
 
   return (
     <div className="flex flex-col overflow-hidden">
