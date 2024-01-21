@@ -4,7 +4,7 @@ import { DDay, Name, Ribbon, Wrapper } from './components'
 import { useEffect, useState } from 'react'
 import { Button, Header } from '@/components'
 
-const SettingPage = () => {
+const CreateBouquetPage = () => {
   const navigate = useNavigate()
   const [step, setStep] = useState(1)
   const [wrapper, setWrapper] = useState('')
@@ -17,7 +17,9 @@ const SettingPage = () => {
     if (step === 1) setStep(2)
     else if (step === 2) setStep(3)
     else if (step === 3) setStep(4)
-    else if (step === 4) navigate(`/${localStorage.getItem('userId')}`)
+    else if (step === 4) {
+      navigate(`/${localStorage.getItem('userId')}`)
+    }
     setActiveButton(false)
   }
 
@@ -67,4 +69,4 @@ const SettingPage = () => {
   )
 }
 
-export default SettingPage
+export default CreateBouquetPage

@@ -6,7 +6,7 @@ interface DDayProps {
 }
 
 const DDay = ({ setDDay }: DDayProps) => {
-  const [curClick, setCurClick] = useState<string>('')
+  const [currentClicked, setCurrentClicked] = useState<string>('')
   const [month, setMonth] = useState<number>()
   const [day, setDay] = useState<number>()
 
@@ -23,7 +23,7 @@ const DDay = ({ setDDay }: DDayProps) => {
       ) {
         return
       }
-      setCurClick('')
+      setCurrentClicked('')
     }
 
     window.addEventListener('click', handleGlobalClick)
@@ -47,14 +47,14 @@ const DDay = ({ setDDay }: DDayProps) => {
                 <div>년도</div>
               </div>
               <div
-                onClick={() => setCurClick('month')}
+                onClick={() => setCurrentClicked('month')}
                 className="exclude-click flex cursor-pointer"
               >
                 <div className="font-md w-10 text-end">{month}&nbsp;</div>
                 <div>월</div>
               </div>
               <div
-                onClick={() => setCurClick('day')}
+                onClick={() => setCurrentClicked('day')}
                 className="exclude-click flex cursor-pointer"
               >
                 <div className="font-md w-10 text-end">{day}&nbsp;</div>
@@ -63,12 +63,12 @@ const DDay = ({ setDDay }: DDayProps) => {
             </div>
           </div>
         </div>
-        {curClick && (
+        {currentClicked && (
           <div>
             <Select
-              curClick={curClick}
+              currentClicked={currentClicked}
               month={month}
-              setCurClick={setCurClick}
+              setCurrentClicked={setCurrentClicked}
               setMonth={setMonth}
               setDay={setDay}
             />

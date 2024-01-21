@@ -9,7 +9,7 @@ import {
   CollectionPage,
   StorePage,
   PurchasePage,
-  SettingPage,
+  CreateBouquetPage,
   WritePage,
   ItemPage,
 } from '@/pages'
@@ -62,8 +62,8 @@ const router = createBrowserRouter([
         element: <PurchasePage />,
       },
       {
-        path: PATH.SETTING,
-        element: <SettingPage />,
+        path: PATH.CREATE_BOUQUET,
+        element: <CreateBouquetPage />,
       },
       {
         path: PATH.WRITE,

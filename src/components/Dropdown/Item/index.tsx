@@ -7,7 +7,7 @@ interface ItemProps
 
 const Item = ({ className = '', children, ...props }: ItemProps) => {
   return (
-    <li tabIndex={0} className={`${className} my-1`}>
+    <li tabIndex={0} className={`${className}`}>
       <a {...props}>{children}</a>
     </li>
   )

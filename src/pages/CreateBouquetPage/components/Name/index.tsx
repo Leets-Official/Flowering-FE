@@ -27,7 +27,7 @@ const Name = ({ name, setName }: NameProps) => {
   }
 
   useEffect(() => {
-    if (name) {
+    if (name && name.length < 10) {
       setMessage('가능한 제목입니다.')
       setActiveButton(true)
     }
