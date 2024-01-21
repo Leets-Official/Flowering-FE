@@ -44,3 +44,8 @@ export interface FlowerInfo {
     cardType: 'string'
   }
 }
+export interface WriteLetterInfo {
+  letter: string
+  cardType: string
+  flowerType: string
+}
