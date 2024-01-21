@@ -58,10 +58,10 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
             >
               <FlowerFrame flowers={bouquet.flowers} />
               <div className="relative h-full w-[70%]">
-                <div className="absolute left-1/2 top-1/2 z-[15] w-full -translate-x-[61%] -translate-y-[32%]">
+                <div className="absolute left-1/2 top-1/2 z-[15] w-full -translate-x-[60.5%] -translate-y-[32%]">
                   <WrapperFrontLeftImage className="h-full w-full" />
                 </div>
-                <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[48.6%] -translate-y-[16%]">
+                <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[48.5%] -translate-y-[16%]">
                   <WrapperFrontRightImage className="h-full w-full" />
                 </div>
                 <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
@@ -80,7 +80,7 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                   />
                 </div>
               </div>
-              <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-1/2 -translate-y-[62%]">
+              <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[62%]">
                 <WrapperBackImage className="h-full w-full" />
               </div>
             </div>
