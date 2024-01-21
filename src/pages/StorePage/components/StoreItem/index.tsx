@@ -1,5 +1,5 @@
 import { Button, Item, Modal } from '@/components'
-import { CoinIcon, FlowerIcon } from '@/assets/Icons'
+import { CoinIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 

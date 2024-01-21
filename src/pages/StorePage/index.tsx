@@ -14,6 +14,7 @@ const StorePage = () => {
     return <p>error</p>
   }
   const { decoItems, flowerItems, letterItems } = data.storeResponse
+  //보유코인  StoreItem으로 넘겨줘야함
   const items1 = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
       itemName={item.itemName}
@@ -48,6 +49,7 @@ const StorePage = () => {
         <p className="font-xl">SHOP</p>
         <div className="flex h-full w-[70px] items-center justify-center gap-1 rounded-[18px] border border-[#959595] py-1">
           <CoinIcon className="h-[13px] w-[13px]" />
+          {/*user api - coin*/}
           <p className="font-xs">3000</p>
         </div>
       </div>
