@@ -1,5 +1,5 @@
 import { Button } from '@/components'
-import { FlowerFrame, MarryGoRound } from '../'
+import { FlowerFrame, MarryGoRound, Ribbons } from '../'
 import { getLeftDays } from '@/utils'
 import { useState, useMemo } from 'react'
 import {
@@ -65,6 +65,7 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                     </div>
                     <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[48.5%] -translate-y-[16%]">
                       <WrapperFrontRightImage className="h-full w-full" />
+                      <Ribbons ribbon={bouquetInfo.bouquetDesign.ribbon} />
                     </div>
                     <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
                       <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
