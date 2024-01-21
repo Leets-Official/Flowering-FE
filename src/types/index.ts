@@ -69,3 +69,14 @@ export interface StoreInfo {
     letterItems: LetterItemInfo[]
   }
 }
+export interface StoreFlowerInfo {
+  flowerItemId: number
+  count: number
+}
+export interface StoreDecoInfo {
+  decoId: number
+}
+export interface StoreCardInfo {
+  cardId: number
+  count: number
+}

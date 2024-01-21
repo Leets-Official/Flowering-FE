@@ -2,17 +2,52 @@ import { Button, Item, Modal } from '@/components'
 import { CoinIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
+import {
+  usePostStoreCard,
+  usePostStoreDeco,
+  usePostStoreFlower,
+} from '@/apis/hooks'
 
 interface StoreItemProps {
+  type: string
   itemId: number
-  coin?: string
+  coin: string
   itemName: string
 }
-const StoreItem = ({ itemId, coin, itemName }: StoreItemProps) => {
+const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
   const navigate = useNavigate()
   const [itemNum, setItemNum] = useState<number>(0)
   const maxAllowedQuantity = coin ? Math.round(3000 / parseInt(coin, 10)) : 0
-
+  const storeFlowerMutation = useMutation({
+    mutationFn: usePostStoreFlower,
+    onSuccess: () => {
+      navigate('/store/purchase')
+    },
+  })
+  const storeCardMutation = useMutation({
+    mutationFn: usePostStoreCard,
+    onSuccess: () => {
+      navigate('/store/purchase')
+    },
+  })
+  const storeDecoMutation = useMutation({
+    mutationFn: usePostStoreDeco,
+    onSuccess: () => {
+      navigate('/store/purchase')
+    },
+  })
+  const onPurchaseButton = () => {
+    if (type === 'flower' && itemNum > 0) {
+      storeFlowerMutation.mutate({ flowerItemId: itemId, count: itemNum })
+    }
+    if (type === 'card' && itemNum > 0) {
+      storeCardMutation.mutate({ cardId: itemId, count: itemNum })
+    }
+    if (type === 'deco' && itemNum > 0) {
+      storeDecoMutation.mutate({ decoId: itemId })
+    }
+  }
   const itemNumHandler = (amount: number) => {
     setItemNum((prevItemNum) => {
       const newItemNum = Math.max(0, prevItemNum + amount)
@@ -61,7 +96,7 @@ const StoreItem = ({ itemId, coin, itemName }: StoreItemProps) => {
           </div>
         </div>
         {itemNum > 0 ? (
-          <Button key="btn" onClick={() => navigate('/store/purchase')}>
+          <Button key="btn" onClick={onPurchaseButton}>
             구매하기
           </Button>
         ) : (

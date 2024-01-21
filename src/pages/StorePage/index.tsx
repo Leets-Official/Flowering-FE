@@ -17,6 +17,7 @@ const StorePage = () => {
   //보유코인  StoreItem으로 넘겨줘야함
   const items1 = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
+      type="deco"
       itemName={item.itemName}
       key={item.itemId}
       itemId={item.itemId}
@@ -26,6 +27,7 @@ const StorePage = () => {
 
   const items2 = flowerItems.map((item: FlowerItemInfo) => (
     <StoreItem
+      type="flower"
       itemName={item.flowerName}
       key={item.itemId}
       itemId={item.itemId}
@@ -35,6 +37,7 @@ const StorePage = () => {
 
   const items3 = letterItems.map((item: LetterItemInfo) => (
     <StoreItem
+      type="card"
       itemName={item.letterName}
       key={item.itemId}
       itemId={item.itemId}
