@@ -11,4 +11,5 @@ export const PATH = {
   CREATE_BOUQUET: '/create-bouquet',
   PURCHASE: '/store/purchase',
   WRITE: '/write',
+  DECORATE_BOUQUET: '/decorate-bouquet',
 }
