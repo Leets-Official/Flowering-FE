@@ -8,7 +8,9 @@ interface CollectionProps {
 
 interface DataProps {
   id: number
-  Type: string
+  type: string
+  owned: boolean
+  amount: number
 }
 
 const Content = ({ ItemType, data }: CollectionProps) => {
