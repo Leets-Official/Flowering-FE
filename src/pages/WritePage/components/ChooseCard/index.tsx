@@ -7,7 +7,7 @@ interface ChooseCardProps {
   setSelectedCard: React.Dispatch<React.SetStateAction<string>>
 }
 const ChooseCard = ({ setSelectedCard }: ChooseCardProps) => {
-  const cards = ['card15', 'bluePaper', 'yellowPaper']
+  const cards = ['향기-카드', 'bluePaper', 'yellowPaper']
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(
     null,
   )

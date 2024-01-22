@@ -8,6 +8,7 @@ const usePostWriteLetter = (onSuccessCallback: () => void) => {
   const writeLetterMutation = useMutation({
     mutationFn: writeLetter,
     onSuccess: () => {
+      onSuccessCallback()
       navigate('/write')
     },
   })

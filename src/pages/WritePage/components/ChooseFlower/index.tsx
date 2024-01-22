@@ -11,7 +11,7 @@ const ChooseFlower = ({
   selectedFlower,
   setSelectedFlower,
 }: ChooseFlowerProps) => {
-  const flowers = ['rose', '장미', '튤립', '해바라기', '코스모스']
+  const flowers = ['화양연화', '장미', '튤립', '해바라기', '코스모스']
   const [selectedFlowerIndex, setSelectedFlowerIndex] = useState<number | null>(
     null,
   )
