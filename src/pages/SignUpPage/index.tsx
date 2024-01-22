@@ -31,8 +31,10 @@ const SignUpPage = () => {
         accessToken: localStorage.getItem('kakaoToken'),
         nickname,
       })
-      console.log(res)
-      navigate(`/login`)
+      localStorage.setItem('accessToken', res.data.token.accessToken)
+      localStorage.setItem('refreshToken', res.data.token.refreshToken)
+      localStorage.setItem('email', res.data.email)
+      navigate(`/?${res.data.userId}`)
     } catch (err) {
       console.log(err)
     }
