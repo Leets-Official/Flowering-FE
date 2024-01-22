@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react'
 import { ICONS } from '@/constants'
 import { CreatedBouquet, UncreatedBouquet } from './components'
 import { useGetBouquet, useGetUser } from '@/apis/hooks'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 
 const MainPage = () => {
+  const navigator = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
 
@@ -24,6 +25,10 @@ const MainPage = () => {
     }
   }, [address, setSearchParams, userId])
 
+  const onDecoBouquet = () => {
+    navigator('/decorate-bouquet', { state: bouquetInfo })
+  }
+
   return (
     <>
       <main className="flex h-screen flex-col">
@@ -31,6 +36,7 @@ const MainPage = () => {
           leftIcon={ICONS.DRAW}
           rightIcon={ICONS.SIDEBAR}
           setSidebarOpen={setSidebarOpen}
+          onDecoBouquet={onDecoBouquet}
         />
         {bouquetInfo.bouquetDesign ? (
           <CreatedBouquet bouquetInfo={bouquetInfo} />
