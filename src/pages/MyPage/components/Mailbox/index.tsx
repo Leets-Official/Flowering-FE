@@ -42,6 +42,7 @@ const Letters = ({ status }: LettersProps) => {
   const flowersReceived = sentData.map(
     (letterReceived: any) => letterReceived.flowerId,
   )
+
   return (
     <div className="flex flex-col overflow-y-scroll px-6 py-5">
       {status === 'received' ? (

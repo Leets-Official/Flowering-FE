@@ -30,7 +30,7 @@ export interface LoginInfo {
 export interface LetterSent {
   flowerId: number
   receiver: string
-  letterType: string
+  flowerType: string
 }
 
 export interface LetterSentInfo {
