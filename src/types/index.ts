@@ -48,3 +48,16 @@ export interface FlowerInfo {
     cardType: 'string'
   }
 }
+
+export interface UserInfo {
+  code: number
+  message: string
+  data: {
+    userId: string
+    email: string
+    nickname: string
+    description: string
+    coin: number
+    dday: string
+  }
+}

@@ -4,6 +4,7 @@ import { DDay, Name, Ribbon, Wrapper } from './components'
 import { useEffect, useState } from 'react'
 import { Button, Header } from '@/components'
 import { usePostBouquet } from '@/apis/hooks'
+import useGetUserInfo from '@/apis/hooks/useGetUserInfo'
 
 const CreateBouquetPage = () => {
   const navigate = useNavigate()
@@ -13,6 +14,7 @@ const CreateBouquetPage = () => {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [activeButton, setActiveButton] = useState(false)
+  const { data: userInfo } = useGetUserInfo()
   const { mutate: postBouquet } = usePostBouquet()
 
   const handleClick = () => {
@@ -24,9 +26,9 @@ const CreateBouquetPage = () => {
       postBouquet(props, {
         onSuccess: (data) => {
           console.log(data)
+          navigate(`/?${userInfo?.data.userId}`)
         },
       })
-      navigate('/create-bouquet')
     }
     setActiveButton(false)
   }
