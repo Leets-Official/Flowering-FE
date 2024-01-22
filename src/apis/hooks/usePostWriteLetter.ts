@@ -7,7 +7,7 @@ const usePostWriteLetter = async ({
   flowerType,
 }: WriteLetterInfo) => {
   //메인페이지 url에 있음
-  const userId = 'b1f9275f-1f65-4927-8654-0bef0616b89c'
+  const userId = '0d14b366-9da6-418a-9013-d9cfed398267'
   try {
     const res = await apiClient.post(`/flower/${userId}`, {
       letter,
