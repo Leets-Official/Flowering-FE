@@ -26,7 +26,7 @@ const CreateBouquetPage = () => {
           console.log(data)
         },
       })
-      navigate(`/${localStorage.getItem('userId')}`)
+      navigate('/create-bouquet')
     }
     setActiveButton(false)
   }

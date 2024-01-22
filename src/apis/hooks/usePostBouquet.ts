@@ -10,7 +10,7 @@ interface CreateBouquetProps {
 
 const usePostBouquet = () => {
   const postBouquet = async (data: CreateBouquetProps) => {
-    return await apiClient.post(`/bouquet`, data)
+    return await apiClient.post('/bouquet', data)
   }
 
   return useMutation({ mutationFn: postBouquet })
