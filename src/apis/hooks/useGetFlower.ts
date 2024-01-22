@@ -3,7 +3,7 @@ import { FlowerInfo } from '@/types'
 import { flower } from '@/apis/service'
 
 const useGetFlower = ({ id }: { id: number }) => {
-  const queryKey = ['flower']
+  const queryKey = ['flower', { id }]
   const { isLoading, isError, data } = useQuery<FlowerInfo, Error>({
     queryKey,
     queryFn: () => flower({ id: id }),

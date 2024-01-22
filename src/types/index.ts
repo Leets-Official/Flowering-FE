@@ -37,6 +37,16 @@ export interface LetterSentInfo {
   letterSentInfo: LetterSent[]
 }
 
+export interface LetterReceived {
+  flowerId: number
+  sender: string
+  flowerType: string
+}
+
+export interface LetterReceivedInfo {
+  letterReceivedInfo: LetterReceived[]
+}
+
 export interface FlowerInfo {
   flowerResponse: {
     letter: string
