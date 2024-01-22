@@ -6,7 +6,7 @@ const useGetUser = () => {
   const getUserInfo = async () => {
     const response = await apiClient.get<UserInfo>(`/user/by-token`)
 
-    return response.data
+    return response.data.data
   }
 
   return useSuspenseQuery({
