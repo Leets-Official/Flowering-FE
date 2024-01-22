@@ -3,6 +3,7 @@ import { ICONS } from '@/constants'
 import { DDay, Name, Ribbon, Wrapper } from './components'
 import { useEffect, useState } from 'react'
 import { Button, Header } from '@/components'
+import { usePostBouquet } from '@/apis/hooks'
 
 const CreateBouquetPage = () => {
   const navigate = useNavigate()
@@ -12,12 +13,19 @@ const CreateBouquetPage = () => {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [activeButton, setActiveButton] = useState(false)
+  const { mutate: postBouquet } = usePostBouquet()
 
   const handleClick = () => {
     if (step === 1) setStep(2)
     else if (step === 2) setStep(3)
     else if (step === 3) setStep(4)
     else if (step === 4) {
+      const props = { bouquetName: name, wrapper, ribbon, dday: date }
+      postBouquet(props, {
+        onSuccess: (data) => {
+          console.log(data)
+        },
+      })
       navigate(`/${localStorage.getItem('userId')}`)
     }
     setActiveButton(false)

@@ -1,7 +1,5 @@
 import black from '@/assets/images/create_bouquet/color/black.png'
 import white from '@/assets/images/create_bouquet/color/white.png'
-import black_wrapper from '@/assets/images/create_bouquet/wrapper/black_wrapper.png'
-import white_wrapper from '@/assets/images/create_bouquet/wrapper/white_wrapper.png'
 
 interface WrapperProps {
   wrapper: string
@@ -9,6 +7,13 @@ interface WrapperProps {
 }
 
 const Wrapper = ({ wrapper, setWrapper }: WrapperProps) => {
+  const getWrapperImageUrl = (wrapper: string) => {
+    return new URL(
+      `/src/assets/images/create_bouquet/wrapper/${wrapper}_wrapper.png`,
+      import.meta.url,
+    ).href
+  }
+
   return (
     <div className="flex h-full flex-col">
       <div className="mx-6 mt-5 flex flex-col gap-1">
@@ -18,12 +23,12 @@ const Wrapper = ({ wrapper, setWrapper }: WrapperProps) => {
         </div>
       </div>
       <div className="mx-6 flex h-full flex-col justify-center ">
-        <div className="h-[60%] w-full rounded-[1.5rem] border border-black">
-          {wrapper == 'black' && (
-            <img src={black_wrapper} className="aspect-auto" />
-          )}
-          {wrapper == 'white' && (
-            <img src={white_wrapper} className="aspect-auto" />
+        <div className="flex h-[60%] w-full justify-center rounded-[1.5rem] border border-black">
+          {wrapper && (
+            <img
+              src={getWrapperImageUrl(wrapper)}
+              className="aspect-auto h-full"
+            />
           )}
         </div>
         <div className="w-hull mt-4 flex h-[56px] flex-nowrap justify-center gap-5 overflow-x-auto scrollbar-hide">
