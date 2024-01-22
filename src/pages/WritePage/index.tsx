@@ -3,7 +3,6 @@ import { ICONS } from '@/constants'
 import { ChooseFlower, ChooseCard, WriteLetter } from './components'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useMutation } from '@tanstack/react-query'
 import usePostWriteLetter from '@/apis/hooks/usePostWriteLetter.ts'
 
 const WritePage = () => {
@@ -14,12 +13,7 @@ const WritePage = () => {
   const [selectedCard, setSelectedCard] = useState('redPaper')
   const [letter, setLetter] = useState('')
 
-  const writeLetterMutation = useMutation({
-    mutationFn: usePostWriteLetter,
-    onSuccess: () => {
-      navigate('/write')
-    },
-  })
+  const { writeLetterMutation } = usePostWriteLetter(() => {})
   const handleNextClick = () => {
     if (currentStep === 1) {
       setCurrentStep(2)
