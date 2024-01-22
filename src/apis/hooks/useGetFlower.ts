@@ -4,12 +4,12 @@ import { flower } from '@/apis/service'
 
 const useGetFlower = ({ id }: { id: number }) => {
   const queryKey = ['flower', { id }]
-  const { isLoading, isError, data } = useQuery<FlowerInfo, Error>({
+  const { data } = useQuery<FlowerInfo, Error>({
     queryKey,
     queryFn: () => flower({ id: id }),
   })
 
-  return { isLoading, isError, data }
+  return { data }
 }
 
 export default useGetFlower

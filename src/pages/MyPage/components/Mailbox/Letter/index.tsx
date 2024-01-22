@@ -43,12 +43,16 @@ const Letter = ({ receiver, flowerId, status, sender }: LetterProps) => {
         </div>
       </button>
       {sentModalOpen && (
-        <SentLetter sender={sender} flowerId={flowerId} onClose={closeModal} />
+        <SentLetter
+          receiver={receiver}
+          flowerId={flowerId}
+          onClose={closeModal}
+        />
       )}
       {receivedModalOpen && (
         <ReceivedLetter
           flowerId={flowerId}
-          receiver={receiver}
+          sender={sender}
           onClose={closeModal}
         />
       )}

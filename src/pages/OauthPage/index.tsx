@@ -16,16 +16,15 @@ const OauthPage = () => {
 
   useEffect(() => {
     if (loginInfo) {
-      localStorage.setItem('accessToken', loginInfo.token.accessToken)
-      localStorage.setItem('refreshToken', loginInfo.token.refreshToken)
-      localStorage.setItem('email', loginInfo.email)
-      navigate(`/?${loginInfo.userId}`)
+      localStorage.setItem('accessToken', loginInfo.data.token.accessToken)
+      localStorage.setItem('refreshToken', loginInfo.data.token.refreshToken)
+      localStorage.setItem('email', loginInfo.data.email)
+      navigate(`/?${loginInfo.data.userId}`)
     }
     if (loginInfo === null) {
       navigate('/signup')
     }
   }, [kakaoToken, loginInfo, navigate])
-
   useEffect(() => {
     const bringToken = async () => {
       try {
@@ -53,5 +52,4 @@ const OauthPage = () => {
 
   return <div>로딩 중</div>
 }
-
 export default OauthPage
