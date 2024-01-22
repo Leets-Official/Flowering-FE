@@ -21,10 +21,10 @@ const CreateBouquetPage = () => {
     else if (step === 2) setStep(3)
     else if (step === 3) setStep(4)
     else if (step === 4) {
-      const props = { bouquetName: name, wrapper, ribbon, dday: date }
+      const props = { bouquetName: name, wrapper, ribbon, dDay: date }
       postBouquet(props, {
         onSuccess: () => {
-          navigate(`/?add=${userInfo?.userId}`)
+          navigate(`/?addr=${userInfo?.userId}`)
         },
       })
     }
