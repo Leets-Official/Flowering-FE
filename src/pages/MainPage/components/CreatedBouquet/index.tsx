@@ -1,7 +1,12 @@
 import { Button } from '@/components'
-import { FlowerFrame, MarryGoRound } from '../'
+import { FlowerFrame, MarryGoRound, Ribbons } from '../'
 import { getLeftDays } from '@/utils'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
+import {
+  WrapperBackImage,
+  WrapperFrontLeftImage,
+  WrapperFrontRightImage,
+} from '@/assets/images'
 import type { BouquetInfo } from '@/types'
 
 interface CreatedBouquetProps {
@@ -10,23 +15,26 @@ interface CreatedBouquetProps {
 
 const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
-  console.log(currentFlowerIndex)
 
-  const leftDays = getLeftDays(bouquetInfo.dDay || '')
+  const ordinalNum = ['st', 'nd', 'rd']
 
-  const getImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/wrapping/${name}.png`, import.meta.url)
-      .href
-  }
-
-  const flowers = bouquetInfo.bouquets.reduce(
-    (acc, bouquet) => acc + bouquet.flowers.length,
-    0,
+  const leftDays = useMemo(
+    () => getLeftDays(bouquetInfo.dDay || ''),
+    [bouquetInfo.dDay],
   )
 
-  const leftWrapper = getImageUrl('left_wrapping')
-  const rightWrapper = getImageUrl('right_wrapping')
-  const backWrapper = getImageUrl('back_wrapping')
+  const flowers = useMemo(
+    () =>
+      bouquetInfo.bouquets.reduce(
+        (acc, bouquet) => acc + bouquet.flowers.length,
+        0,
+      ),
+    [bouquetInfo.bouquets],
+  )
+
+  const getImageUrl = (name: string) => {
+    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
+  }
 
   return (
     <div className="flex h-full flex-col">
@@ -41,19 +49,47 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
           <span className="font-lg">{`개 째`}</span>
         </h1>
       </div>
-      <div className="absolute bottom-0 z-0 h-[63vh] w-full desktop:h-[500px]">
-        <img src={backWrapper} alt="wrapper-back" className="w-full" />
-      </div>
-      <MarryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
-        {bouquetInfo.bouquets.map((bouquet) => (
-          <FlowerFrame flowers={bouquet.flowers} key={bouquet.bouquetId} />
-        ))}
-      </MarryGoRound>
-      <div className="absolute bottom-0 right-0 z-20 aspect-[1.25/1] h-[37vh] desktop:h-[220px]">
-        <img src={rightWrapper} alt="wrapper-right" className="h-full" />
-      </div>
-      <div className="absolute bottom-0 z-20 aspect-[1.25/1] h-[30vh] desktop:h-[190px]">
-        <img src={leftWrapper} alt="wrapper-left" className="h-full" />
+      <div className="relative h-full w-full">
+        <MarryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
+          {bouquetInfo.bouquets.map(
+            (bouquet) =>
+              bouquet.flowers.length > 0 && (
+                <div
+                  key={bouquet.bouquetId}
+                  className="relative flex h-full w-full items-center justify-center"
+                >
+                  <FlowerFrame flowers={bouquet.flowers} />
+                  <div className="relative h-full w-[70%]">
+                    <div className="absolute left-1/2 top-1/2 z-[15] w-full -translate-x-[60.5%] -translate-y-[32%]">
+                      <WrapperFrontLeftImage className="h-full w-full" />
+                    </div>
+                    <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[48.5%] -translate-y-[16%]">
+                      <WrapperFrontRightImage className="h-full w-full" />
+                      <Ribbons ribbon={bouquetInfo.bouquetDesign.ribbon} />
+                    </div>
+                    <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
+                      <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+                        <span>{currentFlowerIndex + 1}</span>
+                        <span>
+                          {ordinalNum[currentFlowerIndex]
+                            ? ordinalNum[currentFlowerIndex]
+                            : 'th'}
+                        </span>
+                      </p>
+                      <img
+                        src={getImageUrl('flower_card')}
+                        alt="flower_card"
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+                  <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[62%]">
+                    <WrapperBackImage className="h-full w-full" />
+                  </div>
+                </div>
+              ),
+          )}
+        </MarryGoRound>
       </div>
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
         <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button>
