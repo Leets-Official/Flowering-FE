@@ -3,8 +3,7 @@ import { ICONS } from '@/constants'
 import { DDay, Name, Ribbon, Wrapper } from './components'
 import { useEffect, useState } from 'react'
 import { Button, Header } from '@/components'
-import { usePostBouquet } from '@/apis/hooks'
-import useGetUserInfo from '@/apis/hooks/useGetUserInfo'
+import { usePostBouquet, useGetUser } from '@/apis/hooks'
 
 const CreateBouquetPage = () => {
   const navigate = useNavigate()
@@ -14,7 +13,7 @@ const CreateBouquetPage = () => {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [activeButton, setActiveButton] = useState(false)
-  const { data: userInfo } = useGetUserInfo()
+  const { data: userInfo } = useGetUser()
   const { mutate: postBouquet } = usePostBouquet()
 
   const handleClick = () => {
