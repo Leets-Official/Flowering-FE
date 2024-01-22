@@ -1,17 +1,20 @@
-import apiClient from '@/apis/apiClient.ts'
-import { StoreCardInfo } from '@/types'
+import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { storeCard } from '@/apis/service'
 
-const usePostStoreCard = async ({ cardId, count }: StoreCardInfo) => {
-  try {
-    const res = await apiClient.post('/store/card', {
-      cardId,
-      count,
-    })
-    console.log(res.data)
+const usePostStoreCard = (onSuccessCallback: () => void) => {
+  const navigate = useNavigate()
 
-    return res.data
-  } catch (error) {
-    console.error('카드 저장 중에 오류가 발생했습니다:', error)
+  const storeCardMutation = useMutation({
+    mutationFn: storeCard,
+    onSuccess: () => {
+      onSuccessCallback()
+      navigate('/store/purchase')
+    },
+  })
+
+  return {
+    storeCardMutation,
   }
 }
 

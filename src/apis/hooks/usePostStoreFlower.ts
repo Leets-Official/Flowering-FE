@@ -1,17 +1,20 @@
-import apiClient from '@/apis/apiClient.ts'
-import { StoreFlowerInfo } from '@/types'
+import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { storeFlower } from '@/apis/service'
 
-const usePostStoreFlower = async ({ flowerItemId, count }: StoreFlowerInfo) => {
-  try {
-    const res = await apiClient.post('/store/flower', {
-      flowerItemId,
-      count,
-    })
-    console.log(res.data)
+const usePostStoreFlower = (onSuccessCallback: () => void) => {
+  const navigate = useNavigate()
 
-    return res.data
-  } catch (error) {
-    console.error('꽃 저장 중에 오류가 발생했습니다:', error)
+  const storeFlowerMutation = useMutation({
+    mutationFn: storeFlower,
+    onSuccess: () => {
+      onSuccessCallback()
+      navigate('/store/purchase')
+    },
+  })
+
+  return {
+    storeFlowerMutation,
   }
 }
 

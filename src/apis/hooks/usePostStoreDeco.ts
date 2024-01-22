@@ -1,16 +1,20 @@
-import apiClient from '@/apis/apiClient.ts'
-import { StoreDecoInfo } from '@/types'
+import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { storeDeco } from '@/apis/service'
 
-const usePostStoreDeco = async ({ decoId }: StoreDecoInfo) => {
-  try {
-    const res = await apiClient.post('/store/deco', {
-      decoId,
-    })
-    console.log(res.data)
+const usePostStoreDeco = (onSuccessCallback: () => void) => {
+  const navigate = useNavigate()
 
-    return res.data
-  } catch (error) {
-    console.error('데코 저장 중에 오류가 발생했습니다:', error)
+  const storeDecoMutation = useMutation({
+    mutationFn: storeDeco,
+    onSuccess: () => {
+      onSuccessCallback()
+      navigate('/store/purchase')
+    },
+  })
+
+  return {
+    storeDecoMutation,
   }
 }
 

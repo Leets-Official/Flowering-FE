@@ -15,7 +15,7 @@ const StorePage = () => {
   }
   const { decoItems, flowerItems, letterItems } = data.storeResponse
   //보유코인  StoreItem으로 넘겨줘야함
-  const items1 = decoItems.map((item: DecoItemInfo) => (
+  const deco = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
       type="deco"
       itemName={item.itemName}
@@ -25,7 +25,7 @@ const StorePage = () => {
     />
   ))
 
-  const items2 = flowerItems.map((item: FlowerItemInfo) => (
+  const flower = flowerItems.map((item: FlowerItemInfo) => (
     <StoreItem
       type="flower"
       itemName={item.flowerName}
@@ -35,7 +35,7 @@ const StorePage = () => {
     />
   ))
 
-  const items3 = letterItems.map((item: LetterItemInfo) => (
+  const card = letterItems.map((item: LetterItemInfo) => (
     <StoreItem
       type="card"
       itemName={item.letterName}
@@ -65,21 +65,17 @@ const StorePage = () => {
           <p className="font-xs mt-0.5 text-gray-600">
             한 오브제의 최대 보유량은 3개입니다.
           </p>
-          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">
-            {items1}
-          </div>
+          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">{deco}</div>
         </div>
         <div>
           <p className="font-lg mt-5">Flower</p>
           <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">
-            {items2}
+            {flower}
           </div>
         </div>
         <div>
           <p className="font-lg mt-5">Card</p>
-          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">
-            {items3}
-          </div>
+          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">{card}</div>
         </div>
       </div>
     </div>

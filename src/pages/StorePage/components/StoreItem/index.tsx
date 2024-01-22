@@ -1,8 +1,6 @@
 import { Button, Item, Modal } from '@/components'
 import { CoinIcon } from '@/assets/Icons'
-import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { useMutation } from '@tanstack/react-query'
 import {
   usePostStoreCard,
   usePostStoreDeco,
@@ -16,27 +14,11 @@ interface StoreItemProps {
   itemName: string
 }
 const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
-  const navigate = useNavigate()
   const [itemNum, setItemNum] = useState<number>(0)
   const maxAllowedQuantity = coin ? Math.round(3000 / parseInt(coin, 10)) : 0
-  const storeFlowerMutation = useMutation({
-    mutationFn: usePostStoreFlower,
-    onSuccess: () => {
-      navigate('/store/purchase')
-    },
-  })
-  const storeCardMutation = useMutation({
-    mutationFn: usePostStoreCard,
-    onSuccess: () => {
-      navigate('/store/purchase')
-    },
-  })
-  const storeDecoMutation = useMutation({
-    mutationFn: usePostStoreDeco,
-    onSuccess: () => {
-      navigate('/store/purchase')
-    },
-  })
+  const { storeFlowerMutation } = usePostStoreFlower(() => {})
+  const { storeCardMutation } = usePostStoreCard(() => {})
+  const { storeDecoMutation } = usePostStoreDeco(() => {})
   const onPurchaseButton = () => {
     if (type === 'flower' && itemNum > 0) {
       storeFlowerMutation.mutate({ flowerItemId: itemId, count: itemNum })
