@@ -24,7 +24,7 @@ const CreateBouquetPage = () => {
       const props = { bouquetName: name, wrapper, ribbon, dday: date }
       postBouquet(props, {
         onSuccess: () => {
-          navigate(`/?${userInfo?.userId}`)
+          navigate(`/?add=${userInfo?.userId}`)
         },
       })
     }
