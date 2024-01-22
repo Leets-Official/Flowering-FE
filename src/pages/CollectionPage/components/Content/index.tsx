@@ -10,7 +10,7 @@ interface DataProps {
   id: number
   type: string
   owned: boolean
-  amount: number
+  amount?: number
 }
 
 const Content = ({ ItemType, data }: CollectionProps) => {

@@ -50,27 +50,29 @@ export interface FlowerInfo {
 }
 
 export interface ItemsInfo {
-  flowers: [
-    {
-      id: number
-      type: string
-      owned: boolean
-      amount: number
-    },
-  ]
-  decoItems: [
-    {
-      id: number
-      type: string
-      owned: boolean
-    },
-  ]
-  cardItems: [
-    {
-      id: 0
-      type: string
-      owned: boolean
-      amount: number
-    },
-  ]
+  data: {
+    flowers: [
+      {
+        id: number
+        type: string
+        owned: boolean
+        amount: number
+      },
+    ]
+    decoItems: [
+      {
+        id: number
+        type: string
+        owned: boolean
+      },
+    ]
+    cardItems: [
+      {
+        id: 0
+        type: string
+        owned: boolean
+        amount: number
+      },
+    ]
+  }
 }
