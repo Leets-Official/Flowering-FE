@@ -24,15 +24,15 @@ const Content = ({ ItemType, data }: CollectionProps) => {
           {data.map((element) => {
             return (
               <div
-                key={element.id}
+                key={element.type}
                 onClick={() => {
-                  navigate(`/item/${element.id}`)
+                  navigate(`/item/${element.type}`)
                 }}
                 className="cursor-pointer"
               >
                 <Item id={element.id} />
                 <div className="font-xs mt-1.5 text-center text-gray-200">
-                  123
+                  {element.amount === -1 ? 'FREE' : element.amount}
                 </div>
               </div>
             )

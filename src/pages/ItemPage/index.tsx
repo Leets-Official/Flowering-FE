@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router'
 
 const ItemPage = () => {
   const navigate = useNavigate()
-  const urlSearch = URLSearchParams(location.search)
-  const id = urlSearch.get('id')
 
   return (
     <div className="flex h-screen flex-col">
