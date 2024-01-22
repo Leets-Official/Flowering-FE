@@ -19,12 +19,16 @@ export interface BouquetInfo {
 }
 
 export interface LoginInfo {
-  userId: string
-  email: string
-  nickname: string
-  token: {
-    accessToken: string
-    refreshToken: string
+  code: number
+  message: string
+  data: {
+    userId: string
+    email: string
+    nickname: string
+    token: {
+      accessToken: string
+      refreshToken: string
+    }
   }
 }
 export interface LetterSent {
