@@ -1,13 +1,16 @@
 import ribbon1 from '@/assets/images/create_bouquet/ribbon/ribbon1.png'
 import ribbon2 from '@/assets/images/create_bouquet/ribbon/ribbon2.png'
 import ribbon3 from '@/assets/images/create_bouquet/ribbon/ribbon3.png'
+import black_wrapper from '@/assets/images/create_bouquet/wrapper/black_wrapper.png'
+import white_wrapper from '@/assets/images/create_bouquet/wrapper/white_wrapper.png'
 
 interface RibbonProps {
+  wrapper: string
   ribbon: string
   setRibbon: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Ribbon = ({ ribbon, setRibbon }: RibbonProps) => {
+const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
   return (
     <div className="flex h-full flex-col">
       <div className="mx-6 mt-5 flex flex-col gap-1">
@@ -15,7 +18,14 @@ const Ribbon = ({ ribbon, setRibbon }: RibbonProps) => {
         <div className="font-ls">세 가지 중 마음에 드는 끈을 골라 주세요.</div>
       </div>
       <div className="mx-6 flex h-full flex-col items-center justify-center">
-        <div className="h-[60%] w-full rounded-[1.5rem] border border-black"></div>
+        <div className="h-[60%] w-full rounded-[1.5rem] border border-black">
+          {wrapper == 'black' && (
+            <img src={black_wrapper} className="aspect-auto" />
+          )}
+          {wrapper == 'white' && (
+            <img src={white_wrapper} className="aspect-auto" />
+          )}
+        </div>
         <div className="mt-4 flex h-[56px] w-full flex-nowrap justify-center gap-5 overflow-x-auto scrollbar-hide">
           <img
             src={ribbon1}

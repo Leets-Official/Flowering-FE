@@ -50,7 +50,9 @@ const CreateBouquetPage = () => {
       />
       <div className="h-full">
         {step === 1 && <Wrapper wrapper={wrapper} setWrapper={setWrapper} />}
-        {step === 2 && <Ribbon ribbon={ribbon} setRibbon={setRibbon} />}
+        {step === 2 && (
+          <Ribbon wrapper={wrapper} ribbon={ribbon} setRibbon={setRibbon} />
+        )}
         {step === 3 && <Name name={name} setName={setName} />}
         {step === 4 && <DDay setDDay={setDate} />}
       </div>
