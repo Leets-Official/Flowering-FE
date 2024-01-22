@@ -67,7 +67,9 @@ export interface LetterItemInfo {
   price: number
 }
 export interface StoreInfo {
-  storeResponse: {
+  code: number
+  message: string
+  data: {
     decoItems: DecoItemInfo[]
     flowerItems: FlowerItemInfo[]
     letterItems: LetterItemInfo[]

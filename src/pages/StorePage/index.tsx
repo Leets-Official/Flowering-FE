@@ -13,7 +13,7 @@ const StorePage = () => {
   if (isError || !data) {
     return <p>error</p>
   }
-  const { decoItems, flowerItems, letterItems } = data.storeResponse
+  const { decoItems, flowerItems, letterItems } = data.data
   //보유코인  StoreItem으로 넘겨줘야함
   const deco = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
