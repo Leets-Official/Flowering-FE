@@ -38,7 +38,9 @@ export interface LetterSent {
 }
 
 export interface LetterSentInfo {
-  letterSentInfo: LetterSent[]
+  code: number
+  message: string
+  data: LetterSent[]
 }
 
 export interface LetterReceived {
@@ -48,7 +50,9 @@ export interface LetterReceived {
 }
 
 export interface LetterReceivedInfo {
-  letterReceivedInfo: LetterReceived[]
+  code: number
+  message: string
+  data: LetterReceived[]
 }
 
 export interface FlowerInfo {
