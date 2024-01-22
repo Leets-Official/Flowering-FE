@@ -5,7 +5,12 @@ export default withMT({
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        bodoni: ['Bodoni72C'],
+      },
       screens: {
+        sm: '300px',
+        md: '400px',
         desktop: '500px',
       },
       colors: {
