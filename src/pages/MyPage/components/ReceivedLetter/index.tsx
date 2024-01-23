@@ -3,7 +3,7 @@ import { ICONS } from '@/constants'
 import { useGetFlower } from '@/apis/hooks'
 
 interface ReceivedLetterProps {
-  sender: string
+  sender?: string
   flowerId: number
   onClose: () => void
 }

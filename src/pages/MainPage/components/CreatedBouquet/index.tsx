@@ -68,7 +68,7 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                       <Ribbons ribbon={bouquetInfo.bouquetDesign.ribbon} />
                     </div>
                     <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
-                      <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+                      <p className="font-bodoni absolute left-1/3 top-1/3  flex -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
                         <span>{currentFlowerIndex + 1}</span>
                         <span>
                           {ordinalNum[currentFlowerIndex]
