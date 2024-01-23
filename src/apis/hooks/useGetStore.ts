@@ -4,12 +4,11 @@ import { StoreInfo } from '@/types'
 
 const useGetStore = () => {
   const queryKey = ['storeItem']
-  const { isLoading, isError, data } = useQuery<StoreInfo, Error>({
+
+  return useQuery<StoreInfo, Error>({
     queryKey,
     queryFn: store,
   })
-
-  return { isLoading, isError, data }
 }
 
 export default useGetStore

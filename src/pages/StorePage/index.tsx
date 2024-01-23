@@ -6,11 +6,8 @@ import useGetStore from '@/apis/hooks/useGetStore.ts'
 import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
 
 const StorePage = () => {
-  const { isLoading, isError, data } = useGetStore()
-  if (isLoading) {
-    return <p>loading</p>
-  }
-  if (isError || !data) {
+  const { data } = useGetStore()
+  if (!data) {
     return <p>error</p>
   }
   const { decoItems, flowerItems, letterItems } = data.data

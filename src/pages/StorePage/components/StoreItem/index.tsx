@@ -16,9 +16,9 @@ interface StoreItemProps {
 const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
   const [itemNum, setItemNum] = useState<number>(0)
   const maxAllowedQuantity = coin ? Math.round(3000 / parseInt(coin, 10)) : 0
-  const { storeFlowerMutation } = usePostStoreFlower(() => {})
-  const { storeCardMutation } = usePostStoreCard(() => {})
-  const { storeDecoMutation } = usePostStoreDeco(() => {})
+  const { storeFlowerMutation } = usePostStoreFlower()
+  const { storeCardMutation } = usePostStoreCard()
+  const { storeDecoMutation } = usePostStoreDeco()
   const onPurchaseButton = () => {
     if (type === 'flower' && itemNum > 0) {
       storeFlowerMutation.mutate({ flowerItemId: itemId, count: itemNum })

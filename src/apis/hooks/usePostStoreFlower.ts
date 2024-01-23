@@ -2,13 +2,12 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import { storeFlower } from '@/apis/service'
 
-const usePostStoreFlower = (onSuccessCallback: () => void) => {
+const usePostStoreFlower = () => {
   const navigate = useNavigate()
 
   const storeFlowerMutation = useMutation({
     mutationFn: storeFlower,
     onSuccess: () => {
-      onSuccessCallback()
       navigate('/store/purchase')
     },
   })
