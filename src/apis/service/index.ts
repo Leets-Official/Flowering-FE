@@ -1,3 +1,7 @@
 export { default as flower } from './flower.ts'
 export { default as letterSent } from './letterSent.ts'
+export { default as store } from './store.ts'
+export { default as storeCard } from './storeCard.ts'
+export { default as storeFlower } from './storeFlower.ts'
+export { default as storeDeco } from './storeDeco.ts'
 export { default as letterReceived } from './letterReceived.ts'

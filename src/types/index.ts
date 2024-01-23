@@ -77,3 +77,41 @@ export interface UserInfo {
     dday: string
   }
 }
+
+export interface DecoItemInfo {
+  itemId: number
+  itemName: string
+  price: number
+}
+
+export interface FlowerItemInfo {
+  itemId: number
+  flowerName: string
+  price: number
+}
+
+export interface LetterItemInfo {
+  itemId: number
+  letterName: string
+  price: number
+}
+export interface StoreInfo {
+  code: number
+  message: string
+  data: {
+    decoItems: DecoItemInfo[]
+    flowerItems: FlowerItemInfo[]
+    letterItems: LetterItemInfo[]
+  }
+}
+export interface StoreFlowerInfo {
+  flowerItemId: number
+  count: number
+}
+export interface StoreDecoInfo {
+  decoId: number
+}
+export interface StoreCardInfo {
+  cardId: number
+  count: number
+}

@@ -1,17 +1,35 @@
 import { Button, Item, Modal } from '@/components'
-import { CoinIcon, FlowerIcon } from '@/assets/Icons'
-import { useNavigate } from 'react-router-dom'
+import { CoinIcon } from '@/assets/Icons'
 import { useState } from 'react'
+import {
+  usePostStoreCard,
+  usePostStoreDeco,
+  usePostStoreFlower,
+} from '@/apis/hooks'
 
 interface StoreItemProps {
+  type: string
   itemId: number
-  coin?: string
+  coin: string
+  itemName: string
 }
-const StoreItem = ({ itemId, coin }: StoreItemProps) => {
-  const navigate = useNavigate()
+const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
   const [itemNum, setItemNum] = useState<number>(0)
   const maxAllowedQuantity = coin ? Math.round(3000 / parseInt(coin, 10)) : 0
-
+  const { storeFlowerMutation } = usePostStoreFlower()
+  const { storeCardMutation } = usePostStoreCard()
+  const { storeDecoMutation } = usePostStoreDeco()
+  const onPurchaseButton = () => {
+    if (type === 'flower' && itemNum > 0) {
+      storeFlowerMutation.mutate({ flowerItemId: itemId, count: itemNum })
+    }
+    if (type === 'card' && itemNum > 0) {
+      storeCardMutation.mutate({ cardId: itemId, count: itemNum })
+    }
+    if (type === 'deco' && itemNum > 0) {
+      storeDecoMutation.mutate({ decoId: itemId })
+    }
+  }
   const itemNumHandler = (amount: number) => {
     setItemNum((prevItemNum) => {
       const newItemNum = Math.max(0, prevItemNum + amount)
@@ -32,12 +50,13 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
           {<Item id={itemId} />}
         </div>
         <div className=" flex flex-col items-center" key="content">
-          <p className="font-lg">포인세티아</p>
+          <p className="font-lg">{itemName}</p>
           <div className="font-xs flex items-center gap-1">
             <CoinIcon className="h-[14px] w-[14px]" />
             <p>{coin} 코인</p>
           </div>
-          <FlowerIcon className="my-16 rotate-45" />
+          {/*사진 추후 변경 예정*/}
+          <Item id={itemId} />
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
@@ -59,7 +78,7 @@ const StoreItem = ({ itemId, coin }: StoreItemProps) => {
           </div>
         </div>
         {itemNum > 0 ? (
-          <Button key="btn" onClick={() => navigate('/store/purchase')}>
+          <Button key="btn" onClick={onPurchaseButton}>
             구매하기
           </Button>
         ) : (
