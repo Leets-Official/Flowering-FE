@@ -32,20 +32,36 @@ export interface LoginInfo {
   }
 }
 export interface LetterSent {
-  flowerId: 0
-  receiver: 'string'
-  letterType: 'string'
+  flowerId: number
+  receiver: string
+  flowerType: string
 }
 
 export interface LetterSentInfo {
-  letterSentResponse: LetterSent[]
+  code: number
+  message: string
+  data: LetterSent[]
+}
+
+export interface LetterReceived {
+  flowerId: number
+  sender: string
+  flowerType: string
+}
+
+export interface LetterReceivedInfo {
+  code: number
+  message: string
+  data: LetterReceived[]
 }
 
 export interface FlowerInfo {
-  flowerResponse: {
-    letter: 'string'
-    flowerType: 'string'
-    cardType: 'string'
+  code: number
+  message: string
+  data: {
+    letter: string
+    flowerType: string
+    cardType: string
   }
 }
 
