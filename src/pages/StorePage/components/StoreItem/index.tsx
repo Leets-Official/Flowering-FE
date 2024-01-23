@@ -12,10 +12,17 @@ interface StoreItemProps {
   itemId: number
   coin: string
   itemName: string
+  allCoin: number
 }
-const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
+const StoreItem = ({
+  type,
+  itemId,
+  coin,
+  itemName,
+  allCoin,
+}: StoreItemProps) => {
   const [itemNum, setItemNum] = useState<number>(0)
-  const maxAllowedQuantity = coin ? Math.round(3000 / parseInt(coin, 10)) : 0
+  const maxAllowedQuantity = coin ? Math.round(allCoin / parseInt(coin, 10)) : 0
   const { storeFlowerMutation } = usePostStoreFlower()
   const { storeCardMutation } = usePostStoreCard()
   const { storeDecoMutation } = usePostStoreDeco()
@@ -34,7 +41,6 @@ const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
     setItemNum((prevItemNum) => {
       const newItemNum = Math.max(0, prevItemNum + amount)
 
-      // 보유 코인이 들어갈 예정
       if (newItemNum <= maxAllowedQuantity) {
         return newItemNum
       } else {
