@@ -18,31 +18,34 @@ const StorePage = () => {
   const { coin } = userData.data
   const deco = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
+      coin={coin}
       type="deco"
       itemName={item.itemName}
       key={item.itemId}
       itemId={item.itemId}
-      coin={`${item.price}`}
+      price={`${item.price}`}
     />
   ))
 
   const flower = flowerItems.map((item: FlowerItemInfo) => (
     <StoreItem
+      coin={coin}
       type="flower"
       itemName={item.flowerName}
       key={item.itemId}
       itemId={item.itemId}
-      coin={`${item.price}`}
+      price={`${item.price}`}
     />
   ))
 
   const card = letterItems.map((item: LetterItemInfo) => (
     <StoreItem
+      coin={coin}
       type="card"
       itemName={item.letterName}
       key={item.itemId}
       itemId={item.itemId}
-      coin={`${item.price}`}
+      price={`${item.price}`}
     />
   ))
 

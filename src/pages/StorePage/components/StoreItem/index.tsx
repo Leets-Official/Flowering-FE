@@ -10,19 +10,13 @@ import {
 interface StoreItemProps {
   type: string
   itemId: number
-  coin: string
+  price: string
   itemName: string
-  allCoin: number
+  coin: number
 }
-const StoreItem = ({
-  type,
-  itemId,
-  coin,
-  itemName,
-  allCoin,
-}: StoreItemProps) => {
+const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
   const [itemNum, setItemNum] = useState<number>(0)
-  const maxAllowedQuantity = coin ? Math.round(allCoin / parseInt(coin, 10)) : 0
+  const maxAllowedQuantity = price ? Math.round(coin / parseInt(price, 10)) : 0
   const { storeFlowerMutation } = usePostStoreFlower()
   const { storeCardMutation } = usePostStoreCard()
   const { storeDecoMutation } = usePostStoreDeco()
@@ -59,7 +53,7 @@ const StoreItem = ({
           <p className="font-lg">{itemName}</p>
           <div className="font-xs flex items-center gap-1">
             <CoinIcon className="h-[14px] w-[14px]" />
-            <p>{coin} 코인</p>
+            <p>{price} 코인</p>
           </div>
           {/*사진 추후 변경 예정*/}
           <Item id={itemName} />
@@ -95,7 +89,7 @@ const StoreItem = ({
       </Modal>
       <div className="mt-1 flex justify-center gap-1">
         <CoinIcon className="h-[13px] w-[13px]" />
-        <p className="font-xs text-gray-200">{coin}</p>
+        <p className="font-xs text-gray-200">{price}</p>
       </div>
     </div>
   )
