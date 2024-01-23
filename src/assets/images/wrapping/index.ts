@@ -1,3 +1,5 @@
 export { default as WrapperBackImage } from './wrapper_back.svg?react'
 export { default as WrapperFrontLeftImage } from './wrapper_front_left.svg?react'
 export { default as WrapperFrontRightImage } from './wrapper_front_right.svg?react'
+export { default as WrapperBlackItem } from './wrapper_black_item.svg?react'
+export { default as WrapperWhiteItem } from './wrapper_white_item.svg?react'
