@@ -1,5 +1,5 @@
 interface ItemProps {
-  id: number
+  id: string
 }
 
 const Item = ({ id }: ItemProps) => {
