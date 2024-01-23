@@ -1,8 +1,6 @@
 import ribbon1 from '@/assets/images/create_bouquet/ribbon/ribbon1.png'
 import ribbon2 from '@/assets/images/create_bouquet/ribbon/ribbon2.png'
 import ribbon3 from '@/assets/images/create_bouquet/ribbon/ribbon3.png'
-import black_wrapper from '@/assets/images/create_bouquet/wrapper/black_wrapper.png'
-import white_wrapper from '@/assets/images/create_bouquet/wrapper/white_wrapper.png'
 
 interface RibbonProps {
   wrapper: string
@@ -51,7 +49,7 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
         </div>
         <div className="mt-4 flex h-[56px] w-full flex-nowrap justify-center gap-5 overflow-x-auto scrollbar-hide">
           <img
-            src={ribbon3}
+            src={ribbon1}
             onClick={() => setRibbon('ribbon1')}
             className={`rounded-full ${ribbon == 'ribbon1' && 'border-2'}`}
           />
