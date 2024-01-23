@@ -8,6 +8,7 @@ export const PATH = {
   COLLECTION: '/collection',
   ITEM: '/item/:itemId',
   STORE: '/store',
+  CREATE_BOUQUET: '/create-bouquet',
   PURCHASE: '/store/purchase',
   WRITE: '/write',
 }

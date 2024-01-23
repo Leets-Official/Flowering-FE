@@ -7,7 +7,7 @@ interface ChooseCardProps {
   setSelectedCard: React.Dispatch<React.SetStateAction<string>>
 }
 const ChooseCard = ({ setSelectedCard }: ChooseCardProps) => {
-  const cards = ['redPaper', 'bluePaper', 'yellowPaper']
+  const cards = ['향기-카드', 'bluePaper', 'yellowPaper']
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(
     null,
   )
@@ -36,7 +36,7 @@ const ChooseCard = ({ setSelectedCard }: ChooseCardProps) => {
               style={{ flex: '0 0 auto', minWidth: '10px' }}
               onClick={() => handleCircleClick(index)}
             >
-              <Item id={index} key={card} />
+              <Item id={card} key={card} />
             </div>
           ))}
         </div>

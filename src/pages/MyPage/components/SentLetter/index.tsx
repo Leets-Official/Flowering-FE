@@ -8,15 +8,10 @@ interface SentLetterProps {
   onClose: () => void
 }
 
-const SentLetter = ({ receiver, onClose, flowerId }: SentLetterProps) => {
-  const { isLoading, isError, data } = useGetFlower({ id: flowerId })
-  if (isLoading) {
-    return <p>loading</p>
-  }
-  if (isError || !data) {
-    return <p>error</p>
-  }
-  const { letter } = data.flowerResponse
+const SentLetter = ({ flowerId, receiver, onClose }: SentLetterProps) => {
+  const { data } = useGetFlower({ id: flowerId })
+  // console.log(data?.data.letter)
+  const letter = data?.data.letter
 
   return (
     <div className="absolute left-0 top-0 z-50 h-screen w-full transform overflow-hidden bg-white text-gray-300">

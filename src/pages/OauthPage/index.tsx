@@ -25,7 +25,6 @@ const OauthPage = () => {
       navigate('/signup')
     }
   }, [kakaoToken, loginInfo, navigate])
-
   useEffect(() => {
     const bringToken = async () => {
       try {
@@ -53,5 +52,4 @@ const OauthPage = () => {
 
   return <div>로딩 중</div>
 }
-
 export default OauthPage

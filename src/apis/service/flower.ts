@@ -2,9 +2,9 @@ import apiClient from '@/apis/apiClient.ts'
 
 const flower = async ({ id }: { id: number }) => {
   try {
-    return await apiClient
-      .get('/flower', { params: { id: id } })
-      .then((res) => res.data)
+    const response = await apiClient.get('/flower', { params: { id } })
+
+    return response.data
   } catch (error) {
     console.log(error)
   }

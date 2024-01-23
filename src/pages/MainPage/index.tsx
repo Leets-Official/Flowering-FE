@@ -4,9 +4,9 @@ import { ICONS } from '@/constants'
 import { CreatedBouquet, UncreatedBouquet } from './components'
 import { useGetBouquet } from '@/apis/hooks'
 
-// 데이터 있는 테스트 userId : 274831eb-64d2-429b-9aed-b8144b131bf6
+// 데이터 있는 테스트 userId : cfe9cfe5-59fb-450a-9496-02bf22cd2548
 // 데이터 없는 테스트 userId : b1f9275f-1f65-4927-8654-0bef0616b89c
-const userId = 'b1f9275f-1f65-4927-8654-0bef0616b89c'
+const userId = 'cfe9cfe5-59fb-450a-9496-02bf22cd2548'
 
 const MainPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
