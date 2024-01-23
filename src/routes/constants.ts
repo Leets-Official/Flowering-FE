@@ -6,7 +6,7 @@ export const PATH = {
   SIGNUP: '/signup',
   MYPAGE: '/mypage',
   COLLECTION: '/collection',
-  ITEM: '/item/:itemId',
+  ITEM: '/item',
   STORE: '/store',
   CREATE_BOUQUET: '/create-bouquet',
   PURCHASE: '/store/purchase',

@@ -1,8 +1,12 @@
 import { Header, Button } from '@/components'
 import { useNavigate } from 'react-router'
+import { useSearchParams } from 'react-router-dom'
 
 const ItemPage = () => {
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const name = searchParams.get('name')
+  const type = searchParams.get('type')
 
   return (
     <div className="flex h-screen flex-col">
