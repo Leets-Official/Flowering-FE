@@ -1,5 +1,5 @@
 import { Sidebar, Header } from '@/components'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, startTransition } from 'react'
 import { ICONS } from '@/constants'
 import { CreatedBouquet, UncreatedBouquet } from './components'
 import { useGetBouquet, useGetUser } from '@/apis/hooks'
@@ -26,7 +26,9 @@ const MainPage = () => {
   }, [address, setSearchParams, userId])
 
   const onDecoBouquet = () => {
-    navigator('/decorate-bouquet', { state: bouquetInfo })
+    startTransition(() =>
+      navigator('/decorate-bouquet', { state: bouquetInfo }),
+    )
   }
 
   return (
