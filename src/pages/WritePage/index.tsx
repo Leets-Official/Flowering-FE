@@ -13,7 +13,7 @@ const WritePage = () => {
   const [selectedCard, setSelectedCard] = useState('redPaper')
   const [letter, setLetter] = useState('')
 
-  const { writeLetterMutation } = usePostWriteLetter(() => {})
+  const { writeLetterMutation } = usePostWriteLetter()
   const handleNextClick = () => {
     if (currentStep === 1) {
       setCurrentStep(2)
