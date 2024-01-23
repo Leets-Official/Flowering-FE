@@ -11,7 +11,7 @@ const ChooseFlower = ({
   selectedFlower,
   setSelectedFlower,
 }: ChooseFlowerProps) => {
-  const flowers = ['포인세티아', '장미', '튤립', '해바라기', '코스모스']
+  const flowers = ['화양연화', '장미', '튤립', '해바라기', '코스모스']
   const [selectedFlowerIndex, setSelectedFlowerIndex] = useState<number | null>(
     null,
   )
@@ -46,7 +46,7 @@ const ChooseFlower = ({
               style={{ flex: '0 0 auto', minWidth: '10px' }}
               onClick={() => handleCircleClick(index)}
             >
-              <Item id={index} key={flower} />
+              <Item id={flower} key={flower} />
             </div>
           ))}
         </div>

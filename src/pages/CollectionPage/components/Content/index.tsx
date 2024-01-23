@@ -30,7 +30,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
                 }}
                 className="cursor-pointer"
               >
-                <Item id={element.id} />
+                <Item id={element.Type} />
                 <div className="font-xs mt-1.5 text-center text-gray-200">
                   {element.amount === -1 ? 'FREE' : element.amount}
                 </div>
