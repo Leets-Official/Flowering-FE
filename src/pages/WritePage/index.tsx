@@ -3,6 +3,7 @@ import { ICONS } from '@/constants'
 import { ChooseFlower, ChooseCard, WriteLetter } from './components'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import usePostWriteLetter from '@/apis/hooks/usePostWriteLetter.ts'
 
 const WritePage = () => {
   const navigate = useNavigate()
@@ -12,22 +13,27 @@ const WritePage = () => {
   const [selectedCard, setSelectedCard] = useState('redPaper')
   const [letter, setLetter] = useState('')
 
+  const { writeLetterMutation } = usePostWriteLetter()
   const handleNextClick = () => {
     if (currentStep === 1) {
       setCurrentStep(2)
     } else if (currentStep === 2) {
       setCurrentStep(3)
     } else {
+      writeLetterMutation.mutate({
+        letter: letter,
+        cardType: selectedCard,
+        flowerType: selectedFlower,
+      })
       console.log('Sending data to the server:', {
         selectedFlower,
         selectedCard,
-        letterContent: letter,
+        letter,
       })
       setCurrentStep(1)
       setSelectedFlower('')
       setSelectedCard('')
       setLetter('')
-      navigate('/')
     }
   }
   const isButtonDisabled = currentStep === 3 && letter.length === 0
