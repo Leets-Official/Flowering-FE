@@ -3,10 +3,16 @@ import Mailbox from '@/pages/MyPage/components/Mailbox'
 import Header from '@/components/Header'
 import { Sidebar } from '@/components'
 import { ICONS } from '@/constants'
+import useGetUserInfo from '@/apis/hooks/useGetUserInfo.ts'
 
 const MyPage = () => {
   const [selectedMailbox, setSelectedMailbox] = useState<string>('received')
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+  const { data } = useGetUserInfo()
+  if (!data) {
+    return <p>error</p>
+  }
+  const { nickname } = data.data
   const handleMailboxSelection = (mailboxType: string) => {
     setSelectedMailbox(mailboxType)
   }
@@ -22,7 +28,7 @@ const MyPage = () => {
         <div className="mx-8 mb-7 mt-5 flex justify-between">
           <div className="flex flex-col">
             <p className="font-lg text-gray-200">환영해요!</p>
-            <p className="font-lg">플링님</p>
+            <p className="font-lg">{nickname}님</p>
           </div>
         </div>
         <ul className="mb-2 flex w-full flex-row justify-center">

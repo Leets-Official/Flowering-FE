@@ -37,7 +37,7 @@ const Letters = ({ status }: LettersProps) => {
   )
 
   return (
-    <div className="flex flex-col overflow-y-scroll px-6 py-5">
+    <div className="flex flex-col overflow-y-scroll px-6 py-5 scrollbar-hide">
       {status === 'received' ? (
         <div>
           {receivers.map((sender: string, index: number) => (
