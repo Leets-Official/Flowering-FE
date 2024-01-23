@@ -32,23 +32,66 @@ export interface LoginInfo {
   }
 }
 export interface LetterSent {
-  flowerId: 0
-  receiver: 'string'
-  letterType: 'string'
+  flowerId: number
+  receiver: string
+  flowerType: string
 }
 
 export interface LetterSentInfo {
-  letterSentResponse: LetterSent[]
+  code: number
+  message: string
+  data: LetterSent[]
+}
+
+export interface LetterReceived {
+  flowerId: number
+  sender: string
+  flowerType: string
+}
+
+export interface LetterReceivedInfo {
+  code: number
+  message: string
+  data: LetterReceived[]
 }
 
 export interface FlowerInfo {
-  flowerResponse: {
-    letter: 'string'
-    flowerType: 'string'
-    cardType: 'string'
+  code: number
+  message: string
+  data: {
+    letter: string
+    flowerType: string
+    cardType: string
   }
 }
 
+export interface ItemsInfo {
+  data: {
+    flowers: [
+      {
+        id: number
+        type: string
+        owned: boolean
+        amount: number
+      },
+    ]
+    decoItems: [
+      {
+        id: number
+        type: string
+        owned: boolean
+      },
+    ]
+    cardItems: [
+      {
+        id: 0
+        type: string
+        owned: boolean
+        amount: number
+      },
+    ]
+  }
+}
 export interface UserInfo {
   code: number
   message: string
@@ -60,4 +103,46 @@ export interface UserInfo {
     coin: number
     dday: string
   }
+}
+export interface WriteLetterInfo {
+  letter: string
+  cardType: string
+  flowerType: string
+}
+export interface DecoItemInfo {
+  itemId: number
+  itemName: string
+  price: number
+}
+
+export interface FlowerItemInfo {
+  itemId: number
+  flowerName: string
+  price: number
+}
+
+export interface LetterItemInfo {
+  itemId: number
+  letterName: string
+  price: number
+}
+export interface StoreInfo {
+  code: number
+  message: string
+  data: {
+    decoItems: DecoItemInfo[]
+    flowerItems: FlowerItemInfo[]
+    letterItems: LetterItemInfo[]
+  }
+}
+export interface StoreFlowerInfo {
+  flowerItemId: number
+  count: number
+}
+export interface StoreDecoInfo {
+  decoId: number
+}
+export interface StoreCardInfo {
+  cardId: number
+  count: number
 }
