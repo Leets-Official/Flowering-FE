@@ -1,11 +1,15 @@
 interface ItemProps {
-  id: string
+  name: string
 }
 
-const Item = ({ id }: ItemProps) => {
+const Item = ({ name }: ItemProps) => {
+  const getImageUrl = (name: string) => {
+    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
+  }
+
   return (
-    <div className={`h-[72px] w-[72px]`}>
-      <img src={`/src/assets/images/items/${id}.png`} />
+    <div className={`h-[22.5%] w-[22.5%]`}>
+      <img src={getImageUrl(name)} />
     </div>
   )
 }
