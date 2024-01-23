@@ -36,7 +36,7 @@ const ChooseCard = ({ setSelectedCard }: ChooseCardProps) => {
               style={{ flex: '0 0 auto', minWidth: '10px' }}
               onClick={() => handleCircleClick(index)}
             >
-              <Item id={index} key={card} />
+              <Item id={card} key={card} />
             </div>
           ))}
         </div>
