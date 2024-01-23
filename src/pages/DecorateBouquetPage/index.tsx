@@ -1,10 +1,13 @@
 import { useLocation, useNavigate } from 'react-router'
 import {
-  WrapperBackImage,
-  WrapperFrontLeftImage,
-  WrapperFrontRightImage,
+  WrapperWhiteBackImage,
+  WrapperWhiteFrontLeftImage,
+  WrapperWhiteFrontRightImage,
   WrapperBlackItem,
   WrapperWhiteItem,
+  WrapperBlackBackImage,
+  WrapperBlackFrontLeftImage,
+  WrapperBlackFrontRightImage,
 } from '@/assets/images'
 import { Header } from '@/components'
 import { Ribbons, FlowerFrame, TabContents } from './components'
@@ -15,7 +18,7 @@ import {
   Tab,
   TabPanel,
 } from '@material-tailwind/react'
-import { startTransition, useRef, useEffect } from 'react'
+import { startTransition, useRef, useEffect, useState } from 'react'
 import { useGetItems } from '@/apis/hooks'
 
 const DecorateBouquetPage = () => {
@@ -23,6 +26,10 @@ const DecorateBouquetPage = () => {
   const tabRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
   const bouquetInfo = { ...location.state }
+
+  const [currentWrapper, setCurrentWrapper] = useState<string>(
+    bouquetInfo.bouquetDesign.wrapper,
+  )
 
   const { data: items } = useGetItems()
 
@@ -41,9 +48,13 @@ const DecorateBouquetPage = () => {
 
   useEffect(() => {
     if (tabRef.current) {
-      tabRef.current.click()
+      // tabRef.current.click()
     }
   }, [])
+
+  const handleRibbonClick = (wrapper: string) => {
+    setCurrentWrapper(wrapper)
+  }
 
   const tabContents = [
     {
@@ -66,10 +77,16 @@ const DecorateBouquetPage = () => {
       value: 'wrapper',
       content: (
         <div className={`flex w-full justify-center gap-6 px-2`}>
-          <div className="flex aspect-square w-[20%] rounded-full shadow-[1px_1px_13.6px_rgba(0,0,0,0.5)]">
+          <div
+            className={`flex aspect-square w-[20%] rounded-full ${currentWrapper === 'black' && 'drop-shadow-[1px_1px_13.6px_rgba(0,0,0,0.5)]'}`}
+            onClick={() => handleRibbonClick('black')}
+          >
             <WrapperBlackItem className="h-full w-full" />
           </div>
-          <div className="flex aspect-square w-[20%] rounded-full shadow-[1px_1px_13.6px_rgba(0,0,0,0.5)]">
+          <div
+            className={`flex aspect-square w-[20%] rounded-full ${currentWrapper === 'white' && 'drop-shadow-[1px_1px_13.6px_rgba(0,0,0,0.5)]'}`}
+            onClick={() => handleRibbonClick('white')}
+          >
             <WrapperWhiteItem className="h-full w-full" />
           </div>
         </div>
@@ -81,8 +98,11 @@ const DecorateBouquetPage = () => {
       content: (
         <div className={`flex w-full justify-center gap-6 px-2`}>
           {['ribbonItem1', 'ribbonItem2', 'ribbonItem3'].map((item, index) => (
-            <div className="flex aspect-square w-[20%] rounded-full shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]">
-              <img key={index} src={getRibbonImageUrl(item)} alt="item" />
+            <div
+              key={index}
+              className="flex aspect-square w-[20%] rounded-full shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]"
+            >
+              <img src={getRibbonImageUrl(item)} alt="item" />
             </div>
           ))}
         </div>
@@ -98,15 +118,23 @@ const DecorateBouquetPage = () => {
       />
       <div className="relative flex h-full w-full items-center justify-center">
         <FlowerFrame flowers={bouquetInfo.bouquets[0].flowers} />
-        <div className="relative h-full w-[70%]">
-          <div className="absolute left-1/2 top-1/2 z-[15] w-full -translate-x-[60.5%] -translate-y-[32%]">
-            <WrapperFrontLeftImage className="h-full w-full" />
+        <div className="relative h-full w-full">
+          <div className="absolute left-1/2 top-1/2 z-[15] w-[60%] -translate-x-[55.5%] -translate-y-[16%]">
+            {currentWrapper === 'white' ? (
+              <WrapperWhiteFrontLeftImage className="h-full w-full" />
+            ) : (
+              <WrapperBlackFrontLeftImage className="h-full w-full" />
+            )}
           </div>
-          <div className="absolute left-1/2 top-1/2 z-30 w-full -translate-x-[48.5%] -translate-y-[16%]">
-            <WrapperFrontRightImage className="h-full w-full" />
+          <div className="absolute left-1/2 top-1/2 z-30 w-[65%] -translate-x-[44%] -translate-y-[10%]">
+            {currentWrapper === 'white' ? (
+              <WrapperWhiteFrontRightImage className="h-full w-full" />
+            ) : (
+              <WrapperBlackFrontRightImage className="h-full w-full" />
+            )}
             <Ribbons ribbon={bouquetInfo.bouquetDesign.ribbon} />
           </div>
-          <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
+          <div className="absolute left-1/2 top-1/2 z-40 w-[33%] -translate-x-[18%] translate-y-[45%]">
             <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
               <span>{`1 st`}</span>
             </p>
@@ -117,13 +145,17 @@ const DecorateBouquetPage = () => {
             />
           </div>
         </div>
-        <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[62%]">
-          <WrapperBackImage className="h-full w-full" />
+        <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[60%]">
+          {currentWrapper === 'white' ? (
+            <WrapperWhiteBackImage className="h-full w-full" />
+          ) : (
+            <WrapperBlackBackImage className="h-full w-full" />
+          )}
         </div>
       </div>
       <Tabs
         value="html"
-        className="bg-tab-gradient relative flex h-[23%] shrink-0 flex-col"
+        className="bg-tab-gradient relative z-50 flex h-[23%] shrink-0 flex-col"
       >
         <TabsHeader
           className="justify-center bg-transparent px-7 py-0"
