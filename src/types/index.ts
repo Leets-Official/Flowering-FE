@@ -77,7 +77,11 @@ export interface UserInfo {
     dday: string
   }
 }
-
+export interface WriteLetterInfo {
+  letter: string
+  cardType: string
+  flowerType: string
+}
 export interface DecoItemInfo {
   itemId: number
   itemName: string
