@@ -3,15 +3,17 @@ import { useState } from 'react'
 import SentLetter from '@/pages/MyPage/components/SentLetter'
 import ReceivedLetter from '@/pages/MyPage/components/ReceivedLetter'
 
-interface ReceiverProps {
+interface LetterProps {
+  sender?: string
   receiver?: string
   flowerId: number
+  status: string
 }
-const Letter = ({ receiver, flowerId }: ReceiverProps) => {
+const Letter = ({ receiver, flowerId, status, sender }: LetterProps) => {
   const [sentModalOpen, setSentModalOpen] = useState<boolean>(false)
   const [receivedModalOpen, setReceivedModalOpen] = useState<boolean>(false)
   const openModal = () => {
-    if (receiver) {
+    if (status === 'received') {
       setReceivedModalOpen(true)
     } else {
       setSentModalOpen(true)
@@ -25,14 +27,15 @@ const Letter = ({ receiver, flowerId }: ReceiverProps) => {
   return (
     <>
       <button
-        className="font-xs flex h-[115px] w-full shrink-0 bg-[#D9D9D9] pl-7"
+        className="font-xs mb-5 flex h-[115px] w-full shrink-0 bg-[#D9D9D9] pl-7"
         onClick={openModal}
       >
         <div className="flex flex-col gap-1 pt-5">
-          <p className="w-3">01</p>
-          <div className="h-[1.5px] w-3 bg-black" />
-          <p className="w-3">13</p>
-          <p className="mt-5">TO.{receiver}</p>
+          <p className="mt-5">
+            {status === 'received' ? 'FROM. ' : 'TO. '}
+            {receiver}
+            {sender}
+          </p>
         </div>
         <div className="relative">
           <FlowerIcon className="absolute z-10 ml-14 mt-6" />
@@ -46,7 +49,13 @@ const Letter = ({ receiver, flowerId }: ReceiverProps) => {
           onClose={closeModal}
         />
       )}
-      {receivedModalOpen && <ReceivedLetter onClose={closeModal} />}
+      {receivedModalOpen && (
+        <ReceivedLetter
+          flowerId={flowerId}
+          sender={sender}
+          onClose={closeModal}
+        />
+      )}
     </>
   )
 }
