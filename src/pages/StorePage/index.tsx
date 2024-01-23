@@ -2,30 +2,45 @@ import Header from '@/components/Header'
 import { CoinIcon } from '@/assets/Icons'
 import StoreItem from '@/pages/StorePage/components/StoreItem'
 import { ICONS } from '@/constants'
+import useGetStore from '@/apis/hooks/useGetStore.ts'
+import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
 
 const StorePage = () => {
-  const items1 = [
-    <StoreItem key={1} itemId={1} coin="300" />,
-    <StoreItem key={2} itemId={1} coin="200" />,
-  ]
+  const { data } = useGetStore()
+  if (!data) {
+    return <p>error</p>
+  }
+  const { decoItems, flowerItems, letterItems } = data.data
+  //보유코인  StoreItem으로 넘겨줘야함
+  const deco = decoItems.map((item: DecoItemInfo) => (
+    <StoreItem
+      type="deco"
+      itemName={item.itemName}
+      key={item.itemId}
+      itemId={item.itemId}
+      coin={`${item.price}`}
+    />
+  ))
 
-  const items2 = [
-    <StoreItem key={1} itemId={1} coin="FREE" />,
-    <StoreItem key={2} itemId={1} coin="FREE" />,
-    <StoreItem key={3} itemId={1} coin="FREE" />,
-    <StoreItem key={4} itemId={1} coin="300" />,
-    <StoreItem key={5} itemId={1} coin="200" />,
-    <StoreItem key={6} itemId={1} coin="900" />,
-  ]
+  const flower = flowerItems.map((item: FlowerItemInfo) => (
+    <StoreItem
+      type="flower"
+      itemName={item.flowerName}
+      key={item.itemId}
+      itemId={item.itemId}
+      coin={`${item.price}`}
+    />
+  ))
 
-  const items3 = [
-    <StoreItem key={1} itemId={1} coin="300" />,
-    <StoreItem key={2} itemId={1} coin="200" />,
-    <StoreItem key={3} itemId={1} coin="900" />,
-    <StoreItem key={4} itemId={1} coin="300" />,
-    <StoreItem key={5} itemId={1} coin="200" />,
-    <StoreItem key={6} itemId={1} coin="900" />,
-  ]
+  const card = letterItems.map((item: LetterItemInfo) => (
+    <StoreItem
+      type="card"
+      itemName={item.letterName}
+      key={item.itemId}
+      itemId={item.itemId}
+      coin={`${item.price}`}
+    />
+  ))
 
   return (
     <div className="flex flex-col overflow-hidden">
@@ -34,6 +49,7 @@ const StorePage = () => {
         <p className="font-xl">SHOP</p>
         <div className="flex h-full w-[70px] items-center justify-center gap-1 rounded-[18px] border border-[#959595] py-1">
           <CoinIcon className="h-[13px] w-[13px]" />
+          {/*user api - coin*/}
           <p className="font-xs">3000</p>
         </div>
       </div>
@@ -46,21 +62,17 @@ const StorePage = () => {
           <p className="font-xs mt-0.5 text-gray-600">
             한 오브제의 최대 보유량은 3개입니다.
           </p>
-          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">
-            {items1}
-          </div>
+          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">{deco}</div>
         </div>
         <div>
           <p className="font-lg mt-5">Flower</p>
           <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">
-            {items2}
+            {flower}
           </div>
         </div>
         <div>
           <p className="font-lg mt-5">Card</p>
-          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">
-            {items3}
-          </div>
+          <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">{card}</div>
         </div>
       </div>
     </div>
