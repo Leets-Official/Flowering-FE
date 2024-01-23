@@ -47,7 +47,7 @@ const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
     <div>
       <Modal>
         <div className="flex cursor-pointer justify-center" key="toggle">
-          {<Item id={itemId} />}
+          {<Item id={itemName} />}
         </div>
         <div className=" flex flex-col items-center" key="content">
           <p className="font-lg">{itemName}</p>
@@ -56,7 +56,7 @@ const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
             <p>{coin} 코인</p>
           </div>
           {/*사진 추후 변경 예정*/}
-          <Item id={itemId} />
+          <Item id={itemName} />
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
