@@ -1,19 +1,28 @@
 import { Sidebar, Header } from '@/components'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ICONS } from '@/constants'
 import { CreatedBouquet, UncreatedBouquet } from './components'
-import { useGetBouquet } from '@/apis/hooks'
-
-// 데이터 있는 테스트 userId : cfe9cfe5-59fb-450a-9496-02bf22cd2548
-// 데이터 없는 테스트 userId : b1f9275f-1f65-4927-8654-0bef0616b89c
-const userId = 'cfe9cfe5-59fb-450a-9496-02bf22cd2548'
+import { useGetBouquet, useGetUser } from '@/apis/hooks'
+import { useSearchParams } from 'react-router-dom'
 
 const MainPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+
+  const { data: userInfo } = useGetUser()
+
+  const address = searchParams.get('addr')
+  const userId = address || userInfo.userId
 
   const { data: bouquetInfo } = useGetBouquet({
     id: userId,
   })
+
+  useEffect(() => {
+    if (!address) {
+      setSearchParams({ addr: userId })
+    }
+  }, [address, setSearchParams, userId])
 
   return (
     <>

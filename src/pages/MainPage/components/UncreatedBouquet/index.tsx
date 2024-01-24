@@ -1,9 +1,17 @@
 import { Button } from '@/components'
 import { PlusIcon } from '@/assets/Icons'
+import { useNavigate } from 'react-router'
+import { startTransition } from 'react'
 
 const UncreatedBouquet = () => {
+  const navigator = useNavigate()
+
   const getImageUrl = (name: string) => {
     return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
+  }
+
+  const handleRouteCreateBouquet = () => {
+    startTransition(() => navigator('/create-bouquet'))
   }
 
   return (
@@ -25,9 +33,17 @@ const UncreatedBouquet = () => {
           className="w-full object-contain"
         />
       </div>
-      <PlusIcon className="absolute left-1/2 top-1/2 z-40 -translate-x-1/2 -translate-y-1/2" />
+      <PlusIcon
+        className="absolute left-1/2 top-1/2 z-40 -translate-x-1/2 -translate-y-1/2"
+        onClick={handleRouteCreateBouquet}
+      />
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
-        <Button className="w-full bg-[#d9d9d9] text-black">꽃다발 생성</Button>
+        <Button
+          className="w-full bg-[#d9d9d9] text-black"
+          onClick={handleRouteCreateBouquet}
+        >
+          꽃다발 생성
+        </Button>
       </footer>
     </div>
   )

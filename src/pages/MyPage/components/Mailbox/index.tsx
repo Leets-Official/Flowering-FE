@@ -3,9 +3,10 @@ import { useGetLetterReceived, useGetLetterSent } from '@/apis/hooks'
 
 interface LettersProps {
   status: string
+  dDay: string
 }
 
-const Letters = ({ status }: LettersProps) => {
+const Letters = ({ status, dDay }: LettersProps) => {
   const {
     isLoading: sentLoading,
     isError: sentError,
@@ -37,11 +38,12 @@ const Letters = ({ status }: LettersProps) => {
   )
 
   return (
-    <div className="flex flex-col overflow-y-scroll px-6 py-5">
+    <div className="flex flex-col overflow-y-scroll px-6 py-5 scrollbar-hide">
       {status === 'received' ? (
         <div>
           {receivers.map((sender: string, index: number) => (
             <Letter
+              dDay={dDay}
               status={status}
               key={index}
               sender={sender}
@@ -53,6 +55,7 @@ const Letters = ({ status }: LettersProps) => {
         <div>
           {senders.map((receiver: string, index: number) => (
             <Letter
+              dDay={dDay}
               status={status}
               key={index}
               receiver={receiver}
