@@ -4,41 +4,48 @@ import StoreItem from '@/pages/StorePage/components/StoreItem'
 import { ICONS } from '@/constants'
 import useGetStore from '@/apis/hooks/useGetStore.ts'
 import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
+import useGetUserInfo from '@/apis/hooks/useGetUserInfo.ts'
 
 const StorePage = () => {
-  const { data } = useGetStore()
-  if (!data) {
+  const { data: storeData } = useGetStore()
+  const { data: userData } = useGetUserInfo()
+
+  if (!storeData || !userData) {
     return <p>error</p>
   }
-  const { decoItems, flowerItems, letterItems } = data.data
-  //보유코인  StoreItem으로 넘겨줘야함
+  const { decoItems, flowerItems, letterItems } = storeData.data
+
+  const { coin } = userData.data
   const deco = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
+      coin={coin}
       type="deco"
       itemName={item.itemName}
       key={item.itemId}
       itemId={item.itemId}
-      coin={`${item.price}`}
+      price={`${item.price}`}
     />
   ))
 
   const flower = flowerItems.map((item: FlowerItemInfo) => (
     <StoreItem
+      coin={coin}
       type="flower"
       itemName={item.flowerName}
       key={item.itemId}
       itemId={item.itemId}
-      coin={`${item.price}`}
+      price={`${item.price}`}
     />
   ))
 
   const card = letterItems.map((item: LetterItemInfo) => (
     <StoreItem
+      coin={coin}
       type="card"
       itemName={item.letterName}
       key={item.itemId}
       itemId={item.itemId}
-      coin={`${item.price}`}
+      price={`${item.price}`}
     />
   ))
 
@@ -50,7 +57,7 @@ const StorePage = () => {
         <div className="flex h-full w-[70px] items-center justify-center gap-1 rounded-[18px] border border-[#959595] py-1">
           <CoinIcon className="h-[13px] w-[13px]" />
           {/*user api - coin*/}
-          <p className="font-xs">3000</p>
+          <p className="font-xs">{coin}</p>
         </div>
       </div>
       <div className="overflow-y-auto px-6 pb-8 scrollbar-hide">
