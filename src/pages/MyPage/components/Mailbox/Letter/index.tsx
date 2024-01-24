@@ -1,8 +1,9 @@
-import { FlowerIcon } from '@/assets/Icons'
 import { useState } from 'react'
 import SentLetter from '@/pages/MyPage/components/SentLetter'
 import ReceivedLetter from '@/pages/MyPage/components/ReceivedLetter'
 import { Button } from '@/components'
+import { useGetFlower } from '@/apis/hooks'
+import Purchase from '@/components/Purchase'
 
 interface LetterProps {
   sender?: string
@@ -17,6 +18,8 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
   const [showModal, setShowModal] = useState<boolean>(false)
   const [sentModalOpen, setSentModalOpen] = useState<boolean>(false)
   const [receivedModalOpen, setReceivedModalOpen] = useState<boolean>(false)
+  const { data } = useGetFlower({ id: flowerId })
+  const flowerName = data?.data.flowerType
   const openModal = () => {
     if (status === 'received' && currentDate < dDayDate) {
       setShowModal(true)
@@ -35,20 +38,25 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
   return (
     <>
       <button
-        className="font-xs mb-5 flex h-[115px] w-full shrink-0 bg-[#D9D9D9] pl-7"
+        className="font-xs relative mb-5 flex h-[120px] w-full shrink-0"
         onClick={openModal}
+        style={{
+          boxShadow:
+            '0px -4px 10px rgba(0, 0, 0, 0.05), 0px 4px 10px rgba(0, 0, 0, 0.05)',
+        }}
       >
-        <div className="flex flex-col gap-1 pt-5">
-          <p className="mt-5">
-            {status === 'received' ? 'FROM. ' : 'TO. '}
-            {receiver}
-            {sender}
-          </p>
+        <p className="mb-2 mt-auto flex flex-col gap-1 pl-3">
+          {status === 'received' ? 'FROM. ' : 'TO. '}
+          {receiver}
+          {sender}
+        </p>
+        <div className="absolute right-0 mr-28 mt-[55px] flex items-center justify-center">
+          <Purchase
+            className="absolute h-[190px] w-[100px] rotate-[270deg] "
+            name={flowerName}
+          />
         </div>
-        <div className="relative">
-          <FlowerIcon className="absolute z-10 ml-14 mt-6" />
-          <div className="absolute z-20 ml-32 h-full w-16 bg-white opacity-60 " />
-        </div>
+        <div className="absolute z-20 ml-56 h-full w-16 bg-white opacity-60 drop-shadow-md" />
       </button>
       {sentModalOpen && (
         <SentLetter
