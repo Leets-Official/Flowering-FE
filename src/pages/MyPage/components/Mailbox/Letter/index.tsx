@@ -21,7 +21,7 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
   const { data } = useGetFlower({ id: flowerId })
   const flowerName = data?.data.flowerType
   const openModal = () => {
-    if (status === 'received' && currentDate < dDayDate) {
+    if (status === 'received' && currentDate > dDayDate) {
       setShowModal(true)
     } else if (status === 'received' && !showModal) {
       setReceivedModalOpen(true)

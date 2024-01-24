@@ -3,16 +3,16 @@ interface PurchaseProps {
   name?: string
 }
 
-const Purchase = ({ className, name }: PurchaseProps) => {
+const Card = ({ className, name }: PurchaseProps) => {
   const getImageUrl = (name?: string) => {
     return new URL(`/src/assets/images/bigItems/${name}.png`, import.meta.url)
       .href
   }
 
   return (
-    <div className={`${className} my-5 flex justify-center`}>
-      <img className="h-full" src={getImageUrl(name)} />
+    <div className={`flex ${className}`}>
+      <img className="" src={getImageUrl(name)} />
     </div>
   )
 }
-export default Purchase
+export default Card
