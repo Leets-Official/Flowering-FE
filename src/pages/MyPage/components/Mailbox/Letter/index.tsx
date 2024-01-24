@@ -21,7 +21,7 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
   const { data } = useGetFlower({ id: flowerId })
   const flowerName = data?.data.flowerType
   const openModal = () => {
-    if (status === 'received' && currentDate > dDayDate) {
+    if (status === 'received' && currentDate < dDayDate) {
       setShowModal(true)
     } else if (status === 'received' && !showModal) {
       setReceivedModalOpen(true)
@@ -73,15 +73,18 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
         />
       )}
       {showModal && (
-        <div className="absolute left-0 top-0 z-50 flex h-full w-full backdrop-blur backdrop-blur-sm">
-          <div className="mt-auto flex h-[230px] w-full flex-col rounded-t-[51px] bg-white px-8 pt-6">
-            <p className="font-lg mt-10 text-center">
-              {new Date(dDay).getMonth() + 1}월 {new Date(dDay).getDate()}일
-              이후에 확인할 수 있어요.
-            </p>
-            <Button onClick={closeModal} size="lg" className="font-sm mt-16">
-              닫기
-            </Button>
+        <div>
+          <div className="absolute left-0 top-0 z-30 h-screen w-full bg-gray-200 opacity-40" />
+          <div className=" absolute left-0 top-0 z-50 flex h-full w-full backdrop-blur backdrop-blur-sm">
+            <div className="mt-auto flex h-[230px] w-full flex-col rounded-t-[51px] bg-white px-8 pt-6">
+              <p className="font-lg mt-10 text-center">
+                {new Date(dDay).getMonth() + 1}월 {new Date(dDay).getDate()}일
+                이후에 확인할 수 있어요.
+              </p>
+              <Button onClick={closeModal} size="lg" className="font-sm mt-16">
+                닫기
+              </Button>
+            </div>
           </div>
         </div>
       )}
