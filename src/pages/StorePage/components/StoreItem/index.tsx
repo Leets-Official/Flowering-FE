@@ -50,7 +50,7 @@ const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
     <div>
       <Modal>
         <div className="flex cursor-pointer justify-center" key="toggle">
-          {<Item id={itemName} />}
+          {<Item name={itemName} />}
         </div>
         <div className="flex flex-col items-center" key="content">
           <p className="font-lg text-gray-300">{itemName.replace(/-/g, ' ')}</p>
@@ -58,7 +58,7 @@ const StoreItem = ({ type, itemId, coin, itemName }: StoreItemProps) => {
             <CoinIcon className="h-[14px] w-[14px]" />
             <p>{coin} 코인</p>
           </div>
-          <Purchase name={itemName} />
+          <Purchase className="h-[190px] w-[133px]" name={itemName} />
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
