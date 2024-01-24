@@ -3,7 +3,7 @@ import Mailbox from '@/pages/MyPage/components/Mailbox'
 import Header from '@/components/Header'
 import { Sidebar } from '@/components'
 import { ICONS } from '@/constants'
-import useGetUserInfo from '@/apis/hooks/useGetUserInfo.ts'
+import useGetUserInfo from '@/apis/hooks/useGetUser.ts'
 
 const MyPage = () => {
   const [selectedMailbox, setSelectedMailbox] = useState<string>('received')
@@ -12,7 +12,7 @@ const MyPage = () => {
   if (!data) {
     return <p>error</p>
   }
-  const { nickname, dday } = data.data
+  const { nickname, dday } = data
   const handleMailboxSelection = (mailboxType: string) => {
     setSelectedMailbox(mailboxType)
   }

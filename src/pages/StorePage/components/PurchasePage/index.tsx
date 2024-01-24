@@ -31,7 +31,7 @@ const PurchasePage = ({ itemName }: puchasePageProps) => {
           </Button>
           <Button
             onClick={() => {
-              navigate('/item')
+              navigate('/collection')
             }}
             className="font-sm h-[40px] w-[108px] rounded-[50px]"
           >

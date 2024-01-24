@@ -46,7 +46,7 @@ const ChooseFlower = ({
               style={{ flex: '0 0 auto', minWidth: '10px' }}
               onClick={() => handleCircleClick(index)}
             >
-              <Item id={flower} key={flower} />
+              <Item name={flower} key={flower} />
             </div>
           ))}
         </div>

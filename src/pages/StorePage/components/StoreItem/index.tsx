@@ -18,10 +18,11 @@ interface StoreItemProps {
 }
 const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
   const [itemNum, setItemNum] = useState<number>(0)
-  const maxAllowedQuantity = price ? Math.round(coin / parseInt(price, 10)) : 0
-  const { storeFlowerMutation } = usePostStoreFlower()
-  const { storeCardMutation } = usePostStoreCard()
-  const { storeDecoMutation } = usePostStoreDeco()
+  const [confirmPurchase, setConfirmPurchase] = useState<boolean>(false)
+  const maxAllowedQuantity = coin ? Math.round(coin / parseInt(price, 10)) : 0
+  const { storeFlowerMutation } = usePostStoreFlower(setConfirmPurchase)
+  const { storeCardMutation } = usePostStoreCard(setConfirmPurchase)
+  const { storeDecoMutation } = usePostStoreDeco(setConfirmPurchase)
   const onPurchaseButton = () => {
     if (type === 'flower' && itemNum > 0) {
       storeFlowerMutation.mutate({ flowerItemId: itemId, count: itemNum })
@@ -49,7 +50,7 @@ const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
     <div>
       <Modal>
         <div className="flex cursor-pointer justify-center" key="toggle">
-          {<Item id={itemName} />}
+          {<Item name={itemName} />}
         </div>
         <div className="flex flex-col items-center" key="content">
           <p className="font-lg text-gray-300">{itemName.replace(/-/g, ' ')}</p>

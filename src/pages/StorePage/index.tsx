@@ -4,7 +4,7 @@ import StoreItem from '@/pages/StorePage/components/StoreItem'
 import { ICONS } from '@/constants'
 import useGetStore from '@/apis/hooks/useGetStore.ts'
 import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
-import useGetUserInfo from '@/apis/hooks/useGetUserInfo.ts'
+import useGetUserInfo from '@/apis/hooks/useGetUser.ts'
 
 const StorePage = () => {
   const { data: storeData } = useGetStore()
@@ -15,7 +15,7 @@ const StorePage = () => {
   }
   const { decoItems, flowerItems, letterItems } = storeData.data
 
-  const { coin } = userData.data
+  const coin = userData.coin
   const deco = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
       coin={coin}
