@@ -3,7 +3,7 @@ import SentLetter from '@/pages/MyPage/components/SentLetter'
 import ReceivedLetter from '@/pages/MyPage/components/ReceivedLetter'
 import { Button } from '@/components'
 import { useGetFlower } from '@/apis/hooks'
-import Purchase from '@/components/Purchase'
+import BigItem from '@/components/BigItem'
 
 interface LetterProps {
   sender?: string
@@ -51,7 +51,7 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
           {sender}
         </p>
         <div className="absolute right-0 mr-28 mt-[55px] flex items-center justify-center">
-          <Purchase
+          <BigItem
             className="absolute h-[190px] w-[100px] rotate-[270deg] "
             name={flowerName}
           />

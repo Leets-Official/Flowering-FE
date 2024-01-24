@@ -1,7 +1,7 @@
 import { Header } from '@/components'
 import { ICONS } from '@/constants'
 import { useGetFlower } from '@/apis/hooks'
-import Purchase from '@/components/Purchase'
+import BigItem from '@/components/BigItem'
 
 interface SentLetterProps {
   receiver?: string
@@ -36,8 +36,8 @@ const SentLetter = ({ flowerId, receiver, onClose }: SentLetterProps) => {
         }}
       >
         <p className="font-sm mb-10">{letter}</p>
-        <Purchase
-          className="absolute right-0 top-0 h-[330px] w-[231px] translate-x-[20px] rotate-[325deg] opacity-50"
+        <BigItem
+          className="absolute right-0 top-0 h-[330px] w-[231px] translate-x-[33px] rotate-[325deg] opacity-50"
           name={flower}
         />
       </div>
