@@ -12,7 +12,7 @@ const MyPage = () => {
   if (!data) {
     return <p>error</p>
   }
-  const { nickname } = data.data
+  const { nickname, dday } = data.data
   const handleMailboxSelection = (mailboxType: string) => {
     setSelectedMailbox(mailboxType)
   }
@@ -55,7 +55,7 @@ const MyPage = () => {
             </li>
           ))}
         </ul>
-        <Mailbox status={selectedMailbox} />
+        <Mailbox dDay={dday} status={selectedMailbox} />
       </div>
       <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
     </section>
