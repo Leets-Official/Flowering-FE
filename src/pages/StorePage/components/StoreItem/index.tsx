@@ -6,6 +6,8 @@ import {
   usePostStoreDeco,
   usePostStoreFlower,
 } from '@/apis/hooks'
+import Purchase from '@/components/Purchase'
+import { PurchasePage } from '@/pages'
 
 interface StoreItemProps {
   type: string
@@ -49,14 +51,13 @@ const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
         <div className="flex cursor-pointer justify-center" key="toggle">
           {<Item id={itemName} />}
         </div>
-        <div className=" flex flex-col items-center" key="content">
-          <p className="font-lg">{itemName}</p>
+        <div className="flex flex-col items-center" key="content">
+          <p className="font-lg text-gray-300">{itemName.replace(/-/g, ' ')}</p>
           <div className="font-xs flex items-center gap-1">
             <CoinIcon className="h-[14px] w-[14px]" />
             <p>{price} 코인</p>
           </div>
-          {/*사진 추후 변경 예정*/}
-          <Item id={itemName} />
+          <Purchase name={itemName} />
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
@@ -91,6 +92,11 @@ const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
         <CoinIcon className="h-[13px] w-[13px]" />
         <p className="font-xs text-gray-200">{price}</p>
       </div>
+      {confirmPurchase && (
+        <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center bg-white">
+          <PurchasePage itemName={itemName} />
+        </div>
+      )}
     </div>
   )
 }

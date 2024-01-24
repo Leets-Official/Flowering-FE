@@ -2,11 +2,11 @@ import { useSuspenseQuery } from '@tanstack/react-query'
 import apiClient from '../apiClient'
 import type { UserInfo } from '@/types'
 
-const useGetUserInfo = () => {
+const useGetUser = () => {
   const getUserInfo = async () => {
     const response = await apiClient.get<UserInfo>(`/user/by-token`)
 
-    return response.data
+    return response.data.data
   }
 
   return useSuspenseQuery({
@@ -15,4 +15,4 @@ const useGetUserInfo = () => {
   })
 }
 
-export default useGetUserInfo
+export default useGetUser

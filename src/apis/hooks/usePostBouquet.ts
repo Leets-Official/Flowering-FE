@@ -5,7 +5,7 @@ interface CreateBouquetProps {
   wrapper: string
   ribbon: string
   bouquetName: string
-  dday: string
+  dDay: string
 }
 
 const usePostBouquet = () => {
