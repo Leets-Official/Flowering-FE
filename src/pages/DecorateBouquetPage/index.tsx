@@ -1,16 +1,7 @@
 import { useLocation, useNavigate } from 'react-router'
-import {
-  WrapperWhiteBackImage,
-  WrapperWhiteFrontLeftImage,
-  WrapperWhiteFrontRightImage,
-  WrapperBlackItem,
-  WrapperWhiteItem,
-  WrapperBlackBackImage,
-  WrapperBlackFrontLeftImage,
-  WrapperBlackFrontRightImage,
-} from '@/assets/images'
+import { WrapperBlackItem, WrapperWhiteItem } from '@/assets/images'
 import { Header } from '@/components'
-import { Ribbons, FlowerFrame, TabContents } from './components'
+import { FlowerFrame, TabContents, BouquetFrame } from './components'
 import {
   Tabs,
   TabsHeader,
@@ -39,10 +30,6 @@ const DecorateBouquetPage = () => {
   const myItems = items.decoItems
     .filter((item) => item.owned)
     .map((item) => item.type)
-
-  const getCardImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
-  }
 
   const getRibbonImageUrl = (name: string) => {
     return new URL(`/src/assets/images/ribbons/${name}.png`, import.meta.url)
@@ -122,40 +109,10 @@ const DecorateBouquetPage = () => {
       />
       <div className="relative flex h-full w-full items-center justify-center">
         <FlowerFrame flowers={bouquetInfo.bouquets[0].flowers} />
-        <div className="relative h-full w-full">
-          <div className="absolute left-1/2 top-1/2 z-[15] w-[60%] -translate-x-[55.5%] -translate-y-[16%]">
-            {currentWrapper === 'white' ? (
-              <WrapperWhiteFrontLeftImage className="h-full w-full" />
-            ) : (
-              <WrapperBlackFrontLeftImage className="h-full w-full" />
-            )}
-          </div>
-          <div className="absolute left-1/2 top-1/2 z-30 w-[65%] -translate-x-[44%] -translate-y-[10%]">
-            {currentWrapper === 'white' ? (
-              <WrapperWhiteFrontRightImage className="h-full w-full" />
-            ) : (
-              <WrapperBlackFrontRightImage className="h-full w-full" />
-            )}
-            <Ribbons ribbon={currentRibbon} />
-          </div>
-          <div className="absolute left-1/2 top-1/2 z-40 w-[33%] -translate-x-[18%] translate-y-[45%]">
-            <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
-              <span>{`1 st`}</span>
-            </p>
-            <img
-              src={getCardImageUrl('flower_card')}
-              alt="flower_card"
-              className="w-full"
-            />
-          </div>
-        </div>
-        <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[60%]">
-          {currentWrapper === 'white' ? (
-            <WrapperWhiteBackImage className="h-full w-full" />
-          ) : (
-            <WrapperBlackBackImage className="h-full w-full" />
-          )}
-        </div>
+        <BouquetFrame
+          currentWrapper={currentWrapper}
+          currentRibbon={currentRibbon}
+        />
       </div>
       <Tabs
         value="html"
