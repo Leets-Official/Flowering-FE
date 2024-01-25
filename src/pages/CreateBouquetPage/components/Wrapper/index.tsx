@@ -23,7 +23,7 @@ const Wrapper = ({ wrapper, setWrapper }: WrapperProps) => {
         </div>
       </div>
       <div className="mx-6 flex h-full flex-col justify-center ">
-        <div className="flex h-[60%] w-full justify-center rounded-[1.5rem] border border-black">
+        <div className="flex h-[18rem] w-full justify-center rounded-[1.5rem] border border-black">
           {wrapper && (
             <img
               src={getWrapperImageUrl(wrapper)}
@@ -35,12 +35,12 @@ const Wrapper = ({ wrapper, setWrapper }: WrapperProps) => {
           <img
             src={black}
             onClick={() => setWrapper('black')}
-            className={`rounded-full ${wrapper == 'black' && 'border-2'}`}
+            className={`rounded-full ${wrapper == 'black' && 'rounded-full border-[1px] border-gray-300'}`}
           />
           <img
             src={white}
             onClick={() => setWrapper('white')}
-            className={`rounded-full ${wrapper == 'white' && 'border-2'}`}
+            className={`rounded-full ${wrapper == 'white' && 'rounded-full border-[1px] border-gray-300'}`}
           />
         </div>
       </div>
