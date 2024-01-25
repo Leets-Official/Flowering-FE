@@ -10,9 +10,11 @@ const MainPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
 
+  const address = searchParams.get('addr')
+
+  // TODO: recoil에서 가져오기
   const { data: userInfo } = useGetUser()
 
-  const address = searchParams.get('addr')
   const userId = address || userInfo.userId
 
   const { data: bouquetInfo } = useGetBouquet({
