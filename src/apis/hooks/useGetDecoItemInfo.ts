@@ -22,7 +22,7 @@ const useGetDecoItemInfo = ({
   const { data } = useQuery<ItemInfo, Error>({
     queryKey,
     queryFn: () => getDecoItemInfo(),
-    enabled: type === 'Deco',
+    enabled: type === 'Object',
   })
 
   return { data }
