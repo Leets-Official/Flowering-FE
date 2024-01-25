@@ -8,7 +8,7 @@ const Item = ({ name }: ItemProps) => {
   }
 
   return (
-    <div className={`h-[72px] w-[72px]`}>
+    <div className="h-[72px] w-[72px]">
       <img src={getImageUrl(name)} />
     </div>
   )

@@ -1,10 +1,10 @@
-interface PurchaseProps {
-  className: string
-  name: string
+interface BigItemProps {
+  className?: string
+  name?: string
 }
 
-const Purchase = ({ className, name }: PurchaseProps) => {
-  const getImageUrl = (name: string) => {
+const BigItem = ({ className, name }: BigItemProps) => {
+  const getImageUrl = (name?: string) => {
     return new URL(`/src/assets/images/bigItems/${name}.png`, import.meta.url)
       .href
   }
@@ -15,4 +15,4 @@ const Purchase = ({ className, name }: PurchaseProps) => {
     </div>
   )
 }
-export default Purchase
+export default BigItem
