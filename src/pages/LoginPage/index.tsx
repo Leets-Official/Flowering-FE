@@ -5,8 +5,7 @@ import MerryGoRound from '@/components/MerryGoRound'
 const LoginPage = () => {
   const LoginAssign = () => {
     const REDIRECT_URI = `${window.location.protocol}//${window.location.host}/oauth`
-    // const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID
-    const CLIENT_ID = 'aea758d142fcdc0a424fe75b57219816'
+    const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID
     const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`
     window.location.href = KAKAO_AUTH_URL
   }
