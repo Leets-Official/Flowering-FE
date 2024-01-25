@@ -8,7 +8,8 @@ apiClient.interceptors.request.use(
   async (config) => {
     const accessToken = localStorage.getItem('accessToken')
     if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`
+      // config.headers.Authorization = `Bearer ${accessToken}`
+      config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJldW56enp6enoxQG5hdmVyLmNvbSIsImV4cCI6MTcwNjIyNzg4N30.ttBL4oESxU1Xec2Al75hZInQmZuz0tsDTKDpMQye1t4`
     }
 
     return config
