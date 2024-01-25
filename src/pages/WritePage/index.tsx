@@ -9,8 +9,8 @@ const WritePage = () => {
   const navigate = useNavigate()
 
   const [currentStep, setCurrentStep] = useState(1)
-  const [selectedFlower, setSelectedFlower] = useState('포인세티아')
-  const [selectedCard, setSelectedCard] = useState('redPaper')
+  const [selectedFlower, setSelectedFlower] = useState('신비로운-새벽-하늘')
+  const [selectedCard, setSelectedCard] = useState('향기-카드')
   const [letter, setLetter] = useState('')
 
   const { writeLetterMutation } = usePostWriteLetter()
