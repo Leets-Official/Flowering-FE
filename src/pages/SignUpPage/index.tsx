@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react'
 import { Header, Button } from '@/components'
 import { CheckIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router'
-import apiClient from '@/apis/apiClient'
+import { usePostRegister } from '@/apis/hooks'
 
 const SignUpPage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -11,6 +11,7 @@ const SignUpPage = () => {
   )
   const [activeButton, setActiveButton] = useState<boolean>(false)
   const navigate = useNavigate()
+  const { mutate: postRegister } = usePostRegister()
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value)
     if (e.target.value.length < 1) {
@@ -27,12 +28,22 @@ const SignUpPage = () => {
 
   const handleClick = async () => {
     try {
-      const res = await apiClient.post('/user/register', {
-        accessToken: localStorage.getItem('kakaoToken'),
+      const props = {
         nickname,
+        accessToken: localStorage.getItem('kakaoToken'),
+      }
+      postRegister(props, {
+        onSuccess: (data) => {
+          console.log(data)
+          localStorage.setItem('accessToken', data.data.data.token.accessToken)
+          localStorage.setItem(
+            'refreshToken',
+            data.data.data.token.refreshToken,
+          )
+          localStorage.setItem('email', data.data.data.email)
+          navigate(`/?${data.data.data.userId}`)
+        },
       })
-      console.log(res)
-      navigate(`/login`)
     } catch (err) {
       console.log(err)
     }

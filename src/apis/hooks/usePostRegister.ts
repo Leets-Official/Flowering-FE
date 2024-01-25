@@ -1,23 +1,31 @@
 import apiClient from '../apiClient'
-import { useSuspenseQuery } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 
-interface registerProps {
+interface PostRegisterProps {
   nickname: string
+  accessToken: string | null
 }
-const usePostRegister = ({ nickname }: registerProps) => {
-  const postRegister = async () => {
-    const res = await apiClient.post('/user/register', {
-      accessToken: localStorage.getItem('kakaoToken'),
-      nickname,
-    })
 
-    return res.data
+interface Response {
+  code: number
+  message: string
+  data: {
+    userId: string
+    email: string
+    nickname: string
+    token: {
+      accessToken: string
+      refreshToken: string
+    }
+  }
+}
+
+const usePostRegister = () => {
+  const postRegister = async (data: PostRegisterProps) => {
+    return await apiClient.post<Response>('/user/register', data)
   }
 
-  return useSuspenseQuery({
-    queryKey: ['/user/register'],
-    queryFn: postRegister,
-  })
+  return useMutation({ mutationFn: postRegister })
 }
 
 export default usePostRegister
