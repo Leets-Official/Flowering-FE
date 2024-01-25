@@ -11,20 +11,35 @@ const OauthPage = () => {
   const REDIRECT_URI = `${window.location.protocol}//${window.location.host}/oauth`
   const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID
   const navigate = useNavigate()
-  const { data: loginInfo } = usePostLogin()
   const [kakaoToken, setKakaoToken] = useState(false)
+  const { mutate: postLogin } = usePostLogin()
 
   useEffect(() => {
-    if (loginInfo) {
-      localStorage.setItem('accessToken', loginInfo.data.token.accessToken)
-      localStorage.setItem('refreshToken', loginInfo.data.token.refreshToken)
-      localStorage.setItem('email', loginInfo.data.email)
-      navigate(`/?${loginInfo.data.userId}`)
+    try {
+      if (localStorage.getItem('kakaoToken')) {
+        const props = {
+          accessToken: localStorage.getItem('kakaoToken'),
+        }
+        postLogin(props, {
+          onSuccess: (data) => {
+            console.log(data)
+            localStorage.setItem(
+              'accessToken',
+              data.data.data.token.accessToken,
+            )
+            localStorage.setItem(
+              'refreshToken',
+              data.data.data.token.refreshToken,
+            )
+            localStorage.setItem('email', data.data.data.email)
+            navigate(`/?${data.data.data.userId}`)
+          },
+        })
+      }
+    } catch (err) {
+      console.log(err)
     }
-    if (loginInfo === null) {
-      navigate('/signup')
-    }
-  }, [kakaoToken, loginInfo, navigate])
+  }, [navigate, postLogin, kakaoToken])
   useEffect(() => {
     const bringToken = async () => {
       try {
