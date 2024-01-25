@@ -27,7 +27,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
                 key={element.type}
                 onClick={() => {
                   navigate(
-                    `/item?type=${ItemType}&name${element.type}&id=${element.id}`,
+                    `/item?type=${ItemType}&name=${element.type}&id=${element.id}`,
                   )
                 }}
                 className="cursor-pointer"

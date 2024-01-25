@@ -20,7 +20,8 @@ const ItemPage = () => {
   const { data: cardInfo } = useGetCardItemInfo({ id, type })
   const [data, setData] = useState<ItemInfo>()
   const getImageUrl = (name: string | null) => {
-    return new URL(`/src/assets/images/bigItems/${name}.png`, import.meta.url).href
+    return new URL(`/src/assets/images/bigItems/${name}.png`, import.meta.url)
+      .href
   }
 
   useEffect(() => {
@@ -42,17 +43,19 @@ const ItemPage = () => {
   }, [type, flowerInfo, decoInfo, cardInfo])
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-full flex-col">
       <Header leftIcon="HomeIcon" />
-      <div className="mx-6 mt-5 flex flex-col items-center gap-12">
+      <div className="mx-6 mt-5 flex h-full flex-col items-center gap-12">
         <div className="font-lg text-[#282828]">{type}</div>
-        <div className="h-[18.75rem] w-60">
+        <div>
           <img src={getImageUrl(name)} />
         </div>
         <div className="flex flex-col items-center gap-2">
           <div className="font-lg text-[#6e6e6e]">{data?.data.itemName}</div>
           <div className="font-xs text-[#959595]">{data?.data.description}</div>
         </div>
+      </div>
+      <div className="font-md px-6 py-5">
         <Button
           size="lg"
           className="mb-2.5"
