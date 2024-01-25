@@ -1,21 +1,21 @@
-import Header from '@/components/Header'
-import { FlowerIcon } from '@/assets/Icons'
 import { Button } from '@/components'
 import { useNavigate } from 'react-router-dom'
-import { ICONS } from '@/constants'
+import Purchase from '@/components/Purchase'
 
-const PurchasePage = () => {
+interface puchasePageProps {
+  itemName: string
+}
+const PurchasePage = ({ itemName }: puchasePageProps) => {
   const navigate = useNavigate()
 
   return (
     <div>
-      <Header leftIcon={ICONS.HOME} />
       <div className="mx-8">
-        <FlowerIcon className="ml-10 mt-5 h-[300px] w-[230px] rotate-45" />
+        <Purchase className="h-[340px] w-[238px]" name={itemName} />
         <div className="font-lg mt-16 text-center">
           <p>축하합니다!</p>
           <div className="mt-4 flex justify-center">
-            <p>포인세티아</p>
+            <p>{itemName.replace(/-/g, ' ')}</p>
             <p className="text-gray-200">를 구매하셨어요.</p>
           </div>
           <p className="text-gray-200">꽃을 지인들에게 선물해보세요!</p>
@@ -23,7 +23,7 @@ const PurchasePage = () => {
         <div className="mt-8 flex justify-center gap-4">
           <Button
             onClick={() => {
-              navigate('/store')
+              window.location.reload()
             }}
             className="font-sm h-[40px] w-[108px] rounded-[50px]"
           >
@@ -31,7 +31,7 @@ const PurchasePage = () => {
           </Button>
           <Button
             onClick={() => {
-              navigate('/item')
+              navigate('/collection')
             }}
             className="font-sm h-[40px] w-[108px] rounded-[50px]"
           >
