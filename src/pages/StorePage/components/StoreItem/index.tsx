@@ -58,7 +58,7 @@ const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
             <CoinIcon className="h-[14px] w-[14px]" />
             <p>{price} 코인</p>
           </div>
-          <BigItem name={itemName} />
+          <BigItem className="h-[190px] w-[133px]" name={itemName} />
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${

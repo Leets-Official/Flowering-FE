@@ -1,6 +1,6 @@
 import { Button } from '@/components'
 import { useNavigate } from 'react-router-dom'
-import ConfirmPurchase from '@/components/ConfirmPurchase.tsx'
+import Purchase from '@/components/Purchase'
 
 interface puchasePageProps {
   itemName: string
@@ -11,7 +11,7 @@ const PurchasePage = ({ itemName }: puchasePageProps) => {
   return (
     <div>
       <div className="mx-8">
-        <ConfirmPurchase name={itemName} />
+        <Purchase className="h-[340px] w-[238px]" name={itemName} />
         <div className="font-lg mt-16 text-center">
           <p>축하합니다!</p>
           <div className="mt-4 flex justify-center">
