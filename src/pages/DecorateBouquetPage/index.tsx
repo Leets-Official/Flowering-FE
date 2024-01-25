@@ -30,6 +30,9 @@ const DecorateBouquetPage = () => {
   const [currentWrapper, setCurrentWrapper] = useState<string>(
     bouquetInfo.bouquetDesign.wrapper,
   )
+  const [currentRibbon, setCurrentRibbon] = useState<string>(
+    bouquetInfo.bouquetDesign.ribbon,
+  )
 
   const { data: items } = useGetItems()
 
@@ -97,10 +100,11 @@ const DecorateBouquetPage = () => {
       value: 'ribbon',
       content: (
         <div className={`flex w-full justify-center gap-6 px-2`}>
-          {['ribbonItem1', 'ribbonItem2', 'ribbonItem3'].map((item, index) => (
+          {['ribbon1', 'ribbon2', 'ribbon3'].map((item, index) => (
             <div
               key={index}
-              className="flex aspect-square w-[20%] rounded-full shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]"
+              className={`flex aspect-square w-[20%] rounded-full ${currentRibbon === item ? 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]' : ''}`}
+              onClick={() => setCurrentRibbon(item)}
             >
               <img src={getRibbonImageUrl(item)} alt="item" />
             </div>
@@ -132,7 +136,7 @@ const DecorateBouquetPage = () => {
             ) : (
               <WrapperBlackFrontRightImage className="h-full w-full" />
             )}
-            <Ribbons ribbon={bouquetInfo.bouquetDesign.ribbon} />
+            <Ribbons ribbon={currentRibbon} />
           </div>
           <div className="absolute left-1/2 top-1/2 z-40 w-[33%] -translate-x-[18%] translate-y-[45%]">
             <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
@@ -155,7 +159,7 @@ const DecorateBouquetPage = () => {
       </div>
       <Tabs
         value="html"
-        className="bg-tab-gradient relative z-50 flex h-[23%] shrink-0 flex-col"
+        className="relative z-50 flex h-[23%] shrink-0 flex-col bg-tab-gradient"
       >
         <TabsHeader
           className="justify-center bg-transparent px-7 py-0"
