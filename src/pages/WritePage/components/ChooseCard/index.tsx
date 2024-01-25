@@ -9,7 +9,7 @@ interface ChooseCardProps {
 }
 const ChooseCard = ({ selectedCard, setSelectedCard }: ChooseCardProps) => {
   const { data } = useGetItems()
-  const cards = data?.data.cardItems
+  const cards = data.cardItems
   const [selectedCardIndex, setSelectedCardIndex] = useState<number>(0)
   const ownedCards = cards ? cards.filter((card) => card.owned) : []
   const cardsTypes = ownedCards.map((card) => card.type)
