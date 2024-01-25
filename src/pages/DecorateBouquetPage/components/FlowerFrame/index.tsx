@@ -18,7 +18,7 @@ const flowerPositionOption = [
 
 const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
   const getImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/flowers/${name}.png`, import.meta.url)
+    return new URL(`/src/assets/images/bigItems/${name}.png`, import.meta.url)
       .href
   }
 
