@@ -47,7 +47,7 @@ const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
   }
 
   return (
-    <div>
+    <div tabIndex={-1}>
       <Modal>
         <div className="flex cursor-pointer justify-center" key="toggle">
           {<Item name={itemName} />}
@@ -62,7 +62,7 @@ const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
           <div className="flex gap-3">
             <button
               className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                itemNum > 0 ? 'bg-gray-200' : 'bg-gray-100'
+                itemNum >= 1 ? 'bg-gray-200' : 'bg-gray-100'
               } font-normal text-white`}
               onClick={() => itemNumHandler(-1)}
             >
