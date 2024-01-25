@@ -26,11 +26,10 @@ const Content = ({ ItemType, data }: CollectionProps) => {
               <div
                 key={element.type}
                 onClick={() => {
-                  navigate(
-                    `/item?type=${ItemType}&name=${element.type}&id=${element.id}`,
-                  )
+                  if (element.amount !== 0)
+                    navigate(`/item?type=${ItemType}&id=${element.id}`)
                 }}
-                className="cursor-pointer"
+                className={`flex cursor-pointer flex-col items-center ${element.owned ? null : 'opacity-40 blur-[2px]'}`}
               >
                 <Item name={element.type} />
                 <div className="font-xs mt-1.5 text-center text-gray-200">

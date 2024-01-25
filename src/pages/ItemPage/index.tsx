@@ -14,7 +14,6 @@ const ItemPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const id = searchParams.get('id')
   const type = searchParams.get('type')
-  const name = searchParams.get('name')
   const { data: flowerInfo } = useGetFlowerItemInfo({ id, type })
   const { data: decoInfo } = useGetDecoItemInfo({ id, type })
   const { data: cardInfo } = useGetCardItemInfo({ id, type })
@@ -48,7 +47,9 @@ const ItemPage = () => {
       <div className="mx-6 mt-5 flex h-full flex-col items-center gap-12">
         <div className="font-lg text-[#282828]">{type}</div>
         <div>
-          <img src={getImageUrl(name)} />
+          {data?.data.itemName && (
+            <img src={getImageUrl(data?.data.itemName.replace(/ /g, '-'))} />
+          )}
         </div>
         <div className="flex flex-col items-center gap-2">
           <div className="font-lg text-[#6e6e6e]">{data?.data.itemName}</div>
