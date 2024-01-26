@@ -12,9 +12,9 @@ const CollectionPage = () => {
       <div className="font-xl mx-6 mb-8">ITEM</div>
       {collectionInfo && (
         <>
-          <Content ItemType="Object" data={collectionInfo?.data.decoItems} />
-          <Content ItemType="Flower" data={collectionInfo?.data.flowers} />
-          <Content ItemType="Card" data={collectionInfo?.data.cardItems} />
+          <Content ItemType="Object" data={collectionInfo?.decoItems} />
+          <Content ItemType="Flower" data={collectionInfo?.flowers} />
+          <Content ItemType="Card" data={collectionInfo?.cardItems} />
         </>
       )}
     </div>

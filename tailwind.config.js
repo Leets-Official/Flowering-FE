@@ -23,6 +23,10 @@ export default withMT({
           600: '#9D9D9D',
         },
       },
+      backgroundImage: {
+        'tab-gradient':
+          'linear-gradient(0deg, #909090 -172.73%, rgba(217, 217, 217, 0.00) 100%, #FFF 100%)',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],

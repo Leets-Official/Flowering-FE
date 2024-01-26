@@ -2,7 +2,7 @@ import apiClient from '@/apis/apiClient.ts'
 
 const items = async () => {
   try {
-    return await apiClient.get('/items').then((res) => res.data)
+    return await apiClient.get('/items').then((res) => res.data.data)
   } catch (error) {
     console.log(error)
   }

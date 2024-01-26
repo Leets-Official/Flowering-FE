@@ -13,7 +13,7 @@ const ChooseFlower = ({
   setSelectedFlower,
 }: ChooseFlowerProps) => {
   const { data } = useGetItems()
-  const flowers = data?.data.flowers
+  const flowers = data?.flowers
   const [selectedFlowerIndex, setSelectedFlowerIndex] = useState<number>(0)
   const ownedFlowers = flowers ? flowers.filter((flower) => flower.owned) : []
 
