@@ -21,6 +21,8 @@ const MainPage = () => {
     id: userId,
   })
 
+  console.log(bouquetInfo)
+
   useEffect(() => {
     if (!address) {
       setSearchParams({ addr: userId })

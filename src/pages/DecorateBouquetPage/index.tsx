@@ -10,7 +10,7 @@ import {
   TabPanel,
 } from '@material-tailwind/react'
 import { startTransition, useRef, useEffect, useState } from 'react'
-import { useGetItems } from '@/apis/hooks'
+import { useGetItems, useEditBouquet } from '@/apis/hooks'
 
 const DecorateBouquetPage = () => {
   const navigate = useNavigate()
@@ -29,6 +29,7 @@ const DecorateBouquetPage = () => {
   const [currentItem3, setCurrentItem3] = useState<string>('')
 
   const { data: items } = useGetItems()
+  const { mutate: editBouquet } = useEditBouquet()
 
   const myItems = items.decoItems
     .filter((item) => item.owned)
@@ -41,12 +42,27 @@ const DecorateBouquetPage = () => {
 
   useEffect(() => {
     if (tabRef.current) {
-      // tabRef.current.click()
+      tabRef.current.click()
     }
   }, [])
 
   const handleRibbonClick = (wrapper: string) => {
     setCurrentWrapper(wrapper)
+  }
+
+  const handleCompleteClick = () => {
+    editBouquet(
+      {
+        wrapper: currentWrapper,
+        ribbon: currentRibbon,
+        item1: currentItem1,
+        item2: currentItem2,
+        item3: currentItem3,
+      },
+      {
+        onSuccess: () => navigate('/'),
+      },
+    )
   }
 
   const tabContents = [
@@ -126,10 +142,13 @@ const DecorateBouquetPage = () => {
     <div className="flex h-screen w-full flex-col">
       <Header
         leftIcon="GoBackIcon"
-        rightIcon="btn"
+        rightIcon={
+          <Button size="sm" onClick={handleCompleteClick}>
+            완료
+          </Button>
+        }
         onGoBack={() => startTransition(() => navigate(-1))}
       />
-      <Button size="sm">완료</Button>
       <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
         <FlowerFrame flowers={bouquetInfo.bouquets[0].flowers} />
         <BouquetFrame

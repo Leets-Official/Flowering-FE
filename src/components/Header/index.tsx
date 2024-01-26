@@ -6,12 +6,12 @@ import {
   SidebarIcon,
 } from '@/assets/Icons'
 import { useNavigate } from 'react-router-dom'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, ReactNode } from 'react'
 import { ICONS } from '@/constants'
 
 interface HeaderProps {
   leftIcon?: string
-  rightIcon?: string
+  rightIcon?: string | ReactNode
   setSidebarOpen?: Dispatch<SetStateAction<boolean>>
   onClose?: () => void
   onGoBack?: () => void
@@ -58,9 +58,16 @@ const Header = ({
         <div></div>
       )}
       {rightIcon ? (
-        <div className="cursor-pointer" onClick={iconEventHandlers[rightIcon]}>
-          {icons[rightIcon]}
-        </div>
+        typeof rightIcon === 'string' ? (
+          <div
+            className="cursor-pointer"
+            onClick={iconEventHandlers[rightIcon]}
+          >
+            {icons[rightIcon]}
+          </div>
+        ) : (
+          <div>{rightIcon}</div>
+        )
       ) : (
         <div></div>
       )}
