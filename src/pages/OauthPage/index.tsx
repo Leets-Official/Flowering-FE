@@ -34,7 +34,9 @@ const OauthPage = () => {
             localStorage.setItem('email', data.data.data.email)
             navigate(`/?${data.data.data.userId}`)
           },
-          onError: (error) => {},
+          onError: () => {
+            navigate('signup')
+          },
         })
       }
     } catch (err) {
