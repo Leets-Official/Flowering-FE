@@ -47,21 +47,21 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
             />
           )}
         </div>
-        <div className="mt-4 flex h-[56px] w-full flex-nowrap justify-center gap-5 overflow-x-auto scrollbar-hide">
+        <div className="mt-4 flex h-[20%] w-full flex-nowrap items-center justify-center gap-5 overflow-x-auto scrollbar-hide">
           <img
             src={ribbon1}
             onClick={() => setRibbon('ribbon1')}
-            className={`rounded-full ${ribbon == 'ribbon1' && 'rounded-full border-[1px] border-gray-300'}`}
+            className={`h-[56px] rounded-full ${ribbon == 'ribbon1' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
           <img
             src={ribbon2}
             onClick={() => setRibbon('ribbon2')}
-            className={`rounded-full ${ribbon == 'ribbon2' && 'rounded-full border-[1px] border-gray-300'}`}
+            className={`h-[56px] rounded-full ${ribbon == 'ribbon2' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
           <img
             src={ribbon3}
             onClick={() => setRibbon('ribbon3')}
-            className={`rounded-full ${ribbon == 'ribbon3' && 'rounded-full border-[1px] border-gray-300'}`}
+            className={`h-[56px] rounded-full ${ribbon == 'ribbon3' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
         </div>
       </div>
