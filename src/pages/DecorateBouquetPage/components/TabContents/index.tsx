@@ -1,11 +1,18 @@
 import { Button } from '@/components'
+import { Dispatch, SetStateAction } from 'react'
 import { useNavigate } from 'react-router'
 
 interface TabContentsProps {
   myItems: string[]
+  currentItem: string
+  setCurrentItem: Dispatch<SetStateAction<string>>
 }
 
-const TabContents = ({ myItems }: TabContentsProps) => {
+const TabContents = ({
+  myItems,
+  currentItem,
+  setCurrentItem,
+}: TabContentsProps) => {
   const navigate = useNavigate()
 
   const getItemImageUrl = (name: string) => {
@@ -28,14 +35,15 @@ const TabContents = ({ myItems }: TabContentsProps) => {
         </div>
       ) : (
         <div
-          className={`flex gap-6 overflow-auto px-2 ${myItems.length < 4 ? 'justify-center' : 'justify-start'}`}
+          className={`flex gap-6 overflow-x-auto p-2 ${myItems.length < 4 ? 'justify-center' : 'justify-start'}`}
         >
           {myItems.map((item, index) => (
             <img
+              onClick={() => setCurrentItem(item)}
               key={index}
               src={getItemImageUrl(item)}
               alt="item"
-              className="aspect-square w-[19%] rounded-full border"
+              className={`w-[19.5%] rounded-full object-contain ${currentItem === item && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
             />
           ))}
         </div>

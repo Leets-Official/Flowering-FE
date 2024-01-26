@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router'
 import { WrapperBlackItem, WrapperWhiteItem } from '@/assets/images'
-import { Header } from '@/components'
-import { FlowerFrame, TabContents, BouquetFrame } from './components'
+import { Header, Button } from '@/components'
+import { FlowerFrame, TabContents, BouquetFrame, ItemFrame } from './components'
 import {
   Tabs,
   TabsHeader,
@@ -24,6 +24,9 @@ const DecorateBouquetPage = () => {
   const [currentRibbon, setCurrentRibbon] = useState<string>(
     bouquetInfo.bouquetDesign.ribbon,
   )
+  const [currentItem1, setCurrentItem1] = useState<string>('')
+  const [currentItem2, setCurrentItem2] = useState<string>('')
+  const [currentItem3, setCurrentItem3] = useState<string>('')
 
   const { data: items } = useGetItems()
 
@@ -50,17 +53,35 @@ const DecorateBouquetPage = () => {
     {
       label: '첫번째',
       value: 'item1',
-      content: <TabContents myItems={myItems} />,
+      content: (
+        <TabContents
+          myItems={myItems}
+          currentItem={currentItem1}
+          setCurrentItem={setCurrentItem1}
+        />
+      ),
     },
     {
       label: '두번째',
       value: 'item2',
-      content: <TabContents myItems={myItems} />,
+      content: (
+        <TabContents
+          myItems={myItems}
+          currentItem={currentItem2}
+          setCurrentItem={setCurrentItem2}
+        />
+      ),
     },
     {
       label: '세번째',
       value: 'item3',
-      content: <TabContents myItems={myItems} />,
+      content: (
+        <TabContents
+          myItems={myItems}
+          currentItem={currentItem3}
+          setCurrentItem={setCurrentItem3}
+        />
+      ),
     },
     {
       label: '포장지',
@@ -90,10 +111,10 @@ const DecorateBouquetPage = () => {
           {['ribbon1', 'ribbon2', 'ribbon3'].map((item, index) => (
             <div
               key={index}
-              className={`flex aspect-square w-[20%] rounded-full ${currentRibbon === item ? 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]' : ''}`}
+              className={`flex aspect-square w-[20%] rounded-full ${currentRibbon === item && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
               onClick={() => setCurrentRibbon(item)}
             >
-              <img src={getRibbonImageUrl(item)} alt="item" />
+              <img src={getRibbonImageUrl(item)} alt="ribbon" />
             </div>
           ))}
         </div>
@@ -105,13 +126,20 @@ const DecorateBouquetPage = () => {
     <div className="flex h-screen w-full flex-col">
       <Header
         leftIcon="GoBackIcon"
+        rightIcon="btn"
         onGoBack={() => startTransition(() => navigate(-1))}
       />
-      <div className="relative flex h-full w-full items-center justify-center">
+      <Button size="sm">완료</Button>
+      <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
         <FlowerFrame flowers={bouquetInfo.bouquets[0].flowers} />
         <BouquetFrame
           currentWrapper={currentWrapper}
           currentRibbon={currentRibbon}
+        />
+        <ItemFrame
+          currentItem1={currentItem1}
+          currentItem2={currentItem2}
+          currentItem3={currentItem3}
         />
       </div>
       <Tabs
