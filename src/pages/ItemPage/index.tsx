@@ -44,16 +44,19 @@ const ItemPage = () => {
   return (
     <div className="flex h-full flex-col">
       <Header leftIcon="HomeIcon" />
-      <div className="mx-6 mt-5 flex h-full flex-col items-center gap-12">
+      <div className="mx-6 mt-5 flex h-full flex-col items-center justify-center gap-12">
         <div className="font-lg text-[#282828]">{type}</div>
-        <div>
-          {data?.data.itemName && (
-            <img src={getImageUrl(data?.data.itemName.replace(/ /g, '-'))} />
+        <div className="h-[20rem]">
+          {data?.itemName && (
+            <img
+              src={getImageUrl(data?.itemName.replace(/ /g, '-'))}
+              className="h-full"
+            />
           )}
         </div>
         <div className="flex flex-col items-center gap-2">
-          <div className="font-lg text-[#6e6e6e]">{data?.data.itemName}</div>
-          <div className="font-xs text-[#959595]">{data?.data.description}</div>
+          <div className="font-lg text-[#6e6e6e]">{data?.itemName}</div>
+          <div className="font-xs text-[#959595]">{data?.description}</div>
         </div>
       </div>
       <div className="font-md px-6 py-5">

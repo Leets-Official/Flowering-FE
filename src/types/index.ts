@@ -146,10 +146,6 @@ export interface StoreCardInfo {
 }
 
 export interface ItemInfo {
-  code: number
-  message: string
-  data: {
-    itemName: string
-    description: string
-  }
+  itemName: string
+  description: string
 }

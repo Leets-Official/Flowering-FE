@@ -15,7 +15,7 @@ const useGetDecoItemInfo = ({
 }) => {
   const queryKey = ['deco', { id }]
   const getDecoItemInfo = async () => {
-    const response = await apiClient.get<Response>(`/decoitem-info/${id}`)
+    const response = await apiClient.get<Response>(`/decoitem-info?id=${id}`)
 
     return response.data.data
   }

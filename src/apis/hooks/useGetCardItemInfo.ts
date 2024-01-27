@@ -15,7 +15,7 @@ const useGetCardItemInfo = ({
 }) => {
   const queryKey = ['card', { id }]
   const getCardItemInfo = async () => {
-    const response = await apiClient.get<Response>(`/carditem-info/${id}`)
+    const response = await apiClient.get<Response>(`/carditem-info?id=${id}`)
 
     return response.data.data
   }
