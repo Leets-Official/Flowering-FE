@@ -11,6 +11,7 @@ import {
   CreateBouquetPage,
   WritePage,
   ItemPage,
+  DecorateBouquetPage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: PATH.WRITE,
         element: <WritePage />,
+      },
+      {
+        path: PATH.DECORATE_BOUQUET,
+        element: <DecorateBouquetPage />,
       },
     ],
   },
