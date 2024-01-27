@@ -15,7 +15,7 @@ const useGetFlowerItemInfo = ({
 }) => {
   const queryKey = ['flower', { id }]
   const getFlowerItemInfo = async () => {
-    const response = await apiClient.get<Response>(`/floweritem-info/${id}`)
+    const response = await apiClient.get<Response>(`/floweritem-info?id=${id}`)
 
     return response.data.data
   }
