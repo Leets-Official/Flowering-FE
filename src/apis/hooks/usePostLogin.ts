@@ -24,6 +24,8 @@ const usePostLogin = () => {
     return await apiClient.post<Response>('/user/login', data)
   }
 
-  return useMutation({ mutationFn: postLogin })
+  return useMutation({
+    mutationFn: postLogin,
+  })
 }
 export default usePostLogin
