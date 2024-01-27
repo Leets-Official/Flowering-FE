@@ -144,3 +144,8 @@ export interface StoreCardInfo {
   cardId: number
   count: number
 }
+
+export interface ItemInfo {
+  itemName: string
+  description: string
+}
