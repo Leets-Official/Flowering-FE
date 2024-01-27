@@ -24,6 +24,12 @@ const ItemPage = () => {
   }
 
   useEffect(() => {
+    if (!id || !type) {
+      setSearchParams({ err: 'error' })
+    }
+  }, [id, type, setSearchParams])
+
+  useEffect(() => {
     if (flowerInfo || decoInfo || cardInfo) {
       switch (type) {
         case 'Flower':
