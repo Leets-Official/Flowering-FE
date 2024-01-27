@@ -40,7 +40,7 @@ const DDay = ({ setDDay }: DDayProps) => {
           축하 받을 당일의 날짜를 알려 주세요.
         </div>
         <div className="flex h-[50%] flex-col justify-end">
-          <div className="font-base flex w-full gap-2 border-b-2 border-solid bg-white py-1">
+          <div className="font-base mb-1.5 flex w-full gap-2 border-b-2 border-solid bg-white py-1">
             <div className="flex w-full justify-center gap-5 text-gray-200">
               <div className="flex">
                 <div className="font-md">2024&nbsp;</div>

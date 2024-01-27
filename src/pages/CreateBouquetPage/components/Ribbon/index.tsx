@@ -29,7 +29,7 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
         <div className="font-ls">세 가지 중 마음에 드는 끈을 골라 주세요.</div>
       </div>
       <div className="mx-6 flex h-full flex-col items-center justify-center">
-        <div className="flex h-[60%] w-full items-end justify-center rounded-[1.5rem] border border-black">
+        <div className="flex h-[18rem] w-full items-end justify-center rounded-[1.5rem] border border-black">
           {wrapper && (
             <img
               src={getWrapperImageUrl(wrapper)}
@@ -39,29 +39,29 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
           {ribbon && (
             <img
               src={getRibbonImageUrl(ribbon)}
-              className={`absolute 
-                ${ribbon === 'ribbon1' && 'mr-[3%] flex h-[11%] w-[36%]'}
-                ${ribbon === 'ribbon2' && 'mb-[4%] ml-[5%] flex h-[8%] w-[32%]'} 
-                ${ribbon === 'ribbon3' && 'mb-[3%] ml-[3%] flex h-[11%] w-[42%]'}
+              className={`absolute left-1/2
+                ${ribbon === 'ribbon1' && 'w-[35%] -translate-x-[51%] -translate-y-[-16%]'}
+                ${ribbon === 'ribbon2' && 'w-[38%] -translate-x-[50%] -translate-y-[18%]'} 
+                ${ribbon === 'ribbon3' && 'w-[42%] -translate-x-[45%] -translate-y-[17%]'}
               `}
             />
           )}
         </div>
-        <div className="mt-4 flex h-[56px] w-full flex-nowrap justify-center gap-5 overflow-x-auto scrollbar-hide">
+        <div className="mt-4 flex h-[20%] w-full flex-nowrap items-center justify-center gap-5 overflow-x-auto scrollbar-hide">
           <img
             src={ribbon1}
             onClick={() => setRibbon('ribbon1')}
-            className={`rounded-full ${ribbon == 'ribbon1' && 'border-2'}`}
+            className={`h-[56px] rounded-full ${ribbon == 'ribbon1' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
           <img
             src={ribbon2}
             onClick={() => setRibbon('ribbon2')}
-            className={`rounded-full ${ribbon == 'ribbon2' && 'border-2'}`}
+            className={`h-[56px] rounded-full ${ribbon == 'ribbon2' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
           <img
             src={ribbon3}
             onClick={() => setRibbon('ribbon3')}
-            className={`rounded-full ${ribbon == 'ribbon3' && 'border-2'}`}
+            className={`h-[56px] rounded-full ${ribbon == 'ribbon3' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
         </div>
       </div>

@@ -36,7 +36,7 @@ const Name = ({ name, setName }: NameProps) => {
   return (
     <div className="mx-6 mt-5 flex h-full flex-col">
       <div className="font-lg text-[#282828]">꽃다발을 설명해 주세요.</div>
-      <div className="flex h-full flex-col justify-center">
+      <div className="mb-4 flex h-full flex-col justify-center">
         <div className="relative">
           <input
             type="text"
