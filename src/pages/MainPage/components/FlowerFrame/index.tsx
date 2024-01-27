@@ -9,11 +9,11 @@ interface FlowerFrameProps {
 }
 
 const flowerPositionOption = [
-  '-translate-x-1/2 -translate-y-1/3 z-[25]',
-  'z-[20] -translate-x-[calc(50%+2.9rem)] -translate-y-[calc(33%+4.5rem)] -rotate-[30deg]',
-  'z-[10] -translate-x-[calc(50%-2.1rem)] -translate-y-[calc(33%+4.5rem)] rotate-[30deg] -scale-x-100',
-  'z-[5] -translate-x-[calc(50%+2.65rem)] -translate-y-[calc(33%+8.25rem)] -rotate-[15deg]',
-  'z-[5] -translate-x-[calc(50%-1.6rem)] -translate-y-[calc(33%+8.25rem)] rotate-[15deg] -scale-x-100',
+  '-translate-x-1/2 -translate-y-[calc(33%+1rem)] z-[25]',
+  'z-[20] -translate-x-[calc(50%+2.9rem)] -translate-y-[calc(33%+5rem)] -rotate-[30deg]',
+  'z-[10] -translate-x-[calc(50%-2.1rem)] -translate-y-[calc(33%+5rem)] rotate-[30deg] -scale-x-100',
+  'z-[5] -translate-x-[calc(50%+2.65rem)] -translate-y-[calc(33%+9rem)] -rotate-[15deg]',
+  'z-[5] -translate-x-[calc(50%-1.6rem)] -translate-y-[calc(33%+9rem)] rotate-[15deg] -scale-x-100',
 ]
 
 const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
