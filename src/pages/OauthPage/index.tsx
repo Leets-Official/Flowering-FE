@@ -56,6 +56,8 @@ const OauthPage = () => {
         )
         if (res.status === 200) {
           localStorage.setItem('kakaoToken', res.data.access_token)
+          console.log(localStorage.getItem('kakaoToken'))
+          console.log('@@')
           setKakaoToken(true)
         }
       } catch (err) {
