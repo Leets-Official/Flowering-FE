@@ -16,6 +16,7 @@ const OauthPage = () => {
 
   useEffect(() => {
     try {
+      console.log('##')
       if (localStorage.getItem('kakaoToken')) {
         const props = {
           accessToken: localStorage.getItem('kakaoToken'),
@@ -67,6 +68,7 @@ const OauthPage = () => {
         }
       }
     }
+    console.log('^^')
     if (error) navigate('/login')
     if (code) bringToken()
   }, [CLIENT_ID, REDIRECT_URI, code, error, navigate])
