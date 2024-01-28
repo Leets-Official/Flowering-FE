@@ -46,6 +46,7 @@ const OauthPage = () => {
   useEffect(() => {
     const bringToken = async () => {
       try {
+        console.log('!!')
         const res = await axios.post(
           `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&code=${code}`,
           {
