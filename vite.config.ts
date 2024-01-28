@@ -8,16 +8,4 @@ export default defineConfig({
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },
   plugins: [react(), svgr()],
-  build: {
-    rollupOptions: {
-      external: (id) => {
-        if (id.includes('/node_modules')) {
-          return true
-        }
-        if (id.includes('/src')) {
-          return true
-        }
-      },
-    },
-  },
 })
