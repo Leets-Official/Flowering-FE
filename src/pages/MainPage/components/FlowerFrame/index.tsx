@@ -1,3 +1,5 @@
+import { 청량한_한여름밤의_꿈 } from '../'
+
 interface Flower {
   flowerId?: number
   sender?: string
@@ -25,15 +27,26 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
   return (
     <>
       {flowers.map(({ flowerId, flowerType }, idx) => (
-        <div
-          key={flowerId || idx}
-          className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
-        >
-          <img
-            src={getImageUrl(flowerType)}
-            alt="flower"
-            className="h-full object-contain"
-          />
+        <div key={flowerId || idx}>
+          <div
+            // key={flowerId || idx}
+            className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+          >
+            <img
+              src={getImageUrl(flowerType)}
+              alt="flower"
+              className="h-full object-contain"
+            />
+          </div>
+          <div
+            // key={flowerId || idx}
+            className={`absolute left-1/2 top-1/2 z-[70] flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+          >
+            <청량한_한여름밤의_꿈
+            // className={`h-full object-contain`}
+            // onClick={() => console.log('제발')}
+            />
+          </div>
         </div>
       ))}
     </>

@@ -1,3 +1,4 @@
+// import { NoSelectItem } from '@/assets/images'
 import { Button } from '@/components'
 import { Dispatch, SetStateAction } from 'react'
 import { useNavigate } from 'react-router'
@@ -37,6 +38,9 @@ const TabContents = ({
         <div
           className={`flex gap-6 overflow-x-auto p-2 ${myItems.length < 4 ? 'justify-center' : 'justify-start'}`}
         >
+          {/* <div className="w-[30%]">
+            <NoSelectItem className="visible h-full w-full rounded-full object-contain" />
+          </div> */}
           {myItems.map((item, index) => (
             <img
               onClick={() => setCurrentItem(item)}
