@@ -1,31 +1,31 @@
-import { LoginInfo } from '@/types'
 import apiClient from '../apiClient'
-import { useSuspenseQuery } from '@tanstack/react-query'
-import { AxiosError } from 'axios'
+import { useMutation } from '@tanstack/react-query'
 
-const usePostLogin = () => {
-  const postLogin = async () => {
-    if (localStorage.getItem('kakaoToken')) {
-      try {
-        const res = await apiClient.post<LoginInfo>('/user/login', {
-          accessToken: localStorage.getItem('kakaoToken'),
-        })
-
-        return res.data
-      } catch (e) {
-        if ((e as AxiosError).response?.status === 404) {
-          return undefined
-        }
-      }
-    }
-
-    return null
-  }
-
-  return useSuspenseQuery({
-    queryKey: ['/user/login'],
-    queryFn: postLogin,
-  })
+interface PostLoginProps {
+  accessToken: string | null
 }
 
+interface Response {
+  code: number
+  message: string
+  data: {
+    userId: string
+    email: string
+    nickname: string
+    token: {
+      accessToken: string
+      refreshToken: string
+    }
+  }
+}
+
+const usePostLogin = () => {
+  const postLogin = async (data: PostLoginProps) => {
+    return await apiClient.post<Response>('/user/login', data)
+  }
+
+  return useMutation({
+    mutationFn: postLogin,
+  })
+}
 export default usePostLogin

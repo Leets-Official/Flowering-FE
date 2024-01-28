@@ -3,6 +3,8 @@ import { Header, Button } from '@/components'
 import { CheckIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router'
 import { usePostRegister } from '@/apis/hooks'
+import { userIdState } from '@/recoil'
+import { useRecoilState } from 'recoil'
 
 const SignUpPage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -10,6 +12,7 @@ const SignUpPage = () => {
     '공백 포함 10자 이내로 작성해 주세요.',
   )
   const [activeButton, setActiveButton] = useState<boolean>(false)
+  const [userId, setUserId] = useRecoilState(userIdState)
   const navigate = useNavigate()
   const { mutate: postRegister } = usePostRegister()
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,8 +43,9 @@ const SignUpPage = () => {
             'refreshToken',
             data.data.data.token.refreshToken,
           )
+          setUserId(data.data.data.userId)
           localStorage.setItem('email', data.data.data.email)
-          navigate(`/?${data.data.data.userId}`)
+          navigate(`/?${userId}`)
         },
       })
     } catch (err) {

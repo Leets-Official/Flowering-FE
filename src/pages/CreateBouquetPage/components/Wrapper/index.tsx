@@ -23,7 +23,7 @@ const Wrapper = ({ wrapper, setWrapper }: WrapperProps) => {
         </div>
       </div>
       <div className="mx-6 flex h-full flex-col justify-center ">
-        <div className="flex h-[60%] w-full justify-center rounded-[1.5rem] border border-black">
+        <div className="flex h-[18rem] w-full justify-center rounded-[1.5rem] border border-black">
           {wrapper && (
             <img
               src={getWrapperImageUrl(wrapper)}
@@ -31,16 +31,16 @@ const Wrapper = ({ wrapper, setWrapper }: WrapperProps) => {
             />
           )}
         </div>
-        <div className="w-hull mt-4 flex h-[56px] flex-nowrap justify-center gap-5 overflow-x-auto scrollbar-hide">
+        <div className="w-hull mt-4 flex h-[20%] flex-nowrap items-center justify-center gap-5 overflow-x-auto scrollbar-hide">
           <img
             src={black}
             onClick={() => setWrapper('black')}
-            className={`rounded-full ${wrapper == 'black' && 'border-2'}`}
+            className={`h-[56px] rounded-full object-contain ${wrapper == 'black' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
           <img
             src={white}
             onClick={() => setWrapper('white')}
-            className={`rounded-full ${wrapper == 'white' && 'border-2'}`}
+            className={`h-[56px] rounded-full object-contain ${wrapper == 'white' && 'shadow-[1px_1px_10.1px_rgba(0,0,0,0.5)]'}`}
           />
         </div>
       </div>

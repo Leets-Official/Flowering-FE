@@ -30,12 +30,12 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: PATH.COIN,
-        element: <CoinDrawPage />,
-      },
-      {
         path: PATH.LOGINOAUTH,
         element: <OauthPage />,
+      },
+      {
+        path: PATH.COIN,
+        element: <CoinDrawPage />,
       },
       {
         path: PATH.MYPAGE,
