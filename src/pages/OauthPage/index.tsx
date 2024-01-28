@@ -68,7 +68,7 @@ const OauthPage = () => {
         }
       }
     }
-    console.log('^^')
+    console.log(window.location.href)
     if (error) navigate('/login')
     if (code) bringToken()
   }, [CLIENT_ID, REDIRECT_URI, code, error, navigate])
