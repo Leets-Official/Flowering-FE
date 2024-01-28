@@ -1,16 +1,14 @@
-// import { 청량한_한여름밤의_꿈 } from '@/assets/images'
+interface Props {
+  onClick: () => void
+}
 
-const 청량한_한여름밤의_꿈 = () => {
-  const handleClick = () => {
-    console.log('clicked')
-  }
-
+const 청량한_한여름밤의_꿈 = ({ onClick }: Props) => {
   return (
-    <>
+    <div className="flex h-full w-full items-center justify-center object-contain">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="115"
-        height="197"
+        width="100%"
+        height="100%"
         viewBox="0 0 115 197"
         fill="transparent"
       >
@@ -19,10 +17,10 @@ const 청량한_한여름밤의_꿈 = () => {
           stroke="transparent"
           strokeWidth="0.5"
           strokeMiterlimit="10"
-          onClick={handleClick}
+          onClick={onClick}
         />
       </svg>
-    </>
+    </div>
   )
 }
 

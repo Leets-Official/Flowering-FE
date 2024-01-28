@@ -1,3 +1,4 @@
+import { FlowerFrame, MarryGoRound, Ribbons, ItemFrame } from '../'
 import {
   WrapperBlackFrontLeftImage,
   WrapperWhiteBackImage,
@@ -7,7 +8,6 @@ import {
   WrapperBlackBackImage,
 } from '@/assets/images'
 import { Button } from '@/components'
-import { FlowerFrame, MarryGoRound, Ribbons, ItemFrame } from '../'
 import { getLeftDays } from '@/utils'
 import { useState, useMemo } from 'react'
 import type { BouquetInfo } from '@/types'
@@ -58,14 +58,14 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
         {flowerCount === 0 ? (
           <div className="relative flex h-full w-full items-center justify-center">
             <div className="relative h-full w-full">
-              <div className="absolute left-1/3 top-1/2 z-[15] w-[56%] -translate-x-[33%] -translate-y-[18%]">
+              <div className="pointer-events-none absolute left-1/3 top-1/2 z-[15] w-[56%] -translate-x-[33%] -translate-y-[18%]">
                 {wrapper === 'white' ? (
                   <WrapperWhiteFrontLeftImage className="h-full w-full" />
                 ) : (
                   <WrapperBlackFrontLeftImage className="h-full w-full" />
                 )}
               </div>
-              <div className="absolute left-1/2 top-1/2 z-30 w-[66%] -translate-x-[47.5%] -translate-y-[15.5%]">
+              <div className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-[66%] -translate-x-[47.5%] -translate-y-[15.5%]">
                 {wrapper === 'white' ? (
                   <WrapperWhiteFrontRightImage className="h-full w-full" />
                 ) : (
@@ -85,7 +85,7 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                 />
               </div>
             </div>
-            <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[62%]">
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[62%]">
               {wrapper === 'white' ? (
                 <WrapperWhiteBackImage className="h-full w-full" />
               ) : (
@@ -104,14 +104,14 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                   >
                     <FlowerFrame flowers={bouquet.flowers} />
                     <div className="relative h-full w-full">
-                      <div className="absolute left-1/3 top-1/2 z-[15] w-[56%] -translate-x-[33%] -translate-y-[18%]">
+                      <div className="pointer-events-none absolute left-1/3 top-1/2 z-[15] w-[56%] -translate-x-[33%] -translate-y-[18%]">
                         {wrapper === 'white' ? (
                           <WrapperWhiteFrontLeftImage className="h-full w-full" />
                         ) : (
                           <WrapperBlackFrontLeftImage className="h-full w-full" />
                         )}
                       </div>
-                      <div className="absolute left-1/2 top-1/2 z-30 w-[66%] -translate-x-[47.5%] -translate-y-[15.5%]">
+                      <div className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-[66%] -translate-x-[47.5%] -translate-y-[15.5%]">
                         {wrapper === 'white' ? (
                           <WrapperWhiteFrontRightImage className="h-full w-full" />
                         ) : (
@@ -136,7 +136,7 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                         />
                       </div>
                     </div>
-                    <div className="absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[50%] -translate-y-[62%]">
+                    <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[50%] -translate-y-[62%]">
                       {wrapper === 'white' ? (
                         <WrapperWhiteBackImage className="h-full w-full" />
                       ) : (

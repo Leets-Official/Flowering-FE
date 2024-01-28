@@ -1,4 +1,4 @@
-import { 청량한_한여름밤의_꿈 } from '../'
+import { 청량한_한여름밤의_꿈, 신비로운_새벽_하늘 } from '../'
 
 interface Flower {
   flowerId?: number
@@ -8,6 +8,10 @@ interface Flower {
 
 interface FlowerFrameProps {
   flowers: Flower[]
+}
+
+type FlowerStrokeType = {
+  [key: string]: React.ComponentType<{ onClick: () => void }>
 }
 
 const flowerPositionOption = [
@@ -24,31 +28,35 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
       .href
   }
 
+  const flowerStroke: FlowerStrokeType = {
+    '청량한-한여름밤의-꿈': 청량한_한여름밤의_꿈,
+    '신비로운-새벽-하늘': 신비로운_새벽_하늘,
+  }
+
   return (
     <>
-      {flowers.map(({ flowerId, flowerType }, idx) => (
-        <div key={flowerId || idx}>
-          <div
-            // key={flowerId || idx}
-            className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
-          >
-            <img
-              src={getImageUrl(flowerType)}
-              alt="flower"
-              className="h-full object-contain"
-            />
+      {flowers.map(({ flowerId, flowerType }, idx) => {
+        const ComponentStroke = flowerStroke[flowerType]
+
+        return (
+          <div key={flowerId || idx}>
+            <div
+              className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+            >
+              <img
+                src={getImageUrl(flowerType)}
+                alt="flower"
+                className="h-full object-contain"
+              />
+            </div>
+            <div
+              className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+            >
+              <ComponentStroke onClick={() => console.log(idx)} />
+            </div>
           </div>
-          <div
-            // key={flowerId || idx}
-            className={`absolute left-1/2 top-1/2 z-[70] flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
-          >
-            <청량한_한여름밤의_꿈
-            // className={`h-full object-contain`}
-            // onClick={() => console.log('제발')}
-            />
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </>
   )
 }
