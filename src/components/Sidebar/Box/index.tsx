@@ -9,10 +9,17 @@ const Box = () => {
     return <p>error</p>
   }
   const { nickname } = data
+  const logout = () => {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('refreshToken')
+    localStorage.removeItem('kakaoToken')
+    localStorage.removeItem('email')
+    navigate('/login')
+  }
 
   return (
     <>
-      <div className="flex h-screen w-[315px] flex-col gap-14 rounded-l-[50px] bg-white pl-10 pt-12">
+      <div className="flex h-full w-[315px] flex-col gap-14 rounded-l-[50px] bg-white pl-10 pt-12">
         <p
           onClick={() => nickname && navigate('/login')}
           className="font-lg text-[22px] text-gray-300"
@@ -26,6 +33,12 @@ const Box = () => {
           <Content content="LUCKY COIN" route="/coin" />
           <Content content="ITEM" route="/" />
         </div>
+        <button
+          className="font-xs absolute bottom-[14%] right-[25%] text-gray-200"
+          onClick={() => (nickname ? logout() : navigate('/login'))}
+        >
+          {nickname ? 'LOGOUT' : 'LOGIN'}
+        </button>
       </div>
     </>
   )
