@@ -19,7 +19,8 @@ interface StoreItemProps {
 const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
   const [itemNum, setItemNum] = useState<number>(0)
   const [confirmPurchase, setConfirmPurchase] = useState<boolean>(false)
-  const maxAllowedQuantity = coin ? Math.round(coin / parseInt(price, 10)) : 0
+  const maxAllowedQuantity =
+    coin && type !== 'deco' ? Math.round(coin / parseInt(price, 10)) : 1
   const { storeFlowerMutation } = usePostStoreFlower(setConfirmPurchase)
   const { storeCardMutation } = usePostStoreCard(setConfirmPurchase)
   const { storeDecoMutation } = usePostStoreDeco(setConfirmPurchase)
