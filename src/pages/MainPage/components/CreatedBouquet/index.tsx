@@ -21,7 +21,6 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
 
   const { wrapper, ribbon, item1, item2, item3 } = bouquetInfo.bouquetDesign
   const ordinalNum = ['st', 'nd', 'rd']
-  console.log(wrapper, ribbon)
 
   const leftDays = useMemo(
     () => getLeftDays(bouquetInfo.dDay || ''),
