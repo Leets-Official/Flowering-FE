@@ -16,7 +16,6 @@ const ChooseFlower = ({
   const flowers = data?.flowers
   const [selectedFlowerIndex, setSelectedFlowerIndex] = useState<number>(0)
   const ownedFlowers = flowers ? flowers.filter((flower) => flower.owned) : []
-
   const flowerTypes = ownedFlowers.map((flower) => flower.type)
   const handleCircleClick = (index: number) => {
     setSelectedFlower(flowerTypes[index])

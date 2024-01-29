@@ -15,8 +15,16 @@ interface StoreItemProps {
   price: string
   itemName: string
   coin: number
+  owned?: boolean
 }
-const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
+const StoreItem = ({
+  owned,
+  type,
+  itemId,
+  price,
+  itemName,
+  coin,
+}: StoreItemProps) => {
   const [itemNum, setItemNum] = useState<number>(0)
   const [confirmPurchase, setConfirmPurchase] = useState<boolean>(false)
   const maxAllowedQuantity =
@@ -51,7 +59,7 @@ const StoreItem = ({ type, itemId, price, itemName, coin }: StoreItemProps) => {
     <div tabIndex={-1}>
       <Modal>
         <div className="flex cursor-pointer justify-center" key="toggle">
-          {<Item name={itemName} />}
+          {<Item className={`${owned ? 'grayscale' : ''}`} name={itemName} />}
         </div>
         <div className="flex flex-col items-center" key="content">
           <p className="font-lg text-gray-300">{itemName.replace(/-/g, ' ')}</p>
