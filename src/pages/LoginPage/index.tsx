@@ -1,15 +1,21 @@
 import kakaoSymbol from '@/assets/Icons/kakao.svg'
 import logo from '@/assets/images/fling.png'
 import MerryGoRound from '@/components/MerryGoRound'
+import { useEffect } from 'react'
 
 const LoginPage = () => {
   const LoginAssign = () => {
     const REDIRECT_URI = `${window.location.protocol}//${window.location.host}/oauth`
     const CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID
     const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`
-    console.log(REDIRECT_URI)
     window.location.href = KAKAO_AUTH_URL
   }
+
+  useEffect(() => {
+    if (localStorage.length > 0) {
+      localStorage.clear()
+    }
+  }, [])
 
   return (
     <div className="flex h-full flex-col items-center">

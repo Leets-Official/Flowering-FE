@@ -22,7 +22,6 @@ const OauthPage = () => {
         }
         postLogin(props, {
           onSuccess: (data) => {
-            console.log(data)
             localStorage.setItem(
               'accessToken',
               data.data.data.token.accessToken,
