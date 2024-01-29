@@ -72,6 +72,10 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
       .href
   }
 
+  const handleFlowerClick = (flowerId: number | undefined) => {
+    console.log(flowerId)
+  }
+
   return (
     <>
       {flowers.map(({ flowerId, flowerType }, idx) => {
@@ -91,7 +95,7 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
             <div
               className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
             >
-              <ComponentStroke onClick={() => console.log(idx)} />
+              <ComponentStroke onClick={() => handleFlowerClick(flowerId)} />
             </div>
           </div>
         )
