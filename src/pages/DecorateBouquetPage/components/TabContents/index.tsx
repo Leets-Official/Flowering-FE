@@ -1,4 +1,4 @@
-// import { NoSelectItem } from '@/assets/images'
+import { NoSelectItem } from '@/assets/images'
 import { Button } from '@/components'
 import { Dispatch, SetStateAction } from 'react'
 import { useNavigate } from 'react-router'
@@ -38,9 +38,6 @@ const TabContents = ({
         <div
           className={`flex gap-6 overflow-x-auto p-2 ${myItems.length < 4 ? 'justify-center' : 'justify-start'}`}
         >
-          {/* <div className="w-[30%]">
-            <NoSelectItem className="visible h-full w-full rounded-full object-contain" />
-          </div> */}
           {myItems.map((item, index) => (
             <img
               onClick={() => setCurrentItem(item)}
@@ -50,6 +47,9 @@ const TabContents = ({
               className={`w-[19.5%] rounded-full object-contain ${currentItem === item && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
             />
           ))}
+          <div className={`flex w-[19.5%] shrink-0`} onClick={() => setCurrentItem("undefined")}>
+            <NoSelectItem className={`visible h-full w-full rounded-full object-contain ${currentItem === "undefined" && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`} />
+          </div>
         </div>
       )}
     </>

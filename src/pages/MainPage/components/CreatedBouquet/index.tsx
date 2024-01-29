@@ -91,6 +91,7 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
                 <WrapperBlackBackImage className="h-full w-full" />
               )}
             </div>
+            <ItemFrame currentItem1={item1} currentItem2={item2} currentItem3={item3} />
           </div>
         ) : (
           <MarryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>

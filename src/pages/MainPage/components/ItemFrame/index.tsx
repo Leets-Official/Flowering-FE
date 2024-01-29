@@ -20,21 +20,21 @@ const ItemFrame = ({
 
   return (
     <>
-      {currentItem1 && (
+      {currentItem1 && currentItem1 !== 'undefined' && (
         <img
           src={getItemUrl(currentItem1)}
           alt="item1"
           className={`pointer-events-none absolute aspect-[1/2] -rotate-[15deg] -scale-x-100 object-contain ${currentItem1.includes('풀꽃') ? 'left-1/2 top-1/2 z-0 w-[70%] -translate-x-[88%] -translate-y-[72%]' : 'left-1/4 top-1/4 z-40 w-[25%] -translate-x-[80%] -translate-y-[82%]'}`}
         />
       )}
-      {currentItem2 && (
+      {currentItem2 && currentItem2 !== 'undefined' && (
         <img
           src={getItemUrl(currentItem2)}
           alt="item2"
           className={`pointer-events-none absolute aspect-[1/2] rotate-[15deg] object-contain ${currentItem2.includes('풀꽃') ? 'left-1/2 top-1/2 z-0 w-[70%] -translate-x-[12%] -translate-y-[72%]' : 'left-3/4 top-1/4 z-40 w-[25%] -translate-x-[20%] -translate-y-[82%]'}`}
         />
       )}
-      {currentItem3 && (
+      {currentItem3 && currentItem3 !== 'undefined' && (
         <img
           src={getItemUrl(currentItem3)}
           alt="item3"
