@@ -35,7 +35,7 @@ const OauthPage = () => {
             navigate(`/?${data.data.data.userId}`)
           },
           onError: () => {
-            navigate('signup')
+            navigate('/signup')
           },
         })
       }
