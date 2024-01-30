@@ -9,15 +9,21 @@ import {
 } from '@/assets/images'
 import { Button } from '@/components'
 import { getLeftDays } from '@/utils'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, startTransition } from 'react'
 import type { BouquetInfo } from '@/types'
+import { useRecoilValue } from 'recoil'
+import { userIdState } from '@/recoil'
+import { useNavigate } from 'react-router'
 
 interface CreatedBouquetProps {
   bouquetInfo: BouquetInfo
+  userId: string
 }
 
-const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
+const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
+  const myId = useRecoilValue(userIdState)
+  const navigator = useNavigate()
 
   const { wrapper, ribbon, item1, item2, item3 } = bouquetInfo.bouquetDesign
   const ordinalNum = ['st', 'nd', 'rd']
@@ -38,6 +44,16 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
 
   const getImageUrl = (name: string) => {
     return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
+  }
+
+  const handleClickGoToWrite = () => {
+    if (myId == '') {
+      navigator('/login')
+    } else {
+      startTransition(() => {
+        navigator(`/write?${userId}`)
+      })      
+    }
   }
 
   return (
@@ -155,7 +171,10 @@ const CreatedBouquet = ({ bouquetInfo }: CreatedBouquetProps) => {
         )}
       </div>
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
-        <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button>
+        {myId !== '' && myId === userId ? 
+        <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button> 
+        : 
+        <Button className="w-full bg-[#d9d9d9] text-black" onClick={handleClickGoToWrite}>편지 쓰기</Button> }
       </footer>
     </div>
   )

@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen, setSidebarOpen }: SidebarProps) => {
       </div>
       {isOpen && (
         <div
-          className="absolute left-0 top-0 z-40 h-screen w-full bg-[#a8a8a8] opacity-70 backdrop-blur"
+          className="absolute left-0 top-0 z-40 h-screen w-full bg-[#a8a8a8]/10 backdrop-blur-sm"
           onClick={() => setSidebarOpen(false)}
         />
       )}
