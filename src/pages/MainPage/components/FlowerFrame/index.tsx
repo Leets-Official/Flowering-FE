@@ -115,7 +115,7 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
       </div>
       {isOpen && (
         <div
-          className="fixed left-0 top-0 z-50 h-screen w-full bg-[#a8a8a8]/10 backdrop-blur-sm"
+          className="fixed left-0 top-0 z-50 h-dvh w-full bg-[#a8a8a8]/10 backdrop-blur-sm"
           onClick={() => setSidebarOpen(false)}
         />
       )}
