@@ -11,7 +11,9 @@ const ChooseCard = ({ selectedCard, setSelectedCard }: ChooseCardProps) => {
   const { data } = useGetItems()
   const cards = data.cardItems
   const [selectedCardIndex, setSelectedCardIndex] = useState<number>(0)
-  const ownedCards = cards ? cards.filter((card) => card.owned) : []
+  const ownedCards = cards
+    ? cards.filter((card) => card.amount > 0 || card.amount === -1)
+    : []
   const cardsTypes = ownedCards.map((card) => card.type)
 
   const handleCircleClick = (index: number) => {
