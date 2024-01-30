@@ -20,6 +20,7 @@ import {
   화려한_푸른_달빛,
   화양연화,
 } from '../'
+import { useState } from 'react'
 
 interface Flower {
   flowerId?: number
@@ -44,6 +45,8 @@ const flowerPositionOption = [
 ]
 
 const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
+  const [isOpen, setSidebarOpen] = useState(false)
+
   const flowerStroke: FlowerStrokeType = {
     '청량한-한여름밤의-꿈': 청량한_한여름밤의_꿈,
     '신비로운-새벽-하늘': 신비로운_새벽_하늘,
@@ -74,7 +77,10 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
 
   const handleFlowerClick = (flowerId: number | undefined) => {
     console.log(flowerId)
+    setSidebarOpen(true)
   }
+
+  
 
   return (
     <>
@@ -100,6 +106,19 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
           </div>
         )
       })}
+       <div
+        className={`absolute w-full h-[70%] bottom-0 ${
+          isOpen ? 'z-[60] animate-slide-up' : 'z-0'
+        }`}
+      >
+        {isOpen && <div className='w-full z-[60] h-full bg-red-200'>imsy</div>}
+      </div>
+      {isOpen && (
+        <div
+          className="fixed left-0 top-0 z-50 h-screen w-full bg-[#a8a8a8]/10 backdrop-blur-sm"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
     </>
   )
 }

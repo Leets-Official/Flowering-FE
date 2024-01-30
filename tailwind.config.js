@@ -27,6 +27,15 @@ export default withMT({
         'tab-gradient':
           'linear-gradient(0deg, #909090 -172.73%, rgba(217, 217, 217, 0.00) 100%, #FFF 100%)',
       },
+      keyframes: {
+        slideUp: {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'slide-up': 'slideUp 0.5s ease-out',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],
