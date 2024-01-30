@@ -25,11 +25,6 @@ const WritePage = () => {
         cardType: selectedCard,
         flowerType: selectedFlower,
       })
-      console.log('Sending data to the server:', {
-        selectedFlower,
-        selectedCard,
-        letter,
-      })
       setCurrentStep(1)
       setSelectedFlower('')
       setSelectedCard('')

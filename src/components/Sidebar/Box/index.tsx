@@ -21,7 +21,7 @@ const Box = () => {
     <>
       <div className="flex h-full w-[315px] flex-col gap-14 rounded-l-[50px] bg-white pl-10 pt-12">
         <p
-          onClick={() => nickname && navigate('/login')}
+          onClick={() => !nickname && navigate('/login')}
           className="font-lg text-[22px] text-gray-300"
         >
           {nickname ? `${nickname}님` : '로그인 후 사용하세요'}
@@ -31,7 +31,7 @@ const Box = () => {
           <Content content="MY" route="/mypage" />
           <Content content="SHOP" route="/store" />
           <Content content="LUCKY COIN" route="/coin" />
-          <Content content="ITEM" route="/" />
+          <Content content="ITEM" route="/collection" />
         </div>
         <button
           className="font-xs absolute bottom-[14%] right-[25%] text-gray-200"

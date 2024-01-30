@@ -25,12 +25,13 @@ const SentLetter = ({ flowerId, receiver, onClose }: SentLetterProps) => {
         <p className="text-gray-300">님께 편지를 보냈어요.</p>
       </div>
       <div
-        className={`font-ls s mt-10 flex h-screen w-full -translate-x-[1px] flex-col rounded-t-[85px] px-7 pt-16 `}
+        className={`font-ls s mt-10 flex h-screen w-full -translate-x-[1px] flex-col rounded-t-[37px] px-7 pt-16 `}
         style={{
           backgroundImage: `url(${getImageUrl()})`,
           backgroundSize: 'cover',
+          backgroundPosition: 'calc(-32px) calc(-10px)',
           boxShadow:
-            '0px -4px 5px rgba(0, 0, 0, 0.1), 0px 10px 25px rgba(0, 0, 0, 0.1)',
+            '0px -4px 5px rgba(0, 0, 0, 0.1), 0px 0px 25px rgba(0, 0, 0, 0.1)',
         }}
       >
         <p className="font-sm mb-10">{letter}</p>
