@@ -68,35 +68,41 @@ const StoreItem = ({
             <p>{price} 코인</p>
           </div>
           <BigItem className="h-[190px] w-[133px]" name={itemName} />
-          <div className="flex gap-3">
-            <button
-              className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                itemNum >= 1 ? 'bg-gray-200' : 'bg-gray-100'
-              } font-normal text-white`}
-              onClick={() => itemNumHandler(-1)}
-            >
-              -
-            </button>
-            <p className=" font-xs text-[#000000]">{itemNum}개</p>
-            <button
-              className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                itemNum < maxAllowedQuantity ? 'bg-gray-200' : 'bg-gray-100'
-              } font-normal text-white`}
-              onClick={() => itemNumHandler(1)}
-            >
-              +
-            </button>
-          </div>
+          {owned ? (
+            <p className="font-lg text-gray-300">이미 보유하신 아이템입니다.</p>
+          ) : (
+            <>
+              <div className="mb-5 flex gap-3">
+                <button
+                  className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
+                    itemNum >= 1 ? 'bg-gray-200' : 'bg-gray-100'
+                  } font-normal text-white`}
+                  onClick={() => itemNumHandler(-1)}
+                >
+                  -
+                </button>
+                <p className=" font-xs text-[#000000]">{itemNum}개</p>
+                <button
+                  className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
+                    itemNum < maxAllowedQuantity ? 'bg-gray-200' : 'bg-gray-100'
+                  } font-normal text-white`}
+                  onClick={() => itemNumHandler(1)}
+                >
+                  +
+                </button>
+              </div>
+              {itemNum > 0 ? (
+                <Button key="btn" onClick={onPurchaseButton}>
+                  구매하기
+                </Button>
+              ) : (
+                <Button key="btn" disabled>
+                  구매하기
+                </Button>
+              )}
+            </>
+          )}
         </div>
-        {itemNum > 0 ? (
-          <Button key="btn" onClick={onPurchaseButton}>
-            구매하기
-          </Button>
-        ) : (
-          <Button key="btn" disabled>
-            구매하기
-          </Button>
-        )}
       </Modal>
       <div className="mt-1 flex justify-center gap-1">
         <CoinIcon className="h-[13px] w-[13px]" />

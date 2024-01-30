@@ -8,7 +8,7 @@ const usePostWriteLetter = () => {
   const writeLetterMutation = useMutation({
     mutationFn: writeLetter,
     onSuccess: () => {
-      navigate('/write')
+      navigate('/')
     },
   })
 

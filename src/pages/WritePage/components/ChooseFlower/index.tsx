@@ -35,13 +35,13 @@ const ChooseFlower = ({
           </p>
         </div>
 
-        <div className="mb-7 flex flex-nowrap gap-5 overflow-y-auto scrollbar-hide">
+        <div className="mb-7 flex flex-nowrap gap-5 overflow-y-auto px-1 py-1.5 scrollbar-hide">
           {flowerTypes.map((flower, index) => (
             <div
               key={index}
               className={`mt-7 cursor-pointer ${
                 selectedFlowerIndex === index
-                  ? 'rounded-full border-[1px] border-gray-300'
+                  ? 'rounded-full shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'
                   : ''
               }`}
               style={{ flex: '0 0 auto', minWidth: '10px' }}
