@@ -48,7 +48,7 @@ const MainPage = () => {
           onDecoBouquet={onDecoBouquet}
         />
         {bouquetInfo && bouquetInfo.bouquetDesign ? (
-          <CreatedBouquet bouquetInfo={bouquetInfo} />
+          <CreatedBouquet bouquetInfo={bouquetInfo} userId={userId} />
         ) : (
           <UncreatedBouquet />
         )}
