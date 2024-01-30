@@ -39,26 +39,26 @@ const Letters = ({ status, dDay }: LettersProps) => {
 
   return (
     <div className="flex flex-col overflow-y-scroll px-6 py-5 scrollbar-hide">
-      {status === 'received' ? (
+      {status === 'sent' ? (
         <div>
-          {receivers.map((sender: string, index: number) => (
+          {receivers.map((receiver: string, index: number) => (
             <Letter
               dDay={dDay}
               status={status}
               key={index}
-              sender={sender}
+              receiver={receiver}
               flowerId={flowersSent[index]}
             />
           ))}
         </div>
       ) : (
         <div>
-          {senders.map((receiver: string, index: number) => (
+          {senders.map((sender: string, index: number) => (
             <Letter
               dDay={dDay}
               status={status}
               key={index}
-              receiver={receiver}
+              sender={sender}
               flowerId={flowersReceived[index]}
             />
           ))}
