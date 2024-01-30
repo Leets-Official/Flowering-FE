@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import apiClient from '../apiClient'
 import type { BouquetInfo } from '@/types'
 
@@ -13,9 +13,10 @@ const useGetBouquet = ({ id }: { id: string }) => {
     return response.data.data
   }
 
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: [`/bouquet/${id}`],
     queryFn: getBouquet,
+    enabled: id !== '',
   })
 }
 
