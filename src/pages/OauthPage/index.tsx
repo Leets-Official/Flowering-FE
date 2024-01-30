@@ -22,7 +22,7 @@ const OauthPage = () => {
         }
         postLogin(props, {
           onSuccess: (data) => {
-            localStorage.removeItem('kakaoItem')
+            localStorage.removeItem('kakaoToken')
             localStorage.setItem(
               'accessToken',
               data.data.data.token.accessToken,

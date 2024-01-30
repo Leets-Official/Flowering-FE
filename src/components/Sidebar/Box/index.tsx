@@ -31,7 +31,7 @@ const Box = () => {
           <Content content="MY" route="/mypage" />
           <Content content="SHOP" route="/store" />
           <Content content="LUCKY COIN" route="/coin" />
-          <Content content="ITEM" route="/" />
+          <Content content="ITEM" route="/collection" />
         </div>
         <button
           className="font-xs absolute bottom-[14%] right-[25%] text-gray-200"
