@@ -16,17 +16,15 @@ const DecorateBouquetPage = () => {
   const navigate = useNavigate()
   const tabRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
-  const bouquetInfo = { ...location.state }
 
-  const [currentWrapper, setCurrentWrapper] = useState<string>(
-    bouquetInfo.bouquetDesign.wrapper,
-  )
-  const [currentRibbon, setCurrentRibbon] = useState<string>(
-    bouquetInfo.bouquetDesign.ribbon,
-  )
-  const [currentItem1, setCurrentItem1] = useState<string>('')
-  const [currentItem2, setCurrentItem2] = useState<string>('')
-  const [currentItem3, setCurrentItem3] = useState<string>('')
+  const bouquetInfo = { ...location.state }
+  const { wrapper, ribbon, item1, item2, item3 } = bouquetInfo.bouquetDesign
+
+  const [currentWrapper, setCurrentWrapper] = useState<string>(wrapper)
+  const [currentRibbon, setCurrentRibbon] = useState<string>(ribbon)
+  const [currentItem1, setCurrentItem1] = useState<string>(item1)
+  const [currentItem2, setCurrentItem2] = useState<string>(item2)
+  const [currentItem3, setCurrentItem3] = useState<string>(item3)
 
   const { data: items } = useGetItems()
   const { mutate: editBouquet } = useEditBouquet()
