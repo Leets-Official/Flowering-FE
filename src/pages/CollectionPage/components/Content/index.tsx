@@ -18,7 +18,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
 
   return (
     <>
-      <div className="mx-6 mt-5">
+      <div className="mx-6 mb-5 mt-5">
         <div className="font-lg mb-2 text-gray-300">{ItemType}</div>
         <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">
           {data.map((element) => {
