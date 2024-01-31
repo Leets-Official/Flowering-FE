@@ -12,4 +12,6 @@ export const PATH = {
   PURCHASE: '/store/purchase',
   WRITE: '/write',
   DECORATE_BOUQUET: '/decorate-bouquet',
+  ERROR404: '/404',
+  ERROR500: '/500',
 }

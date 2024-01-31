@@ -12,6 +12,8 @@ import {
   WritePage,
   ItemPage,
   DecorateBouquetPage,
+  Error404Page,
+  Error500Page,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -68,6 +70,14 @@ const router = createBrowserRouter([
       {
         path: PATH.DECORATE_BOUQUET,
         element: <DecorateBouquetPage />,
+      },
+      {
+        path: PATH.ERROR404,
+        element: <Error404Page />,
+      },
+      {
+        path: PATH.ERROR500,
+        element: <Error500Page />,
       },
     ],
   },
