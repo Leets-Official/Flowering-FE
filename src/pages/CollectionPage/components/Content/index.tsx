@@ -26,7 +26,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
               <div
                 key={element.type}
                 onClick={() => {
-                  if (element.amount && element.amount !== 0)
+                  if (element.owned)
                     navigate(`/item?type=${ItemType}&id=${element.id}`)
                 }}
                 className={`flex cursor-pointer flex-col items-center ${element.owned ? null : 'opacity-40 blur-[5px]'}`}
@@ -35,7 +35,7 @@ const Content = ({ ItemType, data }: CollectionProps) => {
                 <div className="font-xs mt-1.5 text-center text-gray-200">
                   {element.amount === -1 ? (
                     'FREE'
-                  ) : !element.amount || element.amount === 0 ? (
+                  ) : element.amount == null || !element.owned ? (
                     <>&nbsp;</>
                   ) : (
                     element.amount
