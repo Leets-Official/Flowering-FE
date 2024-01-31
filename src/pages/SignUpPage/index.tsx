@@ -37,7 +37,6 @@ const SignUpPage = () => {
       }
       postRegister(props, {
         onSuccess: (data) => {
-          console.log(data)
           localStorage.setItem('accessToken', data.data.data.token.accessToken)
           localStorage.setItem(
             'refreshToken',
