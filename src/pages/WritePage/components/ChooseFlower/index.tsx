@@ -1,5 +1,5 @@
 import { Item } from '@/components'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useGetItems from '@/apis/hooks/useGetItems.ts'
 import Purchase from '@/components/Purchase'
 
@@ -19,10 +19,15 @@ const ChooseFlower = ({
     ? flowers.filter((flower) => flower.amount > 0 || flower.amount === -1)
     : []
   const flowerTypes = ownedFlowers.map((flower) => flower.type)
+  const initialSelectedFlower = flowerTypes[selectedFlowerIndex]
+  const [localSelectedFlower] = useState<string>(initialSelectedFlower)
   const handleCircleClick = (index: number) => {
     setSelectedFlower(flowerTypes[index])
     setSelectedFlowerIndex(index)
   }
+  useEffect(() => {
+    setSelectedFlower(localSelectedFlower)
+  }, [localSelectedFlower, setSelectedFlower])
 
   return (
     <div className="mx-7 flex h-full flex-col overflow-hidden">
