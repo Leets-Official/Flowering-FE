@@ -54,14 +54,13 @@ const ItemPage = () => {
         <div className="font-lg text-[#282828]">{type}</div>
         <div className="h-[20rem]">
           {data?.itemName && (
-            <img
-              src={getImageUrl(data?.itemName.replace(/ /g, '-'))}
-              className="h-full"
-            />
+            <img src={getImageUrl(data?.itemName)} className="h-full" />
           )}
         </div>
         <div className="flex flex-col items-center gap-2">
-          <div className="font-lg text-[#6e6e6e]">{data?.itemName}</div>
+          <div className="font-lg text-[#6e6e6e]">
+            {data?.itemName.replace(/-/g, ' ')}
+          </div>
           <div className="font-xs text-[#959595]">{data?.description}</div>
         </div>
       </div>
