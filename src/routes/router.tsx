@@ -14,6 +14,7 @@ import {
   DecorateBouquetPage,
   Error404Page,
   Error500Page,
+  LoadingPage,
 } from '@/pages'
 import { PATH } from './constants'
 import Layout from './Layout'
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: PATH.ERROR500,
         element: <Error500Page />,
+      },
+      {
+        path: PATH.LOADING,
+        element: <LoadingPage />,
       },
     ],
   },

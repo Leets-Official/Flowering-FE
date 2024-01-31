@@ -14,4 +14,5 @@ export const PATH = {
   DECORATE_BOUQUET: '/decorate-bouquet',
   ERROR404: '/404',
   ERROR500: '/500',
+  LOADING: '/loading',
 }
