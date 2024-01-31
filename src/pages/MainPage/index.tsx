@@ -2,29 +2,32 @@ import { Sidebar, Header } from '@/components'
 import { useState, useEffect, startTransition } from 'react'
 import { ICONS } from '@/constants'
 import { CreatedBouquet, UncreatedBouquet } from './components'
-import { useGetBouquet, useGetUser } from '@/apis/hooks'
+import { useGetBouquet } from '@/apis/hooks'
 import { useSearchParams, useNavigate } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
+import { userIdState } from '@/recoil'
 
 const MainPage = () => {
   const navigator = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
-
+  const userIdFromRecoil = useRecoilValue(userIdState)
   const address = searchParams.get('addr')
-
-  // TODO: recoil에서 가져오기
-  const { data: userInfo } = useGetUser()
-
-  const userId = address || userInfo.userId
+  const userId = address || userIdFromRecoil  
 
   const { data: bouquetInfo } = useGetBouquet({
     id: userId,
   })
 
-  console.log(bouquetInfo)
+  useEffect(() => {
+    if (!userIdFromRecoil && !address) {
+      navigator('/login')
+      return
+    }
+  }, [])
 
   useEffect(() => {
-    if (!address) {
+    if (!address && userIdFromRecoil) {
       setSearchParams({ addr: userId })
     }
   }, [address, setSearchParams, userId])
@@ -44,8 +47,8 @@ const MainPage = () => {
           setSidebarOpen={setSidebarOpen}
           onDecoBouquet={onDecoBouquet}
         />
-        {bouquetInfo.bouquetDesign ? (
-          <CreatedBouquet bouquetInfo={bouquetInfo} />
+        {bouquetInfo && bouquetInfo.bouquetDesign ? (
+          <CreatedBouquet bouquetInfo={bouquetInfo} userId={userId} />
         ) : (
           <UncreatedBouquet />
         )}

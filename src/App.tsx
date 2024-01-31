@@ -9,7 +9,9 @@ function App() {
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <div className='h-dvh'>
+          <RouterProvider router={router} />
+        </div>
       </QueryClientProvider>
     </RecoilRoot>
   )

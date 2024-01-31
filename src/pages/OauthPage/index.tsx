@@ -2,6 +2,8 @@ import { usePostLogin } from '@/apis/hooks'
 import axios, { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSetRecoilState } from 'recoil'
+import { userIdState } from '@/recoil'
 
 const OauthPage = () => {
   const params = new URL(document.location.toString()).searchParams
@@ -13,6 +15,7 @@ const OauthPage = () => {
   const navigate = useNavigate()
   const [kakaoToken, setKakaoToken] = useState(false)
   const { mutate: postLogin } = usePostLogin()
+  const userIdRecoil =  useSetRecoilState(userIdState)
 
   useEffect(() => {
     try {
@@ -32,6 +35,8 @@ const OauthPage = () => {
               data.data.data.token.refreshToken,
             )
             localStorage.setItem('email', data.data.data.email)
+            
+            userIdRecoil(data.data.data.userId)
             navigate(`/?${data.data.data.userId}`)
           },
           onError: () => {

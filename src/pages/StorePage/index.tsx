@@ -5,17 +5,19 @@ import { ICONS } from '@/constants'
 import useGetStore from '@/apis/hooks/useGetStore.ts'
 import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
 import useGetUserInfo from '@/apis/hooks/useGetUser.ts'
+import { useGetItems } from '@/apis/hooks'
 
 const StorePage = () => {
   const { data: storeData } = useGetStore()
   const { data: userData } = useGetUserInfo()
-
-  if (!storeData || !userData) {
+  const { data: itemData } = useGetItems()
+  if (!storeData || !userData || !itemData) {
     return <p>error</p>
   }
   const { decoItems, flowerItems, letterItems } = storeData.data
-
   const coin = userData.coin
+  const decos = itemData?.decoItems
+  const ownedDecos = decos ? decos.filter((deco) => deco.owned) : []
   const deco = decoItems.map((item: DecoItemInfo) => (
     <StoreItem
       coin={coin}
@@ -24,6 +26,7 @@ const StorePage = () => {
       key={item.itemId}
       itemId={item.itemId}
       price={`${item.price}`}
+      owned={ownedDecos.some((deco) => deco.id === item.itemId)}
     />
   ))
 
@@ -35,6 +38,7 @@ const StorePage = () => {
       key={item.itemId}
       itemId={item.itemId}
       price={`${item.price}`}
+      owned={false}
     />
   ))
 
@@ -46,6 +50,7 @@ const StorePage = () => {
       key={item.itemId}
       itemId={item.itemId}
       price={`${item.price}`}
+      owned={false}
     />
   ))
 
@@ -63,11 +68,8 @@ const StorePage = () => {
       <div className="overflow-y-auto px-6 pb-8 scrollbar-hide">
         <div>
           <p className="font-lg">Object</p>
-          <p className="font-ls mt-2">
+          <p className="font-ls mt-2 text-gray-300">
             매일 00시 새로운 오브제로 업데이트 됩니다.
-          </p>
-          <p className="font-xs mt-0.5 text-gray-600">
-            한 오브제의 최대 보유량은 3개입니다.
           </p>
           <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">{deco}</div>
         </div>
