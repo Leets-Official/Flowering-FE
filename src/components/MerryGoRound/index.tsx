@@ -1,5 +1,4 @@
 import { Carousel } from '@material-tailwind/react'
-import { LeftArrowIcon, RightArrowIcon } from '@/assets/Icons'
 
 interface CarouselStylesType {
   defaultProps: {
@@ -46,23 +45,19 @@ const theme: Theme = {
           <button
             onClick={handlePrev}
             disabled={!loop && firstIndex}
-            className="!absolute left-0 top-[46%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          >
-            <LeftArrowIcon />
-          </button>
+            className="!absolute left-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          ></button>
         )
       },
       nextArrow: ({ loop, handleNext, lastIndex }) => (
         <button
           onClick={handleNext}
           disabled={!loop && lastIndex}
-          className="!absolute right-0 top-[46%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        >
-          <RightArrowIcon />
-        </button>
+          className="!absolute right-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        ></button>
       ),
       navigation: ({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-3">
+        <div className="absolute bottom-0 left-2/4 z-50 flex -translate-x-2/4 gap-3">
           {new Array(length).fill('').map((_, i) => (
             <span
               key={i}
@@ -80,7 +75,7 @@ const theme: Theme = {
         type: 'tween',
         duration: 0.5,
       },
-      loop: false,
+      loop: true,
       className: '',
     },
     styles: {
@@ -105,28 +100,37 @@ const theme: Theme = {
 }
 
 const MerryGoRound = () => {
+  const getImageUrl = (name: string | null) => {
+    return new URL(`/src/assets/images/login/${name}.png`, import.meta.url).href
+  }
+
   return (
-    <div className="font-base mx-6 mt-9 h-[22rem] rounded-[37px] border-2 border-black pt-6 text-center text-black">
+    <div className="font-base mx-6 w-full rounded-[37px] text-center text-black">
       <Carousel {...theme.carousel.defaultProps} styles={theme}>
-        <div>
-          나의 축하소식을 친구들에게
-          <br />
-          알려 보세요!
+        <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            축하 받고 싶은 소식을 <br /> 친구들에게 알려 보세요.
+          </div>
+          <img src={getImageUrl('login_1')} className="w-[95%]" />
+          <>&nbsp;</>
         </div>
-        <div>
-          자신만의 꽃다발을 만들고
-          <br />
-          꾸며 보세요!
+        <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            나만의 꽃다발을 만들어 <br /> 아이템으로 완성하세요.
+          </div>
+          <img src={getImageUrl('login_2')} className="w-[95%]" />
         </div>
-        <div>
-          지인에게 편지를 주고 받고
-          <br />
-          축하 당일에 편지를 열어 보세요!
+        <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            친구들과 편지를 주고 받고 <br /> D-DAY에 편지를 열어 보세요.
+          </div>
+          <img src={getImageUrl('login_3')} className="w-[95%]" />
         </div>
-        <div>
-          다양한 꽃을 코인으로 구매하고
-          <br />
-          친구에게 선물해 보세요!
+        <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            코인으로 다양한 꽃을 구매하고 <br /> 친구들에게 선물해 보세요.
+          </div>
+          <img src={getImageUrl('login_4')} className="w-[95%]" />
         </div>
       </Carousel>
     </div>
