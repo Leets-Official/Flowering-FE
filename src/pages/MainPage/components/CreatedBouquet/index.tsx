@@ -1,4 +1,4 @@
-import { FlowerFrame, MarryGoRound, Ribbons, ItemFrame } from '../'
+import { FlowerFrame, MarryGoRound, Ribbons, ItemFrame, Letter } from '../'
 import {
   WrapperBlackFrontLeftImage,
   WrapperWhiteBackImage,
@@ -22,6 +22,8 @@ interface CreatedBouquetProps {
 
 const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
+  const [letterOpen, setLetterOpen] = useState(false)
+  const [selectedFlowerId, setSelectedFlowerId] = useState<number>(-1)
   const myId = useRecoilValue(userIdState)
   const navigator = useNavigate()
 
@@ -52,7 +54,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
     } else {
       startTransition(() => {
         navigator(`/write?${userId}`)
-      })      
+      })
     }
   }
 
@@ -107,7 +109,11 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                 <WrapperBlackBackImage className="h-full w-full" />
               )}
             </div>
-            <ItemFrame currentItem1={item1} currentItem2={item2} currentItem3={item3} />
+            <ItemFrame
+              currentItem1={item1}
+              currentItem2={item2}
+              currentItem3={item3}
+            />
           </div>
         ) : (
           <MarryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
@@ -118,7 +124,11 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                     key={bouquet.bouquetId}
                     className="relative flex h-full w-full items-center justify-center overflow-hidden"
                   >
-                    <FlowerFrame flowers={bouquet.flowers} />
+                    <FlowerFrame
+                      flowers={bouquet.flowers}
+                      setLetterOpen={setLetterOpen}
+                      setSelectedFlowerId={setSelectedFlowerId}
+                    />
                     <div className="relative h-full w-full">
                       <div className="pointer-events-none absolute left-1/3 top-1/2 z-[15] w-[56%] -translate-x-[33%] -translate-y-[18%]">
                         {wrapper === 'white' ? (
@@ -171,11 +181,20 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
         )}
       </div>
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
-        {myId !== '' && myId === userId ? 
-        <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button> 
-        : 
-        <Button className="w-full bg-[#d9d9d9] text-black" onClick={handleClickGoToWrite}>편지 쓰기</Button> }
+        {myId !== '' && myId === userId ? (
+          <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button>
+        ) : (
+          <Button
+            className="w-full bg-[#d9d9d9] text-black"
+            onClick={handleClickGoToWrite}
+          >
+            편지 쓰기
+          </Button>
+        )}
       </footer>
+      {letterOpen && (
+        <Letter setLetterOpen={setLetterOpen} flowerId={selectedFlowerId} />
+      )}
     </div>
   )
 }
