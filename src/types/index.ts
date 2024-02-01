@@ -62,6 +62,7 @@ export interface FlowerInfo {
     letter: string
     flowerType: string
     cardType: string
+    sender?: string
   }
 }
 
