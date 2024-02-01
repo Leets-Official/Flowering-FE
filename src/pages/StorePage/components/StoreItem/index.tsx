@@ -25,7 +25,7 @@ const StoreItem = ({
   itemName,
   coin,
 }: StoreItemProps) => {
-  const [itemNum, setItemNum] = useState<number>(0)
+  const [itemNum, setItemNum] = useState<number>(1)
   const [confirmPurchase, setConfirmPurchase] = useState<boolean>(false)
   const [modalVisible, setModalVisible] = useState<boolean>(true)
   const maxAllowedQuantity =
