@@ -227,6 +227,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
           flowerId={selectedFlowerId}
           dDay={bouquetInfo.dDay || ''}
           leftDay={leftDays}
+          itsMe={myId === userId}
         />
       )}
     </div>
