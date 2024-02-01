@@ -137,7 +137,7 @@ const DecorateBouquetPage = () => {
   ]
 
   return (
-    <div className="flex h-screen w-full flex-col">
+    <div className="flex h-dvh w-full flex-col">
       <Header
         leftIcon="GoBackIcon"
         rightIcon={

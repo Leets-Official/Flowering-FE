@@ -40,7 +40,7 @@ const MainPage = () => {
 
   return (
     <>
-      <main className="flex h-screen flex-col">
+      <main className="flex h-dvh flex-col">
         <Header
           leftIcon={ICONS.DRAW}
           rightIcon={ICONS.SIDEBAR}

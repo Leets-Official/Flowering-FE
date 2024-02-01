@@ -74,8 +74,8 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
       )}
       {showModal && (
         <div>
-          <div className="absolute left-0 top-0 z-30 h-screen w-full bg-gray-200 opacity-40" />
-          <div className=" absolute left-0 top-0 z-50 flex h-full w-full backdrop-blur backdrop-blur-sm">
+          <div className="absolute left-0 top-0 z-30 h-dvh w-full bg-gray-200 opacity-40" />
+          <div className=" absolute left-0 top-0 z-50 flex h-full w-full backdrop-blur-sm">
             <div className="mt-auto flex h-[230px] w-full flex-col rounded-t-[51px] bg-white px-8 pt-6">
               <p className="font-lg mt-10 text-center">
                 {new Date(dDay).getMonth() + 1}월 {new Date(dDay).getDate()}일
