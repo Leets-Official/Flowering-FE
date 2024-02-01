@@ -4,6 +4,7 @@ import ReceivedLetter from '@/pages/MyPage/components/ReceivedLetter'
 import { Button } from '@/components'
 import { useGetFlower } from '@/apis/hooks'
 import BigItem from '@/components/BigItem'
+import { Error500Page, LoadingPage } from '@/pages'
 
 interface LetterProps {
   sender?: string
@@ -18,8 +19,10 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
   const [showModal, setShowModal] = useState<boolean>(false)
   const [sentModalOpen, setSentModalOpen] = useState<boolean>(false)
   const [receivedModalOpen, setReceivedModalOpen] = useState<boolean>(false)
-  const { data } = useGetFlower({ id: flowerId })
+  const { data, isError, isLoading } = useGetFlower({ id: flowerId })
   const flowerName = data?.data.flowerType
+  if (isLoading) <LoadingPage />
+  if (isError) <Error500Page />
   const openModal = () => {
     if (status === 'received' && currentDate < dDayDate) {
       setShowModal(true)
