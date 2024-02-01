@@ -150,3 +150,7 @@ export interface ItemInfo {
   itemName: string
   description: string
 }
+
+export interface NickNameInfo {
+  userId: string
+}
