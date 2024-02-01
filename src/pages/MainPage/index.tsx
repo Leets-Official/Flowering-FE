@@ -13,7 +13,7 @@ const MainPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
   const userIdFromRecoil = useRecoilValue(userIdState)
   const address = searchParams.get('addr')
-  const userId = address || userIdFromRecoil  
+  const userId = address || userIdFromRecoil
 
   const { data: bouquetInfo } = useGetBouquet({
     id: userId,
@@ -22,15 +22,16 @@ const MainPage = () => {
   useEffect(() => {
     if (!userIdFromRecoil && !address) {
       navigator('/login')
+
       return
     }
-  }, [])
+  }, [address, navigator, userIdFromRecoil])
 
   useEffect(() => {
     if (!address && userIdFromRecoil) {
       setSearchParams({ addr: userId })
     }
-  }, [address, setSearchParams, userId])
+  }, [address, setSearchParams, userId, userIdFromRecoil])
 
   const onDecoBouquet = () => {
     startTransition(() =>

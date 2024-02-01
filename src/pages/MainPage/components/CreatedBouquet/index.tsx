@@ -222,7 +222,12 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
         )}
       </footer>
       {letterOpen && (
-        <Letter setLetterOpen={setLetterOpen} flowerId={selectedFlowerId} />
+        <Letter
+          setLetterOpen={setLetterOpen}
+          flowerId={selectedFlowerId}
+          dDay={bouquetInfo.dDay || ''}
+          leftDay={leftDays}
+        />
       )}
     </div>
   )

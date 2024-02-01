@@ -1,4 +1,6 @@
 const getLeftDays = (graduationDate: string) => {
+  if (graduationDate === '') return -1
+
   const today = new Date()
   const graduation = new Date(graduationDate)
   const diff = graduation.getTime() - today.getTime()
