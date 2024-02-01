@@ -29,17 +29,15 @@ const Content = ({ ItemType, data }: CollectionProps) => {
                   if (element.owned)
                     navigate(`/item?type=${ItemType}&id=${element.id}`)
                 }}
-                className={`flex cursor-pointer flex-col items-center ${element.owned ? null : 'opacity-40 blur-[5px]'}`}
+                className={`flex cursor-pointer flex-col items-center`}
               >
-                <Item name={element.type} />
-                <div className="font-xs mt-1.5 text-center text-gray-200">
-                  {element.amount === -1 ? (
-                    'FREE'
-                  ) : element.amount == null || !element.owned ? (
-                    <>&nbsp;</>
-                  ) : (
-                    element.amount
-                  )}
+                <div
+                  className={`${element.owned ? null : 'opacity-40 blur-[2px]'}`}
+                >
+                  <Item name={element.type} />
+                </div>
+                <div className="font-xs mt-1.5 text-center text-gray-200 blur-none">
+                  {element.amount === -1 ? 'FREE' : element.amount}
                 </div>
               </div>
             )

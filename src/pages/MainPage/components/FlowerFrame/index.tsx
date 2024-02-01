@@ -20,7 +20,7 @@ import {
   화려한_푸른_달빛,
   화양연화,
 } from '../'
-import { useState } from 'react'
+import { SetStateAction, Dispatch } from 'react'
 
 interface Flower {
   flowerId?: number
@@ -30,6 +30,8 @@ interface Flower {
 
 interface FlowerFrameProps {
   flowers: Flower[]
+  setLetterOpen: Dispatch<SetStateAction<boolean>>
+  setSelectedFlowerId: Dispatch<SetStateAction<number>>
 }
 
 type FlowerStrokeType = {
@@ -44,9 +46,11 @@ const flowerPositionOption = [
   'z-[5] -translate-x-[calc(50%-1.6rem)] -translate-y-[calc(33%+9rem)] rotate-[15deg] -scale-x-100',
 ]
 
-const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
-  const [isOpen, setSidebarOpen] = useState(false)
-
+const FlowerFrame = ({
+  flowers,
+  setLetterOpen,
+  setSelectedFlowerId,
+}: FlowerFrameProps) => {
   const flowerStroke: FlowerStrokeType = {
     '청량한-한여름밤의-꿈': 청량한_한여름밤의_꿈,
     '신비로운-새벽-하늘': 신비로운_새벽_하늘,
@@ -76,11 +80,9 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
   }
 
   const handleFlowerClick = (flowerId: number | undefined) => {
-    console.log(flowerId)
-    setSidebarOpen(true)
+    setSelectedFlowerId(flowerId || -1)
+    setLetterOpen(true)
   }
-
-  
 
   return (
     <>
@@ -106,19 +108,6 @@ const FlowerFrame = ({ flowers }: FlowerFrameProps) => {
           </div>
         )
       })}
-       <div
-        className={`absolute w-full h-[70%] bottom-0 ${
-          isOpen ? 'z-[60] animate-slide-up' : 'z-0'
-        }`}
-      >
-        {isOpen && <div className='w-full z-[60] h-full bg-red-200'>imsy</div>}
-      </div>
-      {isOpen && (
-        <div
-          className="fixed left-0 top-0 z-50 h-dvh w-full bg-[#a8a8a8]/10 backdrop-blur-sm"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
     </>
   )
 }

@@ -20,11 +20,11 @@ const LoginPage = () => {
   return (
     <div className="flex h-full flex-col items-center">
       <img className=" mt-3 h-4 w-6" src={logo} />
-      <div className="mb-10 flex h-full items-center">
+      <div className="flex h-full items-center">
         <MerryGoRound />
       </div>
       <div className="flex w-full flex-col px-6 py-5">
-        <div className="font-xs mb-1 mt-[4.4rem] text-center text-[#959595]">
+        <div className="font-xs mb-1 text-center text-[#959595]">
           SNS로 간편하게 가입하기
         </div>
         <button
