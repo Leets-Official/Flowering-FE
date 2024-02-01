@@ -36,7 +36,7 @@ const Letter = ({ setLetterOpen, flowerId }: LetterProps) => {
             className="absolute right-7 top-8 z-[80] h-4 w-4"
             onClick={() => setLetterOpen(false)}
           />
-          <div className="absolute left-1/2 top-12 flex aspect-[154/220] w-[65vw] -translate-x-[5%] -rotate-[30deg] justify-center opacity-50 desktop:h-[220px] desktop:w-[154px]">
+          <div className="absolute left-1/2 top-12 flex aspect-[154/220] w-[65vw] -translate-x-[15%] -translate-y-[5%] -rotate-[30deg] justify-center opacity-50 desktop:h-[220px] desktop:w-[154px]">
             <img
               src={getImageUrl(flowerType || '')}
               alt="flowerType"
