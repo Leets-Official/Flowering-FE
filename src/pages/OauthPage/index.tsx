@@ -25,7 +25,7 @@ const OauthPage = () => {
         }
         postLogin(props, {
           onSuccess: (data) => {
-            localStorage.removeItem('kakaoItem')
+            localStorage.removeItem('kakaoToken')
             localStorage.setItem(
               'accessToken',
               data.data.data.token.accessToken,
@@ -40,7 +40,7 @@ const OauthPage = () => {
             navigate(`/?${data.data.data.userId}`)
           },
           onError: () => {
-            navigate('signup')
+            navigate('/signup')
           },
         })
       }

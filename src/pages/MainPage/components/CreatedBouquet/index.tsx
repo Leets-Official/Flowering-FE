@@ -53,7 +53,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
       navigate('/login')
     } else {
       startTransition(() => {
-        navigate(`/write?${userId}`)
+        navigator(`/write?addr=${userId}`)
       })
     }
   }
