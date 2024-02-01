@@ -18,7 +18,7 @@ const MyPage = () => {
   }
 
   return (
-    <section className={`h-screen`}>
+    <section className={`h-dvh`}>
       <div className={`${sidebarOpen && 'blur-sm'} flex h-full flex-col`}>
         <Header
           setSidebarOpen={setSidebarOpen}

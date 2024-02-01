@@ -18,14 +18,14 @@ const SentLetter = ({ flowerId, receiver, onClose }: SentLetterProps) => {
   }
 
   return (
-    <div className="absolute left-0 top-0 z-50 h-screen w-full transform overflow-hidden bg-white text-gray-300">
+    <div className="absolute left-0 top-0 z-50 h-dvh w-full transform overflow-hidden bg-white text-gray-300">
       <Header rightIcon={ICONS.CLOSE} onClose={onClose} />
       <div className="font-lg mx-7 mt-3 flex">
         <p className="text-gray-300">{receiver}</p>
         <p className="text-gray-300">님께 편지를 보냈어요.</p>
       </div>
       <div
-        className={`font-ls s mt-10 flex h-screen w-full -translate-x-[1px] flex-col rounded-t-[37px] px-7 pt-16 `}
+        className={`font-ls s mt-10 flex h-dvh w-full -translate-x-[1px] flex-col rounded-t-[37px] px-7 pt-16 `}
         style={{
           backgroundImage: `url(${getImageUrl()})`,
           backgroundSize: 'cover',

@@ -22,8 +22,10 @@ interface CreatedBouquetProps {
 
 const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
   const [currentFlowerIndex, setCurrentFlowerIndex] = useState<number>(0)
+  const [isCopiedAddress, setIsCopiedAddress] = useState<boolean>(false)
+  const [toastAnimation, setToastAnimation] = useState<string>('')
   const myId = useRecoilValue(userIdState)
-  const navigator = useNavigate()
+  const navigate = useNavigate()
 
   const { wrapper, ribbon, item1, item2, item3 } = bouquetInfo.bouquetDesign
   const ordinalNum = ['st', 'nd', 'rd']
@@ -48,12 +50,23 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
 
   const handleClickGoToWrite = () => {
     if (myId == '') {
-      navigator('/login')
+      navigate('/login')
     } else {
       startTransition(() => {
         navigator(`/write?addr=${userId}`)
       })
     }
+  }
+
+  const copy = async () => {
+    await navigator.clipboard.writeText(window.location.href)
+    setIsCopiedAddress(true)
+    setToastAnimation('animate-fade-in')
+
+    setTimeout(() => {
+      setToastAnimation('animate-fade-out')
+      setTimeout(() => setIsCopiedAddress(false), 500)
+    }, 2000)
   }
 
   return (
@@ -176,7 +189,23 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
       </div>
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
         {myId !== '' && myId === userId ? (
-          <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button>
+          <div className="flex w-full flex-col text-center">
+            {isCopiedAddress && (
+              <div
+                className={`${toastAnimation} absolute -top-2 left-1/2 -translate-x-1/2`}
+              >
+                <div className="flex gap-2 bg-transparent">
+                  <span className="font-ls">{`링크가 복사되었습니다`}</span>
+                </div>
+              </div>
+            )}
+            <Button
+              className="font-sm w-full bg-[#d9d9d9] text-black"
+              onClick={copy}
+            >
+              링크 복사
+            </Button>
+          </div>
         ) : (
           <Button
             className="w-full bg-[#d9d9d9] text-black"

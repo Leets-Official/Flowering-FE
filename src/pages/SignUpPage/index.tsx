@@ -37,7 +37,6 @@ const SignUpPage = () => {
       }
       postRegister(props, {
         onSuccess: (data) => {
-          console.log(data)
           localStorage.setItem('accessToken', data.data.data.token.accessToken)
           localStorage.setItem(
             'refreshToken',
@@ -56,7 +55,7 @@ const SignUpPage = () => {
   return (
     <>
       <Header leftIcon="GoBackIcon" />
-      <div className=" mx-6 flex h-screen flex-col">
+      <div className=" mx-6 flex h-dvh flex-col">
         <div className="font-lg text-[#282828]">닉네임을 입력해 주세요.</div>
         <div className="font-base mt-2 h-8 w-[15rem] text-[0.75rem] text-[#282828]">
           입력한 닉네임으로 지인에게 꽃다발과 편지를 보낼 수 있어요

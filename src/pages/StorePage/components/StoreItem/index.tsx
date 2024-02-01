@@ -25,7 +25,7 @@ const StoreItem = ({
   itemName,
   coin,
 }: StoreItemProps) => {
-  const [itemNum, setItemNum] = useState<number>(0)
+  const [itemNum, setItemNum] = useState<number>(1)
   const [confirmPurchase, setConfirmPurchase] = useState<boolean>(false)
   const [modalVisible, setModalVisible] = useState<boolean>(true)
   const maxAllowedQuantity =
@@ -72,14 +72,17 @@ const StoreItem = ({
               <CoinIcon className="h-[14px] w-[14px]" />
               <p>{price} 코인</p>
             </div>
-            <BigItem className="h-[190px] w-[133px]" name={itemName} />
+            <BigItem
+              className="h-[190px] w-[133px] justify-center"
+              name={itemName}
+            />
             {owned ? (
               <p className="font-lg text-gray-300">
                 이미 보유하신 아이템입니다.
               </p>
             ) : (
               <div>
-                <div className="mb-5 flex gap-3">
+                <div className="mb-5 flex justify-center gap-3">
                   <button
                     className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
                       itemNum >= 1 ? 'bg-gray-200' : 'bg-gray-100'
