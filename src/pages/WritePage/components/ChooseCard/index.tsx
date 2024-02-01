@@ -1,5 +1,5 @@
 import { Item } from '@/components'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useGetItems from '@/apis/hooks/useGetItems.ts'
 import Purchase from '@/components/Purchase'
 
@@ -15,11 +15,15 @@ const ChooseCard = ({ selectedCard, setSelectedCard }: ChooseCardProps) => {
     ? cards.filter((card) => card.amount > 0 || card.amount === -1)
     : []
   const cardsTypes = ownedCards.map((card) => card.type)
-
+  const initialSelectedCard = cardsTypes[selectedCardIndex]
+  const [localSelectedCard] = useState<string>(initialSelectedCard)
   const handleCircleClick = (index: number) => {
     setSelectedCard(cardsTypes[index])
     setSelectedCardIndex(index)
   }
+  useEffect(() => {
+    setSelectedCard(localSelectedCard)
+  }, [localSelectedCard, setSelectedCard])
 
   return (
     <div className="mx-7 flex h-full flex-col overflow-hidden">

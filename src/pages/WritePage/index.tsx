@@ -1,19 +1,23 @@
 import { Button, Header } from '@/components'
 import { ICONS } from '@/constants'
 import { ChooseFlower, ChooseCard, WriteLetter } from './components'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import usePostWriteLetter from '@/apis/hooks/usePostWriteLetter.ts'
+import usePostNickname from '@/apis/hooks/usePostNickname.ts'
 
 const WritePage = () => {
   const navigate = useNavigate()
-
+  const urlParams = new URLSearchParams(window.location.search)
+  const userId = urlParams.get('addr') || ''
+  const [nickname, setNickname] = useState('')
   const [currentStep, setCurrentStep] = useState(1)
-  const [selectedFlower, setSelectedFlower] = useState('신비로운-새벽-하늘')
-  const [selectedCard, setSelectedCard] = useState('향기-카드')
+  const [selectedFlower, setSelectedFlower] = useState('')
+  const [selectedCard, setSelectedCard] = useState('')
   const [letter, setLetter] = useState('')
 
   const { writeLetterMutation } = usePostWriteLetter()
+  const { nicknameMutation } = usePostNickname()
   const handleNextClick = () => {
     if (currentStep === 1) {
       setCurrentStep(2)
@@ -33,6 +37,19 @@ const WritePage = () => {
   }
   const isButtonDisabled = currentStep === 3 && letter.length === 0
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await nicknameMutation.mutateAsync({ userId: userId })
+        setNickname(data.data)
+      } catch (error) {
+        console.error('에러 발생:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
   return (
     <div className="flex h-full flex-col overflow-hidden">
       <Header
@@ -47,7 +64,7 @@ const WritePage = () => {
         }}
       />
       <div className="font-lg mx-7 flex">
-        <p className="text-gray-300">냥냥냥</p>
+        <p className="text-gray-300">{nickname}</p>
         <p className="text-gray-200">님께 편지 작성하기</p>
       </div>
       {currentStep === 1 && (
