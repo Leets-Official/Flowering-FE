@@ -30,9 +30,9 @@ const StoreItem = ({
   const [modalVisible, setModalVisible] = useState<boolean>(true)
   const maxAllowedQuantity =
     coin && type !== 'deco' ? Math.round(coin / parseInt(price, 10)) : 1
-  const { storeFlowerMutation } = usePostStoreFlower(setConfirmPurchase)
-  const { storeCardMutation } = usePostStoreCard(setConfirmPurchase)
-  const { storeDecoMutation } = usePostStoreDeco(setConfirmPurchase)
+  const { storeFlowerMutation } = usePostStoreFlower({ setConfirmPurchase })
+  const { storeCardMutation } = usePostStoreCard({ setConfirmPurchase })
+  const { storeDecoMutation } = usePostStoreDeco({ setConfirmPurchase })
   const onPurchaseButton = () => {
     if (type === 'flower' && itemNum > 0) {
       storeFlowerMutation.mutate({ flowerItemId: itemId, count: itemNum })

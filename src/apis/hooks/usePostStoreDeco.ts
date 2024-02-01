@@ -1,7 +1,10 @@
 import { useMutation } from '@tanstack/react-query'
 import { storeDeco } from '@/apis/service'
 
-const usePostStoreDeco = (setConfirmPurchase: any) => {
+interface selectDeco {
+  setConfirmPurchase: React.Dispatch<React.SetStateAction<boolean>>
+}
+const usePostStoreDeco = ({ setConfirmPurchase }: selectDeco) => {
   const storeDecoMutation = useMutation({
     mutationFn: storeDeco,
     onSuccess: () => {
