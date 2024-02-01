@@ -15,7 +15,7 @@ const OauthPage = () => {
   const navigate = useNavigate()
   const [kakaoToken, setKakaoToken] = useState(false)
   const { mutate: postLogin } = usePostLogin()
-  const userIdRecoil =  useSetRecoilState(userIdState)
+  const userIdRecoil = useSetRecoilState(userIdState)
 
   useEffect(() => {
     try {
@@ -35,7 +35,7 @@ const OauthPage = () => {
               data.data.data.token.refreshToken,
             )
             localStorage.setItem('email', data.data.data.email)
-            
+
             userIdRecoil(data.data.data.userId)
             navigate(`/?${data.data.data.userId}`)
           },
@@ -47,7 +47,7 @@ const OauthPage = () => {
     } catch (err) {
       console.log(err)
     }
-  }, [navigate, postLogin, kakaoToken])
+  }, [navigate, postLogin, kakaoToken, userIdRecoil])
   useEffect(() => {
     const bringToken = async () => {
       try {

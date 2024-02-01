@@ -4,7 +4,6 @@ import useGetItems from '@/apis/hooks/useGetItems'
 
 const CollectionPage = () => {
   const { data: collectionInfo } = useGetItems()
-  console.log(collectionInfo)
 
   return (
     <div className="bg-white">
