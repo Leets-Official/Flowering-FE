@@ -4,7 +4,7 @@ import { Button, Header } from '@/components'
 import { useState, useMemo } from 'react'
 import { CoinIcon } from '@/assets/Icons'
 import { ICONS } from '@/constants'
-import { useGetUser } from '@/apis/hooks'
+import { useGetUser, usePostCoin } from '@/apis/hooks'
 
 const CoinDrawPage = () => {
   // imsy 데이터
@@ -16,6 +16,7 @@ const CoinDrawPage = () => {
   const [isWiggling, setIsWiggling] = useState<boolean>(false)
 
   const { data: userInfo } = useGetUser()
+  const { mutate: addCoin } = usePostCoin()
 
   const getImageUrl = (name: string) => {
     return new URL(`/src/assets/images/giftBox/${name}.png`, import.meta.url)
@@ -25,6 +26,7 @@ const CoinDrawPage = () => {
   const clickCoinBox = () => {
     if (drawingStatus === 'before') return
     setIsWiggling(false)
+    addCoin({ coin: getCoinValue })
     setHaveTodayChance(false)
     setDrawingStatus('after')
   }
