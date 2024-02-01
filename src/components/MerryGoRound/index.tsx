@@ -45,7 +45,7 @@ const theme: Theme = {
           <button
             onClick={handlePrev}
             disabled={!loop && firstIndex}
-            className="!absolute left-1 top-[47%] grid h-[100%] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="!absolute left-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           ></button>
         )
       },
@@ -53,7 +53,7 @@ const theme: Theme = {
         <button
           onClick={handleNext}
           disabled={!loop && lastIndex}
-          className="!absolute right-1 top-[47%] grid h-[100%] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          className="!absolute right-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         ></button>
       ),
       navigation: ({ setActiveIndex, activeIndex, length }) => (
@@ -69,11 +69,11 @@ const theme: Theme = {
           ))}
         </div>
       ),
-      autoplay: true,
+      autoplay: false,
       autoplayDelay: 5000,
       transition: {
         type: 'tween',
-        duration: 0.7,
+        duration: 0.5,
       },
       loop: true,
       className: '',
@@ -108,16 +108,28 @@ const MerryGoRound = () => {
     <div className="font-base mx-6 w-full rounded-[37px] text-center text-black">
       <Carousel {...theme.carousel.defaultProps} styles={theme}>
         <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            축하 받고 싶은 소식을 <br /> 친구들에게 알려 보세요.
+          </div>
           <img src={getImageUrl('login_1')} className="w-[95%]" />
           <>&nbsp;</>
         </div>
         <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            나만의 꽃다발을 만들어 <br /> 아이템으로 완성하세요.
+          </div>
           <img src={getImageUrl('login_2')} className="w-[95%]" />
         </div>
         <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            친구들과 편지를 주고 받고 <br /> D-DAY에 편지를 열어 보세요.
+          </div>
           <img src={getImageUrl('login_3')} className="w-[95%]" />
         </div>
         <div className="flex flex-col items-center justify-center">
+          <div className="absolute mb-[20rem]">
+            코인으로 다양한 꽃을 구매하고 <br /> 친구들에게 선물해 보세요.
+          </div>
           <img src={getImageUrl('login_4')} className="w-[95%]" />
         </div>
       </Carousel>
