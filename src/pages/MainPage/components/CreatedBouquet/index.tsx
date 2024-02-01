@@ -51,8 +51,8 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
       navigator('/login')
     } else {
       startTransition(() => {
-        navigator(`/write?${userId}`)
-      })      
+        navigator(`/write?addr=${userId}`)
+      })
     }
   }
 
@@ -107,7 +107,11 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                 <WrapperBlackBackImage className="h-full w-full" />
               )}
             </div>
-            <ItemFrame currentItem1={item1} currentItem2={item2} currentItem3={item3} />
+            <ItemFrame
+              currentItem1={item1}
+              currentItem2={item2}
+              currentItem3={item3}
+            />
           </div>
         ) : (
           <MarryGoRound setCurrentFlowerIndex={setCurrentFlowerIndex}>
@@ -171,10 +175,16 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
         )}
       </div>
       <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
-        {myId !== '' && myId === userId ? 
-        <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button> 
-        : 
-        <Button className="w-full bg-[#d9d9d9] text-black" onClick={handleClickGoToWrite}>편지 쓰기</Button> }
+        {myId !== '' && myId === userId ? (
+          <Button className="w-full bg-[#d9d9d9] text-black">링크 복사</Button>
+        ) : (
+          <Button
+            className="w-full bg-[#d9d9d9] text-black"
+            onClick={handleClickGoToWrite}
+          >
+            편지 쓰기
+          </Button>
+        )}
       </footer>
     </div>
   )
