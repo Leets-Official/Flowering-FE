@@ -28,7 +28,7 @@ const SentLetter = ({ flowerId, receiver, onClose }: SentLetterProps) => {
         <p className="text-gray-300">님께 편지를 보냈어요.</p>
       </div>
       <div
-        className={`font-ls s mt-10 flex h-dvh w-full -translate-x-[1px] flex-col rounded-t-[37px] px-7 pt-16 `}
+        className={`font-ls mt-10 flex h-dvh w-full -translate-x-[1px] flex-col rounded-t-[37px] px-7 pt-16 `}
         style={{
           backgroundImage: `url(${getImageUrl()})`,
           backgroundSize: 'cover',
