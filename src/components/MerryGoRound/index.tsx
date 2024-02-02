@@ -115,19 +115,19 @@ const MerryGoRound = () => {
           <>&nbsp;</>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="absolute top-4">
+          <div className="absolute mb-[20rem]">
             나만의 꽃다발을 만들어 <br /> 아이템으로 완성하세요.
           </div>
           <img src={getImageUrl('login_2')} className="w-[95%]" />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="absolute top-4">
+          <div className="absolute mb-[20rem]">
             친구들과 편지를 주고 받고 <br /> D-DAY에 편지를 열어 보세요.
           </div>
           <img src={getImageUrl('login_3')} className="w-[95%]" />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="absolute top-4">
+          <div className="absolute mb-[20rem]">
             코인으로 다양한 꽃을 구매하고 <br /> 친구들에게 선물해 보세요.
           </div>
           <img src={getImageUrl('login_4')} className="w-[95%]" />
