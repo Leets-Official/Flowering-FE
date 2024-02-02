@@ -36,7 +36,7 @@ const Box = () => {
       <div className="flex h-full w-[315px] flex-col gap-14 rounded-l-[50px] bg-white pl-10 pt-12">
         <p
           onClick={() => !nickname && navigate('/login')}
-          className="font-lg text-[22px] text-gray-300"
+          className="font-lg cursor-pointer text-[22px] text-gray-300"
         >
           {nickname ? `${nickname}님` : '로그인 후 사용하세요'}
         </p>
