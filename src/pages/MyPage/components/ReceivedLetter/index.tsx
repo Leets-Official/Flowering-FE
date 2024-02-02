@@ -34,6 +34,7 @@ const ReceivedLetter = ({ flowerId, sender, onClose }: ReceivedLetterProps) => {
           backgroundPosition: 'calc(-32px) calc(-10px)',
           boxShadow:
             '0px -4px 5px rgba(0, 0, 0, 0.1), 0px 10px 25px rgba(0, 0, 0, 0.1)',
+          wordBreak: 'break-word',
         }}
       >
         <p className="font-sm mb-10">{letter}</p>
