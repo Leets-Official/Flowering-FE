@@ -14,7 +14,6 @@ const writeLetter = async ({
       cardType,
       flowerType,
     })
-    console.log(res.data)
 
     return res.data
   } catch (error) {

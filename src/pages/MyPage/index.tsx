@@ -4,13 +4,14 @@ import Header from '@/components/Header'
 import { Sidebar } from '@/components'
 import { ICONS } from '@/constants'
 import useGetUserInfo from '@/apis/hooks/useGetUser.ts'
+import { Error500Page } from '@/pages'
 
 const MyPage = () => {
   const [selectedMailbox, setSelectedMailbox] = useState<string>('received')
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
   const { data } = useGetUserInfo()
   if (!data) {
-    return <p>error</p>
+    return <Error500Page />
   }
   const { nickname, dday } = data
   const handleMailboxSelection = (mailboxType: string) => {
