@@ -17,6 +17,7 @@ const useGetBouquet = ({ id }: { id: string }) => {
     queryKey: [`/bouquet/${id}`],
     queryFn: getBouquet,
     enabled: id !== '',
+    retry: 1,
   })
 }
 

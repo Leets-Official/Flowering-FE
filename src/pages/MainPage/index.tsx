@@ -17,7 +17,7 @@ const MainPage = () => {
   })
 
   useEffect(() => {
-    if (isError) navigator('/error')
+    if (isError) navigator('/login')
   }, [isError, navigator])
 
   useEffect(() => {
