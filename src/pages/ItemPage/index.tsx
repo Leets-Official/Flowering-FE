@@ -35,7 +35,7 @@ const ItemPage = () => {
         case 'Flower':
           setData(flowerInfo)
           break
-        case 'Deco':
+        case 'Object':
           setData(decoInfo)
           break
         case 'Card':
