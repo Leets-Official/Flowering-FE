@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSetRecoilState } from 'recoil'
 import { userIdState } from '@/recoil'
+import { LoadingPage } from '@/pages'
 
 const OauthPage = () => {
   const params = new URL(document.location.toString()).searchParams
@@ -72,6 +73,6 @@ const OauthPage = () => {
     if (code) bringToken()
   }, [CLIENT_ID, REDIRECT_URI, code, error, navigate])
 
-  return <div>로딩 중</div>
+  return <LoadingPage />
 }
 export default OauthPage
