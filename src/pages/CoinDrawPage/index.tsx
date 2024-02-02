@@ -1,6 +1,4 @@
 import { Button, Header } from '@/components'
-// import { GiftBox } from './components'
-// import { Canvas } from '@react-three/fiber'
 import { useState, useMemo } from 'react'
 import { CoinIcon } from '@/assets/Icons'
 import { ICONS } from '@/constants'
@@ -18,10 +16,20 @@ const CoinDrawPage = () => {
   const { data: userInfo } = useGetUser()
   const { mutate: addCoin } = usePostCoin()
 
-  const getImageUrl = (name: string) => {
+  const getGiftBoxImageUrl = (name: string) => {
     return new URL(`/src/assets/images/giftBox/${name}.png`, import.meta.url)
       .href
   }
+
+  const getBackgroundImageUrl = (name: string) => {
+    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
+  }
+
+  const getRandomNumber = useMemo(() => {
+    return (
+      Math.round((Math.floor(Math.random() * (500 - 50 + 1)) + 50) / 10) * 10
+    )
+  }, [])
 
   const clickCoinBox = () => {
     if (drawingStatus === 'before') return
@@ -31,12 +39,6 @@ const CoinDrawPage = () => {
     setDrawingStatus('after')
   }
 
-  const getRandomNumber = useMemo(() => {
-    return (
-      Math.round((Math.floor(Math.random() * (500 - 50 + 1)) + 50) / 10) * 10
-    )
-  }, [])
-
   const handleClickButton = () => {
     setIsWiggling(true)
     setDrawingStatus('loading')
@@ -44,7 +46,12 @@ const CoinDrawPage = () => {
   }
 
   return (
-    <>
+    <div
+      className="relative flex h-dvh flex-col"
+      style={{
+        backgroundImage: `${drawingStatus === 'after' && `url(${getBackgroundImageUrl('coinBackground')})`}`,
+      }}
+    >
       <Header leftIcon={ICONS.HOME} />
       <div className="relative flex h-full flex-col justify-between px-6 py-2">
         <div
@@ -64,7 +71,7 @@ const CoinDrawPage = () => {
           </div>
         </div>
         {drawingStatus === 'after' && (
-          <div className="absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2">
+          <div className="absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2 bg-white/85 px-4 py-3">
             <h2 className="font-lg text-[#5B5B5B]">축하합니다!</h2>
             <div className="flex flex-col gap-1.5 text-center">
               <h1 className="font-xl text-[#282828]">{`${getCoinValue} 코인`}</h1>
@@ -77,7 +84,7 @@ const CoinDrawPage = () => {
         <div className="flex w-full justify-center">
           {drawingStatus !== 'after' ? (
             <img
-              src={getImageUrl('giftBox')}
+              src={getGiftBoxImageUrl('giftBox')}
               alt="giftBox"
               onClick={clickCoinBox}
               className={`${isWiggling && 'animate-wiggle'}`}
@@ -85,13 +92,13 @@ const CoinDrawPage = () => {
           ) : (
             <div className="flex w-full flex-col items-center justify-center">
               <img
-                src={getImageUrl('giftBoxTop')}
+                src={getGiftBoxImageUrl('giftBoxTop')}
                 alt="giftBox"
                 onClick={clickCoinBox}
                 className={`w-[53%]`}
               />
               <img
-                src={getImageUrl('giftBoxBottom')}
+                src={getGiftBoxImageUrl('giftBoxBottom')}
                 alt="giftBox"
                 onClick={clickCoinBox}
                 className={`w-[98%]`}
@@ -120,7 +127,7 @@ const CoinDrawPage = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
