@@ -2,6 +2,7 @@ import { Button, Header } from '@/components'
 import { useState, useMemo } from 'react'
 import { CoinIcon } from '@/assets/Icons'
 import { ICONS } from '@/constants'
+import { useNavigate } from 'react-router'
 import { useGetUser, usePostCoin } from '@/apis/hooks'
 
 const CoinDrawPage = () => {
@@ -12,6 +13,7 @@ const CoinDrawPage = () => {
   >('before')
   const [getCoinValue, setGetCoinValue] = useState<number>(0)
   const [isWiggling, setIsWiggling] = useState<boolean>(false)
+  const navigate = useNavigate()
 
   const { data: userInfo } = useGetUser()
   const { mutate: addCoin } = usePostCoin()
@@ -123,7 +125,9 @@ const CoinDrawPage = () => {
             </p>
           )}
           {drawingStatus === 'after' && (
-            <Button className="w-full">상점가기</Button>
+            <Button className="w-full" onClick={() => navigate('/store')}>
+              상점가기
+            </Button>
           )}
         </div>
       </div>
