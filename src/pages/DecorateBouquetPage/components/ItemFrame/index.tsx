@@ -31,14 +31,14 @@ const ItemFrame = ({
         <img
           src={getItemUrl(currentItem2)}
           alt="item2"
-          className={`absolute aspect-[1/2] rotate-[15deg] object-contain ${currentItem2.includes('풀꽃') ? 'w-[70%] left-1/2 top-1/2 z-0 -translate-x-[12%] -translate-y-[65%]' : 'left-3/4 top-1/4 z-40 w-[25%] -translate-x-[20%] -translate-y-[75%]'}`}
+          className={`absolute aspect-[1/2] rotate-[15deg] object-contain ${currentItem2.includes('풀꽃') ? 'left-1/2 top-1/2 z-0 w-[70%] -translate-x-[12%] -translate-y-[65%]' : 'left-3/4 top-1/4 z-40 w-[25%] -translate-x-[20%] -translate-y-[75%]'}`}
         />
       )}
       {currentItem3 && currentItem3 !== 'undefined' && (
         <img
           src={getItemUrl(currentItem3)}
           alt="item3"
-          className={`absolute left-1/2 top-1/2 aspect-[1/2] -translate-y-[58%] rotate-[15deg] object-contain ${currentItem3.includes('풀꽃') ? 'z-[7] -translate-x-[40%] w-[70%]' : 'z-40 w-[25%] -translate-x-[20%]'}`}
+          className={`absolute left-1/2 top-1/2 aspect-[1/2] -translate-y-[58%] rotate-[15deg] object-contain ${currentItem3.includes('풀꽃') ? 'z-[7] w-[70%] -translate-x-[40%]' : 'z-40 w-[25%] -translate-x-[20%]'}`}
         />
       )}
     </>
