@@ -40,11 +40,16 @@ export default withMT({
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-10deg)' },
+          '50%': { transform: 'rotate(10deg)' },
+        },
       },
       animation: {
         'slide-up': 'slideUp 0.5s ease-out',
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'fade-out': 'fadeOut 0.5s ease-in-out',
+        wiggle: 'wiggle 1s ease-in-out infinite',
       },
     },
   },

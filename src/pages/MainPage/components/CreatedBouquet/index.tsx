@@ -91,7 +91,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
         <div className="flex flex-col gap-1.5 px-6">
           <div className="font-base flex justify-between text-gray-300">
             <h2>{bouquetInfo.description}</h2>
-            <h2>{`D-${leftDays}`}</h2>
+            <h2>{`D-${leftDays.toString()}`}</h2>
           </div>
           <h1>
             <span className="font-lg">{`꽃송이  `}</span>

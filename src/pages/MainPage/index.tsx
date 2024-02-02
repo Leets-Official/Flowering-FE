@@ -12,9 +12,13 @@ const MainPage = () => {
   const address = searchParams.get('addr')
   const userId = address || userIdFromRecoil
 
-  const { data: bouquetInfo } = useGetBouquet({
+  const { data: bouquetInfo, isError } = useGetBouquet({
     id: userId,
   })
+
+  useEffect(() => {
+    if (isError) navigator('/error')
+  }, [isError, navigator])
 
   useEffect(() => {
     if (!userIdFromRecoil && !address) {

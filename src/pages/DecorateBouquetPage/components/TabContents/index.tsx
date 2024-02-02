@@ -36,7 +36,7 @@ const TabContents = ({
         </div>
       ) : (
         <div
-          className={`flex gap-6 overflow-x-auto p-2 ${myItems.length < 4 ? 'justify-center' : 'justify-start'}`}
+          className={`flex gap-6 overflow-x-auto p-2 scrollbar-hide ${myItems.length < 4 ? 'justify-center' : 'justify-start'}`}
         >
           {myItems.map((item, index) => (
             <img
@@ -47,8 +47,13 @@ const TabContents = ({
               className={`w-[19.5%] rounded-full object-contain ${currentItem === item && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
             />
           ))}
-          <div className={`flex w-[19.5%] shrink-0`} onClick={() => setCurrentItem("undefined")}>
-            <NoSelectItem className={`visible h-full w-full rounded-full object-contain ${currentItem === "undefined" && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`} />
+          <div
+            className={`flex w-[19.5%] shrink-0`}
+            onClick={() => setCurrentItem('undefined')}
+          >
+            <NoSelectItem
+              className={`visible h-full w-full rounded-full object-contain ${currentItem === 'undefined' && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
+            />
           </div>
         </div>
       )}
