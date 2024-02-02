@@ -38,7 +38,9 @@ const ChooseCard = ({ selectedCard, setSelectedCard }: ChooseCardProps) => {
           </p>
         </div>
 
-        <div className="mb-7 flex flex-nowrap gap-5 overflow-y-auto px-1.5 py-1.5 scrollbar-hide">
+        <div
+          className={`mb-7 flex flex-nowrap gap-5 overflow-y-auto px-1.5 py-1.5 ${cardsTypes.length === 3 ? 'justify-center' : ''} scrollbar-hide`}
+        >
           {cardsTypes.map((card, index) => (
             <div
               key={index}

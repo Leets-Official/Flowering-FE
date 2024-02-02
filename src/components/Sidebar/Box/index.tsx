@@ -1,14 +1,16 @@
 import Content from '@/components/Sidebar/Content'
-import useGetUserInfo from '@/apis/hooks/useGetUser.ts'
 import { useNavigate } from 'react-router-dom'
+import usePostNickname from '@/apis/hooks/usePostNickname.ts'
+import { useEffect, useState } from 'react'
+import { useRecoilValue } from 'recoil'
+import { userIdState } from '@/recoil'
 
 const Box = () => {
   const navigate = useNavigate()
-  const { data } = useGetUserInfo()
-  if (!data) {
-    return <p>error</p>
-  }
-  const { nickname } = data
+  const userId = useRecoilValue(userIdState)
+  const { nicknameMutation } = usePostNickname()
+  const [nickname, setNickname] = useState('')
+
   const logout = () => {
     localStorage.removeItem('accessToken')
     localStorage.removeItem('refreshToken')
@@ -16,6 +18,18 @@ const Box = () => {
     localStorage.removeItem('email')
     navigate('/login')
   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await nicknameMutation.mutateAsync({ userId: userId })
+        setNickname(data.data)
+      } catch (error) {
+        console.error('에러 발생:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return (
     <>

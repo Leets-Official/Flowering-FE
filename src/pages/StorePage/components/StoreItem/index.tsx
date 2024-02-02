@@ -30,9 +30,9 @@ const StoreItem = ({
   const [modalVisible, setModalVisible] = useState<boolean>(true)
   const maxAllowedQuantity =
     coin && type !== 'deco' ? Math.round(coin / parseInt(price, 10)) : 1
-  const { storeFlowerMutation } = usePostStoreFlower(setConfirmPurchase)
-  const { storeCardMutation } = usePostStoreCard(setConfirmPurchase)
-  const { storeDecoMutation } = usePostStoreDeco(setConfirmPurchase)
+  const { storeFlowerMutation } = usePostStoreFlower({ setConfirmPurchase })
+  const { storeCardMutation } = usePostStoreCard({ setConfirmPurchase })
+  const { storeDecoMutation } = usePostStoreDeco({ setConfirmPurchase })
   const onPurchaseButton = () => {
     if (type === 'flower' && itemNum > 0) {
       storeFlowerMutation.mutate({ flowerItemId: itemId, count: itemNum })
@@ -56,13 +56,15 @@ const StoreItem = ({
       }
     })
   }
+  const totalPrice = itemNum * parseInt(price, 10)
+  const isAffordable = coin >= totalPrice
 
   return (
     <div tabIndex={-1}>
       {modalVisible && (
         <Modal>
           <div className="flex cursor-pointer justify-center" key="toggle">
-            {<Item className={`${owned ? 'grayscale' : ''}`} name={itemName} />}
+            {<Item owned={owned} name={itemName} />}
           </div>
           <div className="flex flex-col items-center" key="content">
             <p className="font-lg text-gray-300">
@@ -104,7 +106,11 @@ const StoreItem = ({
                   </button>
                 </div>
                 {itemNum > 0 ? (
-                  <Button key="btn" onClick={onPurchaseButton}>
+                  <Button
+                    key="btn"
+                    onClick={onPurchaseButton}
+                    disabled={!isAffordable}
+                  >
                     구매하기
                   </Button>
                 ) : (
@@ -121,11 +127,7 @@ const StoreItem = ({
         <CoinIcon className="h-[13px] w-[13px]" />
         <p className="font-xs text-gray-200">{price}</p>
       </div>
-      {confirmPurchase && (
-        <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center bg-white">
-          <PurchasePage itemName={itemName} />
-        </div>
-      )}
+      {confirmPurchase && <PurchasePage itemName={itemName} />}
     </div>
   )
 }

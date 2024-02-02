@@ -34,7 +34,7 @@ const Letter = ({
     <>
       {itsMe ? (
         <div
-          className={`absolute -bottom-[5rem] z-[70] w-full animate-slide-up overflow-hidden rounded-t-[3.5rem] ${leftDay <= 0 ? 'h-[95%]' : 'h-[45%]'}`}
+          className={`animate-slide-up absolute -bottom-[5rem] z-[70] w-full overflow-hidden rounded-t-[3.5rem] ${leftDay <= 0 ? 'h-[95%]' : 'h-[45%]'}`}
         >
           <div
             className={`font-ls flex h-full w-full flex-col bg-cover bg-center px-6 py-20`}
@@ -72,7 +72,7 @@ const Letter = ({
         </div>
       ) : (
         <div
-          className={`absolute -bottom-[5rem] z-[70] h-[40%] w-full animate-slide-up overflow-hidden rounded-t-[3.5rem]`}
+          className={`animate-slide-up absolute -bottom-[5rem] z-[70] h-[40%] w-full overflow-hidden rounded-t-[3.5rem]`}
         >
           <div
             className={`font-ls flex h-full w-full flex-col bg-cover bg-center px-6 py-20`}
@@ -94,7 +94,7 @@ const Letter = ({
         </div>
       )}
       <div
-        className="fixed left-0 top-0 z-[60] h-screen w-full bg-[#a8a8a8]/70 backdrop-blur-sm"
+        className="fixed left-0 top-0 z-[60] h-dvh w-full bg-[#a8a8a8]/70 backdrop-blur-sm"
         onClick={() => setLetterOpen(false)}
       />
     </>
