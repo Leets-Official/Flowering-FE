@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useNavigate } from 'react-router'
 
 const apiClient = axios.create({
   baseURL: 'https://api.fling.today',
@@ -6,9 +7,11 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   async (config) => {
-    const accessToken = localStorage.getItem('accessToken')
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`
+    if (config.url !== '/user/refresh') {
+      const accessToken = localStorage.getItem('accessToken')
+      if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`
+      }
     }
 
     return config
@@ -24,7 +27,7 @@ apiClient.interceptors.response.use(
   },
   async (error) => {
     const req = error.config
-    if (error.response.status === 400) {
+    if (error.response.status === 500) {
       try {
         const refresh = localStorage.getItem('refreshToken')
         const email = localStorage.getItem('email')
@@ -32,12 +35,12 @@ apiClient.interceptors.response.use(
           refreshToken: refresh,
           email,
         })
-        const { accessToken, refreshToken } = res.data
+        const { accessToken } = res.data.data
         localStorage.setItem('accessToken', accessToken)
-        localStorage.setItem('refreshToken', refreshToken)
         req.headers.Authorization = `Bearer ${accessToken}`
       } catch (err) {
-        console.log(err)
+        const navigate = useNavigate()
+        navigate('/login')
       }
     }
   },
