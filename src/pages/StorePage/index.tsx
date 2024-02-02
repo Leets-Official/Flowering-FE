@@ -61,7 +61,6 @@ const StorePage = () => {
         <p className="font-xl">SHOP</p>
         <div className="flex h-full w-[70px] items-center justify-center gap-1 rounded-[18px] border border-[#959595] py-1">
           <CoinIcon className="h-[13px] w-[13px]" />
-          {/*user api - coin*/}
           <p className="font-xs">{coin}</p>
         </div>
       </div>

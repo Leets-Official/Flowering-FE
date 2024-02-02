@@ -62,7 +62,7 @@ const StoreItem = ({
       {modalVisible && (
         <Modal>
           <div className="flex cursor-pointer justify-center" key="toggle">
-            {<Item className={`${owned ? 'grayscale' : ''}`} name={itemName} />}
+            {<Item owned={owned} name={itemName} />}
           </div>
           <div className="flex flex-col items-center" key="content">
             <p className="font-lg text-gray-300">
