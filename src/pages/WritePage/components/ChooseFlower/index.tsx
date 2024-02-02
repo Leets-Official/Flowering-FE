@@ -42,7 +42,9 @@ const ChooseFlower = ({
           </p>
         </div>
 
-        <div className="mb-7 flex flex-nowrap gap-5 overflow-y-auto px-1 py-1.5 scrollbar-hide">
+        <div
+          className={`mb-7 flex flex-nowrap gap-5 overflow-y-auto px-1.5 py-1.5 ${flowerTypes.length === 3 ? 'justify-center' : ''} scrollbar-hide`}
+        >
           {flowerTypes.map((flower, index) => (
             <div
               key={index}
