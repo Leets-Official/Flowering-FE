@@ -1,5 +1,6 @@
 import Letter from '@/pages/MyPage/components/Mailbox/Letter'
 import { useGetLetterReceived, useGetLetterSent } from '@/apis/hooks'
+import { Error500Page, LoadingPage } from '@/pages'
 
 interface LettersProps {
   status: string
@@ -19,10 +20,10 @@ const Letters = ({ status, dDay }: LettersProps) => {
   } = useGetLetterReceived()
 
   if (sentLoading || receivedLoading) {
-    return <p>Loading...</p>
+    return <LoadingPage />
   }
   if (sentError || !sentData || receivedError || !receivedData) {
-    return <p>Error loading data</p>
+    return <Error500Page />
   }
   const receivers = sentData.data.map(
     (letterSent: { receiver: string }) => letterSent.receiver,

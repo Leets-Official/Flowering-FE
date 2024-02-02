@@ -1,6 +1,7 @@
 import { Header } from '@/components'
 import { ICONS } from '@/constants'
 import { useGetFlower } from '@/apis/hooks'
+import { Error500Page, LoadingPage } from '@/pages'
 
 interface ReceivedLetterProps {
   sender?: string
@@ -8,13 +9,15 @@ interface ReceivedLetterProps {
   onClose: () => void
 }
 const ReceivedLetter = ({ flowerId, sender, onClose }: ReceivedLetterProps) => {
-  const { data } = useGetFlower({ id: flowerId })
+  const { data, isError, isLoading } = useGetFlower({ id: flowerId })
   const letter = data?.data.letter
   const card = data?.data.cardType
   const getImageUrl = () => {
     return new URL(`/src/assets/images/bigItems/${card}.png`, import.meta.url)
       .href
   }
+  if (isLoading) <LoadingPage />
+  if (isError) <Error500Page />
 
   return (
     <div className="absolute left-0 top-0 z-50 h-dvh w-full transform overflow-hidden bg-white text-gray-300 transition-transform">
