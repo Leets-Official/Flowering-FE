@@ -87,7 +87,7 @@ const CoinDrawPage = () => {
               src={getGiftBoxImageUrl('giftBox')}
               alt="giftBox"
               onClick={clickCoinBox}
-              className={`${isWiggling && 'animate-wiggle'}`}
+              className={`${isWiggling && 'animate-wiggle'} ${drawingStatus === 'loading' ? 'w-[75%]' : 'w-[65%]'}`}
             />
           ) : (
             <div className="flex w-full flex-col items-center justify-center">
