@@ -24,7 +24,7 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
   if (isLoading) <LoadingPage />
   if (isError) <Error500Page />
   const openModal = () => {
-    if (status === 'received' && currentDate > dDayDate) {
+    if (status === 'received' && currentDate < dDayDate) {
       setShowModal(true)
     } else if (status === 'received' && !showModal) {
       setReceivedModalOpen(true)
