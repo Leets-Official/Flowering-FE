@@ -47,7 +47,7 @@ const StoreItem = ({
   }
   const itemNumHandler = (amount: number) => {
     setItemNum((prevItemNum) => {
-      const newItemNum = Math.max(0, prevItemNum + amount)
+      const newItemNum = Math.max(1, prevItemNum + amount)
 
       if (newItemNum <= maxAllowedQuantity) {
         return newItemNum
@@ -87,7 +87,7 @@ const StoreItem = ({
                 <div className="mb-5 flex justify-center gap-3">
                   <button
                     className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                      itemNum >= 1 ? 'bg-gray-200' : 'bg-gray-100'
+                      itemNum > 1 ? 'bg-gray-200' : 'bg-gray-100'
                     } font-normal text-white`}
                     onClick={() => itemNumHandler(-1)}
                   >
