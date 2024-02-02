@@ -9,7 +9,7 @@ const Item = ({ name, owned }: ItemProps) => {
   }
 
   return (
-    <div className="relative h-[72px] w-[72px]">
+    <div className="relative z-0 h-[72px] w-[72px]">
       {owned && (
         <div className="absolute left-0 top-0">
           <img className="grayscale" src={getImageUrl(name)} />

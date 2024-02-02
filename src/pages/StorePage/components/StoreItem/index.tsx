@@ -56,6 +56,8 @@ const StoreItem = ({
       }
     })
   }
+  const totalPrice = itemNum * parseInt(price, 10)
+  const isAffordable = coin >= totalPrice
 
   return (
     <div tabIndex={-1}>
@@ -104,7 +106,11 @@ const StoreItem = ({
                   </button>
                 </div>
                 {itemNum > 0 ? (
-                  <Button key="btn" onClick={onPurchaseButton}>
+                  <Button
+                    key="btn"
+                    onClick={onPurchaseButton}
+                    disabled={!isAffordable}
+                  >
                     구매하기
                   </Button>
                 ) : (
@@ -121,11 +127,7 @@ const StoreItem = ({
         <CoinIcon className="h-[13px] w-[13px]" />
         <p className="font-xs text-gray-200">{price}</p>
       </div>
-      {confirmPurchase && (
-        <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center bg-white">
-          <PurchasePage itemName={itemName} />
-        </div>
-      )}
+      {confirmPurchase && <PurchasePage itemName={itemName} />}
     </div>
   )
 }
