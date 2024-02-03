@@ -28,9 +28,7 @@ const CoinDrawPage = () => {
   }
 
   const getRandomNumber = useMemo(() => {
-    return (
-      Math.round((Math.floor(Math.random() * (500 - 50 + 1)) + 50) / 10) * 10
-    )
+    return (Math.floor(Math.random() * (70 - 30 + 1)) + 30) * 10
   }, [])
 
   const clickCoinBox = () => {
