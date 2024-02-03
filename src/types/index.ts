@@ -101,6 +101,7 @@ export interface UserInfo {
     description: string
     coin: number
     dday: string
+    coinAlreadyDrawn: boolean
   }
 }
 export interface WriteLetterInfo {

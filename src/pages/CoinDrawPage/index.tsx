@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router'
 import { useGetUser, usePostCoin } from '@/apis/hooks'
 
 const CoinDrawPage = () => {
-  // imsy 데이터
-  const [haveTodayChance, setHaveTodayChance] = useState<boolean>(true)
   const [drawingStatus, setDrawingStatus] = useState<
     'before' | 'loading' | 'after'
   >('before')
@@ -17,6 +15,8 @@ const CoinDrawPage = () => {
 
   const { data: userInfo } = useGetUser()
   const { mutate: addCoin } = usePostCoin()
+
+  console.log(userInfo.coinAlreadyDrawn)
 
   const getGiftBoxImageUrl = (name: string) => {
     return new URL(`/src/assets/images/giftBox/${name}.png`, import.meta.url)
@@ -37,7 +37,6 @@ const CoinDrawPage = () => {
     if (drawingStatus === 'before') return
     setIsWiggling(false)
     addCoin({ coin: getCoinValue })
-    setHaveTodayChance(false)
     setDrawingStatus('after')
   }
 
@@ -112,10 +111,14 @@ const CoinDrawPage = () => {
           {drawingStatus === 'before' && (
             <>
               <p className="text-center text-xs font-light text-[#959595]">
-                {haveTodayChance ? '1/1' : '0/1'}
+                {userInfo.coinAlreadyDrawn ? '0/1' : '1/1'}
               </p>
-              <Button className="w-full" onClick={handleClickButton}>
-                {haveTodayChance ? '코인 뽑기' : '기회 끝'}
+              <Button
+                className={`w-full`}
+                disabled={userInfo.coinAlreadyDrawn}
+                onClick={handleClickButton}
+              >
+                {userInfo.coinAlreadyDrawn ? '기회 끝' : '코인 뽑기'}
               </Button>
             </>
           )}
