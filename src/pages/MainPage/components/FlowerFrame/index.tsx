@@ -39,7 +39,7 @@ type FlowerStrokeType = {
 }
 
 const flowerPositionOption = [
-  '-translate-x-1/2 -translate-y-[calc(33%+1rem)] z-[25]',
+  `-translate-x-1/2 -translate-y-[calc(33%+1rem)] z-[25]`,
   'z-[20] -translate-x-[calc(50%+2.9rem)] -translate-y-[calc(33%+5rem)] -rotate-[30deg]',
   'z-[10] -translate-x-[calc(50%-2.1rem)] -translate-y-[calc(33%+5rem)] rotate-[30deg] -scale-x-100',
   'z-[5] -translate-x-[calc(50%+2.65rem)] -translate-y-[calc(33%+9rem)] -rotate-[15deg]',
@@ -92,7 +92,7 @@ const FlowerFrame = ({
         return (
           <div key={flowerId || idx}>
             <div
-              className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+              className={`absolute top-1/2 flex ${flowerType === '차분한-노랫소리' && idx === 0 ? 'left-1/3' : 'left-1/2'} ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
             >
               <img
                 src={getImageUrl(flowerType)}
@@ -101,7 +101,7 @@ const FlowerFrame = ({
               />
             </div>
             <div
-              className={`absolute left-1/2 top-1/2 flex ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+              className={`absolute top-1/2 flex ${flowerType === '차분한-노랫소리' && idx === 0 ? 'left-1/3' : 'left-1/2'} ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
             >
               <ComponentStroke onClick={() => handleFlowerClick(flowerId)} />
             </div>
