@@ -48,7 +48,7 @@ const theme: Theme = {
             disabled={!loop && firstIndex}
             className="!absolute left-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           >
-            <LeftArrowIcon />
+            <LeftArrowIcon fill="black" />
           </button>
         )
       },
@@ -58,7 +58,7 @@ const theme: Theme = {
           disabled={!loop && lastIndex}
           className="!absolute right-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
-          <RightArrowIcon />
+          <RightArrowIcon fill="black" />
         </button>
       ),
       navigation: ({ setActiveIndex, activeIndex, length }) => (
