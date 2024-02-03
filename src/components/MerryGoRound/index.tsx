@@ -111,7 +111,11 @@ const MerryGoRound = () => {
 
   return (
     <div className="font-base mx-6 w-full rounded-[37px] text-center text-black">
-      <Carousel {...theme.carousel.defaultProps} styles={theme}>
+      <Carousel
+        {...theme.carousel.defaultProps}
+        styles={theme}
+        className="overflow-hidden"
+      >
         <div className="flex flex-col items-center justify-center">
           <div className="absolute top-4">
             축하 받고 싶은 소식을 <br /> 친구들에게 알려 보세요.
@@ -120,19 +124,19 @@ const MerryGoRound = () => {
           <>&nbsp;</>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="absolute mb-[20rem]">
+          <div className="absolute top-4">
             나만의 꽃다발을 만들어 <br /> 아이템으로 완성하세요.
           </div>
           <img src={getImageUrl('login_2')} className="w-[95%]" />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="absolute mb-[20rem]">
+          <div className="absolute top-4">
             친구들과 편지를 주고 받고 <br /> D-DAY에 편지를 열어 보세요.
           </div>
           <img src={getImageUrl('login_3')} className="w-[95%]" />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="absolute mb-[20rem]">
+          <div className="absolute top-4">
             코인으로 다양한 꽃을 구매하고 <br /> 친구들에게 선물해 보세요.
           </div>
           <img src={getImageUrl('login_4')} className="w-[95%]" />
