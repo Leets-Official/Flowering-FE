@@ -7,7 +7,6 @@ const storeCard = async ({ cardId, count }: StoreCardInfo) => {
       cardId,
       count,
     })
-    console.log(res.data)
 
     return res.data
   } catch (error) {

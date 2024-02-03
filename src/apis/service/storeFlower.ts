@@ -7,7 +7,6 @@ const storeFlower = async ({ flowerItemId, count }: StoreFlowerInfo) => {
       flowerItemId,
       count,
     })
-    console.log(res.data)
 
     return res.data
   } catch (error) {

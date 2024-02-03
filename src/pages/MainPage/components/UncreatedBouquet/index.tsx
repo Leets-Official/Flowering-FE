@@ -22,7 +22,6 @@ const UncreatedBouquet = () => {
         leftIcon={ICONS.DRAW}
         rightIcon={ICONS.SIDEBAR}
         setSidebarOpen={setSidebarOpen}
-        onDecoBouquet={() => console.log('create bouquet!')}
       />
       <div className="flex h-full flex-col">
         <div className="flex flex-col gap-1.5 px-6">

@@ -6,7 +6,6 @@ const storeDeco = async ({ decoId }: StoreDecoInfo) => {
     const res = await apiClient.post('/store/deco', {
       decoId,
     })
-    console.log(res.data)
 
     return res.data
   } catch (error) {

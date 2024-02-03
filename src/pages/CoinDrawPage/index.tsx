@@ -16,8 +16,6 @@ const CoinDrawPage = () => {
   const { data: userInfo } = useGetUser()
   const { mutate: addCoin } = usePostCoin()
 
-  console.log(userInfo.coinAlreadyDrawn)
-
   const getGiftBoxImageUrl = (name: string) => {
     return new URL(`/src/assets/images/giftBox/${name}.png`, import.meta.url)
       .href
