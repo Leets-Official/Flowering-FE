@@ -130,7 +130,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                   />
                 </div>
               </div>
-              <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[48%] -translate-y-[62%]">
+              <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[70%] -translate-x-[50%] -translate-y-[62%]">
                 {wrapper === 'white' ? (
                   <WrapperWhiteBackImage className="h-full w-full" />
                 ) : (
