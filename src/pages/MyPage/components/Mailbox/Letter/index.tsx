@@ -15,7 +15,7 @@ interface LetterProps {
 }
 const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
   const currentDate = new Date()
-  const dDayDate = new Date(dDay)
+  const dDayDate = new Date(dDay.replace(/-/g, '/'))
   const [showModal, setShowModal] = useState<boolean>(false)
   const [sentModalOpen, setSentModalOpen] = useState<boolean>(false)
   const [receivedModalOpen, setReceivedModalOpen] = useState<boolean>(false)
@@ -81,8 +81,9 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
           <div className=" absolute left-0 top-0 z-50 flex h-full w-full backdrop-blur-sm">
             <div className="mt-auto flex h-[230px] w-full flex-col rounded-t-[51px] bg-white px-8 pt-6">
               <p className="font-lg mt-10 text-center">
-                {new Date(dDay).getMonth() + 1}월 {new Date(dDay).getDate()}일
-                이후에 확인할 수 있어요.
+                {new Date(dDay.replace(/-/g, '/')).getMonth() + 1}월{' '}
+                {new Date(dDay.replace(/-/g, '/')).getDate()}일 이후에 확인할 수
+                있어요.
               </p>
               <Button onClick={closeModal} size="lg" className="font-sm mt-16">
                 닫기
