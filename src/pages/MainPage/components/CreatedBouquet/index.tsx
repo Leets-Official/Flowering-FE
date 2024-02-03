@@ -35,7 +35,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
   const ordinalNum = ['st', 'nd', 'rd']
 
   const onDecoBouquet = () => {
-    if (myId === '') return
+    if (myId === '' || myId !== userId) return
 
     startTransition(() => navigate('/decorate-bouquet', { state: bouquetInfo }))
   }
