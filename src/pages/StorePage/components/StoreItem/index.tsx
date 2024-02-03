@@ -48,8 +48,8 @@ const StoreItem = ({
   const itemNumHandler = (amount: number) => {
     setItemNum((prevItemNum) => {
       const newItemNum = Math.max(1, prevItemNum + amount)
-
-      if (newItemNum <= maxAllowedQuantity) {
+      const newTotalPrice = newItemNum * parseInt(price, 10)
+      if (newTotalPrice <= coin) {
         return newItemNum
       } else {
         return prevItemNum
