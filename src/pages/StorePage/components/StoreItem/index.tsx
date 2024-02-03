@@ -29,7 +29,7 @@ const StoreItem = ({
   const [confirmPurchase, setConfirmPurchase] = useState<boolean>(false)
   const [modalVisible, setModalVisible] = useState<boolean>(true)
   const maxAllowedQuantity =
-    coin && type !== 'deco' ? Math.round(coin / parseInt(price, 10)) : 1
+    coin && type !== 'deco' ? Math.floor(coin / parseInt(price, 10)) : 1
   const { storeFlowerMutation } = usePostStoreFlower({ setConfirmPurchase })
   const { storeCardMutation } = usePostStoreCard({ setConfirmPurchase })
   const { storeDecoMutation } = usePostStoreDeco({ setConfirmPurchase })
@@ -101,6 +101,7 @@ const StoreItem = ({
                         : 'bg-gray-100'
                     } font-normal text-white`}
                     onClick={() => itemNumHandler(1)}
+                    disabled={itemNum >= maxAllowedQuantity}
                   >
                     +
                   </button>
