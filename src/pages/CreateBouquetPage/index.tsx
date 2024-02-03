@@ -8,7 +8,7 @@ import { usePostBouquet, useGetUser } from '@/apis/hooks'
 const CreateBouquetPage = () => {
   const navigate = useNavigate()
   const [step, setStep] = useState(1)
-  const [wrapper, setWrapper] = useState('')
+  const [wrapper, setWrapper] = useState('black')
   const [ribbon, setRibbon] = useState('')
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
