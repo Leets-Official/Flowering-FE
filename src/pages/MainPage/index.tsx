@@ -40,7 +40,7 @@ const MainPage = () => {
         {bouquetInfo && bouquetInfo.bouquetDesign ? (
           <CreatedBouquet bouquetInfo={bouquetInfo} userId={userId} />
         ) : (
-          <UncreatedBouquet />
+          <UncreatedBouquet isMyAccount={address === userIdFromRecoil} />
         )}
       </main>
     </>
