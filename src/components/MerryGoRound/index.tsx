@@ -1,3 +1,4 @@
+import { LeftArrowIcon, RightArrowIcon } from '@/assets/Icons'
 import { Carousel } from '@material-tailwind/react'
 
 interface CarouselStylesType {
@@ -46,7 +47,9 @@ const theme: Theme = {
             onClick={handlePrev}
             disabled={!loop && firstIndex}
             className="!absolute left-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          ></button>
+          >
+            <LeftArrowIcon />
+          </button>
         )
       },
       nextArrow: ({ loop, handleNext, lastIndex }) => (
@@ -54,7 +57,9 @@ const theme: Theme = {
           onClick={handleNext}
           disabled={!loop && lastIndex}
           className="!absolute right-1 top-[47%] grid h-12 max-h-[48px] w-12 max-w-[48px] -translate-y-2/4 select-none place-items-center rounded-full text-black transition-all hover:bg-white/10 active:bg-white/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        ></button>
+        >
+          <RightArrowIcon />
+        </button>
       ),
       navigation: ({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-0 left-2/4 z-50 flex -translate-x-2/4 gap-3">
