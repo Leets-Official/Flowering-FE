@@ -63,7 +63,12 @@ const StoreItem = ({
     <div tabIndex={-1}>
       {modalVisible && (
         <Modal>
-          <div className="flex cursor-pointer justify-center" key="toggle">
+          <div
+            className={`flex cursor-pointer justify-center ${
+              type === 'card' ? 'h-[72px] w-[72px] rounded-full shadow-xl' : ''
+            }`}
+            key="toggle"
+          >
             {<Item owned={owned} name={itemName} />}
           </div>
           <div className="flex flex-col items-center" key="content">
