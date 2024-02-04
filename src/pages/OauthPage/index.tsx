@@ -38,7 +38,6 @@ const OauthPage = () => {
 
             userIdRecoil(data.data.data.userId)
             navigate(-2)
-            // navigate(`/?${data.data.data.userId}`)
           },
           onError: () => {
             navigate('/signup')
