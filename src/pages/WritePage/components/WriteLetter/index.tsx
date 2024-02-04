@@ -17,7 +17,7 @@ const WriteLetter = ({ letter, setLetter }: WriteLetterProps) => {
       <div className="flex h-full w-full flex-col justify-end gap-5 overflow-hidden">
         <div className="z-10 h-[70%] w-full bg-gray-500 px-6">
           <textarea
-            className="font-ls h-full w-full bg-gray-500 text-gray-300 placeholder-gray-200"
+            className="font-ls h-full w-full bg-gray-500 text-gray-300 placeholder-gray-200 outline-none"
             placeholder="자유롭게 입력해주세요."
             value={letter}
             onChange={handleLetterChange}
