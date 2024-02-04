@@ -55,7 +55,7 @@ const SignUpPage = () => {
   return (
     <>
       <Header leftIcon="GoBackIcon" />
-      <div className=" mx-6 flex h-dvh flex-col">
+      <div className="mx-6 flex h-full flex-col">
         <div className="font-lg text-[#282828]">닉네임을 입력해 주세요.</div>
         <div className="font-base mt-2 h-8 w-[15rem] text-[0.75rem] text-[#282828]">
           입력한 닉네임으로 지인에게 꽃다발과 편지를 보낼 수 있어요
@@ -64,12 +64,12 @@ const SignUpPage = () => {
           <div className="relative">
             <input
               type="text"
-              className="font-base mt-[10rem] w-full border-b-2 border-solid bg-white px-2.5 py-1 text-[#282828] focus:outline-none"
+              className="font-base w-full border-b-[1px] border-[#DDDDDD] bg-white px-2.5 py-0.5 text-[#282828] focus:outline-none"
               placeholder="닉네임"
               onChange={handleInput}
             />
             {activeButton && (
-              <CheckIcon className="absolute right-2 top-[165px]" />
+              <CheckIcon className="absolute right-2 top-[0.5rem]" />
             )}
           </div>
           <ul
@@ -80,19 +80,17 @@ const SignUpPage = () => {
             <li>{message}</li>
           </ul>
         </div>
-        <div className="py-5">
-          <Button
-            className={`font-sm mt-[13rem] ${
-              activeButton
-                ? 'bg-black text-white'
-                : 'bg-[#DDDDDD] text-[#282828]'
-            }`}
-            disabled={!activeButton}
-            onClick={handleClick}
-          >
-            다음
-          </Button>
-        </div>
+      </div>
+      <div className="flex flex-col px-6 py-5">
+        <Button
+          className={`font-sm ${
+            activeButton ? 'bg-black text-white' : 'bg-[#DDDDDD] text-[#282828]'
+          }`}
+          disabled={!activeButton}
+          onClick={handleClick}
+        >
+          다음
+        </Button>
       </div>
     </>
   )
