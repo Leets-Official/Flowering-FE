@@ -5,6 +5,7 @@ import {
   WrapperBlackBackImage,
   WrapperBlackFrontLeftImage,
   WrapperBlackFrontRightImage,
+  FlowerCard,
 } from '@/assets/images'
 import { Ribbons } from '../'
 
@@ -14,10 +15,6 @@ interface BouquetFrameProps {
 }
 
 const BouquetFrame = ({ currentWrapper, currentRibbon }: BouquetFrameProps) => {
-  const getCardImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
-  }
-
   return (
     <>
       <div className="relative h-full w-full">
@@ -36,14 +33,12 @@ const BouquetFrame = ({ currentWrapper, currentRibbon }: BouquetFrameProps) => {
           )}
           <Ribbons ribbon={currentRibbon} />
         </div>
-        <div className="absolute left-1/2 top-1/2 z-40 w-[33%] -translate-x-[18%] translate-y-[40%]">
-          <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[10%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+        <div className="absolute left-1/2 top-1/2 z-40 flex w-[33%] -translate-x-[15%] translate-y-[80%] justify-center">
+          <p className="absolute left-1/3 top-1/3 flex  -translate-x-[50%] -translate-y-[10%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
             <span>{`1 st`}</span>
           </p>
-          <img
-            src={getCardImageUrl('flower_card')}
-            alt="flower_card"
-            className="w-full"
+          <FlowerCard
+            className={`h-[80%] w-[80%] ${currentWrapper === 'white' ? 'fill-white' : 'fill-black'}`}
           />
         </div>
       </div>
