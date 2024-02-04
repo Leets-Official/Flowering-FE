@@ -82,7 +82,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
   return (
     <>
       <Header
-        leftIcon={ICONS.DRAW}
+        leftIcon={myId === userId ? ICONS.DRAW : ''}
         rightIcon={ICONS.SIDEBAR}
         setSidebarOpen={setSidebarOpen}
         onDecoBouquet={onDecoBouquet}
