@@ -125,7 +125,7 @@ const DecorateBouquetPage = () => {
           {['ribbon1', 'ribbon2', 'ribbon3'].map((item, index) => (
             <div
               key={index}
-              className={`flex aspect-square w-[20%] rounded-full ${currentRibbon === item && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
+              className={`flex aspect-square w-[20%] overflow-hidden rounded-full ${currentRibbon === item && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
               onClick={() => setCurrentRibbon(item)}
             >
               <img src={getRibbonImageUrl(item)} alt="ribbon" />
