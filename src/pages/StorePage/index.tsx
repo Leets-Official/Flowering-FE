@@ -7,8 +7,11 @@ import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
 import useGetUserInfo from '@/apis/hooks/useGetUser.ts'
 import { useGetItems } from '@/apis/hooks'
 import { Error500Page, LoadingPage } from '@/pages'
+import { Sidebar } from '@/components'
+import { useState } from 'react'
 
 const StorePage = () => {
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
   const { data: storeData, isLoading, isError } = useGetStore()
   const { data: userData } = useGetUserInfo()
   const { data: itemData } = useGetItems()
@@ -58,7 +61,11 @@ const StorePage = () => {
 
   return (
     <div className="flex flex-col overflow-hidden">
-      <Header leftIcon={ICONS.HOME} />
+      <Header
+        setSidebarOpen={setSidebarOpen}
+        leftIcon={ICONS.GOBACK}
+        rightIcon={ICONS.SIDEBAR}
+      />
       <div className="mb-6 flex justify-between px-6">
         <p className="font-xl">SHOP</p>
         <div className="flex h-full w-[70px] items-center justify-center gap-1 rounded-[18px] border border-[#959595] py-1">
@@ -85,6 +92,7 @@ const StorePage = () => {
           <div className="mt-4 grid grid-cols-3 gap-x-10 gap-y-1.5">{card}</div>
         </div>
       </div>
+      <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
     </div>
   )
 }
