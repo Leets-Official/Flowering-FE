@@ -6,6 +6,7 @@ import {
   WrapperWhiteFrontRightImage,
   WrapperBlackFrontRightImage,
   WrapperBlackBackImage,
+  FlowerCard,
 } from '@/assets/images'
 import { Button, Header, Sidebar } from '@/components'
 import { getLeftDays } from '@/utils'
@@ -116,17 +117,14 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                   ) : (
                     <WrapperBlackFrontRightImage className="h-full w-full" />
                   )}
-
-                  <Ribbons ribbon={ribbon} />
+                  <Ribbons ribbon={ribbon} notFlower={true} />
                 </div>
-                <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
-                  <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+                <div className="absolute left-1/2 top-1/2 z-40 flex w-[45%] -translate-x-[33%] translate-y-[43%] justify-center">
+                  <p className="absolute left-1/3 top-1/3 flex  -translate-x-[25%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
                     <span>{`1 st`}</span>
                   </p>
-                  <img
-                    src={getImageUrl('flower_card')}
-                    alt="flower_card"
-                    className="w-full"
+                  <FlowerCard
+                    className={`h-[62%] w-[62%] ${wrapper === 'white' ? 'fill-white' : 'fill-black'}`}
                   />
                 </div>
               </div>
