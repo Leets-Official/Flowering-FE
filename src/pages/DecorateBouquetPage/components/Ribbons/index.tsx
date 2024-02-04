@@ -1,8 +1,8 @@
 const Ribbons = ({ ribbon }: { ribbon: string }) => {
   const ribbonStyles: Record<string, string> = {
     ribbon1: 'w-[60%] -translate-x-[68%] -translate-y-[10%]',
-    ribbon2: 'w-[56%] -translate-x-[52%] -translate-y-[25%]',
-    ribbon3: 'w-[56%] -translate-x-[52%] -translate-y-[25%]',
+    ribbon2: 'w-[56%] -translate-x-[52.5%] -translate-y-[25%]',
+    ribbon3: 'w-[56%] -translate-x-[52.5%] -translate-y-[25%]',
   }
 
   const getRibbonUrl = (name: string) => {

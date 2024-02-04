@@ -29,6 +29,12 @@ const DecorateBouquetPage = () => {
   const { data: items } = useGetItems()
   const { mutate: editBouquet } = useEditBouquet()
 
+  const ribbonItems: Record<string, string> = {
+    ribbonItem1: 'ribbon1',
+    ribbonItem2: 'ribbon2',
+    ribbonItem3: 'ribbon3',
+  }
+
   const myItems = items.decoItems
     .filter((item) => item.owned)
     .map((item) => item.type)
@@ -122,11 +128,11 @@ const DecorateBouquetPage = () => {
       value: 'ribbon',
       content: (
         <div className={`flex w-full justify-center gap-6 px-2`}>
-          {['ribbon1', 'ribbon2', 'ribbon3'].map((item, index) => (
+          {['ribbonItem1', 'ribbonItem2', 'ribbonItem3'].map((item, index) => (
             <div
               key={index}
-              className={`flex aspect-square w-[20%] overflow-hidden rounded-full ${currentRibbon === item && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
-              onClick={() => setCurrentRibbon(item)}
+              className={`flex aspect-square w-[20%] overflow-hidden rounded-full ${currentRibbon === ribbonItems[item] && 'shadow-[1px_1px_7.1px_rgba(0,0,0,0.5)]'}`}
+              onClick={() => setCurrentRibbon(ribbonItems[item])}
             >
               <img src={getRibbonImageUrl(item)} alt="ribbon" />
             </div>
