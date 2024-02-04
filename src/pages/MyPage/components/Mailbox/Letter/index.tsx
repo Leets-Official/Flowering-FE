@@ -59,7 +59,7 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
             name={flowerName}
           />
         </div>
-        <div className="absolute z-20 ml-[205px] h-full w-[63px] bg-white opacity-70 drop-shadow-md" />
+        <div className="absolute z-20 ml-[67%] h-full w-[63px] bg-white opacity-70 drop-shadow-md" />
       </button>
       {sentModalOpen && (
         <SentLetter

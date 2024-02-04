@@ -26,7 +26,7 @@ const MyPage = () => {
           leftIcon={ICONS.HOME}
           rightIcon={ICONS.SIDEBAR}
         />
-        <div className="mx-8 mb-7 mt-5 flex justify-between">
+        <div className="mx-6 mb-7 mt-1 flex justify-between">
           <div className="flex flex-col">
             <p className="font-lg text-gray-200">환영해요!</p>
             <p className="font-lg">{nickname}님</p>
