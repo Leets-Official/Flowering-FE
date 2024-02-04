@@ -56,7 +56,6 @@ const Letters = ({ status, dDay }: LettersProps) => {
         <div>
           {senders.map((sender: string, index: number) => (
             <Letter
-              dDay={dDay}
               status={status}
               key={index}
               sender={sender}

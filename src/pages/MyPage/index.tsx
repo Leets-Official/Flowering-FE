@@ -49,8 +49,10 @@ const MyPage = () => {
                 {mailboxType === 'received' ? '받은 편지함' : '보낸 편지함'}
               </button>
               <div
-                className={`mt-1.5 h-0.5 w-full bg-black ${
-                  selectedMailbox !== mailboxType ? 'opacity-10' : ''
+                className={`mt-1.5 w-full rounded bg-black ${
+                  selectedMailbox !== mailboxType
+                    ? 'h-[1px] opacity-20'
+                    : 'h-[3px]'
                 }`}
               />
             </li>
