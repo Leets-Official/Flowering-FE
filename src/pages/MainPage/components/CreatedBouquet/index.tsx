@@ -55,10 +55,6 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
     [bouquetInfo.bouquets],
   )
 
-  const getImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
-  }
-
   const handleClickGoToWrite = () => {
     if (myId == '') {
       navigate('/login')
@@ -172,8 +168,8 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
 
                           <Ribbons ribbon={ribbon} />
                         </div>
-                        <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[10%] translate-y-[31%]">
-                          <p className="absolute left-[25%] top-1/3 flex -translate-x-[85%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+                        <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[10%] translate-y-[40%]">
+                          <p className="absolute left-[20%] top-1/3 flex -translate-x-[60%] -translate-y-[25%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
                             <span>{currentFlowerIndex + 1}</span>
                             <span>
                               {ordinalNum[currentFlowerIndex]
@@ -181,10 +177,8 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                                 : 'th'}
                             </span>
                           </p>
-                          <img
-                            src={getImageUrl('flower_card')}
-                            alt="flower_card"
-                            className="w-[70%]"
+                          <FlowerCard
+                            className={`h-[62%] w-[62%] ${wrapper === 'white' ? 'fill-white' : 'fill-black'}`}
                           />
                         </div>
                       </div>
