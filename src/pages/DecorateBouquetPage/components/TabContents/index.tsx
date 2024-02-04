@@ -28,7 +28,7 @@ const TabContents = ({
             꽃다발을 꾸밀 수 있는 아이템이 없어요!
           </p>
           <Button
-            className="bg-gray-400 text-black"
+            className="font-sm bg-black text-white"
             onClick={() => navigate('/store')}
           >
             상점가기

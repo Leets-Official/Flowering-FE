@@ -213,7 +213,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                 </div>
               )}
               <Button
-                className="font-sm w-full bg-[#d9d9d9] text-black"
+                className="font-sm w-full bg-black text-white"
                 onClick={copy}
               >
                 링크 복사
@@ -221,7 +221,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
             </div>
           ) : (
             <Button
-              className="w-full bg-[#d9d9d9] text-black"
+              className="font-sm w-full bg-black text-white"
               onClick={handleClickGoToWrite}
             >
               편지 쓰기

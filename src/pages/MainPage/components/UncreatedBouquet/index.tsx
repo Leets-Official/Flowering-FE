@@ -48,7 +48,8 @@ const UncreatedBouquet = ({ isMyAccount }: UncreatedBouquetProps) => {
         />
         <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
           <Button
-            className={`font-sm w-full ${isMyAccount ? 'bg-black text-white' : 'bg-gray-400 text-black'} `}
+            className={`font-sm w-full ${isMyAccount && 'bg-black text-white'} `}
+            disabled={!isMyAccount}
             onClick={handleRouteCreateBouquet}
           >
             꽃다발 생성
