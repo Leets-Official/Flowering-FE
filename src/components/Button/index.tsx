@@ -20,7 +20,7 @@ const Button = ({
         size === 'lg'
           ? 'h-[40px] w-full px-6 py-[0.8rem] text-sm'
           : 'h-[23px] px-4 py-[0.3rem] text-xs'
-      } rounded-[3.125rem] bg-black leading-none text-white disabled:border-gray-100 disabled:bg-gray-100 disabled:text-black ${className}`}
+      } rounded-[3.125rem] bg-black leading-none text-white shadow-none disabled:border-gray-100 disabled:bg-gray-100 disabled:text-black ${className}`}
       {...props}
     >
       {children}
