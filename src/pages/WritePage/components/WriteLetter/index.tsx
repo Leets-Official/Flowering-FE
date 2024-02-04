@@ -21,6 +21,7 @@ const WriteLetter = ({ letter, setLetter }: WriteLetterProps) => {
             placeholder="자유롭게 입력해주세요."
             value={letter}
             onChange={handleLetterChange}
+            maxLength={300}
           />
         </div>
 
