@@ -58,7 +58,7 @@ const MyPage = () => {
             </li>
           ))}
         </ul>
-        <Mailbox dDay={dday} status={selectedMailbox} />
+        <Mailbox dDay={dday} status={selectedMailbox} nickname={nickname} />
       </div>
       <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
     </section>

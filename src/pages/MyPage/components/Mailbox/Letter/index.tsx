@@ -12,8 +12,16 @@ interface LetterProps {
   flowerId: number
   status: string
   dDay?: string
+  nickname: string
 }
-const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
+const Letter = ({
+  receiver,
+  dDay,
+  flowerId,
+  status,
+  sender,
+  nickname,
+}: LetterProps) => {
   const currentDate = new Date()
   const dDayDate = dDay ? new Date(dDay.replace(/-/g, '/')) : null
   const [showModal, setShowModal] = useState<boolean>(false)
@@ -48,18 +56,27 @@ const Letter = ({ receiver, dDay, flowerId, status, sender }: LetterProps) => {
             '0px -4px 10px rgba(0, 0, 0, 0.05), 0px 4px 10px rgba(0, 0, 0, 0.05)',
         }}
       >
-        <p className="mb-2 mt-auto flex flex-col gap-1 pl-3">
-          {status === 'received' ? 'FROM. ' : 'TO. '}
-          {receiver}
-          {sender}
-        </p>
+        <div className="flex flex-col gap-16">
+          <p className={`mt-4 ${status !== 'received' ? '' : 'text-gray-400'}`}>
+            {status === 'received' ? `TO. ${nickname} ` : `TO. ${receiver}`}
+          </p>
+          <p className={`ml-4 ${status !== 'received' ? 'text-gray-400' : ''}`}>
+            {status === 'received' ? `FROM. ${sender} ` : `FROM. ${nickname}`}
+          </p>
+        </div>
         <div className="absolute right-0 mr-[120px] mt-[55px] flex items-center justify-center">
           <BigItem
             className="absolute h-[195px] w-[100px] rotate-[270deg] "
             name={flowerName}
           />
         </div>
-        <div className="absolute z-20 ml-[67%] h-full w-[63px] bg-white opacity-70 drop-shadow-md" />
+        <div
+          className="absolute z-20 ml-[67%] h-full w-[63px] bg-white opacity-70"
+          style={{
+            boxShadow:
+              '0 0px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+          }}
+        />
       </button>
       {sentModalOpen && (
         <SentLetter
