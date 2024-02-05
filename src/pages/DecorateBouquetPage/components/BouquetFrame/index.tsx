@@ -33,12 +33,12 @@ const BouquetFrame = ({ currentWrapper, currentRibbon }: BouquetFrameProps) => {
           )}
           <Ribbons ribbon={currentRibbon} />
         </div>
-        <div className="absolute left-1/2 top-1/2 z-40 flex w-[33%] -translate-x-[15%] translate-y-[80%] justify-center">
-          <p className="absolute left-1/3 top-1/3 flex  -translate-x-[50%] -translate-y-[10%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+        <div className="absolute left-1/2 top-1/2 z-40 flex w-[33%] -translate-x-[18%] translate-y-[75%] justify-center">
+          <p className="font-xs absolute left-1/3 top-1/3  flex -translate-x-[45%] -translate-y-[20%] -rotate-[5deg] gap-px text-xs text-[#FFA6EE] sm:text-xs md:text-sm desktop:text-xs">
             <span>{`1 st`}</span>
           </p>
           <FlowerCard
-            className={`h-[80%] w-[80%] ${currentWrapper === 'white' ? 'fill-white' : 'fill-black'}`}
+            className={`h-[85%] w-[85%] ${currentWrapper === 'white' ? 'fill-white' : 'fill-black'}`}
           />
         </div>
       </div>
