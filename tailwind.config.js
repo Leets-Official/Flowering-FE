@@ -26,6 +26,8 @@ export default withMT({
       backgroundImage: {
         'tab-gradient':
           'linear-gradient(0deg, #909090 -172.73%, rgba(217, 217, 217, 0.00) 100%, #FFF 100%)',
+        'random-coin-gradient':
+          'radial-gradient(50% 50% at 50% 50%, #FFF 70.5%, rgba(255, 255, 255, 0.00) 100%)',
       },
       keyframes: {
         slideUp: {
