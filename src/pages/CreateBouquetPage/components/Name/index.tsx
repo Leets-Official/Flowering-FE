@@ -40,11 +40,12 @@ const Name = ({ name, setName }: NameProps) => {
         <div className="relative">
           <input
             type="text"
-            className="font-base w-full border-b-[1px] bg-white px-2.5 py-0.5 text-[#282828] focus:outline-none"
+            className="font-base w-full bg-white px-2.5 py-0.5 text-[#282828] focus:outline-none"
             placeholder="꽃다발 제목"
             onChange={handleInput}
             value={name}
           />
+          <hr />
           {activeButton && (
             <CheckIcon className="absolute right-2 top-[0.5rem]" />
           )}

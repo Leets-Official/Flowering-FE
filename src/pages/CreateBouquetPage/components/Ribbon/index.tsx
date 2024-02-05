@@ -40,11 +40,11 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
             <img
               src={getRibbonImageUrl(ribbon)}
               className={`absolute left-1/2
-                ${ribbon === 'ribbon1' && wrapper === 'black' && 'w-[35%] -translate-x-[51%] -translate-y-[-16%]'}
-                ${ribbon === 'ribbon1' && wrapper === 'white' && 'w-[35%] -translate-x-[51%] -translate-y-[-12%]'}
-                ${ribbon === 'ribbon2' && wrapper === 'black' && 'w-[37%] -translate-x-[50%] -translate-y-[18%]'} 
-                ${ribbon === 'ribbon2' && wrapper === 'white' && 'w-[37%] -translate-x-[51%] -translate-y-[25%]'} 
-                ${ribbon === 'ribbon3' && 'w-[42%] -translate-x-[45%] -translate-y-[17%]'}
+                ${ribbon === 'ribbon1' && wrapper === 'black' && 'w-[36%] -translate-x-[52.7%] -translate-y-[-18%]'}
+                ${ribbon === 'ribbon1' && wrapper === 'white' && 'w-[35%] -translate-x-[52.3%] -translate-y-[-12%]'}
+                ${ribbon === 'ribbon2' && wrapper === 'black' && 'w-[31.7%] -translate-x-[42%] -translate-y-[35%]'} 
+                ${ribbon === 'ribbon2' && wrapper === 'white' && 'w-[31%] -translate-x-[42.4%] -translate-y-[44%]'} 
+                ${ribbon === 'ribbon3' && 'w-[40%] -translate-x-[45%] -translate-y-[17%]'}
               `}
             />
           )}

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Header, Button } from '@/components'
 import { CheckIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router'
@@ -52,9 +52,24 @@ const SignUpPage = () => {
     }
   }
 
+  useEffect(() => {
+    if (
+      localStorage.getItem('email') ||
+      localStorage.getItem('refreshToken') ||
+      localStorage.getItem('accessToken')
+    ) {
+      navigate('/')
+    }
+  }, [navigate])
+
   return (
     <>
-      <Header leftIcon="GoBackIcon" />
+      <Header
+        leftIcon="GoBackIcon"
+        onGoBack={() => {
+          navigate('/login')
+        }}
+      />
       <div className="mx-6 flex h-full flex-col">
         <div className="font-lg text-[#282828]">닉네임을 입력해 주세요.</div>
         <div className="font-base mt-2 h-8 w-[15rem] text-[0.75rem] text-[#282828]">
@@ -64,10 +79,11 @@ const SignUpPage = () => {
           <div className="relative">
             <input
               type="text"
-              className="font-base w-full border-b-[1px] border-[#DDDDDD] bg-white px-2.5 py-0.5 text-[#282828] focus:outline-none"
+              className="font-base w-full bg-white px-2.5 py-0.5 text-[#282828] focus:outline-none"
               placeholder="닉네임"
               onChange={handleInput}
             />
+            <hr />
             {activeButton && (
               <CheckIcon className="absolute right-2 top-[0.5rem]" />
             )}
