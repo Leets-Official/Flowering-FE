@@ -113,7 +113,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                   ) : (
                     <WrapperBlackFrontRightImage className="h-full w-full" />
                   )}
-                  <Ribbons ribbon={ribbon} notFlower={true} />
+                  <Ribbons ribbon={ribbon} />
                 </div>
                 <div className="absolute left-1/2 top-1/2 z-40 flex w-[45%] -translate-x-[33%] translate-y-[43%] justify-center">
                   <p className="font-xs absolute left-1/3 top-1/3  flex -translate-x-[15%] -translate-y-[15%] -rotate-[5deg] gap-px text-xs text-[#FFA6EE] sm:text-xs md:text-sm desktop:text-xs">
@@ -165,7 +165,6 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                           ) : (
                             <WrapperBlackFrontRightImage className="h-full w-full" />
                           )}
-
                           <Ribbons ribbon={ribbon} />
                         </div>
                         <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[10%] translate-y-[40%]">
