@@ -1,4 +1,5 @@
 import apiClient from '@/apis/apiClient.ts'
+import error500Page from '@/pages/Error500Page'
 
 const flower = async ({ id }: { id: number }) => {
   try {
@@ -6,7 +7,7 @@ const flower = async ({ id }: { id: number }) => {
 
     return response.data
   } catch (error) {
-    console.log(error)
+    return error500Page
   }
 }
 

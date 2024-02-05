@@ -63,12 +63,7 @@ const StoreItem = ({
     <div tabIndex={-1}>
       {modalVisible && (
         <Modal>
-          <div
-            className={`flex cursor-pointer justify-center ${
-              type === 'card' ? 'h-[72px] w-[72px] rounded-full shadow-xl' : ''
-            }`}
-            key="toggle"
-          >
+          <div className="flex cursor-pointer justify-center" key="toggle">
             {<Item owned={owned} name={itemName} />}
           </div>
           <div className="flex flex-col items-center" key="content">
@@ -89,28 +84,30 @@ const StoreItem = ({
               </p>
             ) : (
               <div>
-                <div className="mb-5 flex justify-center gap-3">
-                  <button
-                    className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                      itemNum > 1 ? 'bg-gray-200' : 'bg-gray-100'
-                    } font-normal text-white`}
-                    onClick={() => itemNumHandler(-1)}
-                  >
-                    -
-                  </button>
-                  <p className=" font-xs text-[#000000]">{itemNum}개</p>
-                  <button
-                    className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
-                      itemNum < maxAllowedQuantity
-                        ? 'bg-gray-200'
-                        : 'bg-gray-100'
-                    } font-normal text-white`}
-                    onClick={() => itemNumHandler(1)}
-                    disabled={itemNum >= maxAllowedQuantity}
-                  >
-                    +
-                  </button>
-                </div>
+                {type !== 'deco' && (
+                  <div className="mb-5 flex justify-center gap-3">
+                    <button
+                      className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
+                        itemNum > 1 ? 'bg-gray-200' : 'bg-gray-100'
+                      } font-normal text-white`}
+                      onClick={() => itemNumHandler(-1)}
+                    >
+                      -
+                    </button>
+                    <p className=" font-xs text-[#000000]">{itemNum}개</p>
+                    <button
+                      className={`flex h-[16px] w-[16px] items-center justify-center rounded-full ${
+                        itemNum < maxAllowedQuantity
+                          ? 'bg-gray-200'
+                          : 'bg-gray-100'
+                      } font-normal text-white`}
+                      onClick={() => itemNumHandler(1)}
+                      disabled={itemNum >= maxAllowedQuantity}
+                    >
+                      +
+                    </button>
+                  </div>
+                )}
                 {itemNum > 0 ? (
                   <Button
                     key="btn"
