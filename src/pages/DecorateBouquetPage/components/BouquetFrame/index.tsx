@@ -18,7 +18,7 @@ const BouquetFrame = ({ currentWrapper, currentRibbon }: BouquetFrameProps) => {
   return (
     <>
       <div className="relative h-full w-full">
-        <div className="absolute left-1/2 top-1/2 z-[15] w-[60%] -translate-x-[55.5%] -translate-y-[11%]">
+        <div className="absolute left-1/2 top-1/2 z-[15] w-[60%] -translate-x-[56%] -translate-y-[11%]">
           {currentWrapper === 'white' ? (
             <WrapperWhiteFrontLeftImage className="h-full w-full" />
           ) : (
