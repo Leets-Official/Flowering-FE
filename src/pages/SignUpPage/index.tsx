@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 import { usePostRegister } from '@/apis/hooks'
 import { userIdState } from '@/recoil'
 import { useRecoilState } from 'recoil'
+import error500Page from '@/pages/Error500Page'
 
 const SignUpPage = () => {
   const [nickname, setNickname] = useState<string>('')
@@ -48,7 +49,7 @@ const SignUpPage = () => {
         },
       })
     } catch (err) {
-      console.log(err)
+      return error500Page
     }
   }
 
