@@ -34,7 +34,7 @@ const Letter = ({
     <>
       {itsMe ? (
         <div
-          className={`animate-slide-up absolute -bottom-[5rem] z-[70] w-full overflow-hidden rounded-t-[3.5rem] ${leftDay <= 0 ? 'h-[95%]' : 'h-[45%]'}`}
+          className={`absolute -bottom-[5rem] z-[70] w-full animate-slide-up overflow-hidden rounded-t-[3.5rem] ${leftDay <= 0 ? 'h-[95%]' : 'h-[45%]'}`}
         >
           <div
             className={`font-ls flex h-full w-full flex-col bg-cover bg-center px-6 py-20`}
@@ -72,7 +72,7 @@ const Letter = ({
         </div>
       ) : (
         <div
-          className={`animate-slide-up absolute -bottom-[5rem] z-[70] h-[40%] w-full overflow-hidden rounded-t-[3.5rem]`}
+          className={`absolute -bottom-[5rem] z-[70] h-[40%] w-full animate-slide-up overflow-hidden rounded-t-[3.5rem]`}
         >
           <div
             className={`font-ls flex h-full w-full flex-col bg-cover bg-center px-6 py-20`}
@@ -83,7 +83,7 @@ const Letter = ({
             }}
           >
             <CloseIcon
-              className="absolute right-7 top-8 z-[80] h-4 w-4"
+              className="absolute right-7 top-8 z-[80] h-4 w-4 cursor-pointer"
               onClick={() => setLetterOpen(false)}
             />
             <div className={`font-lg z-[80] flex justify-center`}>
