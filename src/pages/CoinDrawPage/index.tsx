@@ -68,7 +68,7 @@ const CoinDrawPage = () => {
           </div>
         </div>
         {drawingStatus === 'after' && (
-          <div className="absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2 bg-white/85 px-4 py-3">
+          <div className="bg-random-coin-gradient absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2 px-4 pb-12 pt-4">
             <h2 className="font-lg text-[#5B5B5B]">축하합니다!</h2>
             <div className="flex flex-col gap-1.5 text-center">
               <h1 className="font-xl text-[#282828]">{`${getCoinValue} 코인`}</h1>
@@ -110,11 +110,11 @@ const CoinDrawPage = () => {
                 {userInfo.coinAlreadyDrawn ? '0/1' : '1/1'}
               </p>
               <Button
-                className={`w-full`}
+                className={`font-sm w-full`}
                 disabled={userInfo.coinAlreadyDrawn}
                 onClick={handleClickButton}
               >
-                {userInfo.coinAlreadyDrawn ? '기회 끝' : '코인 뽑기'}
+                {userInfo.coinAlreadyDrawn ? '내일 다시 도전' : '코인 뽑기'}
               </Button>
             </>
           )}
