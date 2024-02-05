@@ -4,6 +4,7 @@ import { useGetBouquet } from '@/apis/hooks'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import { userIdState } from '@/recoil'
+import { LoadingPage } from '@/pages'
 
 const MainPage = () => {
   const navigator = useNavigate()
@@ -12,7 +13,11 @@ const MainPage = () => {
   const address = searchParams.get('addr')
   const userId = address || userIdFromRecoil
 
-  const { data: bouquetInfo, isError } = useGetBouquet({
+  const {
+    data: bouquetInfo,
+    isError,
+    isLoading,
+  } = useGetBouquet({
     id: userId,
   })
 
@@ -35,15 +40,19 @@ const MainPage = () => {
   }, [address, setSearchParams, userId, userIdFromRecoil])
 
   return (
-    <>
-      <main className="flex h-dvh flex-col">
-        {bouquetInfo && bouquetInfo.bouquetDesign ? (
-          <CreatedBouquet bouquetInfo={bouquetInfo} userId={userId} />
-        ) : (
-          <UncreatedBouquet />
-        )}
-      </main>
-    </>
+    <main className="flex h-dvh flex-col">
+      {isLoading ? (
+        <LoadingPage />
+      ) : (
+        <>
+          {bouquetInfo && bouquetInfo.bouquetDesign ? (
+            <CreatedBouquet bouquetInfo={bouquetInfo} userId={userId} />
+          ) : (
+            <UncreatedBouquet isMyAccount={address === userIdFromRecoil} />
+          )}
+        </>
+      )}
+    </main>
   )
 }
 

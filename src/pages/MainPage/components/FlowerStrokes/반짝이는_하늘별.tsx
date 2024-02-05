@@ -18,6 +18,8 @@ const 반짝이는_하늘별 = ({ onClick }: Props) => {
           strokeWidth="0.5"
           strokeMiterlimit="10"
           onClick={onClick}
+          className="cursor-pointer"
+          style={{ pointerEvents: 'auto', visibility: 'visible' }}
         />
       </svg>
     </div>

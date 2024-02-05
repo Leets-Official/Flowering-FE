@@ -18,6 +18,8 @@ const 신비로운_새벽_하늘 = ({ onClick }: Props) => {
           strokeWidth="0.5"
           strokeMiterlimit="10"
           onClick={onClick}
+          className="z-[90] cursor-pointer"
+          style={{ pointerEvents: 'auto', visibility: 'visible' }}
         />
       </svg>
     </div>

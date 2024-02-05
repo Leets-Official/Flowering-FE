@@ -18,6 +18,8 @@ const 초승달처럼_빛나는_미소 = ({ onClick }: Props) => {
           strokeWidth="0.5"
           strokeMiterlimit="10"
           onClick={onClick}
+          className="cursor-pointer"
+          style={{ pointerEvents: 'auto', visibility: 'visible' }}
         />
       </svg>
     </div>

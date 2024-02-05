@@ -18,6 +18,8 @@ const 청량한_한여름밤의_꿈 = ({ onClick }: Props) => {
           strokeWidth="0.5"
           strokeMiterlimit="10"
           onClick={onClick}
+          className="cursor-pointer"
+          style={{ pointerEvents: 'auto', visibility: 'visible' }}
         />
       </svg>
     </div>

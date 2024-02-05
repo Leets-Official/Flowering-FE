@@ -4,7 +4,11 @@ import { PlusIcon } from '@/assets/Icons'
 import { useNavigate } from 'react-router'
 import { startTransition, useState } from 'react'
 
-const UncreatedBouquet = () => {
+interface UncreatedBouquetProps {
+  isMyAccount: boolean
+}
+
+const UncreatedBouquet = ({ isMyAccount }: UncreatedBouquetProps) => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
   const navigator = useNavigate()
 
@@ -13,12 +17,17 @@ const UncreatedBouquet = () => {
   }
 
   const handleRouteCreateBouquet = () => {
+    if (!isMyAccount) return
     startTransition(() => navigator('/create-bouquet'))
   }
 
   return (
     <>
-      <Header rightIcon={ICONS.SIDEBAR} setSidebarOpen={setSidebarOpen} />
+      <Header
+        rightIcon={ICONS.SIDEBAR}
+        leftIcon={!isMyAccount ? ICONS.HOME : ''}
+        setSidebarOpen={setSidebarOpen}
+      />
       <div className="flex h-full flex-col">
         <div className="flex flex-col gap-1.5 px-6">
           <div className="font-base flex justify-between text-gray-300">
@@ -43,7 +52,8 @@ const UncreatedBouquet = () => {
         />
         <footer className="absolute bottom-0 z-30 flex h-[5rem] w-full shrink-0 items-center justify-center px-6">
           <Button
-            className="w-full bg-[#d9d9d9] text-black"
+            className={`font-sm w-full ${isMyAccount && 'bg-black text-white'} `}
+            disabled={!isMyAccount}
             onClick={handleRouteCreateBouquet}
           >
             꽃다발 생성

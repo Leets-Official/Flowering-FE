@@ -6,6 +6,7 @@ import {
   WrapperWhiteFrontRightImage,
   WrapperBlackFrontRightImage,
   WrapperBlackBackImage,
+  FlowerCard,
 } from '@/assets/images'
 import { Button, Header, Sidebar } from '@/components'
 import { getLeftDays } from '@/utils'
@@ -54,10 +55,6 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
     [bouquetInfo.bouquets],
   )
 
-  const getImageUrl = (name: string) => {
-    return new URL(`/src/assets/images/${name}.png`, import.meta.url).href
-  }
-
   const handleClickGoToWrite = () => {
     if (myId == '') {
       navigate('/login')
@@ -82,7 +79,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
   return (
     <>
       <Header
-        leftIcon={ICONS.DRAW}
+        leftIcon={myId === userId ? ICONS.DRAW : ICONS.HOME}
         rightIcon={ICONS.SIDEBAR}
         setSidebarOpen={setSidebarOpen}
         onDecoBouquet={onDecoBouquet}
@@ -116,17 +113,14 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                   ) : (
                     <WrapperBlackFrontRightImage className="h-full w-full" />
                   )}
-
                   <Ribbons ribbon={ribbon} />
                 </div>
-                <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[20%] translate-y-[35%]">
-                  <p className="absolute left-1/3 top-1/3 flex  -translate-x-[75%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+                <div className="absolute left-1/2 top-1/2 z-40 flex w-[45%] -translate-x-[33%] translate-y-[43%] justify-center">
+                  <p className="font-xs absolute left-1/3 top-1/3  flex -translate-x-[15%] -translate-y-[15%] -rotate-[5deg] gap-px text-xs text-[#FFA6EE] sm:text-xs md:text-sm desktop:text-xs">
                     <span>{`1 st`}</span>
                   </p>
-                  <img
-                    src={getImageUrl('flower_card')}
-                    alt="flower_card"
-                    className="w-full"
+                  <FlowerCard
+                    className={`h-[62%] w-[62%] ${wrapper === 'white' ? 'fill-white' : 'fill-black'}`}
                   />
                 </div>
               </div>
@@ -171,11 +165,10 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                           ) : (
                             <WrapperBlackFrontRightImage className="h-full w-full" />
                           )}
-
                           <Ribbons ribbon={ribbon} />
                         </div>
-                        <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[10%] translate-y-[31%]">
-                          <p className="absolute left-[25%] top-1/3 flex -translate-x-[85%] -translate-y-[15%] -rotate-[5deg] gap-px font-bodoni text-xs text-[#FFA6EE] sm:text-sm md:text-base desktop:text-sm">
+                        <div className="absolute left-1/2 top-1/2 z-40 w-[45%] -translate-x-[10%] translate-y-[40%]">
+                          <p className="font-xs absolute left-[20%] top-1/3 flex -translate-x-[60%] -translate-y-[25%] -rotate-[5deg] gap-px text-xs text-[#FFA6EE] sm:text-xs md:text-sm desktop:text-xs">
                             <span>{currentFlowerIndex + 1}</span>
                             <span>
                               {ordinalNum[currentFlowerIndex]
@@ -183,10 +176,8 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                                 : 'th'}
                             </span>
                           </p>
-                          <img
-                            src={getImageUrl('flower_card')}
-                            alt="flower_card"
-                            className="w-[70%]"
+                          <FlowerCard
+                            className={`h-[62%] w-[62%] ${wrapper === 'white' ? 'fill-white' : 'fill-black'}`}
                           />
                         </div>
                       </div>
@@ -221,7 +212,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                 </div>
               )}
               <Button
-                className="font-sm w-full bg-[#d9d9d9] text-black"
+                className="font-sm w-full bg-black text-white"
                 onClick={copy}
               >
                 링크 복사
@@ -229,7 +220,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
             </div>
           ) : (
             <Button
-              className="w-full bg-[#d9d9d9] text-black"
+              className="font-sm w-full bg-black text-white"
               onClick={handleClickGoToWrite}
             >
               편지 쓰기
