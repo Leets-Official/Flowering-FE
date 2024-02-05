@@ -46,6 +46,8 @@ const flowerPositionOption = [
   'z-[5] -translate-x-[calc(50%-1.6rem)] -translate-y-[calc(33%+9rem)] rotate-[15deg] -scale-x-100',
 ]
 
+const flowerStrokeZIndex = ['z-[45]', 'z-[40]', 'z-[35]', 'z-[30]', 'z-[30]']
+
 const FlowerFrame = ({
   flowers,
   setLetterOpen,
@@ -101,7 +103,8 @@ const FlowerFrame = ({
               />
             </div>
             <div
-              className={`absolute top-1/2 flex ${flowerType === '차분한-노랫소리' && idx === 0 ? 'left-1/3' : 'left-1/2'} ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+              className={`absolute top-1/2 flex ${flowerType === '차분한-노랫소리' && idx === 0 ? 'left-1/3' : 'left-1/2'} ${flowerPositionOption[idx]} ${flowerStrokeZIndex[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
+              style={{ pointerEvents: 'none', visibility: 'hidden' }}
             >
               <ComponentStroke onClick={() => handleFlowerClick(flowerId)} />
             </div>
