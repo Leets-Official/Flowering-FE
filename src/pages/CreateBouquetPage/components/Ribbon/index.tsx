@@ -16,10 +16,8 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
     ).href
   }
   const getRibbonImageUrl = (ribbon: string) => {
-    return new URL(
-      `/src/assets/images/create_bouquet/ribbon/${ribbon}.svg`,
-      import.meta.url,
-    ).href
+    return new URL(`/src/assets/images/ribbons/${ribbon}.svg`, import.meta.url)
+      .href
   }
 
   return (
