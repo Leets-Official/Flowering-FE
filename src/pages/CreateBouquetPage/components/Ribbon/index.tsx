@@ -17,7 +17,7 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
   }
   const getRibbonImageUrl = (ribbon: string) => {
     return new URL(
-      `/src/assets/images/create_bouquet/ribbon/${ribbon}_wrapper.png`,
+      `/src/assets/images/create_bouquet/ribbon/${ribbon}.svg`,
       import.meta.url,
     ).href
   }
@@ -40,11 +40,11 @@ const Ribbon = ({ wrapper, ribbon, setRibbon }: RibbonProps) => {
             <img
               src={getRibbonImageUrl(ribbon)}
               className={`absolute
-                ${ribbon === 'ribbon1' && wrapper === 'black' && 'w-[8rem] -translate-y-[-0.8rem]'}
-                ${ribbon === 'ribbon1' && wrapper === 'white' && 'w-[8rem] -translate-x-[0.1rem] -translate-y-[-0.6rem]'}
-                ${ribbon === 'ribbon2' && wrapper === 'black' && 'w-[7.4rem] -translate-x-[-0.6rem] -translate-y-[1.1rem]'} 
-                ${ribbon === 'ribbon2' && wrapper === 'white' && 'w-[7.3rem] -translate-x-[-0.5rem] -translate-y-[1.4rem]'} 
-                ${ribbon === 'ribbon3' && 'w-[40%] -translate-x-[-0.4rem] -translate-y-[0.5rem]'}
+                ${ribbon === 'ribbon1' && wrapper === 'black' && 'w-[9.3rem] -translate-x-[0.6rem] -translate-y-[-1.7rem]'}
+                ${ribbon === 'ribbon1' && wrapper === 'white' && 'w-[9rem] -translate-x-[0.6rem] -translate-y-[-1.3rem]'}
+                ${ribbon === 'ribbon2' && wrapper === 'black' && 'w-[9.4rem] -translate-x-[-0.55rem] -translate-y-[-0.5rem]'} 
+                ${ribbon === 'ribbon2' && wrapper === 'white' && 'w-[9.3rem] -translate-x-[-0.5rem] -translate-y-[-0.2rem]'} 
+                ${ribbon === 'ribbon3' && 'w-[9.3rem] -translate-x-[-0.4rem] -translate-y-[-0.5rem]'}
               `}
             />
           )}
