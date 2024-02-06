@@ -1,4 +1,4 @@
-import { Button, Header } from '@/components'
+import { Button, Header, Sidebar } from '@/components'
 import { useState, useMemo } from 'react'
 import { CoinIcon } from '@/assets/Icons'
 import { ICONS } from '@/constants'
@@ -11,6 +11,8 @@ const CoinDrawPage = () => {
   >('before')
   const [getCoinValue, setGetCoinValue] = useState<number>(0)
   const [isWiggling, setIsWiggling] = useState<boolean>(false)
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+
   const navigate = useNavigate()
 
   const { data: userInfo } = useGetUser()
@@ -49,7 +51,11 @@ const CoinDrawPage = () => {
         backgroundImage: `${drawingStatus === 'after' && `url(${getBackgroundImageUrl('coinBackground')})`}`,
       }}
     >
-      <Header leftIcon={ICONS.HOME} />
+      <Header
+        setSidebarOpen={setSidebarOpen}
+        leftIcon={ICONS.GOBACK}
+        rightIcon={ICONS.SIDEBAR}
+      />
       <div className="relative flex h-full flex-col justify-between px-6 py-2">
         <div
           className={`${
@@ -68,7 +74,7 @@ const CoinDrawPage = () => {
           </div>
         </div>
         {drawingStatus === 'after' && (
-          <div className="bg-random-coin-gradient absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2 px-4 pb-12 pt-4">
+          <div className="absolute left-0 top-[10%] flex w-full flex-col items-center justify-center gap-2 bg-random-coin-gradient px-4 pb-12 pt-4">
             <h2 className="font-lg text-[#5B5B5B]">축하합니다!</h2>
             <div className="flex flex-col gap-1.5 text-center">
               <h1 className="font-xl text-[#282828]">{`${getCoinValue} 코인`}</h1>
@@ -130,6 +136,7 @@ const CoinDrawPage = () => {
           )}
         </div>
       </div>
+      <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
     </div>
   )
 }

@@ -6,7 +6,7 @@ import useGetStore from '@/apis/hooks/useGetStore.ts'
 import { DecoItemInfo, FlowerItemInfo, LetterItemInfo } from '@/types'
 import useGetUserInfo from '@/apis/hooks/useGetUser.ts'
 import { useGetItems } from '@/apis/hooks'
-import { Error500Page, LoadingPage } from '@/pages'
+import { LoadingPage } from '@/pages'
 import { Sidebar } from '@/components'
 import { useState } from 'react'
 
@@ -16,7 +16,7 @@ const StorePage = () => {
   const { data: userData } = useGetUserInfo()
   const { data: itemData } = useGetItems()
   if (!storeData || !userData || !itemData || isError) {
-    return <Error500Page />
+    return <LoadingPage />
   }
   if (isLoading) return <LoadingPage />
   const { decoItems, flowerItems, letterItems } = storeData.data
