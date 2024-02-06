@@ -57,7 +57,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
 
   const handleClickGoToWrite = () => {
     if (myId == '') {
-      navigate('/login')
+      navigate(`/login?addr=${userId}`)
     } else {
       startTransition(() => {
         navigate(`/write?addr=${userId}`)
