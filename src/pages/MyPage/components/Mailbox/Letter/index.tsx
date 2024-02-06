@@ -23,7 +23,7 @@ const Letter = ({
   nickname,
 }: LetterProps) => {
   const currentDate = new Date()
-  const dDayDate = dDay ? new Date(dDay.replace(/-/g, '/')) : null
+  const dDayDate = dDay && new Date(dDay.replace(/-/g, '/'))
   const [showModal, setShowModal] = useState<boolean>(false)
   const [sentModalOpen, setSentModalOpen] = useState<boolean>(false)
   const [receivedModalOpen, setReceivedModalOpen] = useState<boolean>(false)
@@ -31,6 +31,7 @@ const Letter = ({
   const flowerName = data?.data.flowerType
   if (isLoading) <LoadingPage />
   if (isError) <Error500Page />
+
   const openModal = () => {
     if (status === 'received' && dDay && currentDate < dDayDate!) {
       setShowModal(true)
