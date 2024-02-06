@@ -40,12 +40,11 @@ const Box = () => {
         >
           {nickname ? `${nickname}님` : '로그인 후 사용하세요'}
         </p>
-
         <div className="flex flex-col gap-8 text-gray-300">
-          <Content content="MY" route="/mypage" />
-          <Content content="SHOP" route="/store" />
-          <Content content="LUCKY COIN" route="/coin" />
-          <Content content="ITEM" route="/collection" />
+          <Content isLoggedIn={!!nickname} content="MY" route="/mypage" />
+          <Content isLoggedIn={!!nickname} content="SHOP" route="/store" />
+          <Content isLoggedIn={!!nickname} content="LUCKY COIN" route="/coin" />
+          <Content isLoggedIn={!!nickname} content="ITEM" route="/collection" />
         </div>
         <button
           className="font-xs absolute bottom-[14%] right-[25%] text-gray-200"

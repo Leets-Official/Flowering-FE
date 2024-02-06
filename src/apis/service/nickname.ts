@@ -1,5 +1,6 @@
 import apiClient from '@/apis/apiClient.ts'
 import { NickNameInfo } from '@/types'
+import error500Page from '@/pages/Error500Page'
 
 const writeLetter = async ({ userId }: NickNameInfo) => {
   try {
@@ -9,7 +10,7 @@ const writeLetter = async ({ userId }: NickNameInfo) => {
 
     return res.data
   } catch (error) {
-    console.log(error)
+    return error500Page
   }
 }
 

@@ -5,9 +5,10 @@ import { Error500Page, LoadingPage } from '@/pages'
 interface LettersProps {
   status: string
   dDay: string
+  nickname: string
 }
 
-const Letters = ({ status, dDay }: LettersProps) => {
+const Letters = ({ status, dDay, nickname }: LettersProps) => {
   const {
     isLoading: sentLoading,
     isError: sentError,
@@ -49,6 +50,7 @@ const Letters = ({ status, dDay }: LettersProps) => {
               key={index}
               receiver={receiver}
               flowerId={flowersSent[index]}
+              nickname={nickname}
             />
           ))}
         </div>
@@ -56,11 +58,11 @@ const Letters = ({ status, dDay }: LettersProps) => {
         <div>
           {senders.map((sender: string, index: number) => (
             <Letter
-              dDay={dDay}
               status={status}
               key={index}
               sender={sender}
               flowerId={flowersReceived[index]}
+              nickname={nickname}
             />
           ))}
         </div>

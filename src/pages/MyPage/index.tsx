@@ -26,7 +26,7 @@ const MyPage = () => {
           leftIcon={ICONS.HOME}
           rightIcon={ICONS.SIDEBAR}
         />
-        <div className="mx-8 mb-7 mt-5 flex justify-between">
+        <div className="mx-6 mb-7 mt-1 flex justify-between">
           <div className="flex flex-col">
             <p className="font-lg text-gray-200">환영해요!</p>
             <p className="font-lg">{nickname}님</p>
@@ -49,14 +49,16 @@ const MyPage = () => {
                 {mailboxType === 'received' ? '받은 편지함' : '보낸 편지함'}
               </button>
               <div
-                className={`mt-1.5 h-0.5 w-full bg-black ${
-                  selectedMailbox !== mailboxType ? 'opacity-10' : ''
+                className={`mt-1.5 w-full rounded bg-black ${
+                  selectedMailbox !== mailboxType
+                    ? 'h-[1px] opacity-20'
+                    : 'h-[3px]'
                 }`}
               />
             </li>
           ))}
         </ul>
-        <Mailbox dDay={dday} status={selectedMailbox} />
+        <Mailbox dDay={dday} status={selectedMailbox} nickname={nickname} />
       </div>
       <Sidebar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
     </section>
