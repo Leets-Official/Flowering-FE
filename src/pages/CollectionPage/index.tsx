@@ -1,8 +1,8 @@
 import { Header, Sidebar } from '@/components'
 import { Content } from './components'
-import { ICONS } from '@/constants'
 import useGetItems from '@/apis/hooks/useGetItems'
 import { useState } from 'react'
+import { ICONS } from '@/constants'
 
 const CollectionPage = () => {
   const { data: collectionInfo } = useGetItems()
