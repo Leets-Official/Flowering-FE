@@ -46,7 +46,13 @@ const flowerPositionOption = [
   'z-[5] -translate-x-[calc(50%-1.6rem)] -translate-y-[calc(33%+9rem)] rotate-[15deg] -scale-x-100',
 ]
 
-const flowerStrokeZIndex = ['z-[45]', 'z-[40]', 'z-[35]', 'z-[30]', 'z-[30]']
+const flowerStrokeZIndex = [
+  '!z-[45]',
+  '!z-[40]',
+  '!z-[35]',
+  '!z-[30]',
+  '!z-[30]',
+]
 
 const FlowerFrame = ({
   flowers,
