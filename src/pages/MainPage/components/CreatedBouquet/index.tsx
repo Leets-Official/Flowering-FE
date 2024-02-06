@@ -88,7 +88,7 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
         <div className="flex flex-col gap-1.5 px-6">
           <div className="font-base flex justify-between text-gray-300">
             <h2>{bouquetInfo.description}</h2>
-            <h2>{`D-${leftDays > 0 ? leftDays.toString() : '0'}`}</h2>
+            <h2>{`D-${leftDays > 0 ? leftDays.toString() : 'DAY'}`}</h2>
           </div>
           <h1>
             <span className="font-lg">{`꽃송이  `}</span>
@@ -152,14 +152,14 @@ const CreatedBouquet = ({ bouquetInfo, userId }: CreatedBouquetProps) => {
                         setSelectedFlowerId={setSelectedFlowerId}
                       />
                       <div className="relative h-full w-full">
-                        <div className="pointer-events-none absolute left-1/3 top-1/2 z-[15] w-[56%] -translate-x-[33%] -translate-y-[18%]">
+                        <div className="pointer-events-none absolute left-1/3 top-1/2 z-[15] w-[56%] -translate-x-[32.5%] -translate-y-[23%]">
                           {wrapper === 'white' ? (
                             <WrapperWhiteFrontLeftImage className="h-full w-full" />
                           ) : (
                             <WrapperBlackFrontLeftImage className="h-full w-full" />
                           )}
                         </div>
-                        <div className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-[66%] -translate-x-[47.5%] -translate-y-[15.5%]">
+                        <div className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-[65%] -translate-x-[46.5%] -translate-y-[17%]">
                           {wrapper === 'white' ? (
                             <WrapperWhiteFrontRightImage className="h-full w-full" />
                           ) : (
