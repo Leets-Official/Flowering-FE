@@ -37,7 +37,7 @@ const OauthPage = () => {
             localStorage.setItem('email', data.data.data.email)
 
             userIdRecoil(data.data.data.userId)
-            navigate(-2)
+            navigate('/')
           },
           onError: () => {
             navigate('/signup')

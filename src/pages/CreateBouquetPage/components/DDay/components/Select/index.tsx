@@ -17,6 +17,8 @@ const Select = ({
   setCurrentClicked,
 }: selectProps) => {
   const [totalDay, setTotalDay] = useState<number>()
+  const currentMonth = new Date().getMonth() + 1
+  const currentDay = new Date().getDate()
   useEffect(() => {
     switch (month) {
       case 1:
@@ -42,40 +44,48 @@ const Select = ({
 
   return (
     <div className="flex justify-center">
-      <Dropdown className="exclude-click">
+      <Dropdown>
         {currentClicked == 'month' && (
-          <Dropdown.Menu className="ml-22 mt-2 max-h-[7rem] w-12 overflow-y-auto overflow-x-hidden text-center">
+          <Dropdown.Menu className="mt-2 max-h-[7rem] w-12 overflow-y-auto overflow-x-hidden text-center">
             {[...Array(12).keys()].map((element) => {
-              return (
-                <Dropdown.Item
-                  key={element + 1}
-                  onClick={() => {
-                    setMonth(element + 1)
-                    setCurrentClicked('')
-                  }}
-                  className="font-base my-1 cursor-pointer"
-                >
-                  {element + 1}
-                </Dropdown.Item>
-              )
+              if (element + 1 >= currentMonth) {
+                return (
+                  <Dropdown.Item
+                    key={element + 1}
+                    onClick={() => {
+                      setMonth(element + 1)
+                      setCurrentClicked('')
+                    }}
+                    className="font-base exclude-click my-1 cursor-pointer"
+                  >
+                    {element + 1}
+                  </Dropdown.Item>
+                )
+              }
+
+              return
             })}
           </Dropdown.Menu>
         )}
         {currentClicked == 'day' && month && (
           <Dropdown.Menu className="ml-[140px] mt-2 max-h-[7rem] w-12 overflow-y-auto overflow-x-hidden text-center">
             {[...Array(totalDay).keys()].map((element) => {
-              return (
-                <Dropdown.Item
-                  key={element + 1}
-                  onClick={() => {
-                    setDay(element + 1)
-                    setCurrentClicked('')
-                  }}
-                  className="font-base cursor-pointer"
-                >
-                  {element + 1}
-                </Dropdown.Item>
-              )
+              if (month !== currentMonth || element + 1 >= currentDay) {
+                return (
+                  <Dropdown.Item
+                    key={element + 1}
+                    onClick={() => {
+                      setDay(element + 1)
+                      setCurrentClicked('')
+                    }}
+                    className="font-base exclude-click cursor-pointer"
+                  >
+                    {element + 1}
+                  </Dropdown.Item>
+                )
+              }
+
+              return
             })}
           </Dropdown.Menu>
         )}
