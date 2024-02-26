@@ -20,7 +20,8 @@ import {
   화려한_푸른_달빛,
   화양연화,
 } from '../'
-import { SetStateAction, Dispatch } from 'react'
+import { Spinner } from '@material-tailwind/react'
+import { SetStateAction, Dispatch, useState } from 'react'
 
 interface Flower {
   flowerId?: number
@@ -82,6 +83,10 @@ const FlowerFrame = ({
     화양연화,
   }
 
+  const [flowerLoading, setFlowerLoading] = useState<boolean[]>(
+    Array.from({ length: flowers.length }, () => true),
+  )
+
   const getImageUrl = (name: string) => {
     return new URL(`/src/assets/images/bigItems/${name}.png`, import.meta.url)
       .href
@@ -94,15 +99,28 @@ const FlowerFrame = ({
 
   return (
     <>
+      {!flowerLoading.every((loading) => !loading) && (
+        <div className="absolute left-1/2 top-1/2 z-50 flex -translate-x-1/2 -translate-y-[100%]">
+          <Spinner className="h-16 w-16 text-gray-600/50" />
+        </div>
+      )}
       {flowers.map(({ flowerId, flowerType }, idx) => {
         const ComponentStroke = flowerStroke[flowerType]
 
         return (
-          <div key={flowerId || idx}>
+          <div
+            key={flowerId || idx}
+            className={`${!flowerLoading.every((loading) => !loading) && 'hidden'}`}
+          >
             <div
               className={`absolute top-1/2 flex ${flowerType === '차분한-노랫소리' && idx === 0 ? 'left-1/3' : 'left-1/2'} ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
             >
               <img
+                onLoad={() =>
+                  setFlowerLoading((prev) =>
+                    prev.map((_, i) => (i === idx ? false : _)),
+                  )
+                }
                 src={getImageUrl(flowerType)}
                 alt="flower"
                 className="h-full object-contain"
