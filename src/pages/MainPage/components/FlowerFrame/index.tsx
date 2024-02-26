@@ -84,7 +84,7 @@ const FlowerFrame = ({
   }
 
   const [flowerLoading, setFlowerLoading] = useState<boolean[]>(
-    Array.from({ length: flowers.length }, () => false),
+    Array.from({ length: flowers.length }, () => true),
   )
 
   const getImageUrl = (name: string) => {
@@ -99,9 +99,9 @@ const FlowerFrame = ({
 
   return (
     <>
-      {!flowerLoading.every((loading) => loading) && (
+      {!flowerLoading.every((loading) => !loading) && (
         <div className="absolute left-1/2 top-1/2 z-50 flex -translate-x-1/2 -translate-y-[100%]">
-          <Spinner color="pink" className="h-16 w-16" />
+          <Spinner className="h-16 w-16 text-gray-600/50" />
         </div>
       )}
       {flowers.map(({ flowerId, flowerType }, idx) => {
@@ -110,7 +110,7 @@ const FlowerFrame = ({
         return (
           <div
             key={flowerId || idx}
-            className={`${!flowerLoading.every((loading) => loading) && 'hidden'}`}
+            className={`${!flowerLoading.every((loading) => !loading) && 'hidden'}`}
           >
             <div
               className={`absolute top-1/2 flex ${flowerType === '차분한-노랫소리' && idx === 0 ? 'left-1/3' : 'left-1/2'} ${flowerPositionOption[idx]} aspect-[154/220] w-[50vw] justify-center desktop:h-[220px] desktop:w-[154px]`}
@@ -118,7 +118,7 @@ const FlowerFrame = ({
               <img
                 onLoad={() =>
                   setFlowerLoading((prev) =>
-                    prev.map((_, i) => (i === idx ? true : _)),
+                    prev.map((_, i) => (i === idx ? false : _)),
                   )
                 }
                 src={getImageUrl(flowerType)}
